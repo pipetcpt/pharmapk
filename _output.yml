@@ -1,0 +1,46 @@
+bookdown::gitbook:
+  config:
+    toc:
+      collapse: section
+      scroll_highlight: yes
+      before: |
+        <li><a href="./">계량약리학 워크샵 - 초급 과정</a></li>
+        <li><a href="http://www.bookk.co.kr/book/view/84646" target="_blank">도서 구입</a></li>
+      after: |
+        <li><a href="https://pipetcpt.github.io/basic/basic.pdf">PDF 보기</a></li>
+        <li><a href="http://pipet.or.kr/books/" target="_blank">Published by PIPET</a></li>
+    toolbar:
+      position: fixed
+    edit: https://github.com/pipetcpt/basic/edit/master/inst/examples/%s
+    download: [pdf] #download: [pdf, epub, mobi]
+    search: no
+    sharing:
+      github: yes
+      facebook: no
+    info: no  
+  self_contained: false
+  dev: svglite
+  css: css/style.css
+  split_by: chapter
+  keep_rmd: yes
+bookdown::html_chapters:
+  css: [css/style.css, css/toc.css]
+bookdown::pdf_book: 
+  #citation_package: biblatex
+  #https://stackoverflow.com/questions/45028623/is-there-a-way-to-add-chapter-bibliographies-using-bookdown
+  keep_tex: yes
+  pandoc_args: "--top-level-division=chapter"
+  toc_depth: 3
+  toc_unnumbered: no
+  toc_appendix: yes
+  template: null
+  #dev: "cairo_pdf"
+  latex_engine: xelatex
+  #latex_engine: pdflatex
+  includes:
+    in_header: latex/preamble.tex
+    before_body: latex/before_body.tex
+    after_body: latex/after_body.tex
+bookdown::epub_book:
+  dev: svglite
+  stylesheet: css/style.css

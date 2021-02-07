@@ -1,0 +1,48 @@
+---
+title: "test"
+output:
+  html_document: default
+  pdf_document: default
+header-includes:
+  - \usepackage{kotex}
+  - \usepackage{booktabs}
+  - \usepackage{longtable}
+  - \usepackage{array}
+  - \usepackage{multirow}
+  - \usepackage{wrapfig}
+  - \usepackage{float}
+  - \usepackage{colortbl}
+  - \usepackage{pdflscape}
+  - \usepackage{tabu}
+  - \usepackage{threeparttable}
+  - \usepackage{threeparttablex}
+  - \usepackage[normalem]{ulem}
+  - \usepackage{makecell}
+---
+
+```{r setup, include=FALSE}
+source('../_setup.R')
+```
+
+```{r required-param-subroutine}
+tibble::tribble(
+  ~`ADVAN subroutine`, ~`TRANS subroutine`, ~`Required parameters`,
+  "ADVAN1", "TRANS1", "K",
+  "ADVAN1", "TRANS2", "CL, V", # bold: \\textbf{TRANS2}
+  "ADVAN2", "TRANS1", "K, KA",
+  "ADVAN2", "TRANS2", "CL, V, KA", # bold: \\textbf{TRANS2}
+  "ADVAN3", "TRANS1", "K, K12, K21",
+  "ADVAN3", "TRANS3", "CL, V, Q, VSS",
+  "ADVAN3", "TRANS4", "CL, V1, Q, V2", # bold: \\textbf{TRANS4}
+  "ADVAN3", "TRANS5", "AOB, ALPHA, BETA",
+  "ADVAN3", "TRANS6", "ALPHA, BETA, K21",
+  "ADVAN4", "TRANS1", "K, K23, K32, KA",
+  "ADVAN4", "TRANS3", "CL, V, Q, VSS, KA",
+  "ADVAN4", "TRANS4", "CL, V2, Q, V3, KA", # bold: \\textbf{TRANS4}
+  "ADVAN4", "TRANS5", "AOB, ALPHA, BETA, KA",
+  "ADVAN4", "TRANS6", "ALPHA, BETA, K32, KA"
+) %>% 
+  kable(booktabs = TRUE, align = "l", escape = FALSE, caption = "ADVAN과 TRANS 서브루틴 조합에 따른 필수 파라미터") %>% 
+  column_spec(1, bold=TRUE) %>% 
+  collapse_rows(columns=1, latex_hline="major", valign = "top", row_group_label_position = 'stack')
+```
