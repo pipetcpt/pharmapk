@@ -1,5 +1,5 @@
-book_filename: basic
-repo: https://github.com/pipetcpt/basic/
+book_filename: pharmapk
+repo: https://github.com/pipetcpt/pharmapk/
 output_dir: docs
 delete_merged_file: true
 language:

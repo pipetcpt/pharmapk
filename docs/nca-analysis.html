@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 비구획 분석의 자료해석 | 신약개발을 위한 실전 약동학 (I - 이론과 자료해석)</title>
+  <meta name="description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 비구획 분석의 자료해석 | 신약개발을 위한 실전 약동학 (I - 이론과 자료해석)" />
+  <meta property="og:type" content="book" />
+  <meta property="og:url" content="http://pipet.or.kr/books/pharmapk" />
+  <meta property="og:image" content="http://pipet.or.kr/books/pharmapkimages/cover.jpg" />
+  <meta property="og:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
+  <meta name="github-repo" content="pipetcpt/pharmapk" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 비구획 분석의 자료해석 | 신약개발을 위한 실전 약동학 (I - 이론과 자료해석)" />
+  
+  <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
+  <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapkimages/cover.jpg" />
+
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="nca-principle.html"/>
+<link rel="next" href="ca-principle.html"/>
+<script src="libs/header-attrs/header-attrs.js"></script>
+<script src="libs/jquery/jquery.min.js"></script>
+<link href="libs/gitbook/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">신약개발을 위한 실전 약동학</a></li>
+<li><a href="#" target="_blank">도서 구입</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
+<li class="chapter" data-level="1" data-path="principle.html"><a href="principle.html"><i class="fa fa-check"></i><b>1</b> 약동학 이론</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="principle.html"><a href="principle.html#약동학-이론"><i class="fa fa-check"></i><b>1.1</b> 약동학 이론</a></li>
+<li class="chapter" data-level="1.2" data-path="principle.html"><a href="principle.html#adme와-약동학"><i class="fa fa-check"></i><b>1.2</b> ADME와 약동학</a></li>
+<li class="chapter" data-level="1.3" data-path="principle.html"><a href="principle.html#약물-분포-모델과-분포용적"><i class="fa fa-check"></i><b>1.3</b> 약물 분포 모델과 분포용적</a></li>
+<li class="chapter" data-level="1.4" data-path="principle.html"><a href="principle.html#청소율의-개념과-적용"><i class="fa fa-check"></i><b>1.4</b> 청소율의 개념과 적용</a></li>
+<li class="chapter" data-level="1.5" data-path="principle.html"><a href="principle.html#다회투여-pk와-최종반감기"><i class="fa fa-check"></i><b>1.5</b> 다회투여 PK와 최종반감기</a></li>
+<li class="chapter" data-level="1.6" data-path="principle.html"><a href="principle.html#정맥주입과-경구투여-pk의-비교"><i class="fa fa-check"></i><b>1.6</b> 정맥주입과 경구투여 PK의 비교</a></li>
+<li class="chapter" data-level="1.7" data-path="principle.html"><a href="principle.html#비선형pk"><i class="fa fa-check"></i><b>1.7</b> 비선형PK</a></li>
+<li class="chapter" data-level="1.8" data-path="principle.html"><a href="principle.html#맺음말"><i class="fa fa-check"></i><b>1.8</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="nca-principle.html"><a href="nca-principle.html"><i class="fa fa-check"></i><b>2</b> 비구획 분석의 이론</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-기본-개념과-관심사"><i class="fa fa-check"></i><b>2.1</b> 비구획분석의 기본 개념과 관심사</a></li>
+<li class="chapter" data-level="2.2" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석에서-산출하는-약동학-파라미터"><i class="fa fa-check"></i><b>2.2</b> 비구획분석에서 산출하는 약동학 파라미터</a></li>
+<li class="chapter" data-level="2.3" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석에서-추정하는-약동학-파라미터"><i class="fa fa-check"></i><b>2.3</b> 비구획분석에서 추정하는 약동학 파라미터</a></li>
+<li class="chapter" data-level="2.4" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-개념-확장---약물-분포와-반복-투여"><i class="fa fa-check"></i><b>2.4</b> 비구획분석의 개념 확장 - 약물 분포와 반복 투여</a></li>
+<li class="chapter" data-level="2.5" data-path="nca-principle.html"><a href="nca-principle.html#맺음말-1"><i class="fa fa-check"></i><b>2.5</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획 분석의 자료해석</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#상용-소프트웨어를-이용한-비구획-분석-개론"><i class="fa fa-check"></i><b>3.1</b> 상용 소프트웨어를 이용한 비구획 분석 개론</a></li>
+<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#비구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>3.2</b> 비구획분석에 활용할 수 있는 R package 소개</a></li>
+<li class="chapter" data-level="3.3" data-path="nca-analysis.html"><a href="nca-analysis.html#설치"><i class="fa fa-check"></i><b>3.3</b> 설치</a></li>
+<li class="chapter" data-level="3.4" data-path="nca-analysis.html"><a href="nca-analysis.html#비구획분석을-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>3.4</b> 비구획분석을 위한 데이터셋의 작성</a></li>
+<li class="chapter" data-level="3.5" data-path="nca-analysis.html"><a href="nca-analysis.html#loading"><i class="fa fa-check"></i><b>3.5</b> 자료 불러오기</a></li>
+<li class="chapter" data-level="3.6" data-path="nca-analysis.html"><a href="nca-analysis.html#r을-이용한-비구획분석-실제-1"><i class="fa fa-check"></i><b>3.6</b> R을 이용한 비구획분석 실제 1</a>
+<ul>
+<li class="chapter" data-level="3.6.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblnca-전체-대상자-비구획-분석"><i class="fa fa-check"></i><b>3.6.1</b> tblNCA(): 전체 대상자 비구획 분석</a></li>
+<li class="chapter" data-level="3.6.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.6.2</b> sNCA()</a></li>
+<li class="chapter" data-level="3.6.3" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.6.3</b> 기술통계 (Descriptive statistics)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="nca-analysis.html"><a href="nca-analysis.html#r을-이용한-비구획분석-실제-2"><i class="fa fa-check"></i><b>3.7</b> R을 이용한 비구획분석 실제 2</a></li>
+<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#비구획분석-보고서"><i class="fa fa-check"></i><b>3.8</b> 비구획분석 보고서</a>
+<ul>
+<li class="chapter" data-level="3.8.1" data-path="nca-analysis.html"><a href="nca-analysis.html#txtnca"><i class="fa fa-check"></i><b>3.8.1</b> txtNCA()</a></li>
+<li class="chapter" data-level="3.8.2" data-path="nca-analysis.html"><a href="nca-analysis.html#pdfnca"><i class="fa fa-check"></i><b>3.8.2</b> pdfNCA()</a></li>
+<li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
+<li class="chapter" data-level="3.8.4" data-path="nca-analysis.html"><a href="nca-analysis.html#pkrplotpk"><i class="fa fa-check"></i><b>3.8.4</b> pkr::plotPK()</a></li>
+<li class="chapter" data-level="3.8.5" data-path="nca-analysis.html"><a href="nca-analysis.html#pkr-manual"><i class="fa fa-check"></i><b>3.8.5</b> pkr 사용법</a></li>
+</ul></li>
+<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.9</b> 파라메터의 의미</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획 분석의 이론</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>4.1</b> 구획분석의 개념</a></li>
+<li class="chapter" data-level="4.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>4.2</b> 구획모델이 필요한 이유</a></li>
+<li class="chapter" data-level="4.3" data-path="ca-principle.html"><a href="ca-principle.html#구획모델-파라미터들의-의미와-주의점"><i class="fa fa-check"></i><b>4.3</b> 구획모델 파라미터들의 의미와 주의점</a></li>
+<li class="chapter" data-level="4.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-2"><i class="fa fa-check"></i><b>4.4</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획-분석-개론"><i class="fa fa-check"></i><b>5.1</b> 상용 소프트웨어를 이용한 구획 분석 개론</a></li>
+<li class="chapter" data-level="5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>5.2</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
+<li class="chapter" data-level="5.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석을-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>5.3</b> 구획분석을 위한 데이터셋의 작성</a></li>
+<li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석-1"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석 1</a></li>
+<li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석-2"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석 2</a></li>
+<li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석-1"><i class="fa fa-check"></i><b>5.6</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석 1</a></li>
+<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석-2"><i class="fa fa-check"></i><b>5.7</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석 2</a></li>
+<li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.8</b> 2구획모델을 이용한 약동학 자료 분석</a></li>
+<li class="chapter" data-level="5.9" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-3"><i class="fa fa-check"></i><b>5.9</b> 맺음말</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
+<li><a href="http://pipet.or.kr/books/" target="_blank">Published by PIPET</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">신약개발을 위한 실전 약동학 (I - 이론과 자료해석)</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="nca-analysis" class="section level1" number="3">
+<h1><span class="header-section-number">Chapter 3</span> 비구획 분석의 자료해석</h1>
+<p>한성필
+</p>
+<hr />
+<div id="상용-소프트웨어를-이용한-비구획-분석-개론" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> 상용 소프트웨어를 이용한 비구획 분석 개론</h2>
+<p>약동학 분야에서 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)입니다.
+<em>식약처, FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아</em>, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있습니다.</p>
+</div>
+<div id="비구획분석에-활용할-수-있는-r-package-소개" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> 비구획분석에 활용할 수 있는 R package 소개</h2>
+<p>R <span class="citation">(<a href="#ref-R-base" role="doc-biblioref"><strong>R-base?</strong></a>)</span>은 통계 소프트웨어 입니다.
+굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다.
+R에 대한 많은 책들을 bookdown.org<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>에서 무료로 읽을 수 있습니다.
+Coursera<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>에서 무료 온라인 강의를 들을 수 있습니다.</p>
+<p>따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 비구획분석을 통한 약동학적 주요 지표를 구할 수 있습니다.</p>
+<ul>
+<li>NonCompart <span class="citation">(<a href="#ref-R-NonCompart" role="doc-biblioref"><strong>R-NonCompart?</strong></a>)</span></li>
+<li>ncar <span class="citation">(<a href="#ref-R-ncar" role="doc-biblioref"><strong>R-ncar?</strong></a>)</span></li>
+<li>pkr <span class="citation">(<a href="#ref-R-pkr" role="doc-biblioref"><strong>R-pkr?</strong></a>)</span></li>
+</ul>
+</div>
+<div id="설치" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> 설치</h2>
+<p>우선 R을 설치합니다.
+R은 아래 링크<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>에서 다운로드 받을 수 있습니다.</p>
+<p>R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설치하는 방법은 다음과 같습니다.
+홑따옴표 등의 인용 부호에 주의하세요.</p>
+<p>설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 <em>불러오기</em>해야 합니다.</p>
+<p>아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다.</p>
+<p>도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 <code>help()</code> 함수를 사용합니다.</p>
+</div>
+<div id="비구획분석을-위한-데이터셋의-작성" class="section level2" number="3.4">
+<h2><span class="header-section-number">3.4</span> 비구획분석을 위한 데이터셋의 작성</h2>
+<p>자료의 첫 10개 (Table <a href="nca-analysis.html#tab:head">3.1</a>) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다.
+대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="nca-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Theoph, <span class="at">n=</span><span class="dv">10</span>)</span>
+<span id="cb1-2"><a href="nca-analysis.html#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(Theoph, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:head">표 3.1: </span>Theoph &lt;U+C790&gt;&lt;U+B8CC&gt;&lt;U+C758&gt; &lt;U+CCAB&gt; 10&lt;U+AC1C&gt; &lt;U+AD00&gt;&lt;U+CC30&gt;&lt;U+AC12&gt;
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+Subject
+</th>
+<th style="text-align:right;">
+Wt
+</th>
+<th style="text-align:right;">
+Dose
+</th>
+<th style="text-align:right;">
+Time
+</th>
+<th style="text-align:right;">
+conc
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+0.00
+</td>
+<td style="text-align:right;">
+0.74
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+0.25
+</td>
+<td style="text-align:right;">
+2.84
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+0.57
+</td>
+<td style="text-align:right;">
+6.57
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+1.12
+</td>
+<td style="text-align:right;">
+10.50
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+2.02
+</td>
+<td style="text-align:right;">
+9.66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+3.82
+</td>
+<td style="text-align:right;">
+8.58
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+5.10
+</td>
+<td style="text-align:right;">
+8.36
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+7.03
+</td>
+<td style="text-align:right;">
+7.47
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+9.05
+</td>
+<td style="text-align:right;">
+6.89
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+1
+</td>
+<td style="text-align:right;">
+79.6
+</td>
+<td style="text-align:right;">
+4.02
+</td>
+<td style="text-align:right;">
+12.12
+</td>
+<td style="text-align:right;">
+5.94
+</td>
+</tr>
+</tbody>
+</table>
+<p>그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure <a href="nca-analysis.html#fig:ggtheoph">3.1</a>)</p>
+<div class="figure" style="text-align: center"><span id="fig:ggtheoph"></span>
+<img src="pharmapk_files/figure-html/ggtheoph-1.svg" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
+<p class="caption">
+그림 3.1: Concentration-time curves of oral administration of Theoph (N = 12)
+</p>
+</div>
+</div>
+<div id="loading" class="section level2" number="3.5">
+<h2><span class="header-section-number">3.5</span> 자료 불러오기</h2>
+<p><code>read.csv()</code> 함수를 사용해서 자료를 불러 옵니다.
+엑셀 파일을 사용하는 경우 <code>readxl</code> 패키지를 설치한 후에 <code>read_excel()</code> 함수를 사용해서 불러올 수 있습니다.
+다만 이 경우 <code>tibble</code> 형태로 자료가 변형되므로 <code>as.data.frame()</code>을 사용해서 데이타프레임으로 변형해주어야 합니다.</p>
+</div>
+<div id="r을-이용한-비구획분석-실제-1" class="section level2" number="3.6">
+<h2><span class="header-section-number">3.6</span> R을 이용한 비구획분석 실제 1</h2>
+<div id="tblnca-전체-대상자-비구획-분석" class="section level3" number="3.6.1">
+<h3><span class="header-section-number">3.6.1</span> tblNCA(): 전체 대상자 비구획 분석</h3>
+<p>가장 많이 쓰는 함수 입니다!
+NonCompart 패키지의 핵심적인 기능입니다.
+아래의 코드를 R의 콘솔창에 넣어보세요.
+테오필린 경구 투여시의 비구획 분석입니다.</p>
+<p>결과는 <code>data.frame</code> 형태인데 너무 길기 때문에 핵심적인 일부 파라메터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>)만 표시할 수도 있습니다.</p>
+<pre><code>##    Subject  CMAX TMAX AUCLST
+## 1        1 10.50 1.12 148.92
+## 2        2  8.33 1.92  91.53
+## 3        3  8.20 1.02  99.29
+## 4        4  8.60 1.07 106.80
+## 5        5 11.40 1.00 121.29
+## 6        6  6.44 1.15  73.78
+## 7        7  7.09 3.48  90.75
+## 8        8  7.56 2.02  88.56
+## 9        9  9.03 0.63  86.33
+## 10      10 10.21 3.55 138.37
+## 11      11  8.00 0.98  80.09
+## 12      12  9.75 3.52 119.98</code></pre>
+<p>인도메타신 정맥 투여시의 비구획 분석입니다.
+함수인자 <code>adm</code>을 infusion으로 바꾼 것을 볼 수 있고 <code>dur</code>가 추가된 것을 볼 수 있습니다.</p>
+<p>역시 핵심적인 일부 파라메터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>)만 표시할 수도 있습니다.</p>
+<pre><code>##   Subject CMAX TMAX AUCLST
+## 1       1 1.50 0.25  1.741
+## 2       2 2.03 0.25  2.933
+## 3       3 2.72 0.25  2.934
+## 4       4 1.85 0.25  2.478
+## 5       5 2.05 0.25  1.954
+## 6       6 2.31 0.25  2.873</code></pre>
+</div>
+<div id="snca" class="section level3" number="3.6.2">
+<h3><span class="header-section-number">3.6.2</span> sNCA()</h3>
+<p>한명의 대상자에 대해 비구획 분석을 시행합니다.</p>
+<pre><code>##         b0       CMAX      CMAXD       TMAX       TLAG 
+##    2.36879   10.50000    0.03281    1.12000    0.00000 
+##       CLST      CLSTP       TLST     LAMZHL       LAMZ 
+##    3.28000    3.28015   24.37000   14.30438    0.04846 
+##     LAMZLL     LAMZUL    LAMZNPT     CORRXY         R2 
+##    9.05000   24.37000    3.00000   -1.00000    1.00000 
+##      R2ADJ     AUCLST     AUCALL     AUCIFO    AUCIFOD 
+##    1.00000  148.92305  148.92305  216.61193    0.67691 
+##     AUCIFP    AUCIFPD     AUCPEO     AUCPEP    AUMCLST 
+##  216.61496    0.67692   31.24892   31.24988 1459.07110 
+##    AUMCIFO    AUMCIFP    AUMCPEO    AUMCPEP       VZFO 
+## 4505.53482 4505.67086   67.61603   67.61701   30.48675 
+##       VZFP       CLFO       CLFP   MRTEVLST   MRTEVIFO 
+##   30.48632    1.47730    1.47728    9.79748   20.80003 
+##   MRTEVIFP 
+##   20.80037 
+## attr(,&quot;units&quot;)
+##  [1] &quot;&quot;          &quot;mg/L&quot;      &quot;mg/L/mg&quot;   &quot;h&quot;        
+##  [5] &quot;h&quot;         &quot;mg/L&quot;      &quot;mg/L&quot;      &quot;h&quot;        
+##  [9] &quot;h&quot;         &quot;/h&quot;        &quot;h&quot;         &quot;h&quot;        
+## [13] &quot;&quot;          &quot;&quot;          &quot;&quot;          &quot;&quot;         
+## [17] &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot;
+## [21] &quot;h*mg/L&quot;    &quot;h*mg/L/mg&quot; &quot;%&quot;         &quot;%&quot;        
+## [25] &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;h2*mg/L&quot;   &quot;%&quot;        
+## [29] &quot;%&quot;         &quot;L&quot;         &quot;L&quot;         &quot;L/h&quot;      
+## [33] &quot;L/h&quot;       &quot;h&quot;         &quot;h&quot;         &quot;h&quot;        
+## attr(,&quot;UsedPoints&quot;)
+## [1]  9 10 11</code></pre>
+<p>이때의 그림은 다음과 같습니다. (Figure <a href="nca-analysis.html#fig:ggtheophindi">3.2</a>)</p>
+<div class="figure" style="text-align: center"><span id="fig:ggtheophindi"></span>
+<img src="pharmapk_files/figure-html/ggtheophindi-1.svg" alt="Individual concentration-time curves of oral administration of Theoph (Subject 1)" width="100%" />
+<p class="caption">
+그림 3.2: Individual concentration-time curves of oral administration of Theoph (Subject 1)
+</p>
+</div>
+</div>
+<div id="기술통계-descriptive-statistics" class="section level3" number="3.6.3">
+<h3><span class="header-section-number">3.6.3</span> 기술통계 (Descriptive statistics)</h3>
+<p>R에서는 필요에 따라서 자신만의 함수를 만들 수도 있습니다.
+아래를 실행하면 <code>desc_tblNCA()</code> 함수를 사용하여 기술통계량을 쉽게 구할 수 있습니다. (Table <a href="nca-analysis.html#tab:theodesc">3.2</a> and <a href="nca-analysis.html#tab:indodesc">3.3</a>)</p>
+<table>
+<caption>
+<span id="tab:theodesc">표 3.2: </span>Descriptive statistics of selected PK parameters of Theoph oral administration
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+median
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Subject*
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+6.500
+</td>
+<td style="text-align:right;">
+3.606
+</td>
+<td style="text-align:right;">
+6.500
+</td>
+<td style="text-align:right;">
+1.00
+</td>
+<td style="text-align:right;">
+12.00
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CMAX
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+8.759
+</td>
+<td style="text-align:right;">
+1.473
+</td>
+<td style="text-align:right;">
+8.465
+</td>
+<td style="text-align:right;">
+6.44
+</td>
+<td style="text-align:right;">
+11.40
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TMAX
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+1.788
+</td>
+<td style="text-align:right;">
+1.112
+</td>
+<td style="text-align:right;">
+1.135
+</td>
+<td style="text-align:right;">
+0.63
+</td>
+<td style="text-align:right;">
+3.55
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCLST
+</td>
+<td style="text-align:right;">
+12
+</td>
+<td style="text-align:right;">
+103.807
+</td>
+<td style="text-align:right;">
+23.645
+</td>
+<td style="text-align:right;">
+95.407
+</td>
+<td style="text-align:right;">
+73.78
+</td>
+<td style="text-align:right;">
+148.92
+</td>
+</tr>
+</tbody>
+</table>
+<table>
+<caption>
+<span id="tab:indodesc">표 3.3: </span>Descriptive statistics of selected PK parameters of Indometh IV infusion
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+n
+</th>
+<th style="text-align:right;">
+mean
+</th>
+<th style="text-align:right;">
+sd
+</th>
+<th style="text-align:right;">
+median
+</th>
+<th style="text-align:right;">
+min
+</th>
+<th style="text-align:right;">
+max
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Subject*
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+3.500
+</td>
+<td style="text-align:right;">
+1.8708
+</td>
+<td style="text-align:right;">
+3.500
+</td>
+<td style="text-align:right;">
+1.000
+</td>
+<td style="text-align:right;">
+6.000
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CMAX
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2.077
+</td>
+<td style="text-align:right;">
+0.4136
+</td>
+<td style="text-align:right;">
+2.040
+</td>
+<td style="text-align:right;">
+1.500
+</td>
+<td style="text-align:right;">
+2.720
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TMAX
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+0.250
+</td>
+<td style="text-align:right;">
+0.0000
+</td>
+<td style="text-align:right;">
+0.250
+</td>
+<td style="text-align:right;">
+0.250
+</td>
+<td style="text-align:right;">
+0.250
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCLST
+</td>
+<td style="text-align:right;">
+6
+</td>
+<td style="text-align:right;">
+2.485
+</td>
+<td style="text-align:right;">
+0.5267
+</td>
+<td style="text-align:right;">
+2.675
+</td>
+<td style="text-align:right;">
+1.741
+</td>
+<td style="text-align:right;">
+2.934
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="r을-이용한-비구획분석-실제-2" class="section level2" number="3.7">
+<h2><span class="header-section-number">3.7</span> R을 이용한 비구획분석 실제 2</h2>
+<p>웹브라우저를 통해 간단히 비구획분석을 할 수 있는 앱을 개발하였습니다.</p>
+<ul>
+<li>Han, S. (2017) pkrshiny: Noncompartmental Analysis using pkr R package Shiny application. URL: <a href="https://asan.shinyapps.io/pkrshiny" class="uri">https://asan.shinyapps.io/pkrshiny</a></li>
+</ul>
+<p>그 외 약동학과 관련된 몇가지 shiny 앱도 참고하세요.</p>
+<ul>
+<li>Han, S. (2017) Pharmacokinetic Simulation of one-compartment Models. URL: <a href="https://asan.shinyapps.io/pk1c/" class="uri">https://asan.shinyapps.io/pk1c/</a></li>
+<li>Han, S. (2017) caff: Monte Carlo Simulation of Caffeine Shiny application. URL: <a href="https://asan.shinyapps.io/caff" class="uri">https://asan.shinyapps.io/caff</a></li>
+<li>Han, S. (2016) vtdm: Vancomycin TDM Shiny application. URL: <a href="https://asan.shinyapps.io/vtdm" class="uri">https://asan.shinyapps.io/vtdm</a></li>
+</ul>
+</div>
+<div id="비구획분석-보고서" class="section level2" number="3.8">
+<h2><span class="header-section-number">3.8</span> 비구획분석 보고서</h2>
+<p>ncar은 보고서를 만드는 패키지입니다. 현재 설정된 working directory에 결과 파일이 생성됩니다.</p>
+<div id="txtnca" class="section level3" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> txtNCA()</h3>
+<p>txtNCA()를 통해서 다음 결과를 얻을 수 있습니다.</p>
+<p>파일로 저장하려면 다음을 입력합니다.</p>
+<pre><code>## Error in file(con, &quot;w&quot;): cannot open the connection</code></pre>
+</div>
+<div id="pdfnca" class="section level3" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> pdfNCA()</h3>
+<p>pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure <a href="#fig:pdfnca-output"><strong>??</strong></a>)</p>
+<pre><code>## Error in pdf(FileName, paper = Paper, width = 8.5, height = 11, family = FontFamily, : cannot open file &#39;Output-ncar/pdfNCA-Theoph.pdf&#39;</code></pre>
+<pre><code>## Error in knitr::include_graphics(c(&quot;Output-ncar/pdfNCA-Theoph-01.png&quot;, : Cannot find the file(s): &quot;Output-ncar/pdfNCA-Theoph-01.png&quot;; &quot;Output-ncar/pdfNCA-Theoph-02.png&quot;</code></pre>
+</div>
+<div id="rtfnca" class="section level3" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> rtfNCA()</h3>
+<p>마이크로소프트 워드에서 편집가능한 rtf파일을 만듭니다.</p>
+</div>
+<div id="pkrplotpk" class="section level3" number="3.8.4">
+<h3><span class="header-section-number">3.8.4</span> pkr::plotPK()</h3>
+<p>비구획분석에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줍니다.
+이를 가능하게 해 주는 <code>pkr</code> 패키지<span class="citation">(<a href="#ref-R-pkr" role="doc-biblioref"><strong>R-pkr?</strong></a>)</span>에 대해서 자세히 알아보겠습니다.</p>
+<pre><code>## pdf 
+##   2</code></pre>
+</div>
+<div id="pkr-manual" class="section level3" number="3.8.5">
+<h3><span class="header-section-number">3.8.5</span> pkr 사용법</h3>
+<p><code>pkr</code> 함수의 가장 핵심적인 기능은 <code>plotPK()</code> 함수에 있고 이 함수의 인자는 다음과 같습니다.</p>
+<pre><code>## function (concData, id, Time, conc, unitTime = &quot;hr&quot;, unitConc = &quot;ng/mL&quot;, 
+##     trt = &quot;&quot;, fit = &quot;Linear&quot;, dose = 0, adm = &quot;Extravascular&quot;, 
+##     dur = 0, outdir = &quot;Output&quot;) 
+## NULL</code></pre>
+<p><code>Theoph</code> 자료의 그림을 그리는 명령어를 실행해 보겠습니다.</p>
+<pre><code>## pdf 
+##   2</code></pre>
+<p>조금 기다린 후 <code>Output</code> 폴더를 확인해 보면 세개의 그림 파일이 생성된 것을 알 수 있습니다.</p>
+<ul>
+<li>./Output/PK Profile Linear Scale for Theoph.tiff</li>
+<li>./Output/PK Profile Log 10 Scale for Theoph.tiff</li>
+<li>./Output/PK Profile with CI for Theoph.tiff</li>
+</ul>
+<pre><code>## Error in knitr::include_graphics(&quot;Output/PK_Profile_Linear_Scale_for_Theoph.png&quot;): Cannot find the file(s): &quot;Output/PK_Profile_Linear_Scale_for_Theoph.png&quot;</code></pre>
+<pre><code>## Error in knitr::include_graphics(&quot;Output/PK_Profile_Log_10_Scale_for_Theoph.png&quot;): Cannot find the file(s): &quot;Output/PK_Profile_Log_10_Scale_for_Theoph.png&quot;</code></pre>
+<pre><code>## Error in knitr::include_graphics(&quot;Output/PK_Profile_with_CI_for_Theoph.png&quot;): Cannot find the file(s): &quot;Output/PK_Profile_with_CI_for_Theoph.png&quot;</code></pre>
+<p>또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.</p>
+<ul>
+<li>./Output/Individual PK Linear Scale for Theoph.pdf</li>
+<li>./Output/Individual PK Log 10 Scale for Theoph.pdf</li>
+</ul>
+<pre><code>## Error in knitr::include_graphics(&quot;Output/Individual_PK_Linear_Scale_for_Theoph.png&quot;): Cannot find the file(s): &quot;Output/Individual_PK_Linear_Scale_for_Theoph.png&quot;</code></pre>
+<pre><code>## Error in knitr::include_graphics(&quot;Output/Individual_PK_Log_10_Scale_for_Theoph.png&quot;): Cannot find the file(s): &quot;Output/Individual_PK_Log_10_Scale_for_Theoph.png&quot;</code></pre>
+</div>
+</div>
+<div id="parameters" class="section level2" number="3.9">
+<h2><span class="header-section-number">3.9</span> 파라메터의 의미</h2>
+<p>비구획분석 시 여러 파라메터가 나오며 약어로 표현하는 경우가 많습니다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있습니다. 콘솔창에 다음을 입력합니다.</p>
+<p>ncar::RptCfg의 일부를 첨부합니다. (Table <a href="nca-analysis.html#tab:rptcfg">3.4</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>와 같은 값입니다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름입니다.</p>
+<table>
+<caption>
+<span id="tab:rptcfg">표 3.4: </span>Description of NonCompart parameters
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+PPTESTCD
+</th>
+<th style="text-align:left;">
+Description (WNL)
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+b0
+</td>
+<td style="text-align:left;">
+Intercept (b0)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TLAG
+</td>
+<td style="text-align:left;">
+Time Until First Nonzero Conc (Tlag)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRTEVLST
+</td>
+<td style="text-align:left;">
+MRT Extravasc to Last Nonzero Conc (MRTlast)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRTEVIFO
+</td>
+<td style="text-align:left;">
+MRT Extravasc Infinity Obs (MRTINF_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRTEVIFP
+</td>
+<td style="text-align:left;">
+MRT Extravasc Infinity Pred (MRTINF_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VZFO
+</td>
+<td style="text-align:left;">
+Vz Obs by F (Vz_F_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VZFP
+</td>
+<td style="text-align:left;">
+Vz Pred by F (Vz_F_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CLFO
+</td>
+<td style="text-align:left;">
+Total CL Obs by F (Cl_F_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CLFP
+</td>
+<td style="text-align:left;">
+Total CL Pred by F (Cl_F_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+C0
+</td>
+<td style="text-align:left;">
+Initial Conc (C0)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCPBEO
+</td>
+<td style="text-align:left;">
+AUC %Back Extrapolation Obs (AUC_.Back_Ext_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCPBEP
+</td>
+<td style="text-align:left;">
+AUC %Back Extrapolation Pred (AUC_.Back_Ext_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CMAX
+</td>
+<td style="text-align:left;">
+Max Conc (Cmax)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CMAXD
+</td>
+<td style="text-align:left;">
+Max Conc Norm by Dose (Cmax_D)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TMAX
+</td>
+<td style="text-align:left;">
+Time of CMAX (Tmax)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CLST
+</td>
+<td style="text-align:left;">
+Last Nonzero Conc (Clast)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+TLST
+</td>
+<td style="text-align:left;">
+Time of Last Nonzero Conc (Tlast)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CLSTP
+</td>
+<td style="text-align:left;">
+Last Nonzero Conc Pred (Clast_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAMZHL
+</td>
+<td style="text-align:left;">
+Half-Life Lambda z (HL_Lambda_z)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAMZ
+</td>
+<td style="text-align:left;">
+Lambda z (Lambda_z)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAMZLL
+</td>
+<td style="text-align:left;">
+Lambda z Lower Limit (Lambda_z_lower)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAMZUL
+</td>
+<td style="text-align:left;">
+Lambda z Upper Limit (Lambda_z_upper)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+LAMZNPT
+</td>
+<td style="text-align:left;">
+Number of Points for Lambda z (No_points_lambda_z)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CORRXY
+</td>
+<td style="text-align:left;">
+Correlation Between TimeX and Log ConcY (Corr_XY)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2
+</td>
+<td style="text-align:left;">
+R Squared (Rsq)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+R2ADJ
+</td>
+<td style="text-align:left;">
+R Squared Adjusted (Rsq_adjusted)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCLST
+</td>
+<td style="text-align:left;">
+AUC to Last Nonzero Conc (AUClast)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCALL
+</td>
+<td style="text-align:left;">
+AUC All (AUCall)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCIFO
+</td>
+<td style="text-align:left;">
+AUC Infinity Obs (AUCINF_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCIFOD
+</td>
+<td style="text-align:left;">
+AUC Infinity Obs Norm by Dose (AUCINF_D_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCPEO
+</td>
+<td style="text-align:left;">
+AUC %Extrapolation Obs (AUC_.Extrap_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCIFP
+</td>
+<td style="text-align:left;">
+AUC Infinity Pred (AUCINF_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCIFPD
+</td>
+<td style="text-align:left;">
+AUC Infinity Pred Norm by Dose (AUCINF_D_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUCPEP
+</td>
+<td style="text-align:left;">
+AUC %Extrapolation Pred (AUC_.Extrap_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUMCLST
+</td>
+<td style="text-align:left;">
+AUMC to Last Nonzero Conc (AUMClast)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUMCIFO
+</td>
+<td style="text-align:left;">
+AUMC Infinity Obs (AUMCINF_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUMCPEO
+</td>
+<td style="text-align:left;">
+AUMC %Extrapolation Obs (AUMC_.Extrap_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUMCIFP
+</td>
+<td style="text-align:left;">
+AUMC Infinity Pred (AUMCINF_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+AUMCPEP
+</td>
+<td style="text-align:left;">
+AUMC % Extrapolation Pred (AUMC_.Extrap_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRTIVLST
+</td>
+<td style="text-align:left;">
+MRT Intravasc to Last Nonzero Conc (MRTlast)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRTIVIFO
+</td>
+<td style="text-align:left;">
+MRT Intravasc Infinity Obs (MRTINF_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+MRTIVIFP
+</td>
+<td style="text-align:left;">
+MRT Intravasc Infinity Pred (MRTINF_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VZO
+</td>
+<td style="text-align:left;">
+Vz Obs (Vz_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VZP
+</td>
+<td style="text-align:left;">
+Vz Pred (Vz_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CLO
+</td>
+<td style="text-align:left;">
+Total CL Obs (Cl_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+CLP
+</td>
+<td style="text-align:left;">
+Total CL Pred (Cl_pred)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VSSO
+</td>
+<td style="text-align:left;">
+Vol Dist Steady State Obs (Vss_obs)
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+VSSP
+</td>
+<td style="text-align:left;">
+Vol Dist Steady State Pred (Vss_pred)
+</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="3">
+<li id="fn3"><p><a href="https://bookdown.org" class="uri">https://bookdown.org</a><a href="nca-analysis.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://coursera.com" class="uri">https://coursera.com</a><a href="nca-analysis.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><a href="https://cran.r-project.org/" class="uri">https://cran.r-project.org/</a><a href="nca-analysis.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>다음과 같이 CDISC note에 표시되어 있습니다. ‘Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., “1TEST”). PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: “AUCALL,” “TMAX,” “CMAX.”’ <a href="https://wiki.cdisc.org/pages/viewpage.action?pageId=42309513" class="uri">https://wiki.cdisc.org/pages/viewpage.action?pageId=42309513</a><a href="nca-analysis.html#fnref6" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="nca-principle.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="ca-principle.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook/js/app.min.js"></script>
+<script src="libs/gitbook/js/lunr.js"></script>
+<script src="libs/gitbook/js/clipboard.min.js"></script>
+<script src="libs/gitbook/js/plugin-search.js"></script>
+<script src="libs/gitbook/js/plugin-sharing.js"></script>
+<script src="libs/gitbook/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook/js/jquery.highlight.js"></script>
+<script src="libs/gitbook/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": true,
+"facebook": false,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/pipetcpt/basic/edit/master/inst/examples/03.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["pharmapk.pdf"],
+"toc": {
+"collapse": "section",
+"scroll_highlight": true
+},
+"toolbar": {
+"position": "fixed"
+},
+"search": false,
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
