@@ -41,7 +41,7 @@
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
   pdftitle={신약개발을 위한 실전 약동학 (I - 이론과 자료해석)},
-  pdfauthor={Ver. 20210208},
+  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)},
   colorlinks=true,
   linkcolor=Maroon,
   filecolor=Maroon,
@@ -49,6 +49,46 @@
   urlcolor=Blue,
   pdfcreator={LaTeX via pandoc}}
 \urlstyle{same} % disable monospaced font for URLs
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{longtable,booktabs,array}
 \usepackage{calc} % for calculating minipage widths
 % Correct order of tables after \paragraph or \subparagraph
@@ -229,8 +269,8 @@
 \fi
 
 \title{신약개발을 위한 실전 약동학 (I - 이론과 자료해석)}
-\author{Ver. 20210208}
-\date{Ver. 20210208}
+\author{가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)}
+\date{Ver. 20210217}
 
 \begin{document}
 \maketitle
@@ -270,6 +310,8 @@
 \chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
 
 
+\href{https://pipetcpt.github.io/pharmapk/pharmapk.pdf}{}
+
 \normalsize
 
 계량약리학은 신약개발 현장에서 제기되는 질문들에 대한 답을 정량적으로 찾아내기 위한 과정에서 정립되어온 학문입니다. 물론 계량약리학은 이미 허가된 약들의 적절한 용법을 찾는 데에도 쓸 수 있지만, 신약개발이라는 큰 목표를 빼고서는 이 어려운 방법론을 배워야 할 이유를 찾기는 힘듭니다. 우리나라의 신약개발은 짧은 역사 속에서 많은 시행착오를 통해 발전해가고 있습니다. 국내에서 계량약리학에 대한 수요가 이만큼이나마 늘어난 것은 2010년대 중반 이후 두드러지게 보이는 이 같은 분위기의 변화와 맞물려 있겠습니다.
@@ -281,6 +323,8 @@ PIPET의 구성원들은 우리말로 된 입문용 교재가 전무한 현실�
 학계의 PK/PD 전문가들이 우리나라의 신약개발에 기여하는 방법 중의 하나는 신약개발의 최전선에서 일하고 있는 제약/바이오 업계의 풀뿌리 연구자들에 대한 지속적인 교육과 훈련 기회를 제공하는 것입니다. 그러한 사명감으로 맨땅에서 시작한 이 코스를 지난 십 수년간 오늘의 수준으로 끌어올릴 수 있게 해 준, PIPET을 거쳐간 귀한 젊은 연구자들의 공헌에 깊이 감사드립니다. 이름난 분들을 초빙해서 청중을 모으고 신문에 내는 행사를 수십 번을 한들, 젊은이들의 앞날을 염려하고, 이들을 제대로 가르치겠다는 의지가 없다면 그저 남들에게 보여주기 위한 이벤트에 지나지 않습니다. 그런 곳에 사람과 돈이 몰릴지는 몰라도, 한편에서는 세상의 각광과는 무관하게 소신대로 제 갈 길을 가는 소수가 있기 마련입니다. 매년 열던 워크샵을 책으로 엮어 내는 이 번거로운 작업도 그런 소신을 실천하는 것이며, 한국의 신약개발을 위해 작은 밑거름이라도 된다면 저자들은 큰 보람을 느낄 것입니다.
 
 \begin{center}\includegraphics[width=1\linewidth]{images/preface} \end{center}
+
+2021년 여름 성의교정 연구실에서대표저자 임동석 拜
 
 \normalsize
 
@@ -356,26 +400,427 @@ PIPET의 구성원들은 우리말로 된 입문용 교재가 전무한 현실�
 \hypertarget{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68d-uxbd84uxc11d-uxac1cuxb860}{%
 \section{상용 소프트웨어를 이용한 비구획 분석 개론}\label{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68d-uxbd84uxc11d-uxac1cuxb860}}
 
+약동학 분야에서 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)입니다.
+\emph{식약처, FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아}, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있습니다.
+
 \hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}{%
 \section{비구획분석에 활용할 수 있는 R package 소개}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}}
+
+R (\protect\hyperlink{ref-R-base}{\textbf{R-base?}})은 통계 소프트웨어 입니다.
+굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다.
+R에 대한 많은 책들을 bookdown.org\footnote{\url{https://bookdown.org}}에서 무료로 읽을 수 있습니다.
+Coursera\footnote{\url{https://coursera.com}}에서 무료 온라인 강의를 들을 수 있습니다.
+
+따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 비구획분석을 통한 약동학적 주요 지표를 구할 수 있습니다.
+
+\begin{itemize}
+\tightlist
+\item
+  NonCompart (\protect\hyperlink{ref-R-NonCompart}{\textbf{R-NonCompart?}})
+\item
+  ncar (\protect\hyperlink{ref-R-ncar}{\textbf{R-ncar?}})
+\item
+  pkr (\protect\hyperlink{ref-R-pkr}{\textbf{R-pkr?}})
+\end{itemize}
+
+\hypertarget{uxc124uxce58}{%
+\section{설치}\label{uxc124uxce58}}
+
+우선 R을 설치합니다.
+R은 아래 링크\footnote{\url{https://cran.r-project.org/}}에서 다운로드 받을 수 있습니다.
+
+R을 실행한 후, 콘솔 창에서 비구획분석을 위한 패키지를 설치하는 방법은 다음과 같습니다.
+홑따옴표 등의 인용 부호에 주의하세요.
+
+설치는 한번만 하면 되지만, 비구획분석을 위해서는 매 세션마다 패키지를 \emph{불러오기}해야 합니다.
+
+아래 두 패키지는 비구획분석과는 관계없지만 자료 처리 혹은 그림 등을 그리는데 도움을 줍니다.
+
+도움이 필요할때는 맨 앞에 물음표를 붙여서 콘솔창에 입력하거나 \texttt{help()} 함수를 사용합니다.
 
 \hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc744-uxc704uxd55c-uxb370uxc774uxd130uxc14buxc758-uxc791uxc131}{%
 \section{비구획분석을 위한 데이터셋의 작성}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc744-uxc704uxd55c-uxb370uxc774uxd130uxc14buxc758-uxc791uxc131}}
 
+자료의 첫 10개 (Table \ref{tab:head}) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력합니다.
+대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있습니다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(Theoph, }\AttributeTok{n=}\DecValTok{10}\NormalTok{)}
+\FunctionTok{tail}\NormalTok{(Theoph, }\AttributeTok{n=}\DecValTok{10}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{table}
+
+\caption{\label{tab:head}Theoph 자료의 첫 10개 관찰값}
+\centering
+\begin{tabular}[t]{lrrrr}
+\toprule
+Subject & Wt & Dose & Time & conc\\
+\midrule
+1 & 79.6 & 4.02 & 0.00 & 0.74\\
+1 & 79.6 & 4.02 & 0.25 & 2.84\\
+1 & 79.6 & 4.02 & 0.57 & 6.57\\
+1 & 79.6 & 4.02 & 1.12 & 10.50\\
+1 & 79.6 & 4.02 & 2.02 & 9.66\\
+\addlinespace
+1 & 79.6 & 4.02 & 3.82 & 8.58\\
+1 & 79.6 & 4.02 & 5.10 & 8.36\\
+1 & 79.6 & 4.02 & 7.03 & 7.47\\
+1 & 79.6 & 4.02 & 9.05 & 6.89\\
+1 & 79.6 & 4.02 & 12.12 & 5.94\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+그림을 그려서 대략적인 자료의 모습을 파악합니다. (Figure \ref{fig:ggtheoph})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/ggtheoph-1} 
+
+}
+
+\caption{Concentration-time curves of oral administration of Theoph (N = 12)}\label{fig:ggtheoph}
+\end{figure}
+
+\hypertarget{loading}{%
+\section{자료 불러오기}\label{loading}}
+
+\texttt{read.csv()} 함수를 사용해서 자료를 불러 옵니다.
+엑셀 파일을 사용하는 경우 \texttt{readxl} 패키지를 설치한 후에 \texttt{read\_excel()} 함수를 사용해서 불러올 수 있습니다.
+다만 이 경우 \texttt{tibble} 형태로 자료가 변형되므로 \texttt{as.data.frame()}을 사용해서 데이타프레임으로 변형해주어야 합니다.
+
 \hypertarget{ruxc744-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d-uxc2e4uxc81c-1}{%
 \section{R을 이용한 비구획분석 실제 1}\label{ruxc744-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d-uxc2e4uxc81c-1}}
+
+\hypertarget{tblnca-uxc804uxccb4-uxb300uxc0c1uxc790-uxbe44uxad6cuxd68d-uxbd84uxc11d}{%
+\subsection{tblNCA(): 전체 대상자 비구획 분석}\label{tblnca-uxc804uxccb4-uxb300uxc0c1uxc790-uxbe44uxad6cuxd68d-uxbd84uxc11d}}
+
+가장 많이 쓰는 함수 입니다!
+NonCompart 패키지의 핵심적인 기능입니다.
+아래의 코드를 R의 콘솔창에 넣어보세요.
+테오필린 경구 투여시의 비구획 분석입니다.
+
+결과는 \texttt{data.frame} 형태인데 너무 길기 때문에 핵심적인 일부 파라메터 (C\textsubscript{max}, T\textsubscript{max}, AUC\textsubscript{last})만 표시할 수도 있습니다.
+
+\begin{verbatim}
+##    Subject  CMAX TMAX AUCLST
+## 1        1 10.50 1.12 148.92
+## 2        2  8.33 1.92  91.53
+## 3        3  8.20 1.02  99.29
+## 4        4  8.60 1.07 106.80
+## 5        5 11.40 1.00 121.29
+## 6        6  6.44 1.15  73.78
+## 7        7  7.09 3.48  90.75
+## 8        8  7.56 2.02  88.56
+## 9        9  9.03 0.63  86.33
+## 10      10 10.21 3.55 138.37
+## 11      11  8.00 0.98  80.09
+## 12      12  9.75 3.52 119.98
+\end{verbatim}
+
+인도메타신 정맥 투여시의 비구획 분석입니다.
+함수인자 \texttt{adm}을 infusion으로 바꾼 것을 볼 수 있고 \texttt{dur}가 추가된 것을 볼 수 있습니다.
+
+역시 핵심적인 일부 파라메터 (C\textsubscript{max}, T\textsubscript{max}, AUC\textsubscript{last})만 표시할 수도 있습니다.
+
+\begin{verbatim}
+##   Subject CMAX TMAX AUCLST
+## 1       1 1.50 0.25  1.741
+## 2       2 2.03 0.25  2.933
+## 3       3 2.72 0.25  2.934
+## 4       4 1.85 0.25  2.478
+## 5       5 2.05 0.25  1.954
+## 6       6 2.31 0.25  2.873
+\end{verbatim}
+
+\hypertarget{snca}{%
+\subsection{sNCA()}\label{snca}}
+
+한명의 대상자에 대해 비구획 분석을 시행합니다.
+
+\begin{verbatim}
+##         b0       CMAX      CMAXD       TMAX       TLAG 
+##    2.36879   10.50000    0.03281    1.12000    0.00000 
+##       CLST      CLSTP       TLST     LAMZHL       LAMZ 
+##    3.28000    3.28015   24.37000   14.30438    0.04846 
+##     LAMZLL     LAMZUL    LAMZNPT     CORRXY         R2 
+##    9.05000   24.37000    3.00000   -1.00000    1.00000 
+##      R2ADJ     AUCLST     AUCALL     AUCIFO    AUCIFOD 
+##    1.00000  148.92305  148.92305  216.61193    0.67691 
+##     AUCIFP    AUCIFPD     AUCPEO     AUCPEP    AUMCLST 
+##  216.61496    0.67692   31.24892   31.24988 1459.07110 
+##    AUMCIFO    AUMCIFP    AUMCPEO    AUMCPEP       VZFO 
+## 4505.53482 4505.67086   67.61603   67.61701   30.48675 
+##       VZFP       CLFO       CLFP   MRTEVLST   MRTEVIFO 
+##   30.48632    1.47730    1.47728    9.79748   20.80003 
+##   MRTEVIFP 
+##   20.80037 
+## attr(,"units")
+##  [1] ""          "mg/L"      "mg/L/mg"   "h"        
+##  [5] "h"         "mg/L"      "mg/L"      "h"        
+##  [9] "h"         "/h"        "h"         "h"        
+## [13] ""          ""          ""          ""         
+## [17] "h*mg/L"    "h*mg/L"    "h*mg/L"    "h*mg/L/mg"
+## [21] "h*mg/L"    "h*mg/L/mg" "%"         "%"        
+## [25] "h2*mg/L"   "h2*mg/L"   "h2*mg/L"   "%"        
+## [29] "%"         "L"         "L"         "L/h"      
+## [33] "L/h"       "h"         "h"         "h"        
+## attr(,"UsedPoints")
+## [1]  9 10 11
+\end{verbatim}
+
+이때의 그림은 다음과 같습니다. (Figure \ref{fig:ggtheophindi})
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/ggtheophindi-1} 
+
+}
+
+\caption{Individual concentration-time curves of oral administration of Theoph (Subject 1)}\label{fig:ggtheophindi}
+\end{figure}
+
+\hypertarget{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}{%
+\subsection{기술통계 (Descriptive statistics)}\label{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}}
+
+R에서는 필요에 따라서 자신만의 함수를 만들 수도 있습니다.
+아래를 실행하면 \texttt{desc\_tblNCA()} 함수를 사용하여 기술통계량을 쉽게 구할 수 있습니다. (Table \ref{tab:theodesc} and \ref{tab:indodesc})
+
+\begin{table}
+
+\caption{\label{tab:theodesc}Descriptive statistics of selected PK parameters of Theoph oral administration}
+\centering
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+  & n & mean & sd & median & min & max\\
+\midrule
+Subject* & 12 & 6.500 & 3.606 & 6.500 & 1.00 & 12.00\\
+CMAX & 12 & 8.759 & 1.473 & 8.465 & 6.44 & 11.40\\
+TMAX & 12 & 1.788 & 1.112 & 1.135 & 0.63 & 3.55\\
+AUCLST & 12 & 103.807 & 23.645 & 95.407 & 73.78 & 148.92\\
+\bottomrule
+\end{tabular}
+\end{table}
+
+\begin{table}
+
+\caption{\label{tab:indodesc}Descriptive statistics of selected PK parameters of Indometh IV infusion}
+\centering
+\begin{tabular}[t]{lrrrrrr}
+\toprule
+  & n & mean & sd & median & min & max\\
+\midrule
+Subject* & 6 & 3.500 & 1.8708 & 3.500 & 1.000 & 6.000\\
+CMAX & 6 & 2.077 & 0.4136 & 2.040 & 1.500 & 2.720\\
+TMAX & 6 & 0.250 & 0.0000 & 0.250 & 0.250 & 0.250\\
+AUCLST & 6 & 2.485 & 0.5267 & 2.675 & 1.741 & 2.934\\
+\bottomrule
+\end{tabular}
+\end{table}
 
 \hypertarget{ruxc744-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d-uxc2e4uxc81c-2}{%
 \section{R을 이용한 비구획분석 실제 2}\label{ruxc744-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d-uxc2e4uxc81c-2}}
 
-\hypertarget{phoenix-winnonlinuxc744-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d-uxc2e4uxc81c}{%
-\section{Phoenix WinNonlin을 이용한 비구획분석 실제}\label{phoenix-winnonlinuxc744-uxc774uxc6a9uxd55c-uxbe44uxad6cuxd68duxbd84uxc11d-uxc2e4uxc81c}}
+웹브라우저를 통해 간단히 비구획분석을 할 수 있는 앱을 개발하였습니다.
+
+\begin{itemize}
+\tightlist
+\item
+  Han, S. (2017) pkrshiny: Noncompartmental Analysis using pkr R package Shiny application. URL: \url{https://asan.shinyapps.io/pkrshiny}
+\end{itemize}
+
+그 외 약동학과 관련된 몇가지 shiny 앱도 참고하세요.
+
+\begin{itemize}
+\tightlist
+\item
+  Han, S. (2017) Pharmacokinetic Simulation of one-compartment Models. URL: \url{https://asan.shinyapps.io/pk1c/}
+\item
+  Han, S. (2017) caff: Monte Carlo Simulation of Caffeine Shiny application. URL: \url{https://asan.shinyapps.io/caff}
+\item
+  Han, S. (2016) vtdm: Vancomycin TDM Shiny application. URL: \url{https://asan.shinyapps.io/vtdm}
+\end{itemize}
 
 \hypertarget{uxbe44uxad6cuxd68duxbd84uxc11d-uxbcf4uxace0uxc11c}{%
 \section{비구획분석 보고서}\label{uxbe44uxad6cuxd68duxbd84uxc11d-uxbcf4uxace0uxc11c}}
 
-\hypertarget{uxb9fauxc74cuxb9d0-2}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}}
+ncar은 보고서를 만드는 패키지입니다. 현재 설정된 working directory에 결과 파일이 생성됩니다.
+
+\hypertarget{txtnca}{%
+\subsection{txtNCA()}\label{txtnca}}
+
+txtNCA()를 통해서 다음 결과를 얻을 수 있습니다.
+
+파일로 저장하려면 다음을 입력합니다.
+
+\begin{verbatim}
+## Error in file(con, "w"): 커넥션을 열 수 없습니다
+\end{verbatim}
+
+\hypertarget{pdfnca}{%
+\subsection{pdfNCA()}\label{pdfnca}}
+
+pdfNCA()로 pdf로 결과를 볼 수 있습니다. (Figure \ref{fig:pdfnca-output})
+
+\begin{verbatim}
+## Error in pdf(FileName, paper = Paper, width = 8.5, height = 11, family = FontFamily, : 파일 'Output-ncar/pdfNCA-Theoph.pdf'를 열 수 없습니다
+\end{verbatim}
+
+\begin{verbatim}
+## Error in knitr::include_graphics(c("Output-ncar/pdfNCA-Theoph-01.png", : Cannot find the file(s): "Output-ncar/pdfNCA-Theoph-01.png"; "Output-ncar/pdfNCA-Theoph-02.png"
+\end{verbatim}
+
+\hypertarget{rtfnca}{%
+\subsection{rtfNCA()}\label{rtfnca}}
+
+마이크로소프트 워드에서 편집가능한 rtf파일을 만듭니다.
+
+\hypertarget{pkrplotpk}{%
+\subsection{pkr::plotPK()}\label{pkrplotpk}}
+
+비구획분석에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줍니다.
+이를 가능하게 해 주는 \texttt{pkr} 패키지(\protect\hyperlink{ref-R-pkr}{\textbf{R-pkr?}})에 대해서 자세히 알아보겠습니다.
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+\hypertarget{pkr-manual}{%
+\subsection{pkr 사용법}\label{pkr-manual}}
+
+\texttt{pkr} 함수의 가장 핵심적인 기능은 \texttt{plotPK()} 함수에 있고 이 함수의 인자는 다음과 같습니다.
+
+\begin{verbatim}
+## function (concData, id, Time, conc, unitTime = "hr", unitConc = "ng/mL", 
+##     trt = "", fit = "Linear", dose = 0, adm = "Extravascular", 
+##     dur = 0, outdir = "Output") 
+## NULL
+\end{verbatim}
+
+\texttt{Theoph} 자료의 그림을 그리는 명령어를 실행해 보겠습니다.
+
+\begin{verbatim}
+## pdf 
+##   2
+\end{verbatim}
+
+조금 기다린 후 \texttt{Output} 폴더를 확인해 보면 세개의 그림 파일이 생성된 것을 알 수 있습니다.
+
+\begin{itemize}
+\tightlist
+\item
+  ./Output/PK Profile Linear Scale for Theoph.tiff
+\item
+  ./Output/PK Profile Log 10 Scale for Theoph.tiff
+\item
+  ./Output/PK Profile with CI for Theoph.tiff
+\end{itemize}
+
+\begin{verbatim}
+## Error in knitr::include_graphics("Output/PK_Profile_Linear_Scale_for_Theoph.png"): Cannot find the file(s): "Output/PK_Profile_Linear_Scale_for_Theoph.png"
+\end{verbatim}
+
+\begin{verbatim}
+## Error in knitr::include_graphics("Output/PK_Profile_Log_10_Scale_for_Theoph.png"): Cannot find the file(s): "Output/PK_Profile_Log_10_Scale_for_Theoph.png"
+\end{verbatim}
+
+\begin{verbatim}
+## Error in knitr::include_graphics("Output/PK_Profile_with_CI_for_Theoph.png"): Cannot find the file(s): "Output/PK_Profile_with_CI_for_Theoph.png"
+\end{verbatim}
+
+또한 개개인 별로 여러개의 그림이 담긴 두개의 PDF 파일이 생성되었습니다.
+
+\begin{itemize}
+\tightlist
+\item
+  ./Output/Individual PK Linear Scale for Theoph.pdf
+\item
+  ./Output/Individual PK Log 10 Scale for Theoph.pdf
+\end{itemize}
+
+\begin{verbatim}
+## Error in knitr::include_graphics("Output/Individual_PK_Linear_Scale_for_Theoph.png"): Cannot find the file(s): "Output/Individual_PK_Linear_Scale_for_Theoph.png"
+\end{verbatim}
+
+\begin{verbatim}
+## Error in knitr::include_graphics("Output/Individual_PK_Log_10_Scale_for_Theoph.png"): Cannot find the file(s): "Output/Individual_PK_Log_10_Scale_for_Theoph.png"
+\end{verbatim}
+
+\hypertarget{parameters}{%
+\section{파라메터의 의미}\label{parameters}}
+
+비구획분석 시 여러 파라메터가 나오며 약어로 표현하는 경우가 많습니다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있습니다. 콘솔창에 다음을 입력합니다.
+
+ncar::RptCfg의 일부를 첨부합니다. (Table \ref{tab:rptcfg}) \texttt{PPTESTCD}는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)\footnote{다음과 같이 CDISC note에 표시되어 있습니다. `Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., ``1TEST''). PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: ``AUCALL,'' ``TMAX,'' ``CMAX.''\,' \url{https://wiki.cdisc.org/pages/viewpage.action?pageId=42309513}}와 같은 값입니다. \texttt{WNL} 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름입니다.
+
+\begin{longtable}[t]{ll}
+\caption{\label{tab:rptcfg}Description of NonCompart parameters}\\
+\toprule
+PPTESTCD & Description (WNL)\\
+\midrule
+b0 & Intercept (b0)\\
+TLAG & Time Until First Nonzero Conc (Tlag)\\
+MRTEVLST & MRT Extravasc to Last Nonzero Conc (MRTlast)\\
+MRTEVIFO & MRT Extravasc Infinity Obs (MRTINF\_obs)\\
+MRTEVIFP & MRT Extravasc Infinity Pred (MRTINF\_pred)\\
+\addlinespace
+VZFO & Vz Obs by F (Vz\_F\_obs)\\
+VZFP & Vz Pred by F (Vz\_F\_pred)\\
+CLFO & Total CL Obs by F (Cl\_F\_obs)\\
+CLFP & Total CL Pred by F (Cl\_F\_pred)\\
+C0 & Initial Conc (C0)\\
+\addlinespace
+AUCPBEO & AUC \%Back Extrapolation Obs (AUC\_.Back\_Ext\_obs)\\
+AUCPBEP & AUC \%Back Extrapolation Pred (AUC\_.Back\_Ext\_pred)\\
+CMAX & Max Conc (Cmax)\\
+CMAXD & Max Conc Norm by Dose (Cmax\_D)\\
+TMAX & Time of CMAX (Tmax)\\
+\addlinespace
+CLST & Last Nonzero Conc (Clast)\\
+TLST & Time of Last Nonzero Conc (Tlast)\\
+CLSTP & Last Nonzero Conc Pred (Clast\_pred)\\
+LAMZHL & Half-Life Lambda z (HL\_Lambda\_z)\\
+LAMZ & Lambda z (Lambda\_z)\\
+\addlinespace
+LAMZLL & Lambda z Lower Limit (Lambda\_z\_lower)\\
+LAMZUL & Lambda z Upper Limit (Lambda\_z\_upper)\\
+LAMZNPT & Number of Points for Lambda z (No\_points\_lambda\_z)\\
+CORRXY & Correlation Between TimeX and Log ConcY (Corr\_XY)\\
+R2 & R Squared (Rsq)\\
+\addlinespace
+R2ADJ & R Squared Adjusted (Rsq\_adjusted)\\
+AUCLST & AUC to Last Nonzero Conc (AUClast)\\
+AUCALL & AUC All (AUCall)\\
+AUCIFO & AUC Infinity Obs (AUCINF\_obs)\\
+AUCIFOD & AUC Infinity Obs Norm by Dose (AUCINF\_D\_obs)\\
+\addlinespace
+AUCPEO & AUC \%Extrapolation Obs (AUC\_.Extrap\_obs)\\
+AUCIFP & AUC Infinity Pred (AUCINF\_pred)\\
+AUCIFPD & AUC Infinity Pred Norm by Dose (AUCINF\_D\_pred)\\
+AUCPEP & AUC \%Extrapolation Pred (AUC\_.Extrap\_pred)\\
+AUMCLST & AUMC to Last Nonzero Conc (AUMClast)\\
+\addlinespace
+AUMCIFO & AUMC Infinity Obs (AUMCINF\_obs)\\
+AUMCPEO & AUMC \%Extrapolation Obs (AUMC\_.Extrap\_obs)\\
+AUMCIFP & AUMC Infinity Pred (AUMCINF\_pred)\\
+AUMCPEP & AUMC \% Extrapolation Pred (AUMC\_.Extrap\_pred)\\
+MRTIVLST & MRT Intravasc to Last Nonzero Conc (MRTlast)\\
+\addlinespace
+MRTIVIFO & MRT Intravasc Infinity Obs (MRTINF\_obs)\\
+MRTIVIFP & MRT Intravasc Infinity Pred (MRTINF\_pred)\\
+VZO & Vz Obs (Vz\_obs)\\
+VZP & Vz Pred (Vz\_pred)\\
+CLO & Total CL Obs (Cl\_obs)\\
+\addlinespace
+CLP & Total CL Pred (Cl\_pred)\\
+VSSO & Vol Dist Steady State Obs (Vss\_obs)\\
+VSSP & Vol Dist Steady State Pred (Vss\_pred)\\
+\bottomrule
+\end{longtable}
 
 \hypertarget{ca-principle}{%
 \chapter{구획 분석의 이론}\label{ca-principle}}
@@ -396,8 +841,8 @@ PIPET의 구성원들은 우리말로 된 입문용 교재가 전무한 현실�
 \hypertarget{uxad6cuxd68duxbaa8uxb378-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc758-uxc758uxbbf8uxc640-uxc8fcuxc758uxc810}{%
 \section{구획모델 파라미터들의 의미와 주의점}\label{uxad6cuxd68duxbaa8uxb378-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc758-uxc758uxbbf8uxc640-uxc8fcuxc758uxc810}}
 
-\hypertarget{uxb9fauxc74cuxb9d0-3}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}}
+\hypertarget{uxb9fauxc74cuxb9d0-2}{%
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}}
 
 \hypertarget{ca-analysis}{%
 \chapter{구획분석의 자료해석}\label{ca-analysis}}
@@ -433,8 +878,8 @@ PIPET의 구성원들은 우리말로 된 입문용 교재가 전무한 현실�
 \hypertarget{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
 \section{2구획모델을 이용한 약동학 자료 분석}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
 
-\hypertarget{uxb9fauxc74cuxb9d0-4}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-4}}
+\hypertarget{uxb9fauxc74cuxb9d0-3}{%
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}}
 
 \printindex
 
