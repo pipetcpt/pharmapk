@@ -1,3 +1,5 @@
+fig:pkpd-diagram
+fig:pkpd-concept
 tab:head
 fig:ggtheoph
 fig:ggtheophindi
@@ -8,6 +10,11 @@ principle
 서론
 용어의-소개
 약동학을-공부하는-목적
+adme와-약동학
+흡수absorption
+분포distribution
+대사metabolism와-배설execretion
+일차약동학first-order-kinetics과-반감기half-lifet12
 분포용적
 약물의-분포
 분포용적의-개념과-계산방법
