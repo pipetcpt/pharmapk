@@ -12,23 +12,25 @@ output:
 
 ---
 
+약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)이고 이는 약물의 임상 개발에 매우 중요하다.
+NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 음식 효과, 약물 상호 작용 및 생물학적 동등성 연구)에 대해 중요한 평가변수가 된다.
+약물 개발 과정에서 수집된 PK 데이터를 분석하는데 사용될 PK 모델을 평가하거나 결정하는데에도 도움이 된다.
+따라서 NCA는 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 축적해 나갈 수 있다.
+[@noe2020parameter]
+
+## Data Handling
+
+## Sampling Times
+
+## Assay Quantitation Limits
 
 ## 상용 소프트웨어를 이용한 비구획 분석 개론
 
-
-약동학 분야에서 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석 (Non-compartmental analysis, NCA)입니다. 
-*식약처, FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아*, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있습니다.
-
+*식약처, FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아*, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.
 
 ## 비구획분석에 활용할 수 있는 R package 소개
 
-R [@R-base]은 통계 소프트웨어 입니다. 
-굉장히 유용한 소프트웨어이지만 이에 대해 여기서 자세히 설명하긴 힘듭니다. 
-R에 대한 많은 책들을 bookdown.org^[https://bookdown.org]에서 무료로 읽을 수 있습니다. 
-Coursera^[https://coursera.com]에서 무료 온라인 강의를 들을 수 있습니다.
-
-
-따라서 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 비구획분석을 통한 약동학적 주요 지표를 구할 수 있습니다.
+무료로 누구나 사용할 수 있는 R 패키지를 사용하여 비구획분석을 통한 약동학적 주요 지표를 구할 수 있다.
 
 - NonCompart [@R-NonCompart]
 - ncar [@R-ncar]
@@ -109,7 +111,7 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
 
 ### tblNCA(): 전체 대상자 비구획 분석
 
-가장 많이 쓰는 함수 입니다! 
+가장 많이 쓰는 함수이다.
 NonCompart 패키지의 핵심적인 기능입니다.
 아래의 코드를 R의 콘솔창에 넣어보세요. 
 테오필린 경구 투여시의 비구획 분석입니다. 

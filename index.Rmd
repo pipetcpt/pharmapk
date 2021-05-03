@@ -12,7 +12,7 @@ description: "신약개발에 종사하는 연구자라면 반드시 알아야 �
 url: 'http\://pipet.or.kr/books/pharmapk'
 github-repo: pipetcpt/pharmapk
 cover-image: images/cover.jpg
-bibliography: ["references/references.bib", "references/packages.bib"]
+bibliography: ["references/references.bib", "references/packages.bib", "references/pharmapk.bib"]
 biblio-style: apalike
 fontsize: 11pt
 link-citations: yes
