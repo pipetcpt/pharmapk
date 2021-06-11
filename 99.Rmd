@@ -1,0 +1,8 @@
+\backmatter
+
+# 참고문헌 {-}
+
+
+```{r include=FALSE}
+knitr::write_bib(c(.packages(), 'lubridate', 'sasLM'), 'references/packages.bib')
+```

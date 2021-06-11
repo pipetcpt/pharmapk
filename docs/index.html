@@ -6,12 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>신약개발을 위한 실전 약동학 (I - 이론과 자료해석)</title>
   <meta name="description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
-  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
 
   <meta property="og:title" content="신약개발을 위한 실전 약동학 (I - 이론과 자료해석)" />
   <meta property="og:type" content="book" />
   <meta property="og:url" content="http://pipet.or.kr/books/pharmapk" />
-  <meta property="og:image" content="http://pipet.or.kr/books/pharmapkimages/cover.jpg" />
+  <meta property="og:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
   <meta property="og:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
   <meta name="github-repo" content="pipetcpt/pharmapk" />
 
@@ -19,7 +19,7 @@
   <meta name="twitter:title" content="신약개발을 위한 실전 약동학 (I - 이론과 자료해석)" />
   
   <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
-  <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapkimages/cover.jpg" />
+  <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)" />
 
@@ -50,6 +50,8 @@
 
 
 
+<link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections/anchor-sections.js"></script>
 
 
 <style type="text/css">
@@ -117,6 +119,29 @@ code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
 <link rel="stylesheet" href="css/style.css" type="text/css" />
 </head>
 
@@ -175,51 +200,90 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 </ul></li>
 <li class="chapter" data-level="1.10" data-path="principle.html"><a href="principle.html#맺음말"><i class="fa fa-check"></i><b>1.10</b> 맺음말</a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="nca-principle.html"><a href="nca-principle.html"><i class="fa fa-check"></i><b>2</b> 비구획 분석의 이론</a>
+<li class="chapter" data-level="2" data-path="비구획분석.html"><a href="비구획분석.html"><i class="fa fa-check"></i><b>2</b> 비구획분석</a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-기본-개념과-관심사"><i class="fa fa-check"></i><b>2.1</b> 비구획분석의 기본 개념과 관심사</a></li>
-<li class="chapter" data-level="2.2" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석에서-산출하는-약동학-파라미터"><i class="fa fa-check"></i><b>2.2</b> 비구획분석에서 산출하는 약동학 파라미터</a></li>
-<li class="chapter" data-level="2.3" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석에서-추정하는-약동학-파라미터"><i class="fa fa-check"></i><b>2.3</b> 비구획분석에서 추정하는 약동학 파라미터</a></li>
-<li class="chapter" data-level="2.4" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-개념-확장---약물-분포와-반복-투여"><i class="fa fa-check"></i><b>2.4</b> 비구획분석의 개념 확장 - 약물 분포와 반복 투여</a></li>
-<li class="chapter" data-level="2.5" data-path="nca-principle.html"><a href="nca-principle.html#맺음말-1"><i class="fa fa-check"></i><b>2.5</b> 맺음말</a></li>
+<li class="chapter" data-level="2.1" data-path="비구획분석.html"><a href="비구획분석.html#서론-1"><i class="fa fa-check"></i><b>2.1</b> 서론</a></li>
+<li class="chapter" data-level="2.2" data-path="비구획분석.html"><a href="비구획분석.html#비구획분석의-기본-개념과-관심사"><i class="fa fa-check"></i><b>2.2</b> 비구획분석의 기본 개념과 관심사</a></li>
+<li class="chapter" data-level="2.3" data-path="비구획분석.html"><a href="비구획분석.html#비구획분석의-파라미터의-산출"><i class="fa fa-check"></i><b>2.3</b> 비구획분석의 파라미터의 산출</a></li>
+<li class="chapter" data-level="2.4" data-path="비구획분석.html"><a href="비구획분석.html#비구획분석에서-추정하는-파라미터"><i class="fa fa-check"></i><b>2.4</b> 비구획분석에서 추정하는 파라미터</a></li>
+<li class="chapter" data-level="2.5" data-path="비구획분석.html"><a href="비구획분석.html#비구획분석의-개념-확장-항정상태에-대한-추정"><i class="fa fa-check"></i><b>2.5</b> 비구획분석의 개념 확장 – 항정상태에 대한 추정</a></li>
+<li class="chapter" data-level="2.6" data-path="비구획분석.html"><a href="비구획분석.html#비구획분석-결과의-요약"><i class="fa fa-check"></i><b>2.6</b> 비구획분석 결과의 요약</a></li>
+<li class="chapter" data-level="2.7" data-path="비구획분석.html"><a href="비구획분석.html#맺음말-1"><i class="fa fa-check"></i><b>2.7</b> 맺음말</a></li>
 </ul></li>
 <li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획 분석의 자료해석</a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#상용-소프트웨어를-이용한-비구획-분석-개론"><i class="fa fa-check"></i><b>3.1</b> 상용 소프트웨어를 이용한 비구획 분석 개론</a></li>
-<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#비구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>3.2</b> 비구획분석에 활용할 수 있는 R package 소개</a></li>
-<li class="chapter" data-level="3.3" data-path="nca-analysis.html"><a href="nca-analysis.html#설치"><i class="fa fa-check"></i><b>3.3</b> 설치</a></li>
-<li class="chapter" data-level="3.4" data-path="nca-analysis.html"><a href="nca-analysis.html#비구획분석을-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>3.4</b> 비구획분석을 위한 데이터셋의 작성</a></li>
-<li class="chapter" data-level="3.5" data-path="nca-analysis.html"><a href="nca-analysis.html#loading"><i class="fa fa-check"></i><b>3.5</b> 자료 불러오기</a></li>
-<li class="chapter" data-level="3.6" data-path="nca-analysis.html"><a href="nca-analysis.html#r을-이용한-비구획분석-실제-1"><i class="fa fa-check"></i><b>3.6</b> R을 이용한 비구획분석 실제 1</a>
+<li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
+<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-자료의-처리"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
 <ul>
-<li class="chapter" data-level="3.6.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblnca-전체-대상자-비구획-분석"><i class="fa fa-check"></i><b>3.6.1</b> tblNCA(): 전체 대상자 비구획 분석</a></li>
-<li class="chapter" data-level="3.6.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.6.2</b> sNCA()</a></li>
-<li class="chapter" data-level="3.6.3" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.6.3</b> 기술통계 (Descriptive statistics)</a></li>
+<li class="chapter" data-level="3.2.1" data-path="nca-analysis.html"><a href="nca-analysis.html#채혈-시간"><i class="fa fa-check"></i><b>3.2.1</b> 채혈 시간</a></li>
+<li class="chapter" data-level="3.2.2" data-path="nca-analysis.html"><a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리"><i class="fa fa-check"></i><b>3.2.2</b> 정량한계를 벗어나거나 누락된 자료의 처리</a></li>
+<li class="chapter" data-level="3.2.3" data-path="nca-analysis.html"><a href="nca-analysis.html#자료의-제외"><i class="fa fa-check"></i><b>3.2.3</b> 자료의 제외</a></li>
 </ul></li>
-<li class="chapter" data-level="3.7" data-path="nca-analysis.html"><a href="nca-analysis.html#r을-이용한-비구획분석-실제-2"><i class="fa fa-check"></i><b>3.7</b> R을 이용한 비구획분석 실제 2</a></li>
-<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#비구획분석-보고서"><i class="fa fa-check"></i><b>3.8</b> 비구획분석 보고서</a>
+<li class="chapter" data-level="3.3" data-path="nca-analysis.html"><a href="nca-analysis.html#상용-소프트웨어를-이용한-nca"><i class="fa fa-check"></i><b>3.3</b> 상용 소프트웨어를 이용한 NCA</a></li>
+<li class="chapter" data-level="3.4" data-path="nca-analysis.html"><a href="nca-analysis.html#nca에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>3.4</b> NCA에 활용할 수 있는 R package 소개</a>
+<ul>
+<li class="chapter" data-level="3.4.1" data-path="nca-analysis.html"><a href="nca-analysis.html#r-4.x.x의-설치-윈도우-환경"><i class="fa fa-check"></i><b>3.4.1</b> R 4.x.x의 설치 (윈도우 환경)</a></li>
+<li class="chapter" data-level="3.4.2" data-path="nca-analysis.html"><a href="nca-analysis.html#rstudio-설치-윈도우-환경"><i class="fa fa-check"></i><b>3.4.2</b> Rstudio 설치 (윈도우 환경)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>3.5</b> NCA를 위한 데이터셋의 작성</a></li>
+<li class="chapter" data-level="3.6" data-path="nca-analysis.html"><a href="nca-analysis.html#loading"><i class="fa fa-check"></i><b>3.6</b> 자료 불러오기</a></li>
+<li class="chapter" data-level="3.7" data-path="nca-analysis.html"><a href="nca-analysis.html#noncompart-r-패키지를-이용한-nca"><i class="fa fa-check"></i><b>3.7</b> NonCompart R 패키지를 이용한 NCA</a>
+<ul>
+<li class="chapter" data-level="3.7.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblnca-전체-대상자-nca"><i class="fa fa-check"></i><b>3.7.1</b> tblNCA(): 전체 대상자 NCA</a></li>
+<li class="chapter" data-level="3.7.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.7.2</b> sNCA()</a></li>
+</ul></li>
+<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#nca-보고서"><i class="fa fa-check"></i><b>3.8</b> NCA 보고서</a>
 <ul>
 <li class="chapter" data-level="3.8.1" data-path="nca-analysis.html"><a href="nca-analysis.html#txtnca"><i class="fa fa-check"></i><b>3.8.1</b> txtNCA()</a></li>
 <li class="chapter" data-level="3.8.2" data-path="nca-analysis.html"><a href="nca-analysis.html#pdfnca"><i class="fa fa-check"></i><b>3.8.2</b> pdfNCA()</a></li>
 <li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
-<li class="chapter" data-level="3.8.4" data-path="nca-analysis.html"><a href="nca-analysis.html#pkrplotpk"><i class="fa fa-check"></i><b>3.8.4</b> pkr::plotPK()</a></li>
-<li class="chapter" data-level="3.8.5" data-path="nca-analysis.html"><a href="nca-analysis.html#pkr-manual"><i class="fa fa-check"></i><b>3.8.5</b> pkr 사용법</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.9</b> 파라메터의 의미</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획분석(compartmental analysis)의 이론</a></li>
-<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석</a>
+<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()</a></li>
+<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라메터의 의미</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획-분석-개론"><i class="fa fa-check"></i><b>5.1</b> 상용 소프트웨어를 이용한 구획 분석 개론</a></li>
-<li class="chapter" data-level="5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>5.2</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
-<li class="chapter" data-level="5.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석을-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>5.3</b> 구획분석을 위한 데이터셋의 작성</a></li>
-<li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석-1"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석 1</a></li>
-<li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석-2"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석 2</a></li>
-<li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석-1"><i class="fa fa-check"></i><b>5.6</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석 1</a></li>
-<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석-2"><i class="fa fa-check"></i><b>5.7</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석 2</a></li>
-<li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.8</b> 2구획모델을 이용한 약동학 자료 분석</a></li>
-<li class="chapter" data-level="5.9" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-2"><i class="fa fa-check"></i><b>5.9</b> 맺음말</a></li>
+<li class="chapter" data-level="3.10.1" data-path="nca-analysis.html"><a href="nca-analysis.html#corr_xy-corrxy"><i class="fa fa-check"></i><b>3.10.1</b> Corr_XY (CORRXY)</a></li>
+<li class="chapter" data-level="3.10.2" data-path="nca-analysis.html"><a href="nca-analysis.html#b0-b0"><i class="fa fa-check"></i><b>3.10.2</b> b0 (b0)</a></li>
+<li class="chapter" data-level="3.10.3" data-path="nca-analysis.html"><a href="nca-analysis.html#lambda_z-lamz"><i class="fa fa-check"></i><b>3.10.3</b> Lambda_z (LAMZ)</a></li>
+<li class="chapter" data-level="3.10.4" data-path="nca-analysis.html"><a href="nca-analysis.html#no_points_lambda_z-lamznpt"><i class="fa fa-check"></i><b>3.10.4</b> No_points_Lambda_z (LAMZNPT)</a></li>
+<li class="chapter" data-level="3.10.5" data-path="nca-analysis.html"><a href="nca-analysis.html#lambda_z-_lower-lamzll"><i class="fa fa-check"></i><b>3.10.5</b> Lambda_z  _lower (LAMZLL)</a></li>
+<li class="chapter" data-level="3.10.6" data-path="nca-analysis.html"><a href="nca-analysis.html#lambda_z-_upper-lamzul"><i class="fa fa-check"></i><b>3.10.6</b> Lambda_z  _upper (LAMZUL)</a></li>
+<li class="chapter" data-level="3.10.7" data-path="nca-analysis.html"><a href="nca-analysis.html#hl_lambda_z-lamzhl"><i class="fa fa-check"></i><b>3.10.7</b> HL_Lambda_z (LAMZHL)</a></li>
+<li class="chapter" data-level="3.10.8" data-path="nca-analysis.html"><a href="nca-analysis.html#clast_pred-clstp"><i class="fa fa-check"></i><b>3.10.8</b> Clast_pred (CLSTP)</a></li>
+<li class="chapter" data-level="3.10.9" data-path="nca-analysis.html"><a href="nca-analysis.html#c0-c0"><i class="fa fa-check"></i><b>3.10.9</b> C0 (C0)</a></li>
+<li class="chapter" data-level="3.10.10" data-path="nca-analysis.html"><a href="nca-analysis.html#auclast-auclst"><i class="fa fa-check"></i><b>3.10.10</b> AUClast (AUCLST)</a></li>
+<li class="chapter" data-level="3.10.11" data-path="nca-analysis.html"><a href="nca-analysis.html#aucall-aucall"><i class="fa fa-check"></i><b>3.10.11</b> AUCall (AUCALL)</a></li>
+<li class="chapter" data-level="3.10.12" data-path="nca-analysis.html"><a href="nca-analysis.html#aucinf_obs-aucifo"><i class="fa fa-check"></i><b>3.10.12</b> AUCinf_obs (AUCIFO)</a></li>
+<li class="chapter" data-level="3.10.13" data-path="nca-analysis.html"><a href="nca-analysis.html#auc_extrap_obs-aucpeo"><i class="fa fa-check"></i><b>3.10.13</b> AUC_%Extrap_obs (AUCPEO)</a></li>
+<li class="chapter" data-level="3.10.14" data-path="nca-analysis.html"><a href="nca-analysis.html#aucinf_d_obs-aucifod"><i class="fa fa-check"></i><b>3.10.14</b> AUCinf_D_obs (AUCIFOD)</a></li>
+<li class="chapter" data-level="3.10.15" data-path="nca-analysis.html"><a href="nca-analysis.html#aucinf_pred-aucifp"><i class="fa fa-check"></i><b>3.10.15</b> AUCinf_pred (AUCIFP)</a></li>
 </ul></li>
+<li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)</a></li>
+<li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별</a>
+<ul>
+<li class="chapter" data-level="3.12.1" data-path="nca-analysis.html"><a href="nca-analysis.html#이론"><i class="fa fa-check"></i><b>3.12.1</b> 이론</a></li>
+<li class="chapter" data-level="3.12.2" data-path="nca-analysis.html"><a href="nca-analysis.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>3.12.2</b> BE R 패키지를 사용한 생물학적 동등성 판정</a></li>
+<li class="chapter" data-level="3.12.3" data-path="nca-analysis.html"><a href="nca-analysis.html#샘플-수-계산"><i class="fa fa-check"></i><b>3.12.3</b> 샘플 수 계산</a></li>
+</ul></li>
+<li class="chapter" data-level="3.13" data-path="nca-analysis.html"><a href="nca-analysis.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>3.13</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획분석(compartmental analysis)의 이론</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>4.1</b> 구획분석의 개념</a></li>
+<li class="chapter" data-level="4.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>4.2</b> 구획모델이 필요한 이유</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>4.2.1</b> 최종반감기와 관련한 이슈</a></li>
+<li class="chapter" data-level="4.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>4.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</a></li>
+<li class="chapter" data-level="4.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>4.2.3</b> PK/PD와 연관된 각종 의사결정</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="ca-principle.html"><a href="ca-principle.html#구획모델로-얻은-pk-파라미터와-nca로-얻은-pk-파라미터들의-차이점"><i class="fa fa-check"></i><b>4.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점*</a>
+<ul>
+<li class="chapter" data-level="4.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>4.3.1</b> 분포용적 파라미터들의 차이</a></li>
+<li class="chapter" data-level="4.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>4.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이</a></li>
+</ul></li>
+<li class="chapter" data-level="4.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-2"><i class="fa fa-check"></i><b>4.4</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석</a></li>
+<li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
 <li><a href="http://pipet.or.kr/books/" target="_blank">Published by PIPET</a></li>
@@ -244,7 +308,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <div id="header">
 <h1 class="title">신약개발을 위한 실전 약동학 (I - 이론과 자료해석)</h1>
 <p class="author"><em>가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)</em></p>
-<p class="date"><em>Ver. 20210419</em></p>
+<p class="date" style="margin-top: 1.5em;"><em>Ver. 20210612</em></p>
 </div>
 <div id="머리말" class="section level1 unnumbered">
 <h1>머리말</h1>
@@ -329,6 +393,7 @@ gitbook.start({
 "weibo": false,
 "instapaper": false,
 "vk": false,
+"whatsapp": false,
 "all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
 },
 "fontsettings": {
