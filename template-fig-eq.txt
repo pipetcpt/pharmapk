@@ -1,0 +1,18 @@
+
+```{r template, fig.cap = "(ref:template)"}
+knitr::include_graphics('media-01/image1.png')
+```
+
+(ref:template) 약동학과 약력학의 구분
+
+\@ref(fig:template)
+
+---
+
+\begin{equation}
+\begin{split}
+  C_{max} &= \frac{Dose}{V_{d}} \times \left( 1 + e^{- k\tau} + e^{- k2\tau} + e^{- k\tau 3} + \ldots + e^{- k\left( n - 1 \right)\tau} \right)  \\
+  &= \frac{Dose}{V_{d}} \times \frac{1 - e^{- kn\tau}}{1 - e^{- k\tau}}
+\end{split}
+(\#eq:cmax)
+\end{equation}
