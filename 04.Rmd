@@ -72,10 +72,8 @@ C_{\text{plasma}} \cdot Q = C_{\text{peripheral}} \cdot Q
 C~1~, 말초구획의 농도를 C~2~라 표기하면 식 \@ref(eq:eq4-4)와 같이 표현된다.
 
 \begin{equation}
-\begin{split}
-V_{c}\frac{\text{dC}_{1}}{\text{dt}} &= {- V}_{c} \cdot C_{1} \cdot k_{12} + V_{p} \cdot C_{2} \cdot k_{21}{- V}_{c} \cdot C_{1} \cdot k_{e} 
-&= - C_{1} \cdot Q + C_{2} \cdot Q - C_{1} \cdot \text{CL}
-\end{split}
+V_{c}\frac{\text{dC}_{1}}{\text{dt}} = {- V}_{c} \cdot C_{1} \cdot k_{12} + V_{p} \cdot C_{2} \cdot k_{21}{- V}_{c} \cdot C_{1} \cdot k_{e} 
+= - C_{1} \cdot Q + C_{2} \cdot Q - C_{1} \cdot \text{CL}
 (\#eq:eq4-4)
 \end{equation}
 

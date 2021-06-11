@@ -76,10 +76,9 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 
 # 머리말 {-}
 
-[<img src="images/cover-pdf.jpg" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk/pharmapk.pdf)
+`r if (knitr::is_html_output()) ' [<img src="images/cover-pdf.jpg" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk/pharmapk.pdf)'`
 
 \normalsize
-
 
 약동학(pharmacokinetics)은 신약의 발견부터 시판허가 이후의 관리에
 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며

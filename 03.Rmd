@@ -54,7 +54,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 
 그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다. 
 제약사와 규제기관 등에 더 높은 비용을 요구하고 있는 상황이라, NCA를 빈번하게 사용하지 않는 산업계 종사자들에게 
-분석 초보자의 경우 유료 강의를 통한 학습을 필요하거나, CDISC^[https://www.cdisc.org] 표준 용어로 파라메터를 제공하지 않아 그 의미를 따로 파악해야 하는 등의 제한점이 있을 수 있고, 비교적 경험이 쌓인 분석자의 경우 자료 분석 워크플로우를 자동화하는게 어려우며, 윈도우 환경에서만 실행 가능하다는 것도 제한점이 될 수 있다. 
+분석 초보자의 경우 유료 강의를 통한 학습을 필요하거나, CDISC 표준 용어로 파라메터를 제공하지 않아 그 의미를 따로 파악해야 하는 등의 제한점이 있을 수 있고, 비교적 경험이 쌓인 분석자의 경우 자료 분석 워크플로우를 자동화하는게 어려우며, 윈도우 환경에서만 실행 가능하다는 것도 제한점이 될 수 있다. 
 
 식약처, 미국 FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.
 
@@ -68,7 +68,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 `ncar`의 패키지 제목은 `r packageDescription("ncar")$Title`,
 `pkr`의 패키지 제목은 `r packageDescription("pkr")$Title` 이다.
 
-이들의 기저에 있는 계산 방식은 모두 동일하고 앞서 설명한 상용소프트웨어와 완전히 일치하는 결과를 낼 수 있다. `NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있다. 또한 CDISC SDTM 용어를 사용하기 때문에 표준을 준수한다는 장점도 있다.
+이들의 기저에 있는 계산 방식은 모두 동일하고 앞서 설명한 상용소프트웨어와 완전히 일치하는 결과를 낼 수 있다. `NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있다. CDISC SDTM 용어를 사용하기 때문에 표준을 준수한다는 장점도 있다.
 
 > `r packageDescription('NonCompart')$Description`
 
@@ -166,7 +166,8 @@ NonCompart 패키지의 핵심적인 기능이다.
 아래의 코드를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다. 
 
 ```{r}
-Theoph_tblNCA <- tblNCA(Theoph, "Subject", "Time", "conc", dose=320, concUnit="mg/L")
+Theoph_tblNCA <- tblNCA(Theoph, "Subject", "Time", "conc", 
+                        dose=320, concUnit="mg/L")
 ```
 
 위 코드에서 dose=320으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
@@ -343,7 +344,7 @@ NCA 시 여러 파라메터가 나오며 약어로 표현하는 경우가 많다
 ncar::RptCfg
 ```
 
-ncar::RptCfg의 일부를 첨부한다. (표 \@ref(tab:rptcfg)) `PPTESTCD`는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)^[다음과 같이 CDISC note에 표시되어 있다. 'Short name of the pharmacokinetic parameter. It can be used as a column name when converting a dataset from a vertical to a horizontal format. The value in PPTESTCD cannot be longer than 8 characters, nor can it start with a number (e.g., "1TEST"). PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: "AUCALL", "TMAX", "CMAX".' https://wiki.cdisc.org/pages/viewpage.action?pageId=42309513]와 같은 값이다. `WNL` 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름이다.
+ncar::RptCfg의 일부를 첨부한다. (표 \@ref(tab:rptcfg)) `PPTESTCD`는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)^[다음과 같이 CDISC note에 표시되어 있다. 'Short name of the pharmacokinetic parameter. PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: "AUCALL", "TMAX", "CMAX".']와 같은 값이다. `WNL` 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름이다.
 
 ```{r rptcfg, echo = FALSE}
 param_table <- ncar::RptCfg %>% 
@@ -409,11 +410,11 @@ LAMZ 계산에 사용되는 관찰 농도의 개수이다.
 
 **Lambda_z\_lower (LAMZLL)**
 
-Lambda z의 계산에 포함되는 값의 시간 하한입니다. LAMZ (터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.
+Lambda z의 계산에 포함되는 값의 시간 하한이다. LAMZ (터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.
 
 **Lambda_z\_upper (LAMZUL)**
 
-Lambda z 계산에 포함되는 값의 시간 상한입니다. LAMZ (터미널 기울기) 계산에 사용 된 마지막 시점이다.
+Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기울기) 계산에 사용 된 마지막 시점이다.
 
 **HL_Lambda_z (LAMZHL)**
 
@@ -603,9 +604,9 @@ be2x2(NCAResult4BE, c("AUClast", "Cmax", "Tmax"))
 knitr::include_graphics("assets-paper/figure-2.png")
 ```
 
-(ref:output-format) Output format of bioequivalence tests performed by BE R package.
+(ref:output-format) BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과.
 
-위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. (Table 3)
+위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. 
 
 **AUCinf**
 
@@ -623,22 +624,20 @@ EDISON Science App | 0.90136 | 0.97984 | 1.06515
 SAS: PROC GLM | 0.90136 | 0.97984 | 1.06515
 SAS: PROC MIXED | 0.90136 | 0.97984 | 1.06515
 
-### 샘플 수 계산
-
-BE 패키지를 통한 분석은 Between subject CV값과 Within Subject CV를 계산한다. 이에 근거하여 80%의 파워로 계산한 샘플수 계산을 수행하며 T/R 비 (ratio) 가 1일 때와 점추정치일 경우를 각각 계산하여 결과를 출력한다. 
-본 자료로 계산한 AUClast의 개인간 (between subject) CV값은 17.63%, 개인내 (within subject) CV값은 16.92%인 것을 알 수 있고 80% 파워로 계산한 샘플 수는 GMR이 1인 경우 6명, 점추정치인 0.95와 같은 경우 7명이 나오게 된다.
-
-```{r}
-test2x2(NCAResult4BE, "AUClast")$`Sample Size`
-```
-
 ## 웹브라우저를 통한 NCA 및 생물학적동등성 판정
 
-웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. <https://www.pipetapps.com/project/shiny-ncar/> `shiny-be`는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로  <https://www.pipetapps.com/project/shiny-be/>에서 서비스 하고 있다.
+웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. (그림 \@ref(fig:pkrshiny)) <https://www.pipetapps.com/project/pkrshiny/> `shiny-be`는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로  <https://www.pipetapps.com/project/shiny-be/>에서 서비스 하고 있다. (그림 \@ref(fig:shiny-be))
+
+```{r pkrshiny, fig.cap = "(ref:pkrshiny)", echo=FALSE}
+knitr::include_graphics("images/pkrshiny.png")
+```
+
+(ref:shiny-be) NCA용 앱, `pkrshiny` 접속 화면
+
 
 ```{r shiny-be, fig.cap = "(ref:shiny-be)", echo=FALSE}
 knitr::include_graphics("images/figure-shiny-be.png")
 ```
 
-(ref:shiny-be) R 샤이니 앱, `shiny-be` 접속 화면. <http://www.pipetapps.com/shiny-be>
+(ref:shiny-be) NCA 및 BE용 앱, `shiny-be` 접속 화면
 
