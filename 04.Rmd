@@ -182,7 +182,7 @@ height="1.851613079615048in"}
 -->
 
 ```{r fig4-4, fig.cap = "(ref:fig4-4)"}
-knitr::include_graphics('media-04/image4.png')
+knitr::include_graphics('media-04/image4.jpg')
 ```
 
 (ref:fig4-4) 동일한 Vss와 CL을 가져도 최종반감기와 C~max~가 차이나는 사례\index{반감기}
@@ -211,7 +211,7 @@ height="1.7302744969378827in"}
 -->
 
 ```{r fig4-5, fig.cap = "(ref:fig4-5)"}
-knitr::include_graphics('media-01/image1.png')
+knitr::include_graphics('media-01/image5.jpg')
 ```
 
 (ref:fig4-5) 정확한 C~max~, T~max~를 얻기 위해 NCA가 아닌 구획모델 분석이 필요한 사례
