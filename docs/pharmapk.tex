@@ -8,7 +8,7 @@
   krantz2, a4paper, twoside]{krantz}
 \title{신약개발을 위한 실전 약동학}
 \author{가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)}
-\date{Ver. 20210612}
+\date{Ver. 20210614}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -391,7 +391,7 @@
 전문가들의 역량을 더욱 잘 발휘할 수 있게 돕는 디딤돌이 된다면 저자들
 모두의 기쁨이겠습니다.
 
-\begin{center}\includegraphics[width=1\linewidth]{images/preface} \end{center}
+\#\texttt{\{r\ include\ =\ !is\_html\_output()\}\ \#include\_graphics("images/preface.pdf")\ \#}
 
 2021년 봄, 성의교정 연구실에서\\
 대표저자 임동석 拜
@@ -1201,12 +1201,12 @@ k\textsubscript{a}가 바뀌었다고 해서 t\textsubscript{1/2}가 바뀌어�
 이 장에서 지금까지 다룬 약동학은 CL이 일정하고 반감기가 일정한 선형(linear)약동학에 관한 내용이었다. \index{반감기}
 시판 중인 의약품의 거의 전부가 선형약동학을 따르지만 예외적인 경우가 있는데 phenytoin, salicylate, ethanol 등이 사람 몸에서 비선형(non-linear)약동학을 보이는 물질들이다.
 
-비선형약동학을 이해하기 위해서는 우선 그림 \ref{fig:nonlin-slope}과 식 \eqref{eq:nonlin}에 나타난 바와 같이 혈장 약물농도와 대사속도(제거속도)의 관계, CL과의 관계를 살펴보아야 한다.
+비선형약동학을 이해하기 위해서는 우선 그림 식 \eqref{eq:nonlin}에 나타난 바와 같이 혈장 약물농도와 대사속도(제거속도)의 관계, CL과의 관계를 살펴보아야 한다.
 식 \eqref{eq:nonlin}의 V\textsubscript{max}와 K\textsubscript{m}은 약을 대사시키는 장기(간)의 세포 내의 약물대사효소들(다양한 CYP이나 UGT 등)의 특성을 나타내는 값이다.
 이에 상응하는 농도는 간 세포 속의 약물농도이지만, 설명의 편의상 혈장약물농도와 동일하다고 가정하였다.
 선형약동학을 나타내는 약물은 CL가 혈장약물농도와 상관없이 일정하고, 따라서 약물제거속도는 혈장약물농도가 커질수록 정비례하여 커지게 된다(\(\frac{\text{dA}}{\text{dt}} = kA = CL \cdot C(t)\)).
 이로 인해 일정한 반감기가 존재한다. \index{반감기}
-그런데 비선형 약동학의 경우 약물의 제거 속도가 Michelis-Menten(M-M) 수식과 같은 양상을 보여 혈장농도가 높아질수록 약물제거속도가 커지기는 하지만 그 커지는 정도가 점점 둔화되어 포화되는 양상을 보인다. (그림 \ref{fig:nonlin-slope}의 오른쪽)
+그런데 비선형 약동학의 경우 약물의 제거 속도가 Michelis-Menten(M-M) 수식과 같은 양상을 보여 혈장농도가 높아질수록 약물제거속도가 커지기는 하지만 그 커지는 정도가 점점 둔화되어 포화되는 양상을 보인다.
 
 \begin{equation}
 \frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C}
@@ -1246,17 +1246,6 @@ k\textsubscript{a}가 바뀌었다고 해서 t\textsubscript{1/2}가 바뀌어�
 }
 
 \caption{phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. (\protect\hyperlink{ref-richens1975serum}{Richens and Dunlop 1975})}\label{fig:phenytoin}
-\end{figure}
-
-
-
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{media-01/image16} 
-
-}
-
-\caption{비선형약동학을 따르는 약물의 혈장약물농도가 시간에 따라 떨어지는 양상}\label{fig:nonlin-slope}
 \end{figure}
 
 
@@ -2063,7 +2052,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.2 }\ErrorTok{(}\ExtensionTok{2019{-}09{-}27}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}12 02:02:27 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}14 09:53:09 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
