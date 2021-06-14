@@ -632,7 +632,7 @@ SAS: PROC MIXED | 0.90136 | 0.97984 | 1.06515
 knitr::include_graphics("images/pkrshiny.png")
 ```
 
-(ref:shiny-be) NCA용 앱, `pkrshiny` 접속 화면
+(ref:pkrshiny) NCA용 앱, `pkrshiny` 접속 화면
 
 
 ```{r shiny-be, fig.cap = "(ref:shiny-be)", echo=FALSE}

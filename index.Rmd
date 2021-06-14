@@ -1,5 +1,5 @@
 --- 
-title: "신약개발을 위한 실전 약동학 (I - 이론과 자료해석)"
+title: "신약개발을 위한 실전 약동학"
 author: "가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)"
 date: "Ver. `r gsub('-', '', Sys.Date())`"
 documentclass: krantz
@@ -124,9 +124,9 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 모두의 기쁨이겠습니다.
 
 
-```{r include = !is_html_output()}
-include_graphics("images/preface.pdf")
-```
+#```{r include = !is_html_output()}
+#include_graphics("images/preface.pdf")
+#```
 
 2021년 봄, 성의교정 연구실에서  
 대표저자 임동석 拜

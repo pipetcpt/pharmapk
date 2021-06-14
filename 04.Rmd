@@ -1,4 +1,4 @@
-# 구획분석(compartmental analysis)의 이론 {#ca-principle}
+# 구획분석의 이론 {#ca-principle}
 
 \Large\hfill
 임동석
