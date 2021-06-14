@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  14 JUN 2021 09:56
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  14 JUN 2021 12:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2927,21 +2927,19 @@ File: media-04/image2.png Graphic file (type bmp)
 [83] [84]
 File: media-04/image3.jpg Graphic file (type bmp)
 <media-04/image3.jpg>
-
-Overfull \hbox (204.48997pt too wide) in paragraph at lines 2861--2861
-[]\TU/lmtt/m/n/11 ## Error in knitr::include_graphics("media-04/image4.png"): C
-annot find the file(s): "media-04/image4.png"[] 
+File: media-04/image4.jpg Graphic file (type bmp)
+<media-04/image4.jpg>
+[85] [86]
+Overfull \hbox (204.48997pt too wide) in paragraph at lines 2895--2895
+[]\TU/lmtt/m/n/11 ## Error in knitr::include_graphics("media-01/image5.jpg"): C
+annot find the file(s): "media-01/image5.jpg"[] 
  []
 
-[85]
-File: media-01/image1.png Graphic file (type bmp)
-<media-01/image1.png>
-[86]
-Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
-=tex-text;!
 Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
 [87]
+Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
+=tex-text;!
 Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
 [88]
@@ -2949,9 +2947,10 @@ Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mappin
 =tex-text;!
 Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
+[89]
 File: media-04/image6.png Graphic file (type bmp)
 <media-04/image6.png>
-[89] [90] [91]
+[90] [91]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -3175,10 +3174,10 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 
  ) 
 Here is how much of TeX's memory you used:
- 25973 strings out of 479827
- 434163 string characters out of 5893856
- 891974 words of memory out of 5000000
- 42607 multiletter control sequences out of 15000+600000
+ 25985 strings out of 479827
+ 434401 string characters out of 5893856
+ 891927 words of memory out of 5000000
+ 42619 multiletter control sequences out of 15000+600000
  541123 words of font info for 126 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  61i,18n,125p,1129b,2560s stack positions out of 5000i,500n,10000p,200000b,80000s
