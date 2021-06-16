@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  17 JUN 2021 00:31
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  17 JUN 2021 00:52
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2910,8 +2910,8 @@ LaTeX Font Warning: Font shape `TU/NanumMyeongjo(0)/m/sl' undefined
 (Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 2670
 .
 
-File: media-04/image1.png Graphic file (type bmp)
-<media-04/image1.png>
+File: media-04/image1rev.png Graphic file (type bmp)
+<media-04/image1rev.png>
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -3054,11 +3054,11 @@ File: media-05/fig5-2.png Graphic file (type bmp)
 File: pharmapk_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf
 )
 <use pharmapk_files/figure-latex/unnamed-chunk-25-1.pdf>
-[98]
-Underfull \vbox (badness 1796) detected at line 3232
+[98] [99]
+Underfull \vbox (badness 3977) detected at line 3260
  []
 
-[99] [100]
+[100]
 File: pharmapk_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf
 )
 <use pharmapk_files/figure-latex/unnamed-chunk-29-1.pdf>
@@ -3066,105 +3066,81 @@ File: pharmapk_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf
 File: pharmapk_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf
 )
 <use pharmapk_files/figure-latex/unnamed-chunk-30-1.pdf>
-
-Underfull \hbox (badness 10000) in paragraph at lines 3320--3323
+[102]
+Underfull \hbox (badness 10000) in paragraph at lines 3317--3320
 
  []
 
-[102] [103] [104] [105]
+[103] [104] [105]
 File: pharmapk_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf
 )
 <use pharmapk_files/figure-latex/unnamed-chunk-34-1.pdf>
-[106]
-Overfull \hbox (6.21492pt too wide) in paragraph at lines 3480--3480
-[]\TU/lmtt/m/n/11 ## Error in colnames(dPK14) = c("TIME", "DV"): object []dPK14
-[] not found[] 
- []
-
+[106] [107]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <11> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3495.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3494.
 
 
-[107]
-Overfull \hbox (210.15483pt too wide) in paragraph at lines 3520--3520
-[]\TU/lmtt/m/n/11 ## Error in nlr(fPK14a, dPK14, pNames = c("Vc/F", "Ka", "k21"
-, "alpha", "beta"), : object []dPK14[] not found[] 
+
+Underfull \vbox (badness 1796) detected at line 3517
  []
 
 [108]
-Overfull \hbox (204.48984pt too wide) in paragraph at lines 3569--3569
-[]\TU/lmtt/m/n/11 ## Error in nlr(fPK14b, dPK14, pNames = c("Vc/F", "Ka", "k21"
-, "alpha", "beta", : object []dPK14[] not found[] 
- []
-
-
-Overfull \hbox (193.15979pt too wide) in paragraph at lines 3601--3601
-[]\TU/lmtt/m/n/11 ## Error in plot(dPK14[, "TIME"], dPK14[, "DV"], xlim = c(0, 
-25), ylim = c(0, : object []dPK14[] not found[] 
+Underfull \vbox (badness 4084) detected at line 3561
  []
 
 [109]
-Overfull \hbox (102.5199pt too wide) in paragraph at lines 3621--3621
-[]\TU/lmtt/m/n/11 ## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.
-new has not been called yet[] 
+File: pharmapk_files/figure-latex/unnamed-chunk-38-1.pdf Graphic file (type pdf
+)
+<use pharmapk_files/figure-latex/unnamed-chunk-38-1.pdf>
+[110] [111] [112]
+Underfull \vbox (badness 10000) detected at line 3637
  []
 
 
-Overfull \hbox (102.5199pt too wide) in paragraph at lines 3631--3631
-[]\TU/lmtt/m/n/11 ## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.
-new has not been called yet[] 
- []
-
-[110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [
-123] [124] [125] [126] [127] [128] [129] [130] [131] [132] [133] [134]
-Underfull \vbox (badness 10000) detected at line 4457
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 4457
+Overfull \hbox (395.75pt too wide) detected at line 3637
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4457
+Underfull \vbox (badness 10000) detected at line 3637
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4457
+Overfull \hbox (395.75pt too wide) detected at line 3637
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4457
+Underfull \vbox (badness 10000) detected at line 3637
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4457
+Overfull \hbox (395.75pt too wide) detected at line 3637
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4457
+Underfull \vbox (badness 10000) detected at line 3637
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4457
+Overfull \hbox (395.75pt too wide) detected at line 3637
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4457
+Underfull \hbox (badness 10000) detected at line 3637
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NanumMyeongjo(0)/m/sl' undefined
-(Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 4457
+(Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 3637
 .
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 4483--4485
+Underfull \hbox (badness 1019) in paragraph at lines 3663--3665
 []\TU/NanumMyeongjo(0)/m/up/11 Derendorf, Hartmut, and Bernd Meibohm. 1999. “Mo
 deling of Pharmacoki-
  []
@@ -3174,7 +3150,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[135
+[113
 
 
 
@@ -3183,7 +3159,7 @@ Missing character: There is no ç in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
 Missing character: There is no ü in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
-(./pharmapk.ind [136]
+(./pharmapk.ind [114]
 Underfull \hbox (badness 10000) detected at line 1
 []
  []
@@ -3197,16 +3173,16 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[137
+[115
 
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4514.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4514.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3694.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3694.
 (./pharmapk.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4514.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4514.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3694.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3694.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
@@ -3215,12 +3191,12 @@ LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 26078 strings out of 479827
- 437363 string characters out of 5893856
+ 26086 strings out of 479827
+ 437748 string characters out of 5893856
  893195 words of memory out of 5000000
- 42703 multiletter control sequences out of 15000+600000
+ 42709 multiletter control sequences out of 15000+600000
  541131 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  61i,18n,125p,1129b,2560s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on pharmapk.pdf (147 pages).
+Output written on pharmapk.pdf (125 pages).

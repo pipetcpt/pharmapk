@@ -32,7 +32,7 @@ NCA에 비해 찾아야 할 파라미터들이 많고 거기에 따르는 가정
 -->
 
 ```{r two-comp-ex, fig.cap = "(ref:two-comp-ex)", out.width="100%"}
-knitr::include_graphics('media-04/image1.png')
+knitr::include_graphics('media-04/image1rev.png')
 ```
 
 (ref:two-comp-ex) 2구획모델의 예 

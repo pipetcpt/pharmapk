@@ -330,7 +330,6 @@ div.csl-indent {
 중심구획은 관류(perfusion)가 빠른 기관(예: 간, 신장)을 나타내는데 이는 약물의 분포와 관계하고 α phase 로 나타낸다.
 반면 말초구획은 관류가 느린 기관(예: 근육, 지방)을 나타내며 이는 약물의 소실과 관계하고 β phase 로 나타낸다.
 2구획 모델의 혈장농도 로그값은 시간에 대해 기울기가 두 개인 이직선적으로 감소하는 양상을 나타내는데, 처음의 빠른 기울기는 분포기를 나타내고, 나중의 느린 기울기는 소실기를 나타내게 된다.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="ca-analysis.html#cb31-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;media-05/fig5-1.png&quot;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:fig5-1"></span>
 <img src="media-05/fig5-1.png" alt="3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도" width="100%" />
 <p class="caption">
@@ -405,15 +404,15 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 <div id="구획모델을-이용한-경구투여-후-약동학-자료-분석" class="section level2" number="5.4">
 <h2><span class="header-section-number">5.4</span> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</h2>
 <p>아래의 코드로 <code>wnl</code> 라이브러리를 불러오고 hands-on1.csv<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> 파일을 읽어올 수 있다.</p>
-<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="ca-analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
-<span id="cb32-2"><a href="ca-analysis.html#cb32-2" aria-hidden="true" tabindex="-1"></a>dPK02 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/hands-on1.csv&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
-<span id="cb32-3"><a href="ca-analysis.html#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dPK02) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>)</span>
-<span id="cb32-4"><a href="ca-analysis.html#cb32-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dPK02[,<span class="st">&quot;TIME&quot;</span>], dPK02[,<span class="st">&quot;DV&quot;</span>], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">400</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>), </span>
-<span id="cb32-5"><a href="ca-analysis.html#cb32-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>, <span class="at">pch=</span><span class="dv">16</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="ca-analysis.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
+<span id="cb31-2"><a href="ca-analysis.html#cb31-2" aria-hidden="true" tabindex="-1"></a>dPK02 <span class="ot">=</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/hands-on1.csv&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb31-3"><a href="ca-analysis.html#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dPK02) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>)</span>
+<span id="cb31-4"><a href="ca-analysis.html#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dPK02[,<span class="st">&quot;TIME&quot;</span>], dPK02[,<span class="st">&quot;DV&quot;</span>], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">400</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>), </span>
+<span id="cb31-5"><a href="ca-analysis.html#cb31-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>, <span class="at">pch=</span><span class="dv">16</span>)</span></code></pre></div>
 <p><img src="pharmapk_files/figure-html/unnamed-chunk-25-1.svg" width="100%" style="display: block; margin: auto;" /></p>
 <p>먼저 NCA 분석을 수행한다. Tmax는 40분, Cmax는 2.00 ug/L인 것을 알 수 있다.</p>
-<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="ca-analysis.html#cb33-1" aria-hidden="true" tabindex="-1"></a>NonCompart<span class="sc">::</span><span class="fu">sNCA</span>(dPK02[,<span class="st">&quot;TIME&quot;</span>], dPK02[,<span class="st">&quot;DV&quot;</span>], </span>
-<span id="cb33-2"><a href="ca-analysis.html#cb33-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dose=</span><span class="dv">100</span>, <span class="at">doseUnit=</span><span class="st">&quot;ug&quot;</span>, <span class="at">timeUnit=</span><span class="st">&quot;min&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="ca-analysis.html#cb32-1" aria-hidden="true" tabindex="-1"></a>NonCompart<span class="sc">::</span><span class="fu">sNCA</span>(dPK02[,<span class="st">&quot;TIME&quot;</span>], dPK02[,<span class="st">&quot;DV&quot;</span>], </span>
+<span id="cb32-2"><a href="ca-analysis.html#cb32-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">dose=</span><span class="dv">100</span>, <span class="at">doseUnit=</span><span class="st">&quot;ug&quot;</span>, <span class="at">timeUnit=</span><span class="st">&quot;min&quot;</span>)</span></code></pre></div>
 <pre><code>##         b0       CMAX      CMAXD       TMAX       TLAG 
 ##  1.558e+00  2.000e+00  2.000e-02  4.000e+01  1.000e+01 
 ##       CLST      CLSTP       TLST     LAMZHL       LAMZ 
@@ -445,26 +444,28 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## [34] &quot;min&quot;         &quot;min&quot;         &quot;min&quot;        
 ## attr(,&quot;UsedPoints&quot;)
 ## [1]  7  8  9 10 11 12 13</code></pre>
+<p>아래에서 경구 복용 후 1차 지수로 감소하는 약물에서의 약동학 모형을 사용한다.
+이 경우에는 wnl 패키지 내부에 기본적 equation이 정의되어 있으므로 추가적인 equation을 입력하지 않고 각각의 파라미터의 값에 해당하는 THETA에 대해서만 입력하였다.
+필요한 THETA는 k(제거 속도 상수), k<sub>a</sub>(흡수 속도 상수), V(부피), t<sub>lag</sub>(흡수가 지연되는 시간)이다.</p>
 <div id="compartmental-analysis-without-tlag" class="section level3" number="5.4.1">
 <h3><span class="header-section-number">5.4.1</span> Compartmental analysis without Tlag</h3>
 <p>아래는 경구 투여 일구획 분석, 지연시간이 없는 모형이다.
-<code>ka, V, k</code>로 농도를 나타낼 수 있다.
 모델의 R script 입력 여기서 THETA[1], THETA[2], THETA[3]는 각각 파라미터 중 k(제거 속도 상수), k<sub>a</sub>(흡수 속도 상수), V(부피)를 의미한다.
 각각의 nonlinear regression을 위해서 theta에 대한 initial value를 넣어준다. (<code>nlr()</code> 함수의 <code>IE()</code> 인자에 적용)</p>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="ca-analysis.html#cb35-1" aria-hidden="true" tabindex="-1"></a>DOSE <span class="ot">=</span> <span class="dv">100</span></span>
-<span id="cb35-2"><a href="ca-analysis.html#cb35-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-3"><a href="ca-analysis.html#cb35-3" aria-hidden="true" tabindex="-1"></a>fPK02a <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
-<span id="cb35-4"><a href="ca-analysis.html#cb35-4" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb35-5"><a href="ca-analysis.html#cb35-5" aria-hidden="true" tabindex="-1"></a>  Ka <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb35-6"><a href="ca-analysis.html#cb35-6" aria-hidden="true" tabindex="-1"></a>  V  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb35-7"><a href="ca-analysis.html#cb35-7" aria-hidden="true" tabindex="-1"></a>  K  <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
-<span id="cb35-8"><a href="ca-analysis.html#cb35-8" aria-hidden="true" tabindex="-1"></a>  Cp <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>TIME)) <span class="co"># eq 2:1</span></span>
-<span id="cb35-9"><a href="ca-analysis.html#cb35-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
-<span id="cb35-10"><a href="ca-analysis.html#cb35-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb35-11"><a href="ca-analysis.html#cb35-11" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> dPK02[,<span class="st">&quot;TIME&quot;</span>]</span>
-<span id="cb35-12"><a href="ca-analysis.html#cb35-12" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">=</span> <span class="fu">nlr</span>(fPK02a, dPK02, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">30</span>, <span class="fl">0.05</span>))</span>
-<span id="cb35-13"><a href="ca-analysis.html#cb35-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb35-14"><a href="ca-analysis.html#cb35-14" aria-hidden="true" tabindex="-1"></a>r1<span class="sc">$</span>Est</span></code></pre></div>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="ca-analysis.html#cb34-1" aria-hidden="true" tabindex="-1"></a>DOSE <span class="ot">=</span> <span class="dv">100</span></span>
+<span id="cb34-2"><a href="ca-analysis.html#cb34-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-3"><a href="ca-analysis.html#cb34-3" aria-hidden="true" tabindex="-1"></a>fPK02a <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
+<span id="cb34-4"><a href="ca-analysis.html#cb34-4" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb34-5"><a href="ca-analysis.html#cb34-5" aria-hidden="true" tabindex="-1"></a>  Ka <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
+<span id="cb34-6"><a href="ca-analysis.html#cb34-6" aria-hidden="true" tabindex="-1"></a>  V  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
+<span id="cb34-7"><a href="ca-analysis.html#cb34-7" aria-hidden="true" tabindex="-1"></a>  K  <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
+<span id="cb34-8"><a href="ca-analysis.html#cb34-8" aria-hidden="true" tabindex="-1"></a>  Cp <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>TIME)) <span class="co"># eq 2:1</span></span>
+<span id="cb34-9"><a href="ca-analysis.html#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
+<span id="cb34-10"><a href="ca-analysis.html#cb34-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb34-11"><a href="ca-analysis.html#cb34-11" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> dPK02[,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb34-12"><a href="ca-analysis.html#cb34-12" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">=</span> <span class="fu">nlr</span>(fPK02a, dPK02, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">30</span>, <span class="fl">0.05</span>))</span>
+<span id="cb34-13"><a href="ca-analysis.html#cb34-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb34-14"><a href="ca-analysis.html#cb34-14" aria-hidden="true" tabindex="-1"></a>r1<span class="sc">$</span>Est</span></code></pre></div>
 <pre><code>##            ka      V         k AddErrVar AddErrSD
 ## PE   0.013202 21.018  0.013202   0.08701  0.29498
 ## SE   0.005442  8.623  0.005442   0.03413  0.05785
@@ -472,21 +473,21 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 </div>
 <div id="compartmental-analysis-with-tlag" class="section level3" number="5.4.2">
 <h3><span class="header-section-number">5.4.2</span> Compartmental analysis with Tlag</h3>
-<p>경구 투여 일구획 분석, 지연시간이 있는 모형이다. Ka, V, K에 Tlag가 추가되어 농도를 나타낼 수 있다.</p>
-<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="ca-analysis.html#cb37-1" aria-hidden="true" tabindex="-1"></a>fPK02b <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
-<span id="cb37-2"><a href="ca-analysis.html#cb37-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb37-3"><a href="ca-analysis.html#cb37-3" aria-hidden="true" tabindex="-1"></a>  Ka   <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb37-4"><a href="ca-analysis.html#cb37-4" aria-hidden="true" tabindex="-1"></a>  V    <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb37-5"><a href="ca-analysis.html#cb37-5" aria-hidden="true" tabindex="-1"></a>  K    <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
-<span id="cb37-6"><a href="ca-analysis.html#cb37-6" aria-hidden="true" tabindex="-1"></a>  tlag <span class="ot">=</span> THETA[<span class="dv">4</span>]</span>
-<span id="cb37-7"><a href="ca-analysis.html#cb37-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-8"><a href="ca-analysis.html#cb37-8" aria-hidden="true" tabindex="-1"></a>  Cp  <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>(TIME <span class="sc">-</span> tlag)) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>(TIME <span class="sc">-</span> tlag))) <span class="co"># eq 2:2</span></span>
-<span id="cb37-9"><a href="ca-analysis.html#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
-<span id="cb37-10"><a href="ca-analysis.html#cb37-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb37-11"><a href="ca-analysis.html#cb37-11" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> dPK02[,<span class="st">&quot;TIME&quot;</span>]</span>
-<span id="cb37-12"><a href="ca-analysis.html#cb37-12" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">=</span> <span class="fu">nlr</span>(fPK02b, dPK02, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>, <span class="st">&quot;tlag&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">30</span>, <span class="fl">0.05</span>, <span class="dv">20</span>))</span>
-<span id="cb37-13"><a href="ca-analysis.html#cb37-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb37-14"><a href="ca-analysis.html#cb37-14" aria-hidden="true" tabindex="-1"></a>r2<span class="sc">$</span>Est</span></code></pre></div>
+<p>경구 투여 일구획 분석, 지연시간이 있는 모형이다. k<sub>a</sub>, V, k에 T<sub>lag</sub>가 추가되어 농도를 나타낼 수 있다.</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="ca-analysis.html#cb36-1" aria-hidden="true" tabindex="-1"></a>fPK02b <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
+<span id="cb36-2"><a href="ca-analysis.html#cb36-2" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb36-3"><a href="ca-analysis.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  Ka   <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
+<span id="cb36-4"><a href="ca-analysis.html#cb36-4" aria-hidden="true" tabindex="-1"></a>  V    <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
+<span id="cb36-5"><a href="ca-analysis.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  K    <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
+<span id="cb36-6"><a href="ca-analysis.html#cb36-6" aria-hidden="true" tabindex="-1"></a>  tlag <span class="ot">=</span> THETA[<span class="dv">4</span>]</span>
+<span id="cb36-7"><a href="ca-analysis.html#cb36-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-8"><a href="ca-analysis.html#cb36-8" aria-hidden="true" tabindex="-1"></a>  Cp  <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>(TIME <span class="sc">-</span> tlag)) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>(TIME <span class="sc">-</span> tlag))) <span class="co"># eq 2:2</span></span>
+<span id="cb36-9"><a href="ca-analysis.html#cb36-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
+<span id="cb36-10"><a href="ca-analysis.html#cb36-10" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb36-11"><a href="ca-analysis.html#cb36-11" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> dPK02[,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb36-12"><a href="ca-analysis.html#cb36-12" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">=</span> <span class="fu">nlr</span>(fPK02b, dPK02, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>, <span class="st">&quot;tlag&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">30</span>, <span class="fl">0.05</span>, <span class="dv">20</span>))</span>
+<span id="cb36-13"><a href="ca-analysis.html#cb36-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb36-14"><a href="ca-analysis.html#cb36-14" aria-hidden="true" tabindex="-1"></a>r2<span class="sc">$</span>Est</span></code></pre></div>
 <pre><code>##           ka      V         k    tlag AddErrVar
 ## PE   0.02747 27.354  0.010511 11.3754  0.015494
 ## SE   0.00606  4.149  0.001938  0.8676  0.006077
@@ -498,13 +499,13 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 </div>
 <div id="modeling-result" class="section level3" number="5.4.3">
 <h3><span class="header-section-number">5.4.3</span> Modeling Result</h3>
-<p>지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. Cmax 부분을 주의깊게 살펴야 한다.</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="ca-analysis.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure 2.3, p 480</span></span>
-<span id="cb39-2"><a href="ca-analysis.html#cb39-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dPK02[,<span class="st">&quot;TIME&quot;</span>], dPK02[,<span class="st">&quot;DV&quot;</span>], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">400</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>), </span>
-<span id="cb39-3"><a href="ca-analysis.html#cb39-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>, <span class="at">pch=</span><span class="dv">16</span>)</span>
-<span id="cb39-4"><a href="ca-analysis.html#cb39-4" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">400</span></span>
-<span id="cb39-5"><a href="ca-analysis.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK02a</span>(r1<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]), <span class="at">lty=</span><span class="dv">2</span>)</span>
-<span id="cb39-6"><a href="ca-analysis.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK02b</span>(r2<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]))</span></code></pre></div>
+<p>위 두개의 모델을 비교할 때 지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. C<sub>max</sub> 부분을 주의깊게 살펴야 한다.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="ca-analysis.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure 2.3, p 480</span></span>
+<span id="cb38-2"><a href="ca-analysis.html#cb38-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dPK02[,<span class="st">&quot;TIME&quot;</span>], dPK02[,<span class="st">&quot;DV&quot;</span>], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">400</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="fl">2.5</span>), </span>
+<span id="cb38-3"><a href="ca-analysis.html#cb38-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>, <span class="at">pch=</span><span class="dv">16</span>)</span>
+<span id="cb38-4"><a href="ca-analysis.html#cb38-4" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> <span class="dv">0</span><span class="sc">:</span><span class="dv">400</span></span>
+<span id="cb38-5"><a href="ca-analysis.html#cb38-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK02a</span>(r1<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>]), <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb38-6"><a href="ca-analysis.html#cb38-6" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK02b</span>(r2<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]))</span></code></pre></div>
 <p><img src="pharmapk_files/figure-html/unnamed-chunk-29-1.svg" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -513,13 +514,13 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 <p><code>wnl</code> 라이브러리를 불러오고 자료를 읽어온다.
 이전 예제에서는 1명의 경구투약 후 농도 자료였고, 이번 예제는 4명의 IV 투약 후 농도 자료이다.
 <code>hands-on2.csv</code><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>를 읽어 들인 후 그림을 통해 자료의 탐색을 수행한다.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="ca-analysis.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
-<span id="cb40-2"><a href="ca-analysis.html#cb40-2" aria-hidden="true" tabindex="-1"></a>dPK01 <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">&quot;data/hands-on2.csv&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
-<span id="cb40-3"><a href="ca-analysis.html#cb40-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dPK01) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="st">&quot;ID&quot;</span>)</span>
-<span id="cb40-4"><a href="ca-analysis.html#cb40-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-5"><a href="ca-analysis.html#cb40-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb40-6"><a href="ca-analysis.html#cb40-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dPK01, <span class="fu">aes</span>(TIME, DV, <span class="at">group =</span> ID, <span class="at">color =</span> <span class="fu">as.factor</span>(ID))) <span class="sc">+</span></span>
-<span id="cb40-7"><a href="ca-analysis.html#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="ca-analysis.html#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
+<span id="cb39-2"><a href="ca-analysis.html#cb39-2" aria-hidden="true" tabindex="-1"></a>dPK01 <span class="ot">&lt;-</span>  <span class="fu">read.csv</span>(<span class="st">&quot;data/hands-on2.csv&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb39-3"><a href="ca-analysis.html#cb39-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dPK01) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>, <span class="st">&quot;ID&quot;</span>)</span>
+<span id="cb39-4"><a href="ca-analysis.html#cb39-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb39-5"><a href="ca-analysis.html#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
+<span id="cb39-6"><a href="ca-analysis.html#cb39-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(dPK01, <span class="fu">aes</span>(TIME, DV, <span class="at">group =</span> ID, <span class="at">color =</span> <span class="fu">as.factor</span>(ID))) <span class="sc">+</span></span>
+<span id="cb39-7"><a href="ca-analysis.html#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span> <span class="fu">geom_point</span>() <span class="sc">+</span> <span class="fu">scale_y_log10</span>()</span></code></pre></div>
 <p><img src="pharmapk_files/figure-html/unnamed-chunk-30-1.svg" width="100%" style="display: block; margin: auto;" /></p>
 <ul>
 <li>4명의 피험자 모두 대략적으로 시간에 따른 농도 감소가 단항 지수함수적인 것을 관찰할 수 있다.</li>
@@ -530,8 +531,8 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 해당하는 농도가 높은 쪽이 분포용적이 더 작을 것이라 예상할 수 있다.</li>
 </ul>
 <p>이러한 탐색을 수치적인 해석으로 확장하기 위해 4명 자료의 NCA 분석을 수행한다. 3장에서 다루었던 <code>tblNCA()</code> 함수를 사용해 계산할 수 있다.</p>
-<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="ca-analysis.html#cb41-1" aria-hidden="true" tabindex="-1"></a>NonCompart<span class="sc">::</span><span class="fu">tblNCA</span>(dPK01, <span class="at">key=</span><span class="st">&quot;ID&quot;</span>, <span class="at">colTime=</span><span class="st">&quot;TIME&quot;</span>, </span>
-<span id="cb41-2"><a href="ca-analysis.html#cb41-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colConc=</span><span class="st">&quot;DV&quot;</span>, <span class="at">dose=</span><span class="dv">10</span>, <span class="at">adm=</span><span class="st">&quot;Bolus&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="ca-analysis.html#cb40-1" aria-hidden="true" tabindex="-1"></a>NonCompart<span class="sc">::</span><span class="fu">tblNCA</span>(dPK01, <span class="at">key=</span><span class="st">&quot;ID&quot;</span>, <span class="at">colTime=</span><span class="st">&quot;TIME&quot;</span>, </span>
+<span id="cb40-2"><a href="ca-analysis.html#cb40-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colConc=</span><span class="st">&quot;DV&quot;</span>, <span class="at">dose=</span><span class="dv">10</span>, <span class="at">adm=</span><span class="st">&quot;Bolus&quot;</span>)</span></code></pre></div>
 <pre><code>##   ID    b0 CMAX CMAXD TMAX TLAG CLST  CLSTP TLST
 ## 1  1 6.919  920  92.0   10   NA  200 211.19  150
 ## 2  2 6.934  850  85.0   10   NA   42  45.18  150
@@ -566,28 +567,28 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 <div id="compartmental-analysis" class="section level2" number="5.6">
 <h2><span class="header-section-number">5.6</span> Compartmental analysis</h2>
 <p>V, K만 있으면 단항 지수함수적 농도 감소를 보이는 IV dosing의 농도를 나타낼 수 있으므로 아래와 같이 간단한 함수를 만들 수 있다.</p>
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="ca-analysis.html#cb43-1" aria-hidden="true" tabindex="-1"></a>IDs <span class="ot">=</span> <span class="fu">unique</span>(dPK01[,<span class="st">&quot;ID&quot;</span>])</span>
-<span id="cb43-2"><a href="ca-analysis.html#cb43-2" aria-hidden="true" tabindex="-1"></a>nID <span class="ot">=</span> <span class="fu">length</span>(IDs)</span>
-<span id="cb43-3"><a href="ca-analysis.html#cb43-3" aria-hidden="true" tabindex="-1"></a>DOSE <span class="ot">=</span> <span class="dv">10000</span> <span class="co"># ug</span></span>
-<span id="cb43-4"><a href="ca-analysis.html#cb43-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-5"><a href="ca-analysis.html#cb43-5" aria-hidden="true" tabindex="-1"></a>fPK01 <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
-<span id="cb43-6"><a href="ca-analysis.html#cb43-6" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb43-7"><a href="ca-analysis.html#cb43-7" aria-hidden="true" tabindex="-1"></a>  V  <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb43-8"><a href="ca-analysis.html#cb43-8" aria-hidden="true" tabindex="-1"></a>  K  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb43-9"><a href="ca-analysis.html#cb43-9" aria-hidden="true" tabindex="-1"></a>  Cp <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME)  <span class="co"># External DOSE, TIME, eq 1:2</span></span>
-<span id="cb43-10"><a href="ca-analysis.html#cb43-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
-<span id="cb43-11"><a href="ca-analysis.html#cb43-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="ca-analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a>IDs <span class="ot">=</span> <span class="fu">unique</span>(dPK01[,<span class="st">&quot;ID&quot;</span>])</span>
+<span id="cb42-2"><a href="ca-analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a>nID <span class="ot">=</span> <span class="fu">length</span>(IDs)</span>
+<span id="cb42-3"><a href="ca-analysis.html#cb42-3" aria-hidden="true" tabindex="-1"></a>DOSE <span class="ot">=</span> <span class="dv">10000</span> <span class="co"># ug</span></span>
+<span id="cb42-4"><a href="ca-analysis.html#cb42-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb42-5"><a href="ca-analysis.html#cb42-5" aria-hidden="true" tabindex="-1"></a>fPK01 <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
+<span id="cb42-6"><a href="ca-analysis.html#cb42-6" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb42-7"><a href="ca-analysis.html#cb42-7" aria-hidden="true" tabindex="-1"></a>  V  <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
+<span id="cb42-8"><a href="ca-analysis.html#cb42-8" aria-hidden="true" tabindex="-1"></a>  K  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
+<span id="cb42-9"><a href="ca-analysis.html#cb42-9" aria-hidden="true" tabindex="-1"></a>  Cp <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME)  <span class="co"># External DOSE, TIME, eq 1:2</span></span>
+<span id="cb42-10"><a href="ca-analysis.html#cb42-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
+<span id="cb42-11"><a href="ca-analysis.html#cb42-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p>Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기 위해서 <code>for</code> 함수를 사용하게 되는데, 다소 복잡해보이지만 <code>nlr</code> 함수를 여러번 사용하며 각 대상자의 약동학 파라메터 추정을 수행하는 것이 핵심이다.</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="ca-analysis.html#cb44-1" aria-hidden="true" tabindex="-1"></a>Result <span class="ot">=</span> <span class="fu">vector</span>()</span>
-<span id="cb44-2"><a href="ca-analysis.html#cb44-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
-<span id="cb44-3"><a href="ca-analysis.html#cb44-3" aria-hidden="true" tabindex="-1"></a>  cID <span class="ot">=</span> IDs[i]</span>
-<span id="cb44-4"><a href="ca-analysis.html#cb44-4" aria-hidden="true" tabindex="-1"></a>  Data <span class="ot">=</span> dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,]</span>
-<span id="cb44-5"><a href="ca-analysis.html#cb44-5" aria-hidden="true" tabindex="-1"></a>  TIME <span class="ot">=</span> dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,<span class="st">&quot;TIME&quot;</span>]</span>
-<span id="cb44-6"><a href="ca-analysis.html#cb44-6" aria-hidden="true" tabindex="-1"></a>  Res <span class="ot">=</span> <span class="fu">nlr</span>(fPK01, Data, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="dv">20</span>, <span class="fl">0.2</span>),</span>
-<span id="cb44-7"><a href="ca-analysis.html#cb44-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecNames=</span><span class="fu">c</span>(<span class="st">&quot;CL&quot;</span>, <span class="st">&quot;AUC&quot;</span>, <span class="st">&quot;AUMC&quot;</span> , <span class="st">&quot;Thalf&quot;</span>, <span class="st">&quot;MRT&quot;</span>), </span>
-<span id="cb44-8"><a href="ca-analysis.html#cb44-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecForms=</span><span class="fu">c</span>(<span class="sc">~</span>V<span class="sc">*</span>k, <span class="sc">~</span>DOSE<span class="sc">/</span>V<span class="sc">/</span>k, <span class="sc">~</span>DOSE<span class="sc">/</span>V<span class="sc">/</span>k<span class="sc">/</span>k, <span class="sc">~</span><span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>k, <span class="sc">~</span><span class="dv">1</span><span class="sc">/</span>k))</span>
-<span id="cb44-9"><a href="ca-analysis.html#cb44-9" aria-hidden="true" tabindex="-1"></a>  Result <span class="ot">=</span> <span class="fu">rbind</span>(Result, <span class="fu">cbind</span>(<span class="at">ID=</span>cID, Res<span class="sc">$</span>Est))</span>
-<span id="cb44-10"><a href="ca-analysis.html#cb44-10" aria-hidden="true" tabindex="-1"></a>} ; Result</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="ca-analysis.html#cb43-1" aria-hidden="true" tabindex="-1"></a>Result <span class="ot">=</span> <span class="fu">vector</span>()</span>
+<span id="cb43-2"><a href="ca-analysis.html#cb43-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
+<span id="cb43-3"><a href="ca-analysis.html#cb43-3" aria-hidden="true" tabindex="-1"></a>  cID <span class="ot">=</span> IDs[i]</span>
+<span id="cb43-4"><a href="ca-analysis.html#cb43-4" aria-hidden="true" tabindex="-1"></a>  Data <span class="ot">=</span> dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,]</span>
+<span id="cb43-5"><a href="ca-analysis.html#cb43-5" aria-hidden="true" tabindex="-1"></a>  TIME <span class="ot">=</span> dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb43-6"><a href="ca-analysis.html#cb43-6" aria-hidden="true" tabindex="-1"></a>  Res <span class="ot">=</span> <span class="fu">nlr</span>(fPK01, Data, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="dv">20</span>, <span class="fl">0.2</span>),</span>
+<span id="cb43-7"><a href="ca-analysis.html#cb43-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecNames=</span><span class="fu">c</span>(<span class="st">&quot;CL&quot;</span>, <span class="st">&quot;AUC&quot;</span>, <span class="st">&quot;AUMC&quot;</span> , <span class="st">&quot;Thalf&quot;</span>, <span class="st">&quot;MRT&quot;</span>), </span>
+<span id="cb43-8"><a href="ca-analysis.html#cb43-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecForms=</span><span class="fu">c</span>(<span class="sc">~</span>V<span class="sc">*</span>k, <span class="sc">~</span>DOSE<span class="sc">/</span>V<span class="sc">/</span>k, <span class="sc">~</span>DOSE<span class="sc">/</span>V<span class="sc">/</span>k<span class="sc">/</span>k, <span class="sc">~</span><span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>k, <span class="sc">~</span><span class="dv">1</span><span class="sc">/</span>k))</span>
+<span id="cb43-9"><a href="ca-analysis.html#cb43-9" aria-hidden="true" tabindex="-1"></a>  Result <span class="ot">=</span> <span class="fu">rbind</span>(Result, <span class="fu">cbind</span>(<span class="at">ID=</span>cID, Res<span class="sc">$</span>Est))</span>
+<span id="cb43-10"><a href="ca-analysis.html#cb43-10" aria-hidden="true" tabindex="-1"></a>} ; Result</span></code></pre></div>
 <pre><code>##     ID       V         k AddErrVar AddErrSD       CL
 ## PE   1  9.9784 0.0102561    432.74   20.802 0.102340
 ## SE   1  0.1834 0.0003874    193.53    4.652 0.002597
@@ -616,15 +617,15 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## RSE 2.119e+00 5.135e+00  3.1292   3.1292</code></pre>
 <div id="modeling-result-1" class="section level3" number="5.6.1">
 <h3><span class="header-section-number">5.6.1</span> Modeling Result</h3>
-<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ca-analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure 1.1, p 470</span></span>
-<span id="cb46-2"><a href="ca-analysis.html#cb46-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">160</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">1000</span>), <span class="at">log=</span><span class="st">&quot;y&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>)</span>
-<span id="cb46-3"><a href="ca-analysis.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
-<span id="cb46-4"><a href="ca-analysis.html#cb46-4" aria-hidden="true" tabindex="-1"></a>  cID <span class="ot">=</span> IDs[i]</span>
-<span id="cb46-5"><a href="ca-analysis.html#cb46-5" aria-hidden="true" tabindex="-1"></a>  TIME <span class="ot">=</span> dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,<span class="st">&quot;TIME&quot;</span>]</span>
-<span id="cb46-6"><a href="ca-analysis.html#cb46-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(TIME, dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,<span class="st">&quot;DV&quot;</span>], <span class="at">pch=</span><span class="dv">14</span><span class="sc">+</span>i)</span>
-<span id="cb46-7"><a href="ca-analysis.html#cb46-7" aria-hidden="true" tabindex="-1"></a>  cTHETA <span class="ot">=</span> Result[Result[,<span class="st">&quot;ID&quot;</span>]<span class="sc">==</span>cID <span class="sc">&amp;</span> <span class="fu">rownames</span>(Result)<span class="sc">==</span><span class="st">&quot;PE&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>)]</span>
-<span id="cb46-8"><a href="ca-analysis.html#cb46-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(TIME, <span class="fu">fPK01</span>(cTHETA))   </span>
-<span id="cb46-9"><a href="ca-analysis.html#cb46-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="ca-analysis.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Figure 1.1, p 470</span></span>
+<span id="cb45-2"><a href="ca-analysis.html#cb45-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">type=</span><span class="st">&quot;n&quot;</span>, <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">160</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">10</span>, <span class="dv">1000</span>), <span class="at">log=</span><span class="st">&quot;y&quot;</span>, <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>)</span>
+<span id="cb45-3"><a href="ca-analysis.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
+<span id="cb45-4"><a href="ca-analysis.html#cb45-4" aria-hidden="true" tabindex="-1"></a>  cID <span class="ot">=</span> IDs[i]</span>
+<span id="cb45-5"><a href="ca-analysis.html#cb45-5" aria-hidden="true" tabindex="-1"></a>  TIME <span class="ot">=</span> dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb45-6"><a href="ca-analysis.html#cb45-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">points</span>(TIME, dPK01[dPK01<span class="sc">$</span>ID <span class="sc">==</span> cID,<span class="st">&quot;DV&quot;</span>], <span class="at">pch=</span><span class="dv">14</span><span class="sc">+</span>i)</span>
+<span id="cb45-7"><a href="ca-analysis.html#cb45-7" aria-hidden="true" tabindex="-1"></a>  cTHETA <span class="ot">=</span> Result[Result[,<span class="st">&quot;ID&quot;</span>]<span class="sc">==</span>cID <span class="sc">&amp;</span> <span class="fu">rownames</span>(Result)<span class="sc">==</span><span class="st">&quot;PE&quot;</span>, <span class="fu">c</span>(<span class="st">&quot;V&quot;</span>, <span class="st">&quot;k&quot;</span>)]</span>
+<span id="cb45-8"><a href="ca-analysis.html#cb45-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lines</span>(TIME, <span class="fu">fPK01</span>(cTHETA))   </span>
+<span id="cb45-9"><a href="ca-analysis.html#cb45-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 <p><img src="pharmapk_files/figure-html/unnamed-chunk-34-1.svg" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
@@ -632,897 +633,136 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 <h2><span class="header-section-number">5.7</span> 2구획모델 경구 흡수 이용한 약동학 자료 분석</h2>
 <p><code>wnl</code> 라이브러리를 불러오고 자료를 읽어온다.
 <code>hands-on3.csv</code><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>를 읽어 들인 후 모델링을 수행한다.</p>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="ca-analysis.html#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
-<span id="cb47-2"><a href="ca-analysis.html#cb47-2" aria-hidden="true" tabindex="-1"></a>dPK14 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data-old/PK14.csv&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## Error in file(file, &quot;rt&quot;): cannot open the connection</code></pre>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="ca-analysis.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dPK14) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>) ; dPK14</span></code></pre></div>
-<pre><code>## Error in colnames(dPK14) = c(&quot;TIME&quot;, &quot;DV&quot;): object &#39;dPK14&#39; not found</code></pre>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;dPK14&#39; not found</code></pre>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="ca-analysis.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
+<span id="cb46-2"><a href="ca-analysis.html#cb46-2" aria-hidden="true" tabindex="-1"></a>dPK14 <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">&quot;data/hands-on3.csv&quot;</span>, <span class="at">skip=</span><span class="dv">1</span>)</span>
+<span id="cb46-3"><a href="ca-analysis.html#cb46-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(dPK14) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>) ; dPK14</span></code></pre></div>
+<pre><code>##      TIME     DV
+## 1   0.083  13.90
+## 2   0.167 152.00
+## 3   0.250 226.00
+## 4   0.500 204.00
+## 5   1.000 149.00
+## 6   1.500 100.00
+## 7   2.000  66.00
+## 8   3.000  36.00
+## 9   4.000  17.70
+## 10  6.000   6.90
+## 11  8.000   3.96
+## 12 12.000   2.89
+## 13 24.000   0.90
+## 14 25.000   0.90</code></pre>
 <div id="compartmental-analysis-without-tlag-1" class="section level3" number="5.7.1">
 <h3><span class="header-section-number">5.7.1</span> Compartmental analysis without Tlag</h3>
-<p>아래의 코드는 경구 투여 2구획 분석, 지연시간이 없는 모형이다. Ka, V, k21, alpha, beta 로 농도를 나타낼 수 있다.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="ca-analysis.html#cb52-1" aria-hidden="true" tabindex="-1"></a>Dpo <span class="ot">=</span> <span class="dv">23158</span></span>
-<span id="cb52-2"><a href="ca-analysis.html#cb52-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-3"><a href="ca-analysis.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="do">## without lag</span></span>
-<span id="cb52-4"><a href="ca-analysis.html#cb52-4" aria-hidden="true" tabindex="-1"></a>fPK14a <span class="ot">=</span> <span class="cf">function</span>(THETA)</span>
-<span id="cb52-5"><a href="ca-analysis.html#cb52-5" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb52-6"><a href="ca-analysis.html#cb52-6" aria-hidden="true" tabindex="-1"></a>  Vc  <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb52-7"><a href="ca-analysis.html#cb52-7" aria-hidden="true" tabindex="-1"></a>  Ka  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb52-8"><a href="ca-analysis.html#cb52-8" aria-hidden="true" tabindex="-1"></a>  k21 <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
-<span id="cb52-9"><a href="ca-analysis.html#cb52-9" aria-hidden="true" tabindex="-1"></a>  a   <span class="ot">=</span> THETA[<span class="dv">4</span>] <span class="co"># alpha</span></span>
-<span id="cb52-10"><a href="ca-analysis.html#cb52-10" aria-hidden="true" tabindex="-1"></a>  b   <span class="ot">=</span> THETA[<span class="dv">5</span>] <span class="co"># beta</span></span>
-<span id="cb52-11"><a href="ca-analysis.html#cb52-11" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb52-12"><a href="ca-analysis.html#cb52-12" aria-hidden="true" tabindex="-1"></a>  T1 <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]</span>
-<span id="cb52-13"><a href="ca-analysis.html#cb52-13" aria-hidden="true" tabindex="-1"></a>  Co <span class="ot">=</span> Ka<span class="sc">*</span>Dpo<span class="sc">/</span>Vc<span class="sc">*</span>((k21<span class="sc">-</span>a)<span class="sc">/</span>(Ka<span class="sc">-</span>a)<span class="sc">/</span>(b<span class="sc">-</span>a)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>a<span class="sc">*</span>T1) <span class="sc">+</span> </span>
-<span id="cb52-14"><a href="ca-analysis.html#cb52-14" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>b)<span class="sc">/</span>(Ka<span class="sc">-</span>b)<span class="sc">/</span>(a<span class="sc">-</span>b)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>b<span class="sc">*</span>T1) <span class="sc">+</span> </span>
-<span id="cb52-15"><a href="ca-analysis.html#cb52-15" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>Ka)<span class="sc">/</span>(a<span class="sc">-</span>Ka)<span class="sc">/</span>(b<span class="sc">-</span>Ka)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>T1)) <span class="co"># Erratum in eq 14:1</span></span>
-<span id="cb52-16"><a href="ca-analysis.html#cb52-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb52-17"><a href="ca-analysis.html#cb52-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Co)</span>
-<span id="cb52-18"><a href="ca-analysis.html#cb52-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb52-19"><a href="ca-analysis.html#cb52-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb52-20"><a href="ca-analysis.html#cb52-20" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> <span class="fu">nlr</span>(fPK14a, dPK14, </span>
-<span id="cb52-21"><a href="ca-analysis.html#cb52-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;Vc/F&quot;</span>, <span class="st">&quot;Ka&quot;</span>, <span class="st">&quot;k21&quot;</span>, <span class="st">&quot;alpha&quot;</span>, <span class="st">&quot;beta&quot;</span>), </span>
-<span id="cb52-22"><a href="ca-analysis.html#cb52-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">IE=</span><span class="fu">c</span>(<span class="dv">350</span>, <span class="dv">11</span>, <span class="dv">1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>))</span></code></pre></div>
-<pre><code>## Error in nlr(fPK14a, dPK14, pNames = c(&quot;Vc/F&quot;, &quot;Ka&quot;, &quot;k21&quot;, &quot;alpha&quot;, &quot;beta&quot;), : object &#39;dPK14&#39; not found</code></pre>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="ca-analysis.html#cb54-1" aria-hidden="true" tabindex="-1"></a>r1<span class="sc">$</span>Est</span></code></pre></div>
-<pre><code>##            ka      V         k AddErrVar AddErrSD
-## PE   0.013202 21.018  0.013202   0.08701  0.29498
-## SE   0.005442  8.623  0.005442   0.03413  0.05785
-## RSE 41.220676 41.029 41.220716  39.22314 19.61157</code></pre>
+<p>아래의 코드는 경구 투여 2구획 분석, 지연시간이 없는 모형이다.
+2차 지수로 감소하는 약물에서의 약동학 모형이여,이때의 농도 값(Cp)을 구하기 위한 공식을 사용하였으며, Ka, Vc, k21, alpha, beta 로 농도를 나타낼 수 있다.</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="ca-analysis.html#cb48-1" aria-hidden="true" tabindex="-1"></a>Dpo <span class="ot">=</span> <span class="dv">23158</span></span>
+<span id="cb48-2"><a href="ca-analysis.html#cb48-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-3"><a href="ca-analysis.html#cb48-3" aria-hidden="true" tabindex="-1"></a><span class="do">## without lag</span></span>
+<span id="cb48-4"><a href="ca-analysis.html#cb48-4" aria-hidden="true" tabindex="-1"></a>fPK14a <span class="ot">=</span> <span class="cf">function</span>(THETA)</span>
+<span id="cb48-5"><a href="ca-analysis.html#cb48-5" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb48-6"><a href="ca-analysis.html#cb48-6" aria-hidden="true" tabindex="-1"></a>  Vc  <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
+<span id="cb48-7"><a href="ca-analysis.html#cb48-7" aria-hidden="true" tabindex="-1"></a>  Ka  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
+<span id="cb48-8"><a href="ca-analysis.html#cb48-8" aria-hidden="true" tabindex="-1"></a>  k21 <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
+<span id="cb48-9"><a href="ca-analysis.html#cb48-9" aria-hidden="true" tabindex="-1"></a>  a   <span class="ot">=</span> THETA[<span class="dv">4</span>] <span class="co"># alpha</span></span>
+<span id="cb48-10"><a href="ca-analysis.html#cb48-10" aria-hidden="true" tabindex="-1"></a>  b   <span class="ot">=</span> THETA[<span class="dv">5</span>] <span class="co"># beta</span></span>
+<span id="cb48-11"><a href="ca-analysis.html#cb48-11" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-12"><a href="ca-analysis.html#cb48-12" aria-hidden="true" tabindex="-1"></a>  T1 <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb48-13"><a href="ca-analysis.html#cb48-13" aria-hidden="true" tabindex="-1"></a>  Co <span class="ot">=</span> Ka<span class="sc">*</span>Dpo<span class="sc">/</span>Vc<span class="sc">*</span>((k21<span class="sc">-</span>a)<span class="sc">/</span>(Ka<span class="sc">-</span>a)<span class="sc">/</span>(b<span class="sc">-</span>a)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>a<span class="sc">*</span>T1) <span class="sc">+</span> </span>
+<span id="cb48-14"><a href="ca-analysis.html#cb48-14" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>b)<span class="sc">/</span>(Ka<span class="sc">-</span>b)<span class="sc">/</span>(a<span class="sc">-</span>b)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>b<span class="sc">*</span>T1) <span class="sc">+</span> </span>
+<span id="cb48-15"><a href="ca-analysis.html#cb48-15" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>Ka)<span class="sc">/</span>(a<span class="sc">-</span>Ka)<span class="sc">/</span>(b<span class="sc">-</span>Ka)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>T1)) <span class="co"># Erratum in eq 14:1</span></span>
+<span id="cb48-16"><a href="ca-analysis.html#cb48-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb48-17"><a href="ca-analysis.html#cb48-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Co)</span>
+<span id="cb48-18"><a href="ca-analysis.html#cb48-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb48-19"><a href="ca-analysis.html#cb48-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-20"><a href="ca-analysis.html#cb48-20" aria-hidden="true" tabindex="-1"></a>r1 <span class="ot">&lt;-</span> <span class="fu">nlr</span>(fPK14a, dPK14, </span>
+<span id="cb48-21"><a href="ca-analysis.html#cb48-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;Vc/F&quot;</span>, <span class="st">&quot;Ka&quot;</span>, <span class="st">&quot;k21&quot;</span>, <span class="st">&quot;alpha&quot;</span>, <span class="st">&quot;beta&quot;</span>), </span>
+<span id="cb48-22"><a href="ca-analysis.html#cb48-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">IE=</span><span class="fu">c</span>(<span class="dv">350</span>, <span class="dv">11</span>, <span class="dv">1</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>))</span>
+<span id="cb48-23"><a href="ca-analysis.html#cb48-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-24"><a href="ca-analysis.html#cb48-24" aria-hidden="true" tabindex="-1"></a>r1<span class="sc">$</span>Est</span></code></pre></div>
+<pre><code>##      Vc/F     Ka      k21  alpha     beta AddErrVar
+## PE  43.59  2.347   0.6955  2.347   0.3960    537.13
+## SE  40.96  2.240   0.9594  2.241   0.4919    202.99
+## RSE 93.98 95.439 137.9449 95.482 124.2005     37.79
+##     AddErrSD
+## PE    23.176
+## SE     4.379
+## RSE   18.896</code></pre>
 </div>
 <div id="compartmental-analysis-with-tlag-1" class="section level3" number="5.7.2">
 <h3><span class="header-section-number">5.7.2</span> Compartmental analysis with Tlag</h3>
 <p>경구 투여 2구획 분석, 지연시간이 있는 모형이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.</p>
-<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="ca-analysis.html#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="do">## with lag</span></span>
-<span id="cb56-2"><a href="ca-analysis.html#cb56-2" aria-hidden="true" tabindex="-1"></a>fPK14b <span class="ot">=</span> <span class="cf">function</span>(THETA)</span>
-<span id="cb56-3"><a href="ca-analysis.html#cb56-3" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb56-4"><a href="ca-analysis.html#cb56-4" aria-hidden="true" tabindex="-1"></a>  Vc  <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb56-5"><a href="ca-analysis.html#cb56-5" aria-hidden="true" tabindex="-1"></a>  Ka  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb56-6"><a href="ca-analysis.html#cb56-6" aria-hidden="true" tabindex="-1"></a>  k21 <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
-<span id="cb56-7"><a href="ca-analysis.html#cb56-7" aria-hidden="true" tabindex="-1"></a>  a   <span class="ot">=</span> THETA[<span class="dv">4</span>] <span class="co"># alpha</span></span>
-<span id="cb56-8"><a href="ca-analysis.html#cb56-8" aria-hidden="true" tabindex="-1"></a>  b   <span class="ot">=</span> THETA[<span class="dv">5</span>] <span class="co"># beta</span></span>
-<span id="cb56-9"><a href="ca-analysis.html#cb56-9" aria-hidden="true" tabindex="-1"></a>  TL  <span class="ot">=</span> THETA[<span class="dv">6</span>] <span class="co"># Tlag</span></span>
-<span id="cb56-10"><a href="ca-analysis.html#cb56-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb56-11"><a href="ca-analysis.html#cb56-11" aria-hidden="true" tabindex="-1"></a>  T1 <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]</span>
-<span id="cb56-12"><a href="ca-analysis.html#cb56-12" aria-hidden="true" tabindex="-1"></a>  Co <span class="ot">=</span> Ka<span class="sc">*</span>Dpo<span class="sc">/</span>Vc<span class="sc">*</span>((k21<span class="sc">-</span>a)<span class="sc">/</span>(Ka<span class="sc">-</span>a)<span class="sc">/</span>(b<span class="sc">-</span>a)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>a<span class="sc">*</span>(T1<span class="sc">-</span>TL)) <span class="sc">+</span> </span>
-<span id="cb56-13"><a href="ca-analysis.html#cb56-13" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>b)<span class="sc">/</span>(Ka<span class="sc">-</span>b)<span class="sc">/</span>(a<span class="sc">-</span>b)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>b<span class="sc">*</span>(T1<span class="sc">-</span>TL)) <span class="sc">+</span> </span>
-<span id="cb56-14"><a href="ca-analysis.html#cb56-14" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>Ka)<span class="sc">/</span>(a<span class="sc">-</span>Ka)<span class="sc">/</span>(b<span class="sc">-</span>Ka)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>(T1<span class="sc">-</span>TL))) </span>
-<span id="cb56-15"><a href="ca-analysis.html#cb56-15" aria-hidden="true" tabindex="-1"></a>  Co[Co <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">=</span> <span class="dv">0</span> <span class="co"># remove negative concentrations before tlag</span></span>
-<span id="cb56-16"><a href="ca-analysis.html#cb56-16" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb56-17"><a href="ca-analysis.html#cb56-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Co)</span>
-<span id="cb56-18"><a href="ca-analysis.html#cb56-18" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb56-19"><a href="ca-analysis.html#cb56-19" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb56-20"><a href="ca-analysis.html#cb56-20" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="fu">nlr</span>(fPK14b, dPK14, </span>
-<span id="cb56-21"><a href="ca-analysis.html#cb56-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;Vc/F&quot;</span>, <span class="st">&quot;Ka&quot;</span>, <span class="st">&quot;k21&quot;</span>, <span class="st">&quot;alpha&quot;</span>, <span class="st">&quot;beta&quot;</span>, <span class="st">&quot;Tlag&quot;</span>), </span>
-<span id="cb56-22"><a href="ca-analysis.html#cb56-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">IE=</span><span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="fl">0.12</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>))</span></code></pre></div>
-<pre><code>## Error in nlr(fPK14b, dPK14, pNames = c(&quot;Vc/F&quot;, &quot;Ka&quot;, &quot;k21&quot;, &quot;alpha&quot;, &quot;beta&quot;, : object &#39;dPK14&#39; not found</code></pre>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="ca-analysis.html#cb58-1" aria-hidden="true" tabindex="-1"></a>r2<span class="sc">$</span>Est</span></code></pre></div>
-<pre><code>##           ka      V         k    tlag AddErrVar
-## PE   0.02747 27.354  0.010511 11.3754  0.015494
-## SE   0.00606  4.149  0.001938  0.8676  0.006077
-## RSE 22.06025 15.167 18.432707  7.6269 39.223384
-##     AddErrSD
-## PE   0.12448
-## SE   0.02441
-## RSE 19.61169</code></pre>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="ca-analysis.html#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="do">## with lag</span></span>
+<span id="cb50-2"><a href="ca-analysis.html#cb50-2" aria-hidden="true" tabindex="-1"></a>fPK14b <span class="ot">=</span> <span class="cf">function</span>(THETA)</span>
+<span id="cb50-3"><a href="ca-analysis.html#cb50-3" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb50-4"><a href="ca-analysis.html#cb50-4" aria-hidden="true" tabindex="-1"></a>  Vc  <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
+<span id="cb50-5"><a href="ca-analysis.html#cb50-5" aria-hidden="true" tabindex="-1"></a>  Ka  <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
+<span id="cb50-6"><a href="ca-analysis.html#cb50-6" aria-hidden="true" tabindex="-1"></a>  k21 <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
+<span id="cb50-7"><a href="ca-analysis.html#cb50-7" aria-hidden="true" tabindex="-1"></a>  a   <span class="ot">=</span> THETA[<span class="dv">4</span>] <span class="co"># alpha</span></span>
+<span id="cb50-8"><a href="ca-analysis.html#cb50-8" aria-hidden="true" tabindex="-1"></a>  b   <span class="ot">=</span> THETA[<span class="dv">5</span>] <span class="co"># beta</span></span>
+<span id="cb50-9"><a href="ca-analysis.html#cb50-9" aria-hidden="true" tabindex="-1"></a>  TL  <span class="ot">=</span> THETA[<span class="dv">6</span>] <span class="co"># Tlag</span></span>
+<span id="cb50-10"><a href="ca-analysis.html#cb50-10" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-11"><a href="ca-analysis.html#cb50-11" aria-hidden="true" tabindex="-1"></a>  T1 <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb50-12"><a href="ca-analysis.html#cb50-12" aria-hidden="true" tabindex="-1"></a>  Co <span class="ot">=</span> Ka<span class="sc">*</span>Dpo<span class="sc">/</span>Vc<span class="sc">*</span>((k21<span class="sc">-</span>a)<span class="sc">/</span>(Ka<span class="sc">-</span>a)<span class="sc">/</span>(b<span class="sc">-</span>a)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>a<span class="sc">*</span>(T1<span class="sc">-</span>TL)) <span class="sc">+</span> </span>
+<span id="cb50-13"><a href="ca-analysis.html#cb50-13" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>b)<span class="sc">/</span>(Ka<span class="sc">-</span>b)<span class="sc">/</span>(a<span class="sc">-</span>b)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>b<span class="sc">*</span>(T1<span class="sc">-</span>TL)) <span class="sc">+</span> </span>
+<span id="cb50-14"><a href="ca-analysis.html#cb50-14" aria-hidden="true" tabindex="-1"></a>                    (k21<span class="sc">-</span>Ka)<span class="sc">/</span>(a<span class="sc">-</span>Ka)<span class="sc">/</span>(b<span class="sc">-</span>Ka)<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>(T1<span class="sc">-</span>TL))) </span>
+<span id="cb50-15"><a href="ca-analysis.html#cb50-15" aria-hidden="true" tabindex="-1"></a>  Co[Co <span class="sc">&lt;</span> <span class="dv">0</span>] <span class="ot">=</span> <span class="dv">0</span> <span class="co"># remove negative concentrations before tlag</span></span>
+<span id="cb50-16"><a href="ca-analysis.html#cb50-16" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb50-17"><a href="ca-analysis.html#cb50-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Co)</span>
+<span id="cb50-18"><a href="ca-analysis.html#cb50-18" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb50-19"><a href="ca-analysis.html#cb50-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb50-20"><a href="ca-analysis.html#cb50-20" aria-hidden="true" tabindex="-1"></a>r2 <span class="ot">&lt;-</span> <span class="fu">nlr</span>(fPK14b, dPK14, </span>
+<span id="cb50-21"><a href="ca-analysis.html#cb50-21" aria-hidden="true" tabindex="-1"></a>          <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;Vc/F&quot;</span>, <span class="st">&quot;Ka&quot;</span>, <span class="st">&quot;k21&quot;</span>, <span class="st">&quot;alpha&quot;</span>, <span class="st">&quot;beta&quot;</span>, <span class="st">&quot;Tlag&quot;</span>), </span>
+<span id="cb50-22"><a href="ca-analysis.html#cb50-22" aria-hidden="true" tabindex="-1"></a>          <span class="at">IE=</span><span class="fu">c</span>(<span class="dv">150</span>, <span class="dv">11</span>, <span class="fl">0.12</span>, <span class="fl">0.1</span>, <span class="fl">0.01</span>, <span class="fl">0.05</span>))</span>
+<span id="cb50-23"><a href="ca-analysis.html#cb50-23" aria-hidden="true" tabindex="-1"></a>r2<span class="sc">$</span>Est</span></code></pre></div>
+<pre><code>##       Vc/F     Ka       k21   alpha      beta    Tlag
+## PE  88.528 19.767 7.902e-03 0.73176 1.976e-03 0.12163
+## SE   2.315  3.763 1.243e-01 0.04575 1.129e-01 0.00812
+## RSE  2.615 19.036 1.573e+03 6.25139 5.713e+03 6.67610
+##     AddErrVar AddErrSD
+## PE     17.894   4.2301
+## SE      6.851   0.8098
+## RSE    38.288  19.1441</code></pre>
 </div>
 <div id="modeling-result-2" class="section level3" number="5.7.3">
 <h3><span class="header-section-number">5.7.3</span> Modeling Result</h3>
 <p>지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. 특히 C<sub>max</sub> 부분에서의 적합 차이를 주의해서 살펴 볼 필요가 있다.</p>
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="ca-analysis.html#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dPK14[,<span class="st">&quot;TIME&quot;</span>], dPK14[,<span class="st">&quot;DV&quot;</span>], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">250</span>), <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>, <span class="at">pch=</span><span class="dv">16</span>)</span></code></pre></div>
-<pre><code>## Error in plot(dPK14[, &quot;TIME&quot;], dPK14[, &quot;DV&quot;], xlim = c(0, 25), ylim = c(0, : object &#39;dPK14&#39; not found</code></pre>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="ca-analysis.html#cb62-1" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> dPK14[,<span class="st">&quot;TIME&quot;</span>]</span></code></pre></div>
-<pre><code>## Error in eval(expr, envir, enclos): object &#39;dPK14&#39; not found</code></pre>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="ca-analysis.html#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK14a</span>(r1<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), <span class="at">lty=</span><span class="dv">2</span>)</span></code></pre></div>
-<pre><code>## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet</code></pre>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="ca-analysis.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK14b</span>(r2<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]))</span></code></pre></div>
-<pre><code>## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet</code></pre>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="ca-analysis.html#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dPK14[,<span class="st">&quot;TIME&quot;</span>], dPK14[,<span class="st">&quot;DV&quot;</span>], <span class="at">xlim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">25</span>), <span class="at">ylim=</span><span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">250</span>), <span class="at">xlab=</span><span class="st">&quot;Time (min)&quot;</span>, <span class="at">ylab=</span><span class="st">&quot;Concentration (ug/L)&quot;</span>, <span class="at">pch=</span><span class="dv">16</span>)</span>
+<span id="cb52-2"><a href="ca-analysis.html#cb52-2" aria-hidden="true" tabindex="-1"></a>TIME <span class="ot">=</span> dPK14[,<span class="st">&quot;TIME&quot;</span>]</span>
+<span id="cb52-3"><a href="ca-analysis.html#cb52-3" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK14a</span>(r1<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), <span class="at">lty=</span><span class="dv">2</span>)</span>
+<span id="cb52-4"><a href="ca-analysis.html#cb52-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK14b</span>(r2<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]))</span></code></pre></div>
+<p><img src="pharmapk_files/figure-html/unnamed-chunk-38-1.svg" width="100%" style="display: block; margin: auto;" /></p>
 </div>
 </div>
 <div id="theoph-약동학-자료의-구획분석" class="section level2" number="5.8">
 <h2><span class="header-section-number">5.8</span> Theoph 약동학 자료의 구획분석</h2>
 <p>R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 사용하여 수행한다. Minimization이 된 후 1구획 약동학 모형에서 언급된 파라미터 이외에 다른 파라미터에 대해서도 값을 구하기 위해서 다음과 같이 (CL(제거 속도), T<sub>half</sub>(반감기), MRT(평균 체류 시간)) 추가적으로 넣어준 후, 입력한 파라미터값들을 구하기 위한 수식을 뒤쪽 부분’SecForms’ 인자에 입력하게 된다. 이런 방법을 통하여 우리가 원하는 파라미터들의 점추정치와(point estimate), 그리고 표준 오차(standard error of estimates)를 모두 구할 수 있다.</p>
-<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="ca-analysis.html#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
-<span id="cb68-2"><a href="ca-analysis.html#cb68-2" aria-hidden="true" tabindex="-1"></a>tData <span class="ot">=</span> Theoph</span>
-<span id="cb68-3"><a href="ca-analysis.html#cb68-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tData) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;BWT&quot;</span>, <span class="st">&quot;DOSE&quot;</span>, <span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>)</span>
-<span id="cb68-4"><a href="ca-analysis.html#cb68-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-5"><a href="ca-analysis.html#cb68-5" aria-hidden="true" tabindex="-1"></a>fPK <span class="ot">=</span> <span class="cf">function</span>(THETA)     <span class="co"># Prediction function</span></span>
-<span id="cb68-6"><a href="ca-analysis.html#cb68-6" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb68-7"><a href="ca-analysis.html#cb68-7" aria-hidden="true" tabindex="-1"></a>  DOSE <span class="ot">=</span> <span class="dv">320000</span>           <span class="co"># in microgram</span></span>
-<span id="cb68-8"><a href="ca-analysis.html#cb68-8" aria-hidden="true" tabindex="-1"></a>  TIME <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]  <span class="co"># use data in e$DATA</span></span>
-<span id="cb68-9"><a href="ca-analysis.html#cb68-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-10"><a href="ca-analysis.html#cb68-10" aria-hidden="true" tabindex="-1"></a>  K    <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb68-11"><a href="ca-analysis.html#cb68-11" aria-hidden="true" tabindex="-1"></a>  Ka   <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb68-12"><a href="ca-analysis.html#cb68-12" aria-hidden="true" tabindex="-1"></a>  V    <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
-<span id="cb68-13"><a href="ca-analysis.html#cb68-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-14"><a href="ca-analysis.html#cb68-14" aria-hidden="true" tabindex="-1"></a>  Cp   <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>TIME))</span>
-<span id="cb68-15"><a href="ca-analysis.html#cb68-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
-<span id="cb68-16"><a href="ca-analysis.html#cb68-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb68-17"><a href="ca-analysis.html#cb68-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb68-18"><a href="ca-analysis.html#cb68-18" aria-hidden="true" tabindex="-1"></a>IDs <span class="ot">=</span> <span class="fu">unique</span>(tData[,<span class="st">&quot;ID&quot;</span>])</span>
-<span id="cb68-19"><a href="ca-analysis.html#cb68-19" aria-hidden="true" tabindex="-1"></a>nID <span class="ot">=</span> <span class="fu">length</span>(IDs)</span>
-<span id="cb68-20"><a href="ca-analysis.html#cb68-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
-<span id="cb68-21"><a href="ca-analysis.html#cb68-21" aria-hidden="true" tabindex="-1"></a>  Data <span class="ot">=</span> tData[tData<span class="sc">$</span>ID <span class="sc">==</span> IDs[i],]</span>
-<span id="cb68-22"><a href="ca-analysis.html#cb68-22" aria-hidden="true" tabindex="-1"></a>  Res <span class="ot">=</span> <span class="fu">nlr</span>(fPK, Data, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;k&quot;</span>, <span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">3</span>, <span class="dv">500</span>), </span>
-<span id="cb68-23"><a href="ca-analysis.html#cb68-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecNames=</span><span class="fu">c</span>(<span class="st">&quot;CL&quot;</span>, <span class="st">&quot;Thalf&quot;</span>, <span class="st">&quot;MRT&quot;</span>), </span>
-<span id="cb68-24"><a href="ca-analysis.html#cb68-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecForms=</span><span class="fu">c</span>(<span class="sc">~</span>V<span class="sc">*</span>k, <span class="sc">~</span><span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>k, <span class="sc">~</span><span class="dv">1</span><span class="sc">/</span>k))</span>
-<span id="cb68-25"><a href="ca-analysis.html#cb68-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;## ID =&quot;</span>, i, <span class="st">&quot;##&quot;</span>))</span>
-<span id="cb68-26"><a href="ca-analysis.html#cb68-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(Res)</span>
-<span id="cb68-27"><a href="ca-analysis.html#cb68-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<pre><code>## [1] &quot;## ID = 1 ##&quot;
-## $Est
-##             k     ka         V AddErrVar AddErrSD
-## PE   0.053954  1.777 29394.222    0.3896   0.6242
-## SE   0.007784  0.230  1449.530    0.1661   0.1331
-## RSE 14.427031 12.940     4.931   42.6401  21.3201
-##         CL  Thalf    MRT
-## PE  1585.9 12.847 18.534
-## SE   172.9  1.853  2.674
-## RSE   10.9 14.427 14.427
-## 
-## $Cov
-##                    k        ka          V  AddErrVar
-## k          6.059e-05 -9.28e-04 -9.014e+00 -1.665e-08
-## ka        -9.280e-04  5.29e-02  2.120e+02  3.840e-07
-## V         -9.014e+00  2.12e+02  2.101e+06  3.777e-03
-## AddErrVar -1.665e-08  3.84e-07  3.777e-03  2.760e-02
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 6
-## 
-## $run$run
-## [1] 5
-## 
-## $run$p.value
-## [1] 0.2619
-## 
-## 
-## $`Objective Function Value`
-## [1] 0.6321
-## 
-## $`-2LL`
-## [1] 20.85
-## 
-## $AIC
-## [1] 28.85
-## 
-## $AICc
-## [1] 35.52
-## 
-## $BIC
-## [1] 30.44
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 3.878 6.811 9.035 9.758 9.124 8.525 7.683
-##  [9] 6.890 5.838 3.015
-## 
-## $Residual
-##  [1]  7.400e-01 -1.038e+00 -2.409e-01  1.465e+00
-##  [5] -9.825e-02 -5.436e-01 -1.652e-01 -2.133e-01
-##  [9]  6.353e-05  1.018e-01  2.654e-01
-## 
-## $`Elapsed Time`
-## Time difference of 0.029 secs
-## 
-## [1] &quot;## ID = 2 ##&quot;
-## $Est
-##           k      ka        V AddErrVar AddErrSD
-## PE   0.1017  1.9427 32024.77    0.8135   0.9019
-## SE   0.0208  0.4307  3064.68    0.3469   0.1923
-## RSE 20.4566 22.1727     9.57   42.6400  21.3200
-##          CL  Thalf    MRT
-## PE  3255.67  6.818  9.837
-## SE   451.31  1.395  2.012
-## RSE   13.86 20.457 20.457
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          4.325e-04 -5.235e-03 -5.175e+01 -2.618e-08
-## ka        -5.235e-03  1.855e-01  9.264e+02  1.126e-07
-## V         -5.175e+01  9.264e+02  9.392e+06  4.885e-03
-## AddErrVar -2.618e-08  1.126e-07  4.885e-03  1.203e-01
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 5
-## 
-## $run$run
-## [1] 6
-## 
-## $run$p.value
-## [1] 0.6429
-## 
-## 
-## $`Objective Function Value`
-## [1] 8.729
-## 
-## $`-2LL`
-## [1] 28.95
-## 
-## $AIC
-## [1] 36.95
-## 
-## $AICc
-## [1] 43.61
-## 
-## $BIC
-## [1] 38.54
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.0000 4.0182 6.1615 8.0136 8.4214 7.3754 6.3289
-##  [8] 5.1597 4.2233 3.1131 0.8915
-## 
-## $Residual
-##  [1]  0.000000 -2.298176  1.748507  0.296379 -0.091360
-##  [6] -0.525439 -0.248896  0.240283  0.326721 -0.103131
-## [11]  0.008457
-## 
-## $`Elapsed Time`
-## Time difference of 0.005226 secs
-## 
-## [1] &quot;## ID = 3 ##&quot;
-## $Est
-##           k     ka         V AddErrVar AddErrSD
-## PE  0.08142 2.4536 34319.365   0.03966  0.19915
-## SE  0.00381 0.1437   684.952   0.01691  0.04246
-## RSE 4.67902 5.8575     1.996  42.64006 21.32003
-##           CL  Thalf     MRT
-## PE  2794.442 8.5127 12.2813
-## SE    92.853 0.3983  0.5746
-## RSE    3.323 4.6790  4.6790
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          1.452e-05 -3.094e-04 -2.073e+00 -2.225e-09
-## ka        -3.094e-04  2.066e-02  6.848e+01  6.716e-08
-## V         -2.073e+00  6.848e+01  4.692e+05  4.891e-04
-## AddErrVar -2.225e-09  6.716e-08  4.891e-04  2.860e-04
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 5
-## 
-## $run$run
-## [1] 7
-## 
-## $run$p.value
-## [1] 0.3571
-## 
-## 
-## $`Objective Function Value`
-## [1] -24.5
-## 
-## $`-2LL`
-## [1] -4.285
-## 
-## $AIC
-## [1] 3.715
-## 
-## $AICc
-## [1] 10.38
-## 
-## $BIC
-## [1] 5.307
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 4.462 6.875 8.086 8.114 7.181 6.377 5.423
-##  [9] 4.635 3.586 1.348
-## 
-## $Residual
-##  [1]  0.00000 -0.06216  0.02463  0.11394 -0.31367
-##  [6]  0.31916 -0.17713 -0.12321  0.26545  0.11395
-## [11] -0.29760
-## 
-## $`Elapsed Time`
-## Time difference of 0.006043 secs
-## 
-## [1] &quot;## ID = 4 ##&quot;
-## $Est
-##            k      ka         V AddErrVar AddErrSD
-## PE   0.08747  1.1715 31097.470    0.5211   0.7219
-## SE   0.01605  0.2036  2607.291    0.2222   0.1539
-## RSE 18.35204 17.3777     8.384   42.6402  21.3201
-##          CL  Thalf    MRT
-## PE  2719.99  7.925 11.433
-## SE   328.29  1.454  2.098
-## RSE   12.07 18.352 18.352
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          2.577e-04 -2.094e-03 -3.555e+01 -3.662e-08
-## ka        -2.094e-03  4.144e-02  3.932e+02  4.001e-07
-## V         -3.555e+01  3.932e+02  6.798e+06  6.917e-03
-## AddErrVar -3.662e-08  4.001e-07  6.917e-03  4.937e-02
-## 
-## $run
-## $run$m
-## [1] 4
-## 
-## $run$n
-## [1] 6
-## 
-## $run$run
-## [1] 5
-## 
-## $run$p.value
-## [1] 0.4048
-## 
-## 
-## $`Objective Function Value`
-## [1] 3.83
-## 
-## $`-2LL`
-## [1] 24.05
-## 
-## $AIC
-## [1] 32.05
-## 
-## $AICc
-## [1] 38.71
-## 
-## $BIC
-## [1] 33.64
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 3.405 5.046 6.952 8.313 8.004 7.138 6.015
-##  [9] 5.052 3.900 1.288
-## 
-## $Residual
-##  [1]  0.0000 -1.5152 -0.4456  1.6480  0.0669 -0.4637
-##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
-## 
-## $`Elapsed Time`
-## Time difference of 0.005345 secs
-## 
-## [1] &quot;## ID = 5 ##&quot;
-## $Est
-##            k      ka        V AddErrVar AddErrSD
-## PE   0.08844  1.4715 26925.05    1.2240   1.1063
-## SE   0.02009  0.3193  2739.87    0.5219   0.2359
-## RSE 22.72216 21.6962    10.18   42.6401  21.3201
-##          CL  Thalf    MRT
-## PE  2381.12  7.838 11.308
-## SE   366.26  1.781  2.569
-## RSE   15.38 22.722 22.722
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          4.038e-04 -3.826e-03 -4.563e+01 -7.384e-08
-## ka        -3.826e-03  1.019e-01  6.136e+02  1.050e-06
-## V         -4.563e+01  6.136e+02  7.507e+06  1.180e-02
-## AddErrVar -7.384e-08  1.050e-06  1.180e-02  2.724e-01
-## 
-## $run
-## $run$m
-## [1] 4
-## 
-## $run$n
-## [1] 6
-## 
-## $run$run
-## [1] 6
-## 
-## $run$p.value
-## [1] 0.5952
-## 
-## 
-## $`Objective Function Value`
-## [1] 13.22
-## 
-## $`-2LL`
-## [1] 33.44
-## 
-## $AIC
-## [1] 41.44
-## 
-## $AICc
-## [1] 48.11
-## 
-## $BIC
-## [1] 43.03
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 4.182 6.193 8.672 9.929 9.205 8.104 6.796
-##  [9] 5.655 4.376 1.468
-## 
-## $Residual
-##  [1]  0.000000 -2.161820 -0.563476  2.728442 -0.599046
-##  [6] -0.465385 -0.543808  0.293763  0.245332 -0.005509
-## [11]  0.102075
-## 
-## $`Elapsed Time`
-## Time difference of 0.005722 secs
-## 
-## [1] &quot;## ID = 6 ##&quot;
-## $Est
-##            k      ka         V AddErrVar AddErrSD
-## PE   0.09953  1.1637 41104.664   0.22220   0.4714
-## SE   0.01618  0.1851  3235.607   0.09475   0.1005
-## RSE 16.25687 15.9042     7.872  42.64040  21.3202
-##          CL  Thalf    MRT
-## PE  4090.96  6.965 10.048
-## SE   420.73  1.132  1.633
-## RSE   10.28 16.257 16.257
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          2.618e-04 -1.988e-03 -4.510e+01 -3.224e-08
-## ka        -1.988e-03  3.426e-02  4.528e+02  3.986e-07
-## V         -4.510e+01  4.528e+02  1.047e+07  6.771e-03
-## AddErrVar -3.224e-08  3.986e-07  6.771e-03  8.977e-03
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 5
-## 
-## $run$run
-## [1] 4
-## 
-## $run$p.value
-## [1] 0.1667
-## 
-## 
-## $`Objective Function Value`
-## [1] -5.546
-## 
-## $`-2LL`
-## [1] 14.67
-## 
-## $AIC
-## [1] 22.67
-## 
-## $AICc
-## [1] 29.34
-## 
-## $BIC
-## [1] 24.26
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.0000 2.0697 3.7009 5.3595 6.1538 5.8337 5.1504
-##  [8] 4.2391 3.4005 2.5532 0.7929
-## 
-## $Residual
-##  [1]  0.0000 -0.7797 -0.6209  1.0805  0.1662 -0.3037
-##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
-## 
-## $`Elapsed Time`
-## Time difference of 0.008932 secs
-## 
-## [1] &quot;## ID = 7 ##&quot;
-## $Est
-##            k       ka        V AddErrVar AddErrSD
-## PE   0.10225  0.67974 32621.58   0.09060  0.30099
-## SE   0.01161  0.07256  1986.49   0.03863  0.06417
-## RSE 11.35959 10.67513     6.09  42.64020 21.32010
-##           CL   Thalf    MRT
-## PE  3335.404  6.7793  9.780
-## SE   207.011  0.7701  1.111
-## RSE    6.206 11.3596 11.360
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          1.349e-04 -6.671e-04 -2.128e+01 -1.437e-08
-## ka        -6.671e-04  5.265e-03  1.234e+02  8.047e-08
-## V         -2.128e+01  1.234e+02  3.946e+06  2.639e-03
-## AddErrVar -1.437e-08  8.047e-08  2.639e-03  1.492e-03
-## 
-## $run
-## $run$m
-## [1] 4
-## 
-## $run$n
-## [1] 7
-## 
-## $run$run
-## [1] 5
-## 
-## $run$p.value
-## [1] 0.3333
-## 
-## 
-## $`Objective Function Value`
-## [1] -15.41
-## 
-## $`-2LL`
-## [1] 4.802
-## 
-## $AIC
-## [1] 12.8
-## 
-## $AICc
-## [1] 19.47
-## 
-## $BIC
-## [1] 14.39
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.0000 1.5131 2.7515 4.6307 6.4667 7.0051 6.5391
-##  [8] 5.5554 4.5750 3.3647 0.9704
-## 
-## $Residual
-##  [1]  0.1500 -0.6631 -0.4015  0.3893  0.1133  0.0849
-##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
-## 
-## $`Elapsed Time`
-## Time difference of 0.006238 secs
-## 
-## [1] &quot;## ID = 8 ##&quot;
-## $Est
-##            k      ka         V AddErrVar AddErrSD
-## PE   0.09196  1.3755 35692.014    0.3348   0.5787
-## SE   0.01529  0.2316  2770.810    0.1428   0.1234
-## RSE 16.62733 16.8378     7.763   42.6401  21.3200
-##          CL  Thalf    MRT
-## PE  3282.11  7.538 10.875
-## SE   355.81  1.253  1.808
-## RSE   10.84 16.627 16.627
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          2.338e-04 -2.275e-03 -3.597e+01 -2.495e-08
-## ka        -2.275e-03  5.364e-02  4.736e+02  3.317e-07
-## V         -3.597e+01  4.736e+02  7.677e+06  5.009e-03
-## AddErrVar -2.495e-08  3.317e-07  5.009e-03  2.039e-02
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 5
-## 
-## $run$run
-## [1] 7
-## 
-## $run$p.value
-## [1] 0.3571
-## 
-## 
-## $`Objective Function Value`
-## [1] -1.035
-## 
-## $`-2LL`
-## [1] 19.18
-## 
-## $AIC
-## [1] 27.18
-## 
-## $AICc
-## [1] 33.85
-## 
-## $BIC
-## [1] 28.77
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 2.577 4.460 6.284 7.382 6.870 6.030 4.978
-##  [9] 4.173 3.158 1.046
-## 
-## $Residual
-##  [1]  0.0000  0.4726 -1.4105  1.0258  0.1778 -0.2799
-##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
-## 
-## $`Elapsed Time`
-## Time difference of 0.005391 secs
-## 
-## [1] &quot;## ID = 9 ##&quot;
-## $Est
-##             k     ka         V AddErrVar AddErrSD
-## PE   0.086632  8.866 38948.217   0.22626   0.4757
-## SE   0.009328  2.847  1504.713   0.09648   0.1014
-## RSE 10.767476 32.109     3.863  42.64005  21.3200
-##         CL   Thalf    MRT
-## PE  3374.2  8.0011 11.543
-## SE   286.8  0.8615  1.243
-## RSE    8.5 10.7675 10.767
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          8.701e-05 -9.311e-03 -9.888e+00 -7.334e-09
-## ka        -9.311e-03  8.104e+00  1.963e+03  7.026e-07
-## V         -9.888e+00  1.963e+03  2.264e+06  1.090e-03
-## AddErrVar -7.334e-09  7.026e-07  1.090e-03  9.308e-03
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 5
-## 
-## $run$run
-## [1] 6
-## 
-## $run$p.value
-## [1] 0.6429
-## 
-## 
-## $`Objective Function Value`
-## [1] -5.347
-## 
-## $`-2LL`
-## [1] 14.87
-## 
-## $AIC
-## [1] 22.87
-## 
-## $AICc
-## [1] 29.54
-## 
-## $BIC
-## [1] 24.46
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.0000 7.5037 7.8253 7.5749 6.9651 6.1110 5.3710
-##  [8] 4.4583 3.8711 3.0373 0.9995
-## 
-## $Residual
-##  [1]  0.0000 -0.1337  1.2047 -0.4349 -0.6351 -0.4510
-##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
-## 
-## $`Elapsed Time`
-## Time difference of 0.007043 secs
-## 
-## [1] &quot;## ID = 10 ##&quot;
-## $Est
-##            k      ka         V AddErrVar AddErrSD
-## PE  0.073966 0.69551 25519.766   0.12285  0.35051
-## SE  0.006923 0.05965  1127.009   0.05239  0.07473
-## RSE 9.360282 8.57715     4.416  42.64022 21.32011
-##           CL  Thalf    MRT
-## PE  1887.586 9.3712 13.520
-## SE   108.081 0.8772  1.265
-## RSE    5.726 9.3603  9.360
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          4.793e-05 -3.108e-04 -7.015e+00 -1.224e-08
-## ka        -3.108e-04  3.559e-03  5.634e+01  9.244e-08
-## V         -7.015e+00  5.634e+01  1.270e+06  2.133e-03
-## AddErrVar -1.224e-08  9.244e-08  2.133e-03  2.744e-03
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 6
-## 
-## $run$run
-## [1] 6
-## 
-## $run$p.value
-## [1] 0.7381
-## 
-## 
-## $`Objective Function Value`
-## [1] -12.06
-## 
-## $`-2LL`
-## [1] 8.152
-## 
-## $AIC
-## [1] 16.15
-## 
-## $AICc
-## [1] 22.82
-## 
-## $BIC
-## [1] 17.74
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 2.805 5.041 6.109 8.685 9.603 9.239 8.209
-##  [9] 6.991 5.730 2.431
-## 
-## $Residual
-##  [1]  0.24000  0.08515  0.17869  0.30069 -0.85533
-##  [6]  0.60682 -0.05940 -0.18942  0.14940 -0.05037
-## [11] -0.01104
-## 
-## $`Elapsed Time`
-## Time difference of 0.007385 secs
-## 
-## [1] &quot;## ID = 11 ##&quot;
-## $Est
-##            k     ka         V AddErrVar AddErrSD
-## PE  0.098123 3.8491 37945.348   0.03875  0.19684
-## SE  0.004603 0.2483   768.522   0.01652  0.04197
-## RSE 4.691277 6.4517     2.025  42.64019 21.32010
-##           CL  Thalf     MRT
-## PE  3723.312 7.0641 10.1913
-## SE   126.928 0.3314  0.4781
-## RSE    3.409 4.6913  4.6913
-## 
-## $Cov
-##                    k         ka          V  AddErrVar
-## k          2.119e-05 -5.782e-04 -2.697e+00 -1.808e-09
-## ka        -5.782e-04  6.167e-02  1.234e+02  7.807e-08
-## V         -2.697e+00  1.234e+02  5.906e+05  3.551e-04
-## AddErrVar -1.808e-09  7.807e-08  3.551e-04  2.730e-04
-## 
-## $run
-## $run$m
-## [1] 4
-## 
-## $run$n
-## [1] 6
-## 
-## $run$run
-## [1] 4
-## 
-## $run$p.value
-## [1] 0.1905
-## 
-## 
-## $`Objective Function Value`
-## [1] -24.76
-## 
-## $`-2LL`
-## [1] -4.541
-## 
-## $AIC
-## [1] 3.459
-## 
-## $AICc
-## [1] 10.13
-## 
-## $BIC
-## [1] 5.05
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.0000 5.1381 6.9765 7.6613 7.1215 6.0785 5.2879
-##  [8] 4.3414 3.5678 2.6346 0.8148
-## 
-## $Residual
-##  [1]  0.00000 -0.27811  0.26351  0.33868 -0.31150
-##  [6] -0.20847 -0.06789  0.10862  0.05221  0.05536
-## [11]  0.04519
-## 
-## $`Elapsed Time`
-## Time difference of 0.007055 secs
-## 
-## [1] &quot;## ID = 12 ##&quot;
-## $Est
-##            k       ka         V AddErrVar AddErrSD
-## PE   0.10558  0.83291 24017.515    0.2554   0.5053
-## SE   0.01289  0.09971  1557.294    0.1089   0.1077
-## RSE 12.21055 11.97134     6.484   42.6357  21.3178
-##           CL   Thalf    MRT
-## PE  2535.668  6.5654  9.472
-## SE   176.025  0.8017  1.157
-## RSE    6.942 12.2106 12.211
-## 
-## $Cov
-##                    k         ka          V AddErrVar
-## k          1.662e-04 -9.662e-04 -1.812e+01 4.340e-09
-## ka        -9.662e-04  9.942e-03  1.277e+02 4.984e-07
-## V         -1.812e+01  1.277e+02  2.425e+06 9.255e-04
-## AddErrVar  4.340e-09  4.984e-07  9.255e-04 1.185e-02
-## 
-## $run
-## $run$m
-## [1] 5
-## 
-## $run$n
-## [1] 5
-## 
-## $run$run
-## [1] 5
-## 
-## $run$p.value
-## [1] 0.3571
-## 
-## 
-## $`Objective Function Value`
-## [1] -4.015
-## 
-## $`-2LL`
-## [1] 16.2
-## 
-## $AIC
-## [1] 24.2
-## 
-## $AICc
-## [1] 30.87
-## 
-## $BIC
-## [1] 25.79
-## 
-## $Convergence
-## NULL
-## 
-## $Message
-## [1] &quot;CONVERGENCE: REL_REDUCTION_OF_F &lt;= FACTR*EPSMCH&quot;
-## 
-## $Prediction
-##  [1] 0.000 2.471 4.413 7.095 9.469 9.709 8.710 7.191
-##  [9] 5.873 4.275 1.192
-## 
-## $Residual
-##  [1]  0.00000 -1.22065 -0.45251  0.72485  0.25090
-##  [6]  0.04140 -0.13987 -0.60074  0.23726  0.29522
-## [11] -0.02175
-## 
-## $`Elapsed Time`
-## Time difference of 0.008236 secs</code></pre>
+<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="ca-analysis.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
+<span id="cb53-2"><a href="ca-analysis.html#cb53-2" aria-hidden="true" tabindex="-1"></a>tData <span class="ot">=</span> Theoph</span>
+<span id="cb53-3"><a href="ca-analysis.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(tData) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;BWT&quot;</span>, <span class="st">&quot;DOSE&quot;</span>, <span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>)</span>
+<span id="cb53-4"><a href="ca-analysis.html#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="ca-analysis.html#cb53-5" aria-hidden="true" tabindex="-1"></a>fPK <span class="ot">=</span> <span class="cf">function</span>(THETA)     <span class="co"># Prediction function</span></span>
+<span id="cb53-6"><a href="ca-analysis.html#cb53-6" aria-hidden="true" tabindex="-1"></a>{</span>
+<span id="cb53-7"><a href="ca-analysis.html#cb53-7" aria-hidden="true" tabindex="-1"></a>  DOSE <span class="ot">=</span> <span class="dv">320000</span>           <span class="co"># in microgram</span></span>
+<span id="cb53-8"><a href="ca-analysis.html#cb53-8" aria-hidden="true" tabindex="-1"></a>  TIME <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]  <span class="co"># use data in e$DATA</span></span>
+<span id="cb53-9"><a href="ca-analysis.html#cb53-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-10"><a href="ca-analysis.html#cb53-10" aria-hidden="true" tabindex="-1"></a>  K    <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
+<span id="cb53-11"><a href="ca-analysis.html#cb53-11" aria-hidden="true" tabindex="-1"></a>  Ka   <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
+<span id="cb53-12"><a href="ca-analysis.html#cb53-12" aria-hidden="true" tabindex="-1"></a>  V    <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
+<span id="cb53-13"><a href="ca-analysis.html#cb53-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-14"><a href="ca-analysis.html#cb53-14" aria-hidden="true" tabindex="-1"></a>  Cp   <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>TIME))</span>
+<span id="cb53-15"><a href="ca-analysis.html#cb53-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
+<span id="cb53-16"><a href="ca-analysis.html#cb53-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb53-17"><a href="ca-analysis.html#cb53-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-18"><a href="ca-analysis.html#cb53-18" aria-hidden="true" tabindex="-1"></a>IDs <span class="ot">=</span> <span class="fu">unique</span>(tData[,<span class="st">&quot;ID&quot;</span>])</span>
+<span id="cb53-19"><a href="ca-analysis.html#cb53-19" aria-hidden="true" tabindex="-1"></a>nID <span class="ot">=</span> <span class="fu">length</span>(IDs)</span>
+<span id="cb53-20"><a href="ca-analysis.html#cb53-20" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
+<span id="cb53-21"><a href="ca-analysis.html#cb53-21" aria-hidden="true" tabindex="-1"></a>  Data <span class="ot">=</span> tData[tData<span class="sc">$</span>ID <span class="sc">==</span> IDs[i],]</span>
+<span id="cb53-22"><a href="ca-analysis.html#cb53-22" aria-hidden="true" tabindex="-1"></a>  Res <span class="ot">=</span> <span class="fu">nlr</span>(fPK, Data, <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;k&quot;</span>, <span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">3</span>, <span class="dv">500</span>), </span>
+<span id="cb53-23"><a href="ca-analysis.html#cb53-23" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecNames=</span><span class="fu">c</span>(<span class="st">&quot;CL&quot;</span>, <span class="st">&quot;Thalf&quot;</span>, <span class="st">&quot;MRT&quot;</span>), </span>
+<span id="cb53-24"><a href="ca-analysis.html#cb53-24" aria-hidden="true" tabindex="-1"></a>            <span class="at">SecForms=</span><span class="fu">c</span>(<span class="sc">~</span>V<span class="sc">*</span>k, <span class="sc">~</span><span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>k, <span class="sc">~</span><span class="dv">1</span><span class="sc">/</span>k))</span>
+<span id="cb53-25"><a href="ca-analysis.html#cb53-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;## ID =&quot;</span>, i, <span class="st">&quot;##&quot;</span>))</span>
+<span id="cb53-26"><a href="ca-analysis.html#cb53-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(Res)</span>
+<span id="cb53-27"><a href="ca-analysis.html#cb53-27" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
 </div>
 <div id="결론" class="section level2" number="5.9">
 <h2><span class="header-section-number">5.9</span> 결론</h2>
