@@ -8,7 +8,7 @@
   krantz2, a4paper, twoside]{krantz}
 \title{신약개발을 위한 실전 약동학}
 \author{가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)}
-\date{Ver. 20210614}
+\date{Ver. 20210617}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -2052,7 +2052,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.2 }\ErrorTok{(}\ExtensionTok{2019{-}09{-}27}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}14 12:44:45 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}17 00:30:29 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2685,12 +2685,6 @@ NCA에서는 AUC로부터 다른 모든 파라미터들을 산출하지만, 그�
 그러나 이는 그림 \ref{fig:two-comp-ex}의 오른쪽과 같이 두 개의 분포구획(V\textsubscript{c}와 V\textsubscript{p})를 가지는 모델을 상정하고 약물이 중심구획과 말초구획을 k\textsubscript{12}, k\textsubscript{21}의 1차속도상수에 따라 확산되는 것으로 가정하면 잘 설명할 수 있다.\index{중심구획}\index{말초구획}
 NCA에 비해 찾아야 할 파라미터들이 많고 거기에 따르는 가정들도 복잡하기 때문에 구획분석을 실제로 수행한다는 것은 각종 입력값들(용량, 투여경로, 채혈시간, 혈장약물농도)을 넣어 준 후 컴퓨터 프로그램으로 하여금 그 입력값들에 가장 잘 부합하는 최적의 파라미터 값들(V\textsubscript{c}, V\textsubscript{p}, CL, Q 등)을 찾아내도록 하는 과정을 의미한다.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}media{-}04/image1.png\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{media-04/image1} 
@@ -2757,12 +2751,6 @@ V_{c}\frac{\text{dC}_{1}}{\text{dt}} = {R - V}_{c} \cdot C_{1} \cdot k_{12} + V_
 
 경구투여를 하는 경우라면 그림 \ref{fig:fig4-2}와 같은 모델을 흔히 쓰는데 약을 삼켜서 위장관 내로 들어가는 것은 정맥주사(bolus)와 같이 일어나고, 위장관 내강에서 중심구획으로 흡수되는 속도는 위장관 내강에 남아있는 약물의 양에 흡수속도상수인 k\textsubscript{abs}를 곱한 값으로 정의되는 1차흡수를 따른다고 가정하는 방식이 흔히 쓰인다. 이외에 F의 추정이나 흡수의 지체시간(lag time), 1차식 이외의 다른 흡수모델 등을 적용하기 위해 이 모델을 변형할 수 있다.\index{중심구획}
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}media{-}04/image2.png\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{media-04/image2} 
@@ -2819,12 +2807,6 @@ k\textsubscript{e2}라는 제거속도상수를 가진 모델)을 생각해 볼 
 전에 이미 몸 안의 약이 대부분 제거되었기 때문인데, 단순한 NCA로 얻어지는
 PK파라미터들만으로 이를 알아내기는 어렵다.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}media{-}04/image3.jpg\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{media-04/image3} 
@@ -2849,12 +2831,6 @@ V\textsubscript{ss}와 CL이 동일함에도 불구하고 최종반감기가 현
 선)가 중심구획에서의 C\textsubscript{max}가 훨씬 높기 때문이다. NCA는 약이\index{중심구획}
 말초구획으로 퍼지는 속도나 평형에 도달하는 시간 등에 대한 고려가 없는\index{말초구획}
 분석법이므로 이 C\textsubscript{max}의 차이를 설명하지 못한다.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}media{-}04/image4.jpg\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{figure}
 
@@ -2883,12 +2859,6 @@ NCA에서는 그림 4.5에서 볼 수 있듯이 약동학적 채혈로 얻어진
 테스트하고 이들 중 관찰된 농도에 가장 가까운 곡선을 나타내 주는 모델을
 선택하여 그 모델의 파라미터 값들을 얻는 것이 이 그림의 부드러운 곡선을
 구하는 방법이다.
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}media{-}01/image5.jpg\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## Error in knitr::include_graphics("media-01/image5.jpg"): Cannot find the file(s): "media-01/image5.jpg"
@@ -2997,12 +2967,6 @@ k\textsubscript{e}) 수 밖에 없다. 만약 말초구획이 존재하지 않�
 몇가지 외에는 모두 말초구획으로 분포하는 양상을 나타내므로 언제나 β \textless{}\index{말초구획}
 k\textsubscript{e}가 관찰된다.
 
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{\textquotesingle{}media{-}04/image6.png\textquotesingle{}}\NormalTok{)}
-\end{Highlighting}
-\end{Shaded}
-
 \begin{figure}
 
 {\centering \includegraphics[width=1\linewidth]{media-04/image6} 
@@ -3062,6 +3026,1431 @@ k\textsubscript{e} = CL/V\textsubscript{c}로서, 약을 제거하는 능력(CL)
 한성필
 \normalsize
 
+\hypertarget{uxc11cuxb860-3}{%
+\section{서론}\label{uxc11cuxb860-3}}
+
+약동학 구획분석을 한문장으로 표현하자면 시간 농도(time‐concentration data) 자료에 대한 약동학 파라메터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다.
+다시 말하자면, 인체의 여러 장기(organ) 혹은 계(system)를 몇개의 구획으로 단순화하여 우리의 관심이 되는 특성을 파라메터화하여 각 구획들 간의 연관성을 파악하는 것이다.
+약동학 파라메터의 추정을 위해서 약 30년 전부터 비선형 회귀분석(nonlinear regression analysis)이 사용 되어 왔고 현재 이 방식은 집단 약동학 분석에서 가장 필수적인 방법론으로 자리 잡은 상태이다.
+추정에는 약동학 수식이 필요한데, 비선형 회귀분석 시 모형식(model formulation)으로 사용되며, 이 수식 안에 우리가 추정하고자 하는 약동학 파라메터가 모두 포함되어 있다.
+
+구획간의 약물 이동은 1차 역학 (1st-order kinetics) 또는 선형 약동학(linear pharmacokinetics)을 따른다고 가정하게 된다.
+선형 약동학이란 간단히 말해서 용량이 두배가 되면 농도도 두 배가 되는 것을 말하며, D (용량) → C (농도) 로 나타낼 경우 2D → 2C 의 관계가 성립하는 것을 말한다.
+1구획 모델에서는 구획들 간의 약물 분포가 역학적으로 균일하다는 가정 하에 인체를 역학적 단일구획으로 기술한다.
+1구획 모델에서는 약물이 작용부위로 신속히 이동한다고 가정하며 혈장을 자료 분석의 기준 구획으로 사용한다.
+1구획 모델의 혈장농도 로그값은 시간에 대해 일직선적으로 감소하는 양상을 나타낸다.
+2구획 모델에서는 구획들 간의 약물 분포가 역학적으로 균일하지 않다고 보며 인체를 중심 구획 (central compartment) 과 말초구획 (peripheral compartment)로 나누어 기술한다.
+중심구획은 관류(perfusion)가 빠른 기관(예: 간, 신장)을 나타내는데 이는 약물의 분포와 관계하고 α phase 로 나타낸다.
+반면 말초구획은 관류가 느린 기관(예: 근육, 지방)을 나타내며 이는 약물의 소실과 관계하고 β phase 로 나타낸다.
+2구획 모델의 혈장농도 로그값은 시간에 대해 기울기가 두 개인 이직선적으로 감소하는 양상을 나타내는데, 처음의 빠른 기울기는 분포기를 나타내고, 나중의 느린 기울기는 소실기를 나타내게 된다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{knitr}\SpecialCharTok{::}\FunctionTok{include\_graphics}\NormalTok{(}\StringTok{"media{-}05/fig5{-}1.png"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-05/fig5-1} 
+
+}
+
+\caption{3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도}\label{fig:fig5-1}
+\end{figure}
+
+정맥주사 후 3구획 모델을 비유를 들어 설명하자면, 구획을 나타내는 원통이 그림 \ref{fig:fig5-1}과 같이 세 개가 있다고 가정을 할 수 있다.
+약물을 정맥주사(IV bolus, 정주)하면 정주 직후에 혈중 농도가 최대에 도달하였다가 시간이 지남에 따라 감소하게 되는데, 구획간의 분포 및 제거에 의해 약물의 농도가 감소를 하게 된다.
+여기서 V1은 중심구획, V2는 rapid peripheral compartment이고, V3은 slow peripheral compartment이다.
+V1, V2, V3 원통의 부피는 약물이 분포하는 용적이고, 높이는 농도에 해당한다.
+수평의 연결 파이프에 의해 약물이 분포 및 제거된다.
+정주 후 초기에는 약물이 주로 V1에서 V2로 이동하면서 혈중농도가 급격하게 감소하고(rapid distribution phase), 그 이후에는 V1에서 V3로 약물이 이동하면서 동시에 V2에서는 거꾸로 V1으로 이동하며 전체적으로는 혈중농도가 감소(slow distribution phase)하게 된다.
+그 후에는 V2, V3에서의 약물은 V1으로 이동해 나오면서 동시에 V1에서는 elimination이 일어나 농도가 아주 서서히 감소하게 된다. (terminal phase)
+
+이렇게 약물의 이동에 대한 정량적인 표현을 위해서는 약동학 수식에 대해 익숙해 져야 할 필요가 있고, 수식을 잘 아는 것 만큼이나 자료를 해석하고 추정값을 실제로 구하는 작업을 충분히 경험할 필요가 있다.
+
+\hypertarget{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxad6cuxd68d-uxbd84uxc11d-uxac1cuxb860}{%
+\section{상용 소프트웨어를 이용한 구획 분석 개론}\label{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxad6cuxd68d-uxbd84uxc11d-uxac1cuxb860}}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-05/fig5-2} 
+
+}
+
+\caption{다양한 상용 소프트웨어의 사용 예. A. GUI 기반 Phoenix NLME, B. GUI 기반 Lixoft Monolix, C. NONMEM의 제어구문}\label{fig:fig5-2}
+\end{figure}
+
+비선형 회귀분석(Nonlinear regression analysis)이 필요한 구획분석을 위해서는 컴퓨터 소프트웨어의 사용이 필수적이다.
+이 때 Certara Phoenix NLME, Monolix와 같은 여러가지 소프트웨어들이 사용되고 있지만, 가장 널리쓰이는 도구는 ICON사의 NONMEM이라고 하는 소프트웨어이다. (그림 \ref{fig:fig5-2})
+이것은 FORTRAN 코드로 프로그램 되었으며 현재 버전 7.5.0까지 지속적으로 업데이트 되고 있는 소프트웨어로, 현재 구획분석 및 계량약리학 분야에서 가장 표준적인 도구로 생각되고 있다.
+이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다.
+
+상용 소프트웨어를 통한 구획분석 방법은 GUI 기반이고 많은 사용자가 확보되어 있다는 장점이 있으나, 상당한 비용을 매년 지불하여야 하며, 접근이 다소 쉽지 않다는 단점을 가지고 있다.
+
+\hypertarget{uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}{%
+\section{구획분석에 활용할 수 있는 R package 소개}\label{uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}}
+
+이를 극복하기 위해 통계 및 수학적 계산에 적합한 R 언어 기반의 오픈소스 소프트웨어가 활발히 개발되고 있다.
+즉, 비구획분석을 위한 R 패키지를 3장에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
+본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020c})
+
+NONMEM에서는 비선형 회귀분석을 위해서 최대 우도 추정법(maximum likelihood estimation)을 사용한다.
+최대 우도 추정법에서 sample데이터에서 Y가 현재 측정된 값, E(Y)는 model에 의해 각각의 관측 지점에서의 예상되는 값, 그리고 V(Y)를 그 모델의 분산으로 표현한다.
+이 때 모델에 주어진 관측값에 대한 우도(likelihood)는 다음과 같이 표현될 수 있다.
+
+\begin{equation}
+L = \frac{1}{\sqrt{2\pi V(Y)}} \cdot e^{-\frac{1}{2V(Y)}\cdot(Y-E(Y))^2}
+\label{eq:eq5-2}
+\end{equation}
+
+이때 이 일련의 관찰 값에 대한 우도는 개개인 관찰값의 확률을 통해 나오게 된다.
+따라서 n개의 관찰값이 있으면 그 종합된 우도는 n개의 개개인별 확률이 되고 subject에 대한 우도는 다음과 같이 계산된다.
+
+\begin{equation}
+L_i = \prod_{j=1}^{n_i}\frac{1}{\sqrt{2\pi V(Y_{ij})}} \cdot e^{-\frac{1}{2V(Y_{ij})}\cdot(Y_{ij}-E(Y_{ij}))^2}
+\label{eq:eq5-2}
+\end{equation}
+
+이것은 -2 로그 우도로(-2 log likelihood) 전환 될 수 있으며, 이것은 다음과 같이 표현된다.
+
+\begin{equation}
+-2log(L_i) = n_i \cdot log(2\pi) + \sum_{j=1}^{n}(log(V(Y_{ij}))+ \frac{(Y_{ij} - E(Y_{ij}))^2}{V(Y_{ij})})
+\label{eq:eq5-3}
+\end{equation}
+
+결국 NONMEM은 이 -2 로그 우도의 값을 최소화 하는 방식으로 표현된다. 이 때, 우측 수식에서 앞에있는 n\textsubscript{i}log(2π)는 상수이기 때문에 실제 I번째 대상에서의 objection function은 다음과 같이 나타난다.
+
+\begin{equation}
+OBJ_i = n_i \cdot logV(Y_i) + \sum_{j=1}^{n} \frac{(Y_{ij} - E(Y_{ij}))^2}{V(Y_{ij})}
+\label{eq:eq5-4}
+\end{equation}
+
+실제 여기에서 derivation 을 정규 분포에만 적용한 것이 최대 우도 측정법 (maximum likelihood estimation method)\footnote{최대 우도 측정법 (maximum likelihood estimation method)은 점 추정치를 찾는데까지는 오래 걸리나, 표준 오차(standard error of estimates)를 구하는게 유리하다. 최근에는 최소 제곱법(Least square method) 보다 널리 쓰이고 있다.}이라면, 정규 분포라는 가정 없이도 적용한 것이 NONMEM 소프트 웨어 이며 이 방식을 `확장된 최소 제곱법'(extended least square method)이라고 한다.
+
+이 책의 예제에서는 NONMEM\textsuperscript{®} 의 확장된 최소 제곱법을 적용한 `nlr' function을 사용하였다.
+
+각 모델에 맞는 적합한 모델에 따라 다음과 같은 script 형태로 입력해 주게
+되며, 그에 대한 표준 오차(standard error of estimates), 공분산
+행렬(covariance matrix of estimates), run test results on residuals,
+AIC, AICc, SBC를 내부 계산을 통하여 도출하게 된다.
+
+이때 run test란 residual들이 random하게 분포하는지를 보기 위해서 각각의
+residual에서 최대 양수와 음수가 연속구간의 길이가 얼마나 되는지를 보는
+방법이다. 이 때 계산된 p vaue를 통해서 실제로 residual이 random하게
+분포하는지, 편향되게 분포하는지를 고려해 볼 수 있다.
+
+AIC, AICc, SBC는 Akaike information criterion, Akaike information
+criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모델에서
+구조가 적합한지를 확인할수 있도록 도와주는 지표이다.
+
+\hypertarget{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxacbduxad6cuxd22cuxc5ec-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
+\section{1구획모델을 이용한 경구투여 후 약동학 자료 분석}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxacbduxad6cuxd22cuxc5ec-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
+
+아래의 코드로 \texttt{wnl} 라이브러리를 불러오고 hands-on1.csv\footnote{\url{https://github.com/pipetcpt/pharmapk/blob/master/data.zip}} 파일을 읽어올 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(wnl)}
+\NormalTok{dPK02 }\OtherTok{=} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/hands{-}on1.csv"}\NormalTok{, }\AttributeTok{skip=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(dPK02) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"TIME"}\NormalTok{, }\StringTok{"DV"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(dPK02[,}\StringTok{"TIME"}\NormalTok{], dPK02[,}\StringTok{"DV"}\NormalTok{], }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{400}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{2.5}\NormalTok{), }
+     \AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-25-1} \end{center}
+
+먼저 NCA 분석을 수행한다. Tmax는 40분, Cmax는 2.00 ug/L인 것을 알 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NonCompart}\SpecialCharTok{::}\FunctionTok{sNCA}\NormalTok{(dPK02[,}\StringTok{"TIME"}\NormalTok{], dPK02[,}\StringTok{"DV"}\NormalTok{], }
+                 \AttributeTok{dose=}\DecValTok{100}\NormalTok{, }\AttributeTok{doseUnit=}\StringTok{"ug"}\NormalTok{, }\AttributeTok{timeUnit=}\StringTok{"min"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##         b0       CMAX      CMAXD       TMAX       TLAG 
+##  1.558e+00  2.000e+00  2.000e-02  4.000e+01  1.000e+01 
+##       CLST      CLSTP       TLST     LAMZHL       LAMZ 
+##  1.800e-01  1.648e-01  3.600e+02  7.425e+01  9.335e-03 
+##     LAMZLL     LAMZUL    LAMZNPT     CORRXY         R2 
+##  9.000e+01  3.600e+02  7.000e+00 -9.822e-01  9.647e-01 
+##      R2ADJ     AUCLST     AUCALL     AUCIFO    AUCIFOD 
+##  9.577e-01  3.309e+02  3.309e+02  3.502e+02  3.502e+00 
+##     AUCIFP    AUCIFPD     AUCPEO     AUCPEP    AUMCLST 
+##  3.485e+02  3.485e+00  5.507e+00  5.064e+00  4.231e+04 
+##    AUMCIFO    AUMCIFP    AUMCPEO    AUMCPEP       VZFO 
+##  5.131e+04  5.055e+04  1.755e+01  1.631e+01  3.059e+01 
+##       VZFP       CLFO       CLFP   MRTEVLST   MRTEVIFO 
+##  3.073e+01  2.856e-01  2.869e-01  1.279e+02  1.465e+02 
+##   MRTEVIFP 
+##  1.450e+02 
+## attr(,"units")
+##  [1] ""            "ug/L"        "ug/L/ug"    
+##  [4] "min"         "min"         "ug/L"       
+##  [7] "ug/L"        "min"         "min"        
+## [10] "/min"        "min"         "min"        
+## [13] ""            ""            ""           
+## [16] ""            "min*ug/L"    "min*ug/L"   
+## [19] "min*ug/L"    "min*ug/L/ug" "min*ug/L"   
+## [22] "min*ug/L/ug" "%"           "%"          
+## [25] "min2*ug/L"   "min2*ug/L"   "min2*ug/L"  
+## [28] "%"           "%"           "L"          
+## [31] "L"           "L/min"       "L/min"      
+## [34] "min"         "min"         "min"        
+## attr(,"UsedPoints")
+## [1]  7  8  9 10 11 12 13
+\end{verbatim}
+
+\hypertarget{compartmental-analysis-without-tlag}{%
+\subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag}}
+
+아래는 경구 투여 일구획 분석, 지연시간이 없는 모형이다.
+\texttt{ka,\ V,\ k}로 농도를 나타낼 수 있다.
+모델의 R script 입력 여기서 THETA{[}1{]}, THETA{[}2{]}, THETA{[}3{]}는 각각 파라미터 중 k(제거 속도 상수), k\textsubscript{a}(흡수 속도 상수), V(부피)를 의미한다.
+각각의 nonlinear regression을 위해서 theta에 대한 initial value를 넣어준다. (\texttt{nlr()} 함수의 \texttt{IE()} 인자에 적용)
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{DOSE }\OtherTok{=} \DecValTok{100}
+
+\NormalTok{fPK02a }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA) }\CommentTok{\# Prediction function}
+\NormalTok{\{}
+\NormalTok{  Ka }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  V  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  K  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
+\NormalTok{  Cp }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{TIME) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{TIME)) }\CommentTok{\# eq 2:1}
+  \FunctionTok{return}\NormalTok{(Cp)}
+\NormalTok{\}}
+\NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK02[,}\StringTok{"TIME"}\NormalTok{]}
+\NormalTok{r1 }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK02a, dPK02, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\FloatTok{0.05}\NormalTok{))}
+
+\NormalTok{r1}\SpecialCharTok{$}\NormalTok{Est}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            ka      V         k AddErrVar AddErrSD
+## PE   0.013202 21.018  0.013202   0.08701  0.29498
+## SE   0.005442  8.623  0.005442   0.03413  0.05785
+## RSE 41.220676 41.029 41.220716  39.22314 19.61157
+\end{verbatim}
+
+\hypertarget{compartmental-analysis-with-tlag}{%
+\subsection{Compartmental analysis with Tlag}\label{compartmental-analysis-with-tlag}}
+
+경구 투여 일구획 분석, 지연시간이 있는 모형이다. Ka, V, K에 Tlag가 추가되어 농도를 나타낼 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{fPK02b }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA) }\CommentTok{\# Prediction function}
+\NormalTok{\{}
+\NormalTok{  Ka   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  V    }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  K    }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
+\NormalTok{  tlag }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{4}\NormalTok{]}
+
+\NormalTok{  Cp  }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{(TIME }\SpecialCharTok{{-}}\NormalTok{ tlag)) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{(TIME }\SpecialCharTok{{-}}\NormalTok{ tlag))) }\CommentTok{\# eq 2:2}
+  \FunctionTok{return}\NormalTok{(Cp)}
+\NormalTok{\}}
+\NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK02[,}\StringTok{"TIME"}\NormalTok{]}
+\NormalTok{r2 }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK02b, dPK02, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{, }\StringTok{"tlag"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\FloatTok{0.05}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+
+\NormalTok{r2}\SpecialCharTok{$}\NormalTok{Est}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           ka      V         k    tlag AddErrVar
+## PE   0.02747 27.354  0.010511 11.3754  0.015494
+## SE   0.00606  4.149  0.001938  0.8676  0.006077
+## RSE 22.06025 15.167 18.432707  7.6269 39.223384
+##     AddErrSD
+## PE   0.12448
+## SE   0.02441
+## RSE 19.61169
+\end{verbatim}
+
+\hypertarget{modeling-result}{%
+\subsection{Modeling Result}\label{modeling-result}}
+
+지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. Cmax 부분을 주의깊게 살펴야 한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Figure 2.3, p 480}
+\FunctionTok{plot}\NormalTok{(dPK02[,}\StringTok{"TIME"}\NormalTok{], dPK02[,}\StringTok{"DV"}\NormalTok{], }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{400}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\FloatTok{2.5}\NormalTok{), }
+     \AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
+\NormalTok{TIME }\OtherTok{=} \DecValTok{0}\SpecialCharTok{:}\DecValTok{400}
+\FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK02a}\NormalTok{(r1}\SpecialCharTok{$}\NormalTok{Est[}\StringTok{"PE"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{3}\NormalTok{]), }\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
+\FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK02b}\NormalTok{(r2}\SpecialCharTok{$}\NormalTok{Est[}\StringTok{"PE"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{4}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-29-1} \end{center}
+
+\hypertarget{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
+\section{1구획모델을 이용한 정맥주사 후 약동학 자료 분석}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
+
+\texttt{wnl} 라이브러리를 불러오고 자료를 읽어온다.
+이전 예제에서는 1명의 경구투약 후 농도 자료였고, 이번 예제는 4명의 IV 투약 후 농도 자료이다.
+\texttt{hands-on2.csv}\footnote{\url{https://github.com/pipetcpt/pharmapk/blob/master/data.zip}}를 읽어 들인 후 그림을 통해 자료의 탐색을 수행한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(wnl)}
+\NormalTok{dPK01 }\OtherTok{\textless{}{-}}  \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data/hands{-}on2.csv"}\NormalTok{, }\AttributeTok{skip=}\DecValTok{1}\NormalTok{)}
+\FunctionTok{colnames}\NormalTok{(dPK01) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"TIME"}\NormalTok{, }\StringTok{"DV"}\NormalTok{, }\StringTok{"ID"}\NormalTok{)}
+
+\FunctionTok{library}\NormalTok{(ggplot2)}
+\FunctionTok{ggplot}\NormalTok{(dPK01, }\FunctionTok{aes}\NormalTok{(TIME, DV, }\AttributeTok{group =}\NormalTok{ ID, }\AttributeTok{color =} \FunctionTok{as.factor}\NormalTok{(ID))) }\SpecialCharTok{+}
+  \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+} \FunctionTok{scale\_y\_log10}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-30-1} \end{center}
+
+\begin{itemize}
+\tightlist
+\item
+  4명의 피험자 모두 대략적으로 시간에 따른 농도 감소가 단항 지수함수적인 것을 관찰할 수 있다.
+\item
+  피험자 1과 2를 비교하면 2번 피험자가 AUC가 더 작으며, 따라서 청소율이 더 클 것이라
+  예상할 수 있으며, Y 절편이 거의 같은 것으로 보아 분포용적이 유사할 것으로 보인다.\\
+\item
+  피험자 3과 4의 경우 곡선이 교차하는 형태로 눈으로는 어느 쪽이 AUC가 클지 알기 어렵고, Y절편에
+  해당하는 농도가 높은 쪽이 분포용적이 더 작을 것이라 예상할 수 있다.
+\end{itemize}
+
+이러한 탐색을 수치적인 해석으로 확장하기 위해 4명 자료의 NCA 분석을 수행한다. 3장에서 다루었던 \texttt{tblNCA()} 함수를 사용해 계산할 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{NonCompart}\SpecialCharTok{::}\FunctionTok{tblNCA}\NormalTok{(dPK01, }\AttributeTok{key=}\StringTok{"ID"}\NormalTok{, }\AttributeTok{colTime=}\StringTok{"TIME"}\NormalTok{, }
+                   \AttributeTok{colConc=}\StringTok{"DV"}\NormalTok{, }\AttributeTok{dose=}\DecValTok{10}\NormalTok{, }\AttributeTok{adm=}\StringTok{"Bolus"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   ID    b0 CMAX CMAXD TMAX TLAG CLST  CLSTP TLST
+## 1  1 6.919  920  92.0   10   NA  200 211.19  150
+## 2  2 6.934  850  85.0   10   NA   42  45.18  150
+## 3  3 6.878  800  80.0   10   NA   60  56.81  150
+## 4  4 6.208  465  46.5   10   NA  120 117.19  150
+##   LAMZHL     LAMZ LAMZLL LAMZUL LAMZNPT  CORRXY     R2
+## 1  66.39 0.010441     10    150      10 -0.9943 0.9887
+## 2  33.29 0.020824     10    150      10 -0.9951 0.9902
+## 3  36.64 0.018919     10    150      10 -0.9984 0.9969
+## 4  72.02 0.009625     10    150      10 -0.9972 0.9944
+##    R2ADJ AUCLST AUCALL AUCIFO AUCIFOD AUCIFP AUCIFPD
+## 1 0.9873  77590  77590  96745    9675  97818    9782
+## 2 0.9890  48374  48374  50391    5039  50544    5054
+## 3 0.9965  48431  48431  51602    5160  51434    5143
+## 4 0.9937  39678  39678  52146    5215  51854    5185
+##   AUCPEO AUCPEP AUMCLST AUMCIFO AUMCIFP AUMCPEO
+## 1 19.800 20.679 4337000 9044967 9308475   52.05
+## 2  4.003  4.292 1967000 2366394 2396605   16.88
+## 3  6.146  5.838 2077250 2720574 2686362   23.65
+## 4 23.910 23.482 2245250 5410815 5336766   58.50
+##   AUMCPEP     C0 AUCPBEO AUCPBEP   VZO    VZP    CLO
+## 1   53.41 1058.0  10.223  10.111  9.90  9.791 0.1034
+## 2   17.93 1146.8  19.813  19.753  9.53  9.501 0.1984
+## 3   22.67  941.2  16.871  16.926 10.24 10.276 0.1938
+## 4   57.93  540.6   9.642   9.696 19.92 20.037 0.1918
+##      CLP MRTIVLST MRTIVIFO MRTIVIFP   VSSO   VSSP
+## 1 0.1022    55.90    93.49    95.16  9.664  9.728
+## 2 0.1978    40.66    46.96    47.42  9.319  9.381
+## 3 0.1944    42.89    52.72    52.23 10.217 10.155
+## 4 0.1928    56.59   103.76   102.92 19.899 19.848
+\end{verbatim}
+
+\hypertarget{compartmental-analysis}{%
+\section{Compartmental analysis}\label{compartmental-analysis}}
+
+V, K만 있으면 단항 지수함수적 농도 감소를 보이는 IV dosing의 농도를 나타낼 수 있으므로 아래와 같이 간단한 함수를 만들 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{IDs }\OtherTok{=} \FunctionTok{unique}\NormalTok{(dPK01[,}\StringTok{"ID"}\NormalTok{])}
+\NormalTok{nID }\OtherTok{=} \FunctionTok{length}\NormalTok{(IDs)}
+\NormalTok{DOSE }\OtherTok{=} \DecValTok{10000} \CommentTok{\# ug}
+
+\NormalTok{fPK01 }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA) }\CommentTok{\# Prediction function}
+\NormalTok{\{}
+\NormalTok{  V  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  K  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  Cp }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{TIME)  }\CommentTok{\# External DOSE, TIME, eq 1:2}
+  \FunctionTok{return}\NormalTok{(Cp)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기 위해서 \texttt{for} 함수를 사용하게 되는데, 다소 복잡해보이지만 \texttt{nlr} 함수를 여러번 사용하며 각 대상자의 약동학 파라메터 추정을 수행하는 것이 핵심이다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Result }\OtherTok{=} \FunctionTok{vector}\NormalTok{()}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nID) \{}
+\NormalTok{  cID }\OtherTok{=}\NormalTok{ IDs[i]}
+\NormalTok{  Data }\OtherTok{=}\NormalTok{ dPK01[dPK01}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ cID,]}
+\NormalTok{  TIME }\OtherTok{=}\NormalTok{ dPK01[dPK01}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ cID,}\StringTok{"TIME"}\NormalTok{]}
+\NormalTok{  Res }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK01, Data, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\DecValTok{20}\NormalTok{, }\FloatTok{0.2}\NormalTok{),}
+            \AttributeTok{SecNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"CL"}\NormalTok{, }\StringTok{"AUC"}\NormalTok{, }\StringTok{"AUMC"}\NormalTok{ , }\StringTok{"Thalf"}\NormalTok{, }\StringTok{"MRT"}\NormalTok{), }
+            \AttributeTok{SecForms=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{V}\SpecialCharTok{*}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\NormalTok{DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{/}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\NormalTok{DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{/}\NormalTok{k}\SpecialCharTok{/}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{log}\NormalTok{(}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\DecValTok{1}\SpecialCharTok{/}\NormalTok{k))}
+\NormalTok{  Result }\OtherTok{=} \FunctionTok{rbind}\NormalTok{(Result, }\FunctionTok{cbind}\NormalTok{(}\AttributeTok{ID=}\NormalTok{cID, Res}\SpecialCharTok{$}\NormalTok{Est))}
+\NormalTok{\} ; Result}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##     ID       V         k AddErrVar AddErrSD       CL
+## PE   1  9.9784 0.0102561    432.74   20.802 0.102340
+## SE   1  0.1834 0.0003874    193.53    4.652 0.002597
+## RSE  1  1.8382 3.7771994     44.72   22.361 2.537782
+## PE   2  9.8162 0.0206613    753.97   27.459 0.202816
+## SE   2  0.3308 0.0010188    337.19    6.140 0.005970
+## RSE  2  3.3700 4.9308074     44.72   22.361 2.943762
+## PE   3 10.2230 0.0190412     77.05    8.778 0.194658
+## SE   3  0.1087 0.0003052     34.46    1.963 0.001891
+## RSE  3  1.0630 1.6029349     44.72   22.361 0.971497
+## PE   4 19.9472 0.0098140     72.19    8.497 0.195761
+## SE   4  0.2954 0.0003071     32.29    1.900 0.004148
+## RSE  4  1.4811 3.1291755     44.72   22.361 2.119026
+##           AUC      AUMC   Thalf      MRT
+## PE  9.771e+04 9.527e+06 67.5840  97.5031
+## SE  2.480e+03 5.876e+05  2.5528   3.6829
+## RSE 2.538e+00 6.167e+00  3.7772   3.7772
+## PE  4.931e+04 2.386e+06 33.5481  48.3997
+## SE  1.451e+03 1.763e+05  1.6542   2.3865
+## RSE 2.944e+00 7.389e+00  4.9308   4.9308
+## PE  5.137e+04 2.698e+06 36.4025  52.5177
+## SE  4.991e+02 6.551e+04  0.5835   0.8418
+## RSE 9.715e-01 2.428e+00  1.6029   1.6029
+## PE  5.108e+04 5.205e+06 70.6287 101.8957
+## SE  1.082e+03 2.673e+05  2.2101   3.1885
+## RSE 2.119e+00 5.135e+00  3.1292   3.1292
+\end{verbatim}
+
+\hypertarget{modeling-result-1}{%
+\subsection{Modeling Result}\label{modeling-result-1}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# Figure 1.1, p 470}
+\FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{type=}\StringTok{"n"}\NormalTok{, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{160}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{1000}\NormalTok{), }\AttributeTok{log=}\StringTok{"y"}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nID) \{}
+\NormalTok{  cID }\OtherTok{=}\NormalTok{ IDs[i]}
+\NormalTok{  TIME }\OtherTok{=}\NormalTok{ dPK01[dPK01}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ cID,}\StringTok{"TIME"}\NormalTok{]}
+  \FunctionTok{points}\NormalTok{(TIME, dPK01[dPK01}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ cID,}\StringTok{"DV"}\NormalTok{], }\AttributeTok{pch=}\DecValTok{14}\SpecialCharTok{+}\NormalTok{i)}
+\NormalTok{  cTHETA }\OtherTok{=}\NormalTok{ Result[Result[,}\StringTok{"ID"}\NormalTok{]}\SpecialCharTok{==}\NormalTok{cID }\SpecialCharTok{\&} \FunctionTok{rownames}\NormalTok{(Result)}\SpecialCharTok{==}\StringTok{"PE"}\NormalTok{, }\FunctionTok{c}\NormalTok{(}\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{)]}
+  \FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK01}\NormalTok{(cTHETA))   }
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-34-1} \end{center}
+
+\hypertarget{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
+\section{2구획모델 경구 흡수 이용한 약동학 자료 분석}\label{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
+
+\texttt{wnl} 라이브러리를 불러오고 자료를 읽어온다.
+\texttt{hands-on3.csv}\footnote{\url{https://github.com/pipetcpt/pharmapk/blob/master/data.zip}}를 읽어 들인 후 모델링을 수행한다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(wnl)}
+\NormalTok{dPK14 }\OtherTok{\textless{}{-}} \FunctionTok{read.csv}\NormalTok{(}\StringTok{"data{-}old/PK14.csv"}\NormalTok{, }\AttributeTok{skip=}\DecValTok{1}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in file(file, "rt"): cannot open the connection
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(dPK14) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"TIME"}\NormalTok{, }\StringTok{"DV"}\NormalTok{) ; dPK14}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in colnames(dPK14) = c("TIME", "DV"): object 'dPK14' not found
+\end{verbatim}
+
+\begin{verbatim}
+## Error in eval(expr, envir, enclos): object 'dPK14' not found
+\end{verbatim}
+
+\hypertarget{compartmental-analysis-without-tlag-1}{%
+\subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag-1}}
+
+아래의 코드는 경구 투여 2구획 분석, 지연시간이 없는 모형이다. Ka, V, k21, alpha, beta 로 농도를 나타낼 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{Dpo }\OtherTok{=} \DecValTok{23158}
+
+\DocumentationTok{\#\# without lag}
+\NormalTok{fPK14a }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA)}
+\NormalTok{\{}
+\NormalTok{  Vc  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  Ka  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  k21 }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
+\NormalTok{  a   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{4}\NormalTok{] }\CommentTok{\# alpha}
+\NormalTok{  b   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{5}\NormalTok{] }\CommentTok{\# beta}
+  
+\NormalTok{  T1 }\OtherTok{=}\NormalTok{ e}\SpecialCharTok{$}\NormalTok{DATA[,}\StringTok{"TIME"}\NormalTok{]}
+\NormalTok{  Co }\OtherTok{=}\NormalTok{ Ka}\SpecialCharTok{*}\NormalTok{Dpo}\SpecialCharTok{/}\NormalTok{Vc}\SpecialCharTok{*}\NormalTok{((k21}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{/}\NormalTok{(Ka}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{a}\SpecialCharTok{*}\NormalTok{T1) }\SpecialCharTok{+} 
+\NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{/}\NormalTok{(Ka}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{b}\SpecialCharTok{*}\NormalTok{T1) }\SpecialCharTok{+} 
+\NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{T1)) }\CommentTok{\# Erratum in eq 14:1}
+  
+  \FunctionTok{return}\NormalTok{(Co)}
+\NormalTok{\}}
+
+\NormalTok{r1 }\OtherTok{\textless{}{-}} \FunctionTok{nlr}\NormalTok{(fPK14a, dPK14, }
+          \AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"Vc/F"}\NormalTok{, }\StringTok{"Ka"}\NormalTok{, }\StringTok{"k21"}\NormalTok{, }\StringTok{"alpha"}\NormalTok{, }\StringTok{"beta"}\NormalTok{), }
+          \AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\DecValTok{350}\NormalTok{, }\DecValTok{11}\NormalTok{, }\DecValTok{1}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.01}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in nlr(fPK14a, dPK14, pNames = c("Vc/F", "Ka", "k21", "alpha", "beta"), : object 'dPK14' not found
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r1}\SpecialCharTok{$}\NormalTok{Est}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##            ka      V         k AddErrVar AddErrSD
+## PE   0.013202 21.018  0.013202   0.08701  0.29498
+## SE   0.005442  8.623  0.005442   0.03413  0.05785
+## RSE 41.220676 41.029 41.220716  39.22314 19.61157
+\end{verbatim}
+
+\hypertarget{compartmental-analysis-with-tlag-1}{%
+\subsection{Compartmental analysis with Tlag}\label{compartmental-analysis-with-tlag-1}}
+
+경구 투여 2구획 분석, 지연시간이 있는 모형이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\DocumentationTok{\#\# with lag}
+\NormalTok{fPK14b }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA)}
+\NormalTok{\{}
+\NormalTok{  Vc  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  Ka  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  k21 }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
+\NormalTok{  a   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{4}\NormalTok{] }\CommentTok{\# alpha}
+\NormalTok{  b   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{5}\NormalTok{] }\CommentTok{\# beta}
+\NormalTok{  TL  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{6}\NormalTok{] }\CommentTok{\# Tlag}
+  
+\NormalTok{  T1 }\OtherTok{=}\NormalTok{ e}\SpecialCharTok{$}\NormalTok{DATA[,}\StringTok{"TIME"}\NormalTok{]}
+\NormalTok{  Co }\OtherTok{=}\NormalTok{ Ka}\SpecialCharTok{*}\NormalTok{Dpo}\SpecialCharTok{/}\NormalTok{Vc}\SpecialCharTok{*}\NormalTok{((k21}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{/}\NormalTok{(Ka}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{a}\SpecialCharTok{*}\NormalTok{(T1}\SpecialCharTok{{-}}\NormalTok{TL)) }\SpecialCharTok{+} 
+\NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{/}\NormalTok{(Ka}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{b}\SpecialCharTok{*}\NormalTok{(T1}\SpecialCharTok{{-}}\NormalTok{TL)) }\SpecialCharTok{+} 
+\NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{(T1}\SpecialCharTok{{-}}\NormalTok{TL))) }
+\NormalTok{  Co[Co }\SpecialCharTok{\textless{}} \DecValTok{0}\NormalTok{] }\OtherTok{=} \DecValTok{0} \CommentTok{\# remove negative concentrations before tlag}
+  
+  \FunctionTok{return}\NormalTok{(Co)}
+\NormalTok{\}}
+
+\NormalTok{r2 }\OtherTok{\textless{}{-}} \FunctionTok{nlr}\NormalTok{(fPK14b, dPK14, }
+          \AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"Vc/F"}\NormalTok{, }\StringTok{"Ka"}\NormalTok{, }\StringTok{"k21"}\NormalTok{, }\StringTok{"alpha"}\NormalTok{, }\StringTok{"beta"}\NormalTok{, }\StringTok{"Tlag"}\NormalTok{), }
+          \AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\DecValTok{150}\NormalTok{, }\DecValTok{11}\NormalTok{, }\FloatTok{0.12}\NormalTok{, }\FloatTok{0.1}\NormalTok{, }\FloatTok{0.01}\NormalTok{, }\FloatTok{0.05}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in nlr(fPK14b, dPK14, pNames = c("Vc/F", "Ka", "k21", "alpha", "beta", : object 'dPK14' not found
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{r2}\SpecialCharTok{$}\NormalTok{Est}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##           ka      V         k    tlag AddErrVar
+## PE   0.02747 27.354  0.010511 11.3754  0.015494
+## SE   0.00606  4.149  0.001938  0.8676  0.006077
+## RSE 22.06025 15.167 18.432707  7.6269 39.223384
+##     AddErrSD
+## PE   0.12448
+## SE   0.02441
+## RSE 19.61169
+\end{verbatim}
+
+\hypertarget{modeling-result-2}{%
+\subsection{Modeling Result}\label{modeling-result-2}}
+
+지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. 특히 C\textsubscript{max} 부분에서의 적합 차이를 주의해서 살펴 볼 필요가 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{plot}\NormalTok{(dPK14[,}\StringTok{"TIME"}\NormalTok{], dPK14[,}\StringTok{"DV"}\NormalTok{], }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{25}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{250}\NormalTok{), }\AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in plot(dPK14[, "TIME"], dPK14[, "DV"], xlim = c(0, 25), ylim = c(0, : object 'dPK14' not found
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK14[,}\StringTok{"TIME"}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in eval(expr, envir, enclos): object 'dPK14' not found
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK14a}\NormalTok{(r1}\SpecialCharTok{$}\NormalTok{Est[}\StringTok{"PE"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{]), }\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK14b}\NormalTok{(r2}\SpecialCharTok{$}\NormalTok{Est[}\StringTok{"PE"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{]))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.new has not been called yet
+\end{verbatim}
+
+\hypertarget{theoph-uxc57duxb3d9uxd559-uxc790uxb8ccuxc758-uxad6cuxd68duxbd84uxc11d}{%
+\section{Theoph 약동학 자료의 구획분석}\label{theoph-uxc57duxb3d9uxd559-uxc790uxb8ccuxc758-uxad6cuxd68duxbd84uxc11d}}
+
+R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 사용하여 수행한다. Minimization이 된 후 1구획 약동학 모형에서 언급된 파라미터 이외에 다른 파라미터에 대해서도 값을 구하기 위해서 다음과 같이 (CL(제거 속도), T\textsubscript{half}(반감기), MRT(평균 체류 시간)) 추가적으로 넣어준 후, 입력한 파라미터값들을 구하기 위한 수식을 뒤쪽 부분'SecForms' 인자에 입력하게 된다. 이런 방법을 통하여 우리가 원하는 파라미터들의 점추정치와(point estimate), 그리고 표준 오차(standard error of estimates)를 모두 구할 수 있다.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(wnl)}
+\NormalTok{tData }\OtherTok{=}\NormalTok{ Theoph}
+\FunctionTok{colnames}\NormalTok{(tData) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"ID"}\NormalTok{, }\StringTok{"BWT"}\NormalTok{, }\StringTok{"DOSE"}\NormalTok{, }\StringTok{"TIME"}\NormalTok{, }\StringTok{"DV"}\NormalTok{)}
+
+\NormalTok{fPK }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA)     }\CommentTok{\# Prediction function}
+\NormalTok{\{}
+\NormalTok{  DOSE }\OtherTok{=} \DecValTok{320000}           \CommentTok{\# in microgram}
+\NormalTok{  TIME }\OtherTok{=}\NormalTok{ e}\SpecialCharTok{$}\NormalTok{DATA[,}\StringTok{"TIME"}\NormalTok{]  }\CommentTok{\# use data in e$DATA}
+
+\NormalTok{  K    }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
+\NormalTok{  Ka   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
+\NormalTok{  V    }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
+
+\NormalTok{  Cp   }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{TIME) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{TIME))}
+  \FunctionTok{return}\NormalTok{(Cp)}
+\NormalTok{\}}
+
+\NormalTok{IDs }\OtherTok{=} \FunctionTok{unique}\NormalTok{(tData[,}\StringTok{"ID"}\NormalTok{])}
+\NormalTok{nID }\OtherTok{=} \FunctionTok{length}\NormalTok{(IDs)}
+\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nID) \{}
+\NormalTok{  Data }\OtherTok{=}\NormalTok{ tData[tData}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ IDs[i],]}
+\NormalTok{  Res }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK, Data, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"k"}\NormalTok{, }\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{500}\NormalTok{), }
+            \AttributeTok{SecNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"CL"}\NormalTok{, }\StringTok{"Thalf"}\NormalTok{, }\StringTok{"MRT"}\NormalTok{), }
+            \AttributeTok{SecForms=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{V}\SpecialCharTok{*}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{log}\NormalTok{(}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\DecValTok{1}\SpecialCharTok{/}\NormalTok{k))}
+  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"\#\# ID ="}\NormalTok{, i, }\StringTok{"\#\#"}\NormalTok{))}
+  \FunctionTok{print}\NormalTok{(Res)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "## ID = 1 ##"
+## $Est
+##             k     ka         V AddErrVar AddErrSD
+## PE   0.053954  1.777 29394.222    0.3896   0.6242
+## SE   0.007784  0.230  1449.530    0.1661   0.1331
+## RSE 14.427031 12.940     4.931   42.6401  21.3201
+##         CL  Thalf    MRT
+## PE  1585.9 12.847 18.534
+## SE   172.9  1.853  2.674
+## RSE   10.9 14.427 14.427
+## 
+## $Cov
+##                    k        ka          V  AddErrVar
+## k          6.059e-05 -9.28e-04 -9.014e+00 -1.665e-08
+## ka        -9.280e-04  5.29e-02  2.120e+02  3.840e-07
+## V         -9.014e+00  2.12e+02  2.101e+06  3.777e-03
+## AddErrVar -1.665e-08  3.84e-07  3.777e-03  2.760e-02
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 6
+## 
+## $run$run
+## [1] 5
+## 
+## $run$p.value
+## [1] 0.2619
+## 
+## 
+## $`Objective Function Value`
+## [1] 0.6321
+## 
+## $`-2LL`
+## [1] 20.85
+## 
+## $AIC
+## [1] 28.85
+## 
+## $AICc
+## [1] 35.52
+## 
+## $BIC
+## [1] 30.44
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 3.878 6.811 9.035 9.758 9.124 8.525 7.683
+##  [9] 6.890 5.838 3.015
+## 
+## $Residual
+##  [1]  7.400e-01 -1.038e+00 -2.409e-01  1.465e+00
+##  [5] -9.825e-02 -5.436e-01 -1.652e-01 -2.133e-01
+##  [9]  6.353e-05  1.018e-01  2.654e-01
+## 
+## $`Elapsed Time`
+## Time difference of 0.02957 secs
+## 
+## [1] "## ID = 2 ##"
+## $Est
+##           k      ka        V AddErrVar AddErrSD
+## PE   0.1017  1.9427 32024.77    0.8135   0.9019
+## SE   0.0208  0.4307  3064.68    0.3469   0.1923
+## RSE 20.4566 22.1727     9.57   42.6400  21.3200
+##          CL  Thalf    MRT
+## PE  3255.67  6.818  9.837
+## SE   451.31  1.395  2.012
+## RSE   13.86 20.457 20.457
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          4.325e-04 -5.235e-03 -5.175e+01 -2.618e-08
+## ka        -5.235e-03  1.855e-01  9.264e+02  1.126e-07
+## V         -5.175e+01  9.264e+02  9.392e+06  4.885e-03
+## AddErrVar -2.618e-08  1.126e-07  4.885e-03  1.203e-01
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 5
+## 
+## $run$run
+## [1] 6
+## 
+## $run$p.value
+## [1] 0.6429
+## 
+## 
+## $`Objective Function Value`
+## [1] 8.729
+## 
+## $`-2LL`
+## [1] 28.95
+## 
+## $AIC
+## [1] 36.95
+## 
+## $AICc
+## [1] 43.61
+## 
+## $BIC
+## [1] 38.54
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.0000 4.0182 6.1615 8.0136 8.4214 7.3754 6.3289
+##  [8] 5.1597 4.2233 3.1131 0.8915
+## 
+## $Residual
+##  [1]  0.000000 -2.298176  1.748507  0.296379 -0.091360
+##  [6] -0.525439 -0.248896  0.240283  0.326721 -0.103131
+## [11]  0.008457
+## 
+## $`Elapsed Time`
+## Time difference of 0.005009 secs
+## 
+## [1] "## ID = 3 ##"
+## $Est
+##           k     ka         V AddErrVar AddErrSD
+## PE  0.08142 2.4536 34319.365   0.03966  0.19915
+## SE  0.00381 0.1437   684.952   0.01691  0.04246
+## RSE 4.67902 5.8575     1.996  42.64006 21.32003
+##           CL  Thalf     MRT
+## PE  2794.442 8.5127 12.2813
+## SE    92.853 0.3983  0.5746
+## RSE    3.323 4.6790  4.6790
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          1.452e-05 -3.094e-04 -2.073e+00 -2.225e-09
+## ka        -3.094e-04  2.066e-02  6.848e+01  6.716e-08
+## V         -2.073e+00  6.848e+01  4.692e+05  4.891e-04
+## AddErrVar -2.225e-09  6.716e-08  4.891e-04  2.860e-04
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 5
+## 
+## $run$run
+## [1] 7
+## 
+## $run$p.value
+## [1] 0.3571
+## 
+## 
+## $`Objective Function Value`
+## [1] -24.5
+## 
+## $`-2LL`
+## [1] -4.285
+## 
+## $AIC
+## [1] 3.715
+## 
+## $AICc
+## [1] 10.38
+## 
+## $BIC
+## [1] 5.307
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 4.462 6.875 8.086 8.114 7.181 6.377 5.423
+##  [9] 4.635 3.586 1.348
+## 
+## $Residual
+##  [1]  0.00000 -0.06216  0.02463  0.11394 -0.31367
+##  [6]  0.31916 -0.17713 -0.12321  0.26545  0.11395
+## [11] -0.29760
+## 
+## $`Elapsed Time`
+## Time difference of 0.005803 secs
+## 
+## [1] "## ID = 4 ##"
+## $Est
+##            k      ka         V AddErrVar AddErrSD
+## PE   0.08747  1.1715 31097.470    0.5211   0.7219
+## SE   0.01605  0.2036  2607.291    0.2222   0.1539
+## RSE 18.35204 17.3777     8.384   42.6402  21.3201
+##          CL  Thalf    MRT
+## PE  2719.99  7.925 11.433
+## SE   328.29  1.454  2.098
+## RSE   12.07 18.352 18.352
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          2.577e-04 -2.094e-03 -3.555e+01 -3.662e-08
+## ka        -2.094e-03  4.144e-02  3.932e+02  4.001e-07
+## V         -3.555e+01  3.932e+02  6.798e+06  6.917e-03
+## AddErrVar -3.662e-08  4.001e-07  6.917e-03  4.937e-02
+## 
+## $run
+## $run$m
+## [1] 4
+## 
+## $run$n
+## [1] 6
+## 
+## $run$run
+## [1] 5
+## 
+## $run$p.value
+## [1] 0.4048
+## 
+## 
+## $`Objective Function Value`
+## [1] 3.83
+## 
+## $`-2LL`
+## [1] 24.05
+## 
+## $AIC
+## [1] 32.05
+## 
+## $AICc
+## [1] 38.71
+## 
+## $BIC
+## [1] 33.64
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 3.405 5.046 6.952 8.313 8.004 7.138 6.015
+##  [9] 5.052 3.900 1.288
+## 
+## $Residual
+##  [1]  0.0000 -1.5152 -0.4456  1.6480  0.0669 -0.4637
+##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
+## 
+## $`Elapsed Time`
+## Time difference of 0.004987 secs
+## 
+## [1] "## ID = 5 ##"
+## $Est
+##            k      ka        V AddErrVar AddErrSD
+## PE   0.08844  1.4715 26925.05    1.2240   1.1063
+## SE   0.02009  0.3193  2739.87    0.5219   0.2359
+## RSE 22.72216 21.6962    10.18   42.6401  21.3201
+##          CL  Thalf    MRT
+## PE  2381.12  7.838 11.308
+## SE   366.26  1.781  2.569
+## RSE   15.38 22.722 22.722
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          4.038e-04 -3.826e-03 -4.563e+01 -7.384e-08
+## ka        -3.826e-03  1.019e-01  6.136e+02  1.050e-06
+## V         -4.563e+01  6.136e+02  7.507e+06  1.180e-02
+## AddErrVar -7.384e-08  1.050e-06  1.180e-02  2.724e-01
+## 
+## $run
+## $run$m
+## [1] 4
+## 
+## $run$n
+## [1] 6
+## 
+## $run$run
+## [1] 6
+## 
+## $run$p.value
+## [1] 0.5952
+## 
+## 
+## $`Objective Function Value`
+## [1] 13.22
+## 
+## $`-2LL`
+## [1] 33.44
+## 
+## $AIC
+## [1] 41.44
+## 
+## $AICc
+## [1] 48.11
+## 
+## $BIC
+## [1] 43.03
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 4.182 6.193 8.672 9.929 9.205 8.104 6.796
+##  [9] 5.655 4.376 1.468
+## 
+## $Residual
+##  [1]  0.000000 -2.161820 -0.563476  2.728442 -0.599046
+##  [6] -0.465385 -0.543808  0.293763  0.245332 -0.005509
+## [11]  0.102075
+## 
+## $`Elapsed Time`
+## Time difference of 0.005285 secs
+## 
+## [1] "## ID = 6 ##"
+## $Est
+##            k      ka         V AddErrVar AddErrSD
+## PE   0.09953  1.1637 41104.664   0.22220   0.4714
+## SE   0.01618  0.1851  3235.607   0.09475   0.1005
+## RSE 16.25687 15.9042     7.872  42.64040  21.3202
+##          CL  Thalf    MRT
+## PE  4090.96  6.965 10.048
+## SE   420.73  1.132  1.633
+## RSE   10.28 16.257 16.257
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          2.618e-04 -1.988e-03 -4.510e+01 -3.224e-08
+## ka        -1.988e-03  3.426e-02  4.528e+02  3.986e-07
+## V         -4.510e+01  4.528e+02  1.047e+07  6.771e-03
+## AddErrVar -3.224e-08  3.986e-07  6.771e-03  8.977e-03
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 5
+## 
+## $run$run
+## [1] 4
+## 
+## $run$p.value
+## [1] 0.1667
+## 
+## 
+## $`Objective Function Value`
+## [1] -5.546
+## 
+## $`-2LL`
+## [1] 14.67
+## 
+## $AIC
+## [1] 22.67
+## 
+## $AICc
+## [1] 29.34
+## 
+## $BIC
+## [1] 24.26
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.0000 2.0697 3.7009 5.3595 6.1538 5.8337 5.1504
+##  [8] 4.2391 3.4005 2.5532 0.7929
+## 
+## $Residual
+##  [1]  0.0000 -0.7797 -0.6209  1.0805  0.1662 -0.3037
+##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
+## 
+## $`Elapsed Time`
+## Time difference of 0.005613 secs
+## 
+## [1] "## ID = 7 ##"
+## $Est
+##            k       ka        V AddErrVar AddErrSD
+## PE   0.10225  0.67974 32621.58   0.09060  0.30099
+## SE   0.01161  0.07256  1986.49   0.03863  0.06417
+## RSE 11.35959 10.67513     6.09  42.64020 21.32010
+##           CL   Thalf    MRT
+## PE  3335.404  6.7793  9.780
+## SE   207.011  0.7701  1.111
+## RSE    6.206 11.3596 11.360
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          1.349e-04 -6.671e-04 -2.128e+01 -1.437e-08
+## ka        -6.671e-04  5.265e-03  1.234e+02  8.047e-08
+## V         -2.128e+01  1.234e+02  3.946e+06  2.639e-03
+## AddErrVar -1.437e-08  8.047e-08  2.639e-03  1.492e-03
+## 
+## $run
+## $run$m
+## [1] 4
+## 
+## $run$n
+## [1] 7
+## 
+## $run$run
+## [1] 5
+## 
+## $run$p.value
+## [1] 0.3333
+## 
+## 
+## $`Objective Function Value`
+## [1] -15.41
+## 
+## $`-2LL`
+## [1] 4.802
+## 
+## $AIC
+## [1] 12.8
+## 
+## $AICc
+## [1] 19.47
+## 
+## $BIC
+## [1] 14.39
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.0000 1.5131 2.7515 4.6307 6.4667 7.0051 6.5391
+##  [8] 5.5554 4.5750 3.3647 0.9704
+## 
+## $Residual
+##  [1]  0.1500 -0.6631 -0.4015  0.3893  0.1133  0.0849
+##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
+## 
+## $`Elapsed Time`
+## Time difference of 0.006006 secs
+## 
+## [1] "## ID = 8 ##"
+## $Est
+##            k      ka         V AddErrVar AddErrSD
+## PE   0.09196  1.3755 35692.014    0.3348   0.5787
+## SE   0.01529  0.2316  2770.810    0.1428   0.1234
+## RSE 16.62733 16.8378     7.763   42.6401  21.3200
+##          CL  Thalf    MRT
+## PE  3282.11  7.538 10.875
+## SE   355.81  1.253  1.808
+## RSE   10.84 16.627 16.627
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          2.338e-04 -2.275e-03 -3.597e+01 -2.495e-08
+## ka        -2.275e-03  5.364e-02  4.736e+02  3.317e-07
+## V         -3.597e+01  4.736e+02  7.677e+06  5.009e-03
+## AddErrVar -2.495e-08  3.317e-07  5.009e-03  2.039e-02
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 5
+## 
+## $run$run
+## [1] 7
+## 
+## $run$p.value
+## [1] 0.3571
+## 
+## 
+## $`Objective Function Value`
+## [1] -1.035
+## 
+## $`-2LL`
+## [1] 19.18
+## 
+## $AIC
+## [1] 27.18
+## 
+## $AICc
+## [1] 33.85
+## 
+## $BIC
+## [1] 28.77
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 2.577 4.460 6.284 7.382 6.870 6.030 4.978
+##  [9] 4.173 3.158 1.046
+## 
+## $Residual
+##  [1]  0.0000  0.4726 -1.4105  1.0258  0.1778 -0.2799
+##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
+## 
+## $`Elapsed Time`
+## Time difference of 0.008435 secs
+## 
+## [1] "## ID = 9 ##"
+## $Est
+##             k     ka         V AddErrVar AddErrSD
+## PE   0.086632  8.866 38948.217   0.22626   0.4757
+## SE   0.009328  2.847  1504.713   0.09648   0.1014
+## RSE 10.767476 32.109     3.863  42.64005  21.3200
+##         CL   Thalf    MRT
+## PE  3374.2  8.0011 11.543
+## SE   286.8  0.8615  1.243
+## RSE    8.5 10.7675 10.767
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          8.701e-05 -9.311e-03 -9.888e+00 -7.334e-09
+## ka        -9.311e-03  8.104e+00  1.963e+03  7.026e-07
+## V         -9.888e+00  1.963e+03  2.264e+06  1.090e-03
+## AddErrVar -7.334e-09  7.026e-07  1.090e-03  9.308e-03
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 5
+## 
+## $run$run
+## [1] 6
+## 
+## $run$p.value
+## [1] 0.6429
+## 
+## 
+## $`Objective Function Value`
+## [1] -5.347
+## 
+## $`-2LL`
+## [1] 14.87
+## 
+## $AIC
+## [1] 22.87
+## 
+## $AICc
+## [1] 29.54
+## 
+## $BIC
+## [1] 24.46
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.0000 7.5037 7.8253 7.5749 6.9651 6.1110 5.3710
+##  [8] 4.4583 3.8711 3.0373 0.9995
+## 
+## $Residual
+##  [1]  0.0000 -0.1337  1.2047 -0.4349 -0.6351 -0.4510
+##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
+## 
+## $`Elapsed Time`
+## Time difference of 0.007078 secs
+## 
+## [1] "## ID = 10 ##"
+## $Est
+##            k      ka         V AddErrVar AddErrSD
+## PE  0.073966 0.69551 25519.766   0.12285  0.35051
+## SE  0.006923 0.05965  1127.009   0.05239  0.07473
+## RSE 9.360282 8.57715     4.416  42.64022 21.32011
+##           CL  Thalf    MRT
+## PE  1887.586 9.3712 13.520
+## SE   108.081 0.8772  1.265
+## RSE    5.726 9.3603  9.360
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          4.793e-05 -3.108e-04 -7.015e+00 -1.224e-08
+## ka        -3.108e-04  3.559e-03  5.634e+01  9.244e-08
+## V         -7.015e+00  5.634e+01  1.270e+06  2.133e-03
+## AddErrVar -1.224e-08  9.244e-08  2.133e-03  2.744e-03
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 6
+## 
+## $run$run
+## [1] 6
+## 
+## $run$p.value
+## [1] 0.7381
+## 
+## 
+## $`Objective Function Value`
+## [1] -12.06
+## 
+## $`-2LL`
+## [1] 8.152
+## 
+## $AIC
+## [1] 16.15
+## 
+## $AICc
+## [1] 22.82
+## 
+## $BIC
+## [1] 17.74
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 2.805 5.041 6.109 8.685 9.603 9.239 8.209
+##  [9] 6.991 5.730 2.431
+## 
+## $Residual
+##  [1]  0.24000  0.08515  0.17869  0.30069 -0.85533
+##  [6]  0.60682 -0.05940 -0.18942  0.14940 -0.05037
+## [11] -0.01104
+## 
+## $`Elapsed Time`
+## Time difference of 0.007007 secs
+## 
+## [1] "## ID = 11 ##"
+## $Est
+##            k     ka         V AddErrVar AddErrSD
+## PE  0.098123 3.8491 37945.348   0.03875  0.19684
+## SE  0.004603 0.2483   768.522   0.01652  0.04197
+## RSE 4.691277 6.4517     2.025  42.64019 21.32010
+##           CL  Thalf     MRT
+## PE  3723.312 7.0641 10.1913
+## SE   126.928 0.3314  0.4781
+## RSE    3.409 4.6913  4.6913
+## 
+## $Cov
+##                    k         ka          V  AddErrVar
+## k          2.119e-05 -5.782e-04 -2.697e+00 -1.808e-09
+## ka        -5.782e-04  6.167e-02  1.234e+02  7.807e-08
+## V         -2.697e+00  1.234e+02  5.906e+05  3.551e-04
+## AddErrVar -1.808e-09  7.807e-08  3.551e-04  2.730e-04
+## 
+## $run
+## $run$m
+## [1] 4
+## 
+## $run$n
+## [1] 6
+## 
+## $run$run
+## [1] 4
+## 
+## $run$p.value
+## [1] 0.1905
+## 
+## 
+## $`Objective Function Value`
+## [1] -24.76
+## 
+## $`-2LL`
+## [1] -4.541
+## 
+## $AIC
+## [1] 3.459
+## 
+## $AICc
+## [1] 10.13
+## 
+## $BIC
+## [1] 5.05
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.0000 5.1381 6.9765 7.6613 7.1215 6.0785 5.2879
+##  [8] 4.3414 3.5678 2.6346 0.8148
+## 
+## $Residual
+##  [1]  0.00000 -0.27811  0.26351  0.33868 -0.31150
+##  [6] -0.20847 -0.06789  0.10862  0.05221  0.05536
+## [11]  0.04519
+## 
+## $`Elapsed Time`
+## Time difference of 0.006702 secs
+## 
+## [1] "## ID = 12 ##"
+## $Est
+##            k       ka         V AddErrVar AddErrSD
+## PE   0.10558  0.83291 24017.515    0.2554   0.5053
+## SE   0.01289  0.09971  1557.294    0.1089   0.1077
+## RSE 12.21055 11.97134     6.484   42.6357  21.3178
+##           CL   Thalf    MRT
+## PE  2535.668  6.5654  9.472
+## SE   176.025  0.8017  1.157
+## RSE    6.942 12.2106 12.211
+## 
+## $Cov
+##                    k         ka          V AddErrVar
+## k          1.662e-04 -9.662e-04 -1.812e+01 4.340e-09
+## ka        -9.662e-04  9.942e-03  1.277e+02 4.984e-07
+## V         -1.812e+01  1.277e+02  2.425e+06 9.255e-04
+## AddErrVar  4.340e-09  4.984e-07  9.255e-04 1.185e-02
+## 
+## $run
+## $run$m
+## [1] 5
+## 
+## $run$n
+## [1] 5
+## 
+## $run$run
+## [1] 5
+## 
+## $run$p.value
+## [1] 0.3571
+## 
+## 
+## $`Objective Function Value`
+## [1] -4.015
+## 
+## $`-2LL`
+## [1] 16.2
+## 
+## $AIC
+## [1] 24.2
+## 
+## $AICc
+## [1] 30.87
+## 
+## $BIC
+## [1] 25.79
+## 
+## $Convergence
+## NULL
+## 
+## $Message
+## [1] "CONVERGENCE: REL_REDUCTION_OF_F <= FACTR*EPSMCH"
+## 
+## $Prediction
+##  [1] 0.000 2.471 4.413 7.095 9.469 9.709 8.710 7.191
+##  [9] 5.873 4.275 1.192
+## 
+## $Residual
+##  [1]  0.00000 -1.22065 -0.45251  0.72485  0.25090
+##  [6]  0.04140 -0.13987 -0.60074  0.23726  0.29522
+## [11] -0.02175
+## 
+## $`Elapsed Time`
+## Time difference of 0.00514 secs
+\end{verbatim}
+
+\hypertarget{uxacb0uxb860}{%
+\section{결론}\label{uxacb0uxb860}}
+
+이상으로 구획모델링(compartment modeling)에 대한 간략한 이론과 실제 자료해석을 R 코드를 사용해서 알아보았다.
+이는 단순하지만 여러 현상을 묘사할 수 있는 유용한 도구 중 하나이다.
+즉, 간단한 수식으로 구성된 모델을 통해 현상을 분석하고 여러 변수를 연관시킨 후, 시뮬레이션을 통한 새로운 정보의 생성을 수행할 수 있다.
+
 \backmatter
 
 \hypertarget{uxcc38uxace0uxbb38uxd5cc}{%
@@ -3078,6 +4467,9 @@ Bae, Kyun-Seop. 2019. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic 
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-NonCompart}{}}%
 ---------. 2020b. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://cran.r-project.org/package=NonCompart}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-wnl}{}}%
+---------. 2020c. \emph{Wnl: Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis}. \url{https://cran.r-project.org/package=wnl}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-sasLM}{}}%
 ---------. 2021. \emph{sasLM: SAS Linear Model}. \url{https://cran.r-project.org/package=sasLM}.

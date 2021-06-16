@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  14 JUN 2021 12:48
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  17 JUN 2021 00:31
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -798,7 +798,11 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \rotheadsize=\dimen280
 \c@nlinenum=\count318
 \TeXr@lab=\toks37
-) (./pharmapk.aux)
+) (./pharmapk.aux
+
+LaTeX Warning: Label `eq:eq5-2' multiply defined.
+
+)
 \openout1 = `pharmapk.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 311.
@@ -2927,14 +2931,17 @@ File: media-04/image2.png Graphic file (type bmp)
 [83] [84]
 File: media-04/image3.jpg Graphic file (type bmp)
 <media-04/image3.jpg>
+[85]
 File: media-04/image4.jpg Graphic file (type bmp)
 <media-04/image4.jpg>
-[85] [86]
-Overfull \hbox (204.48997pt too wide) in paragraph at lines 2895--2895
+[86]
+Overfull \hbox (204.48997pt too wide) in paragraph at lines 2865--2865
 []\TU/lmtt/m/n/11 ## Error in knitr::include_graphics("media-01/image5.jpg"): C
 annot find the file(s): "media-01/image5.jpg"[] 
  []
 
+Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
+=tex-text;!
 Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
 [87]
@@ -2942,15 +2949,12 @@ Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mappin
 =tex-text;!
 Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
+Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
+=tex-text;!
 [88]
-Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
-=tex-text;!
-Missing character: There is no ∙ in font NanumMyeongjo/OT:language=dflt;mapping
-=tex-text;!
-[89]
 File: media-04/image6.png Graphic file (type bmp)
 <media-04/image6.png>
-[90] [91]
+[89] [90] [91]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2990,47 +2994,49 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [92
 
 ]
-Underfull \vbox (badness 10000) detected at line 3058
+Underfull \vbox (badness 10000) detected at line 3022
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3058
+Overfull \hbox (395.75pt too wide) detected at line 3022
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3058
+Underfull \vbox (badness 10000) detected at line 3022
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3058
+Overfull \hbox (395.75pt too wide) detected at line 3022
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3058
+Underfull \vbox (badness 10000) detected at line 3022
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3058
+Overfull \hbox (395.75pt too wide) detected at line 3022
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3058
+Underfull \vbox (badness 10000) detected at line 3022
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3058
+Overfull \hbox (395.75pt too wide) detected at line 3022
 []
  []
 
 Chapter 5.
 
 LaTeX Font Warning: Font shape `TU/NanumMyeongjo(0)/m/sl' undefined
-(Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 3058
+(Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 3022
 .
 
+Missing character: There is no ‐ in font NanumMyeongjo/OT:language=dflt;mapping
+=tex-text;!
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -3039,92 +3045,126 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [93
 
 ]
-Underfull \vbox (badness 10000) has occurred while \output is active []
+File: media-05/fig5-1.png Graphic file (type bmp)
+<media-05/fig5-1.png>
+[94]
+File: media-05/fig5-2.png Graphic file (type bmp)
+<media-05/fig5-2.png>
+[95] [96] [97]
+File: pharmapk_files/figure-latex/unnamed-chunk-25-1.pdf Graphic file (type pdf
+)
+<use pharmapk_files/figure-latex/unnamed-chunk-25-1.pdf>
+[98]
+Underfull \vbox (badness 1796) detected at line 3232
+ []
+
+[99] [100]
+File: pharmapk_files/figure-latex/unnamed-chunk-29-1.pdf Graphic file (type pdf
+)
+<use pharmapk_files/figure-latex/unnamed-chunk-29-1.pdf>
+[101]
+File: pharmapk_files/figure-latex/unnamed-chunk-30-1.pdf Graphic file (type pdf
+)
+<use pharmapk_files/figure-latex/unnamed-chunk-30-1.pdf>
+
+Underfull \hbox (badness 10000) in paragraph at lines 3320--3323
+
+ []
+
+[102] [103] [104] [105]
+File: pharmapk_files/figure-latex/unnamed-chunk-34-1.pdf Graphic file (type pdf
+)
+<use pharmapk_files/figure-latex/unnamed-chunk-34-1.pdf>
+[106]
+Overfull \hbox (6.21492pt too wide) in paragraph at lines 3480--3480
+[]\TU/lmtt/m/n/11 ## Error in colnames(dPK14) = c("TIME", "DV"): object []dPK14
+[] not found[] 
+ []
 
 
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
+LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <11> not available
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3495.
+
+
+[107]
+Overfull \hbox (210.15483pt too wide) in paragraph at lines 3520--3520
+[]\TU/lmtt/m/n/11 ## Error in nlr(fPK14a, dPK14, pNames = c("Vc/F", "Ka", "k21"
+, "alpha", "beta"), : object []dPK14[] not found[] 
+ []
+
+[108]
+Overfull \hbox (204.48984pt too wide) in paragraph at lines 3569--3569
+[]\TU/lmtt/m/n/11 ## Error in nlr(fPK14b, dPK14, pNames = c("Vc/F", "Ka", "k21"
+, "alpha", "beta", : object []dPK14[] not found[] 
+ []
+
+
+Overfull \hbox (193.15979pt too wide) in paragraph at lines 3601--3601
+[]\TU/lmtt/m/n/11 ## Error in plot(dPK14[, "TIME"], dPK14[, "DV"], xlim = c(0, 
+25), ylim = c(0, : object []dPK14[] not found[] 
+ []
+
+[109]
+Overfull \hbox (102.5199pt too wide) in paragraph at lines 3621--3621
+[]\TU/lmtt/m/n/11 ## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.
+new has not been called yet[] 
+ []
+
+
+Overfull \hbox (102.5199pt too wide) in paragraph at lines 3631--3631
+[]\TU/lmtt/m/n/11 ## Error in plot.xy(xy.coords(x, y), type = type, ...): plot.
+new has not been called yet[] 
+ []
+
+[110] [111] [112] [113] [114] [115] [116] [117] [118] [119] [120] [121] [122] [
+123] [124] [125] [126] [127] [128] [129] [130] [131] [132] [133] [134]
+Underfull \vbox (badness 10000) detected at line 4457
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 4457
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 4457
+ []
 
 
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
+Overfull \hbox (395.75pt too wide) detected at line 4457
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 4457
+ []
 
 
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
+Overfull \hbox (395.75pt too wide) detected at line 4457
 []
  []
 
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
+Underfull \vbox (badness 10000) detected at line 4457
+ []
 
 
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
+Overfull \hbox (395.75pt too wide) detected at line 4457
 []
  []
 
 
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[94
-
-]
-Underfull \vbox (badness 10000) detected at line 3068
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 3068
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3068
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 3068
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3068
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 3068
-[]
- []
-
-
-Underfull \vbox (badness 10000) detected at line 3068
- []
-
-
-Overfull \hbox (395.75pt too wide) detected at line 3068
-[]
- []
-
-
-Underfull \hbox (badness 10000) detected at line 3068
+Underfull \hbox (badness 10000) detected at line 4457
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NanumMyeongjo(0)/m/sl' undefined
-(Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 3068
+(Font)              using `TU/NanumMyeongjo(0)/m/it' instead on input line 4457
 .
 
 
-Underfull \hbox (badness 1019) in paragraph at lines 3091--3093
+Underfull \hbox (badness 1019) in paragraph at lines 4483--4485
 []\TU/NanumMyeongjo(0)/m/up/11 Derendorf, Hartmut, and Bernd Meibohm. 1999. “Mo
 deling of Pharmacoki-
  []
@@ -3134,7 +3174,8 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[95
+[135
+
 
 
 ]
@@ -3142,7 +3183,7 @@ Missing character: There is no ç in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
 Missing character: There is no ü in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
-(./pharmapk.ind [96]
+(./pharmapk.ind [136]
 Underfull \hbox (badness 10000) detected at line 1
 []
  []
@@ -3156,30 +3197,30 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
  []
 
-[97
+[137
 
 
 
 ])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3122.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3122.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4514.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4514.
 (./pharmapk.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 3122.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 3122.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 4514.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 4514.
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 25985 strings out of 479827
- 434401 string characters out of 5893856
- 891927 words of memory out of 5000000
- 42619 multiletter control sequences out of 15000+600000
- 541123 words of font info for 126 fonts, out of 8000000 for 9000
+ 26078 strings out of 479827
+ 437363 string characters out of 5893856
+ 893195 words of memory out of 5000000
+ 42703 multiletter control sequences out of 15000+600000
+ 541131 words of font info for 127 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  61i,18n,125p,1129b,2560s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on pharmapk.pdf (107 pages).
+Output written on pharmapk.pdf (147 pages).
