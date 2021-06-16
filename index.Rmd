@@ -123,10 +123,11 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 전문가들의 역량을 더욱 잘 발휘할 수 있게 돕는 디딤돌이 된다면 저자들
 모두의 기쁨이겠습니다.
 
-
-#```{r include = !is_html_output()}
-#include_graphics("images/preface.pdf")
-#```
+<!--
+```{r include = !is_html_output()}
+include_graphics("images/preface.pdf")
+```
+-->
 
 2021년 봄, 성의교정 연구실에서  
 대표저자 임동석 拜
