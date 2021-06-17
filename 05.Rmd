@@ -173,7 +173,8 @@ fPK02b = function(THETA) # Prediction function
   return(Cp)
 }
 TIME = dPK02[,"TIME"]
-r2 = nlr(fPK02b, dPK02, pNames=c("ka", "V", "k", "tlag"), IE=c(0.1, 30, 0.05, 20))
+r2 = nlr(fPK02b, dPK02, pNames=c("ka", "V", "k", "tlag"), 
+         IE=c(0.1, 30, 0.05, 20))
 
 r2$Est
 ```
@@ -220,7 +221,7 @@ NonCompart::tblNCA(dPK01, key="ID", colTime="TIME",
                    colConc="DV", dose=10, adm="Bolus")
 ```
 
-## Compartmental analysis
+### Compartmental analysis
 
 V, K만 있으면 단항 지수함수적 농도 감소를 보이는 IV dosing의 농도를 나타낼 수 있으므로 아래와 같이 간단한 함수를 만들 수 있다.
 
@@ -257,7 +258,8 @@ for (i in 1:nID) {
 
 ```{r}
 # Figure 1.1, p 470
-plot(0, 1, type="n", xlim=c(0, 160), ylim=c(10, 1000), log="y", xlab="Time (min)", ylab="Concentration (ug/L)")
+plot(0, 1, type="n", xlim=c(0, 160), ylim=c(10, 1000), 
+     log="y", xlab="Time (min)", ylab="Concentration (ug/L)")
 for (i in 1:nID) {
   cID = IDs[i]
   TIME = dPK01[dPK01$ID == cID,"TIME"]
@@ -299,7 +301,7 @@ fPK14a = function(THETA)
   T1 = e$DATA[,"TIME"]
   Co = Ka*Dpo/Vc*((k21-a)/(Ka-a)/(b-a)*exp(-a*T1) + 
                     (k21-b)/(Ka-b)/(a-b)*exp(-b*T1) + 
-                    (k21-Ka)/(a-Ka)/(b-Ka)*exp(-Ka*T1)) # Erratum in eq 14:1
+                    (k21-Ka)/(a-Ka)/(b-Ka)*exp(-Ka*T1)) 
   
   return(Co)
 }
@@ -346,7 +348,8 @@ r2$Est
 지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. 특히 C~max~ 부분에서의 적합 차이를 주의해서 살펴 볼 필요가 있다.
 
 ```{r}
-plot(dPK14[,"TIME"], dPK14[,"DV"], xlim=c(0, 25), ylim=c(0, 250), xlab="Time (min)", ylab="Concentration (ug/L)", pch=16)
+plot(dPK14[,"TIME"], dPK14[,"DV"], xlim=c(0, 25), ylim=c(0, 250), 
+     xlab="Time (min)", ylab="Concentration (ug/L)", pch=16)
 TIME = dPK14[,"TIME"]
 lines(TIME, fPK14a(r1$Est["PE", 1:5]), lty=2)
 lines(TIME, fPK14b(r2$Est["PE", 1:6]))

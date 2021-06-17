@@ -1605,7 +1605,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 
 예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라메터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 드문 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석은 지양되어야 한다.
 
-실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr (\protect\hyperlink{ref-R-dplyr}{Wickham et al. 2021}), 자료의 형태를 변형하는 tidyr (\protect\hyperlink{ref-R-tidyr}{Wickham 2021}), 시간 자료를 쉽게 처리할 수 있는 (\protect\hyperlink{ref-R-lubridate}{Spinu, Grolemund, and Wickham 2021}) 등이 있다.
+실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr (\protect\hyperlink{ref-R-dplyr}{Wickham, François, et al. 2021}), 자료의 형태를 변형하는 tidyr (\protect\hyperlink{ref-R-tidyr}{Wickham 2021}), 시간 자료를 쉽게 처리할 수 있는 (\protect\hyperlink{ref-R-lubridate}{Spinu, Grolemund, and Wickham 2021}) 등이 있다.
 
 계획된 채혈 시간은 기술통계량을 구하여 표를 만들거나 농도-시간 곡선 등의 그림을 그리는데 사용될 수 있으므로 실제 채혈시간과 병기하여 하나의 최종 자료에 포함되어 있어야 한다.
 
@@ -1639,7 +1639,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 
 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 NCA를 통한 약동학적 주요 지표를 구할 수 있다. 비용을 떠나 NCA를 R로 수행하는 가장 중요한 이유는 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문이다. 더 나아가 계량약리학 분석 전후 과정 중에 NCA를 같은 작업환경에서 빠르게 수행할 수 있다는 장점도 있다.
 
-이 책에서 주로 다루게 될 \texttt{NonCompart} (\protect\hyperlink{ref-R-NonCompart}{Bae 2020b}), \texttt{ncar} (\protect\hyperlink{ref-R-ncar}{Bae 2019}), \texttt{pkr} (\protect\hyperlink{ref-R-pkr}{Bae and Lee 2018}) 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
+이 책에서 주로 다루게 될 \texttt{NonCompart} (\protect\hyperlink{ref-R-NonCompart}{Bae 2021b}), \texttt{ncar} (\protect\hyperlink{ref-R-ncar}{Bae 2021a}), \texttt{pkr} (\protect\hyperlink{ref-R-pkr}{Bae and Lee 2018}) 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
 
 \texttt{NonCompart}의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Data,
 \texttt{ncar}의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Report,
@@ -1773,7 +1773,7 @@ Subject & Wt & Dose & Time & conc\\
 \end{tabular}
 \end{table}
 
-\texttt{ggplot2} 패키지(\protect\hyperlink{ref-R-ggplot2}{Wickham et al. 2020})로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \ref{fig:ggtheoph}) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다.
+\texttt{ggplot2} 패키지(\protect\hyperlink{ref-R-ggplot2}{Wickham, Chang, et al. 2021})로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \ref{fig:ggtheoph}) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2047,10 +2047,10 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 \begin{Shaded}
 \begin{Highlighting}[]
                         \ExtensionTok{NONCOMPARTMENTAL}\NormalTok{ ANALYSIS REPORT}
-                       \ExtensionTok{Package}\NormalTok{ version 0.4.2 }\ErrorTok{(}\ExtensionTok{2019{-}09{-}27}\NormalTok{ KST}\KeywordTok{)}
+                       \ExtensionTok{Package}\NormalTok{ version 0.4.3 }\ErrorTok{(}\ExtensionTok{2021{-}06{-}11}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}17 00:57:02 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}17 09:49:00 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2545,7 +2545,7 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;
 \end{Highlighting}
 \end{Shaded}
 
-BE 패키지 중 핵심이 되는 함수는 \texttt{be2x2()} 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 이외의 디자인은 sasLM 패키지(\protect\hyperlink{ref-R-sasLM}{Bae 2021})를 사용하여 분석해야 한다. (그림 \ref{fig:twobytwo})
+BE 패키지 중 핵심이 되는 함수는 \texttt{be2x2()} 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 이외의 디자인은 sasLM 패키지(\protect\hyperlink{ref-R-sasLM}{Bae 2021c})를 사용하여 분석해야 한다. (그림 \ref{fig:twobytwo})
 
 \begin{figure}
 
@@ -3085,7 +3085,7 @@ V1, V2, V3 원통의 부피는 약물이 분포하는 용적이고, 높이는 �
 
 이를 극복하기 위해 통계 및 수학적 계산에 적합한 R 언어 기반의 오픈소스 소프트웨어가 활발히 개발되고 있다.
 즉, 비구획분석을 위한 R 패키지를 3장에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
-본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020c})
+본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020b})
 
 NONMEM에서는 비선형 회귀분석을 위해서 최대 우도 추정법(maximum likelihood estimation)을 사용한다.
 최대 우도 추정법에서 sample데이터에서 Y가 현재 측정된 값, E(Y)는 model에 의해 각각의 관측 지점에서의 예상되는 값, 그리고 V(Y)를 그 모델의 분산으로 표현한다.
@@ -3251,7 +3251,8 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
   \FunctionTok{return}\NormalTok{(Cp)}
 \NormalTok{\}}
 \NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK02[,}\StringTok{"TIME"}\NormalTok{]}
-\NormalTok{r2 }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK02b, dPK02, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{, }\StringTok{"tlag"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\FloatTok{0.05}\NormalTok{, }\DecValTok{20}\NormalTok{))}
+\NormalTok{r2 }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK02b, dPK02, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{, }\StringTok{"tlag"}\NormalTok{), }
+         \AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\FloatTok{0.05}\NormalTok{, }\DecValTok{20}\NormalTok{))}
 
 \NormalTok{r2}\SpecialCharTok{$}\NormalTok{Est}
 \end{Highlighting}
@@ -3349,20 +3350,25 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## 2  4.003  4.292 1967000 2366394 2396605   16.88
 ## 3  6.146  5.838 2077250 2720574 2686362   23.65
 ## 4 23.910 23.482 2245250 5410815 5336766   58.50
-##   AUMCPEP     C0 AUCPBEO AUCPBEP   VZO    VZP    CLO
-## 1   53.41 1058.0  10.223  10.111  9.90  9.791 0.1034
-## 2   17.93 1146.8  19.813  19.753  9.53  9.501 0.1984
-## 3   22.67  941.2  16.871  16.926 10.24 10.276 0.1938
-## 4   57.93  540.6   9.642   9.696 19.92 20.037 0.1918
-##      CLP MRTIVLST MRTIVIFO MRTIVIFP   VSSO   VSSP
-## 1 0.1022    55.90    93.49    95.16  9.664  9.728
-## 2 0.1978    40.66    46.96    47.42  9.319  9.381
-## 3 0.1944    42.89    52.72    52.23 10.217 10.155
-## 4 0.1928    56.59   103.76   102.92 19.899 19.848
+##   AUMCPEP     C0 AUCPBEO AUCPBEP     VZO      VZP
+## 1   53.41 1058.0  10.223  10.111 0.00990 0.009791
+## 2   17.93 1146.8  19.813  19.753 0.00953 0.009501
+## 3   22.67  941.2  16.871  16.926 0.01024 0.010276
+## 4   57.93  540.6   9.642   9.696 0.01992 0.020037
+##         CLO       CLP MRTIVLST MRTIVIFO MRTIVIFP
+## 1 0.0001034 0.0001022    55.90    93.49    95.16
+## 2 0.0001984 0.0001978    40.66    46.96    47.42
+## 3 0.0001938 0.0001944    42.89    52.72    52.23
+## 4 0.0001918 0.0001928    56.59   103.76   102.92
+##       VSSO     VSSP
+## 1 0.009664 0.009728
+## 2 0.009319 0.009381
+## 3 0.010217 0.010155
+## 4 0.019899 0.019848
 \end{verbatim}
 
 \hypertarget{compartmental-analysis}{%
-\section{Compartmental analysis}\label{compartmental-analysis}}
+\subsection{Compartmental analysis}\label{compartmental-analysis}}
 
 V, K만 있으면 단항 지수함수적 농도 감소를 보이는 IV dosing의 농도를 나타낼 수 있으므로 아래와 같이 간단한 함수를 만들 수 있다.
 
@@ -3434,7 +3440,8 @@ Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Figure 1.1, p 470}
-\FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{type=}\StringTok{"n"}\NormalTok{, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{160}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{1000}\NormalTok{), }\AttributeTok{log=}\StringTok{"y"}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{type=}\StringTok{"n"}\NormalTok{, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{160}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
+     \AttributeTok{log=}\StringTok{"y"}\NormalTok{, }\AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{)}
 \ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nID) \{}
 \NormalTok{  cID }\OtherTok{=}\NormalTok{ IDs[i]}
 \NormalTok{  TIME }\OtherTok{=}\NormalTok{ dPK01[dPK01}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ cID,}\StringTok{"TIME"}\NormalTok{]}
@@ -3501,7 +3508,7 @@ Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기
 \NormalTok{  T1 }\OtherTok{=}\NormalTok{ e}\SpecialCharTok{$}\NormalTok{DATA[,}\StringTok{"TIME"}\NormalTok{]}
 \NormalTok{  Co }\OtherTok{=}\NormalTok{ Ka}\SpecialCharTok{*}\NormalTok{Dpo}\SpecialCharTok{/}\NormalTok{Vc}\SpecialCharTok{*}\NormalTok{((k21}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{/}\NormalTok{(Ka}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{a)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{a}\SpecialCharTok{*}\NormalTok{T1) }\SpecialCharTok{+} 
 \NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{/}\NormalTok{(Ka}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{b)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{b}\SpecialCharTok{*}\NormalTok{T1) }\SpecialCharTok{+} 
-\NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{T1)) }\CommentTok{\# Erratum in eq 14:1}
+\NormalTok{                    (k21}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(a}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{/}\NormalTok{(b}\SpecialCharTok{{-}}\NormalTok{Ka)}\SpecialCharTok{*}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{T1)) }
   
   \FunctionTok{return}\NormalTok{(Co)}
 \NormalTok{\}}
@@ -3576,7 +3583,8 @@ Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{plot}\NormalTok{(dPK14[,}\StringTok{"TIME"}\NormalTok{], dPK14[,}\StringTok{"DV"}\NormalTok{], }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{25}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{250}\NormalTok{), }\AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
+\FunctionTok{plot}\NormalTok{(dPK14[,}\StringTok{"TIME"}\NormalTok{], dPK14[,}\StringTok{"DV"}\NormalTok{], }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{25}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{250}\NormalTok{), }
+     \AttributeTok{xlab=}\StringTok{"Time (min)"}\NormalTok{, }\AttributeTok{ylab=}\StringTok{"Concentration (ug/L)"}\NormalTok{, }\AttributeTok{pch=}\DecValTok{16}\NormalTok{)}
 \NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK14[,}\StringTok{"TIME"}\NormalTok{]}
 \FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK14a}\NormalTok{(r1}\SpecialCharTok{$}\NormalTok{Est[}\StringTok{"PE"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{]), }\AttributeTok{lty=}\DecValTok{2}\NormalTok{)}
 \FunctionTok{lines}\NormalTok{(TIME, }\FunctionTok{fPK14b}\NormalTok{(r2}\SpecialCharTok{$}\NormalTok{Est[}\StringTok{"PE"}\NormalTok{, }\DecValTok{1}\SpecialCharTok{:}\DecValTok{6}\NormalTok{]))}
@@ -3637,20 +3645,20 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-R-ncar}{}}%
-Bae, Kyun-Seop. 2019. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://cran.r-project.org/package=ncar}.
-
 \leavevmode\vadjust pre{\hypertarget{ref-R-BE}{}}%
----------. 2020a. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://cran.r-project.org/package=BE}.
-
-\leavevmode\vadjust pre{\hypertarget{ref-R-NonCompart}{}}%
----------. 2020b. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://cran.r-project.org/package=NonCompart}.
+Bae, Kyun-Seop. 2020a. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://cran.r-project.org/package=BE}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-wnl}{}}%
----------. 2020c. \emph{Wnl: Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis}. \url{https://cran.r-project.org/package=wnl}.
+---------. 2020b. \emph{Wnl: Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis}. \url{https://cran.r-project.org/package=wnl}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-ncar}{}}%
+---------. 2021a. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://cran.r-project.org/package=ncar}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-NonCompart}{}}%
+---------. 2021b. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://cran.r-project.org/package=NonCompart}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-sasLM}{}}%
----------. 2021. \emph{sasLM: SAS Linear Model}. \url{https://cran.r-project.org/package=sasLM}.
+---------. 2021c. \emph{sasLM: SAS Linear Model}. \url{https://cran.r-project.org/package=sasLM}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-pkr}{}}%
 Bae, Kyun-Seop, and Jee Eun Lee. 2018. \emph{Pkr: Pharmacokinetics in r}. \url{https://cran.r-project.org/package=pkr}.
@@ -3677,7 +3685,7 @@ Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. \emph{Lubridate: Ma
 Wickham, Hadley. 2021. \emph{Tidyr: Tidy Messy Data}. \url{https://CRAN.R-project.org/package=tidyr}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-ggplot2}{}}%
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2020. \emph{Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics}. \url{https://CRAN.R-project.org/package=ggplot2}.
+Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2021. \emph{Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics}. \url{https://CRAN.R-project.org/package=ggplot2}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-dplyr}{}}%
 Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. \emph{Dplyr: A Grammar of Data Manipulation}. \url{https://CRAN.R-project.org/package=dplyr}.
