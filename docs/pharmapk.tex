@@ -2050,7 +2050,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.3 }\ErrorTok{(}\ExtensionTok{2021{-}06{-}11}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}17 09:49:00 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}17 09:56:19 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2858,9 +2858,14 @@ NCA에서는 그림 4.5에서 볼 수 있듯이 약동학적 채혈로 얻어진
 선택하여 그 모델의 파라미터 값들을 얻는 것이 이 그림의 부드러운 곡선을
 구하는 방법이다.
 
-\begin{verbatim}
-## Error in knitr::include_graphics("media-01/image5.jpg"): Cannot find the file(s): "media-01/image5.jpg"
-\end{verbatim}
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-04/image5} 
+
+}
+
+\caption{정확한 C\textsubscript{max}, T\textsubscript{max}를 얻기 위해 NCA가 아닌 구획모델 분석이 필요한 사례}\label{fig:fig4-5}
+\end{figure}
 
 
 
@@ -2976,7 +2981,6 @@ k\textsubscript{e}가 관찰된다.
 
 
 
-\ref{fig:fig4-6}
 \begin{equation}
 \alpha = \frac{1}{2}\left\lbrack \left( k_{12} + k_{10} + k_{21} \right) + \sqrt{\left( k_{12} + k_{10} + k_{21} \right)^{2} - 4{k_{10}k}_{21}} \right\rbrack
 \label{eq:eq4-6}

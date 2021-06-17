@@ -217,7 +217,7 @@ height="1.7302744969378827in"}
 -->
 
 ```{r fig4-5, fig.cap = "(ref:fig4-5)"}
-knitr::include_graphics('media-01/image5.jpg')
+knitr::include_graphics('media-04/image5.jpg')
 ```
 
 (ref:fig4-5) 정확한 C~max~, T~max~를 얻기 위해 NCA가 아닌 구획모델 분석이 필요한 사례
@@ -316,13 +316,13 @@ knitr::include_graphics('media-04/image6.png')
 
 (ref:fig4-6) biexponential model로 분석한 약동학 파라미터들
 
-\@ref(fig:fig4-6)
 <!--
 ![](media-04/image6.png){width="3.5660673665791776in"
 height="2.296773840769904in"}
 
 그림 4.6 biexponential model로 분석한 약동학 파라미터들
 -->
+
 \begin{equation}
 \alpha = \frac{1}{2}\left\lbrack \left( k_{12} + k_{10} + k_{21} \right) + \sqrt{\left( k_{12} + k_{10} + k_{21} \right)^{2} - 4{k_{10}k}_{21}} \right\rbrack
 (\#eq:eq4-6)
