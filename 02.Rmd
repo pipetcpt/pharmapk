@@ -60,7 +60,7 @@ knitr::include_graphics('media-02/image2.png')
 그리고 의도한 것이듯 의도하지 않은 것이든 이러한 인체 반응의 정도는 각 개인 내에서 생성된 약물의 노출 정도와 일정한 상관성을 가지리라는 것은 누구나 쉽게 생각해 볼 수 있다.
 
 
-(ref:fig2-3)
+(ref:fig2-3) 약물에 대한 노출과 인체 반응의 상관성 (확인 필요)
 
 ```{r fig2-3, fig.cap = "(ref:fig2-3)", out.width="100%"}
 knitr::include_graphics('media-02/image3.png')

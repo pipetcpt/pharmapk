@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  17 JUN 2021 18:22
+This is XeTeX, Version 3.14159265-2.6-0.999991 (TeX Live 2019) (preloaded format=xelatex 2020.11.7)  18 JUN 2021 08:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2455,9 +2455,9 @@ Missing character: There is no ⁄ in font NanumMyeongjo/OT:language=dflt;mappin
 =tex-text;!
 Missing character: There is no ⁄ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
-[43]
 Missing character: There is no ⁄ in font NanumMyeongjo/OT:language=dflt;mapping
 =tex-text;!
+[43]
 File: media-02/image10.png Graphic file (type bmp)
 <media-02/image10.png>
 
@@ -2465,20 +2465,20 @@ Overfull \hbox (15.91801pt too wide) in paragraph at lines 1517--1518
 [][][][] 
  []
 
-[44] [45]
+[44]
 File: media-02/image11.png Graphic file (type bmp)
 <media-02/image11.png>
-[46]
+[45]
 File: media-02/image12.png Graphic file (type bmp)
 <media-02/image12.png>
+[46]
 File: media-02/image13.png Graphic file (type bmp)
 <media-02/image13.png>
-[47]
 File: media-02/image14.png Graphic file (type bmp)
 <media-02/image14.png>
 File: media-02/image15.png Graphic file (type bmp)
 <media-02/image15.png>
-[48] [49]
+[47] [48] [49]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -3255,7 +3255,7 @@ LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
 Here is how much of TeX's memory you used:
  26143 strings out of 479827
  438558 string characters out of 5893856
- 893726 words of memory out of 5000000
+ 893743 words of memory out of 5000000
  42764 multiletter control sequences out of 15000+600000
  541139 words of font info for 128 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
