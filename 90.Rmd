@@ -1,0 +1,16 @@
+\cleardoublepage 
+
+# (APPENDIX) 별첨 {-}
+
+# Theoph의 tblNCA의 전체 실행 결과 {#Theoph_tblNCA} 
+
+[3장 비구획분석의 자료해석](#nca-analysis)의 \@ref(tblNCA)절에서 언급된 `tblNCA()` 실행결과를 별첨으로 수록하였다. 
+
+\tiny
+
+```{r}
+Theoph_tblNCA
+```
+
+\normalsize
+

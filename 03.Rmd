@@ -4,7 +4,7 @@ output:
   html_document: default
 ---
 
-# 비구획 분석의 자료해석 {#nca-analysis}
+# 비구획분석의 자료해석 {#nca-analysis}
 
 \Large\hfill
 한성필
@@ -18,7 +18,7 @@ opts_chunk$set(echo=TRUE)
 
 ## 서론 
 
-약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획 분석 (Non-compartmental analysis, NCA)이고 이는 약물의 임상 개발에 매우 중요하다.
+약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(Non-compartmental analysis, NCA)이고 이는 약물의 임상 개발에 매우 중요하다.
 NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 음식 효과, 약물 상호 작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.\index{생물학적 동등성}
 약물 개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 주게 된다.
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라메터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다. 
@@ -153,9 +153,9 @@ ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
 
 다만 `read_csv(), read_excel()`을 사용하는 경우 `tibble` 형태로 자료가 변형되고 이러한 형태의 자료는 `tblNCA()` 사용시 오류를 일으키기 때문에 사전에 `as.data.frame()`을 사용해서 데이타프레임으로 변형해주어야 한다.
 
-## NonCompart R 패키지를 이용한 NCA
+## NonCompart R 패키지를 이용한 NCA 
 
-### tblNCA(): 전체 대상자 NCA
+### tblNCA(): 전체 대상자 NCA {#tblNCA}
 
 ```{r include=FALSE}
 library(NonCompart)
@@ -173,7 +173,7 @@ Theoph_tblNCA <- tblNCA(Theoph, "Subject", "Time", "conc",
 위 코드에서 dose=320으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
 
 결과는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있다.
-본 책에 결과를 다 싣기에 지면이 부족하여^[별첨 1에 수록하였음.] dplyr의 `select()` 함수를 사용하여 핵심적인 일부 파라메터 (C~max~, T~max~, AUC~last~, $t_{1/2\beta}$)만 표시할 수도 있다.
+본문에 결과를 싣기에 지면이 부족하여 [별첨 A](#Theoph_tblNCA)에 수록하였고, 여기에서는 dplyr의 `select()` 함수를 사용하여 핵심적인 일부 파라메터 (C~max~, T~max~, AUC~last~, $t_{1/2\beta}$)만 표시하였다.
 
 ```{r}
 Theoph_tblNCA_selected <- Theoph_tblNCA %>% 

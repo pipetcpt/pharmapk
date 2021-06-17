@@ -41,16 +41,17 @@ V1, V2, V3 원통의 부피는 약물이 분포하는 용적이고, 높이는 �
 
 이렇게 약물의 이동에 대한 정량적인 표현을 위해서는 약동학 수식에 대해 익숙해 져야 할 필요가 있고, 수식을 잘 아는 것 만큼이나 자료를 해석하고 추정값을 실제로 구하는 작업을 충분히 경험할 필요가 있다. 
 
-## 상용 소프트웨어를 이용한 구획 분석 개론
+## 상용 소프트웨어를 이용한 구획분석 개론
 
 ```{r fig5-2, fig.cap = "다양한 상용 소프트웨어의 사용 예. A. GUI 기반 Phoenix NLME, B. GUI 기반 Lixoft Monolix, C. NONMEM의 제어구문", echo = FALSE}
 knitr::include_graphics('media-05/fig5-2.png')
 ```
 
-비선형 회귀분석(Nonlinear regression analysis)이 필요한 구획분석을 위해서는 컴퓨터 소프트웨어의 사용이 필수적이다. 
+약동학 자료의 분석은 복잡하고 시간이 많이 걸리는 일이다. 모든 생물학 자료가 그러하듯 높은 변동성과 많은 노이즈가 PK 자료에 포함되어 있다. [@gabrielsson]
+따라서 비선형 회귀분석(Nonlinear regression analysis)이 필요한 구획분석을 위해서는 컴퓨터 소프트웨어의 사용이 필수적이다. 
 이 때 Certara Phoenix NLME, Monolix와 같은 여러가지 소프트웨어들이 사용되고 있지만, 가장 널리쓰이는 도구는 ICON사의 NONMEM이라고 하는 소프트웨어이다. (그림 \@ref(fig:fig5-2))
 이것은 FORTRAN 코드로 프로그램 되었으며 현재 버전 7.5.0까지 지속적으로 업데이트 되고 있는 소프트웨어로, 현재 구획분석 및 계량약리학 분야에서 가장 표준적인 도구로 생각되고 있다. 
-이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다. 
+이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다. [@nonmem;@gabrielsson;@basic]
 
 상용 소프트웨어를 통한 구획분석 방법은 GUI 기반이고 많은 사용자가 확보되어 있다는 장점이 있으나,  상당한 비용을 매년 지불하여야 하며, 접근이 다소 쉽지 않다는 단점을 가지고 있다. 
 
@@ -66,7 +67,7 @@ NONMEM에서는 비선형 회귀분석을 위해서 최대 우도 추정법(maxi
 
 \begin{equation}
 L = \frac{1}{\sqrt{2\pi V(Y)}} \cdot e^{-\frac{1}{2V(Y)}\cdot(Y-E(Y))^2}
-(\#eq:eq5-2)
+(\#eq:eq5-1)
 \end{equation}
 
 이때 이 일련의 관찰 값에 대한 우도는 개개인 관찰값의 확률을 통해 나오게 된다. 
@@ -136,7 +137,7 @@ NonCompart::sNCA(dPK02[,"TIME"], dPK02[,"DV"],
 
 ### Compartmental analysis without Tlag
 
-아래는 경구 투여 일구획 분석, 지연시간이 없는 모형이다. 
+아래는 경구 투여 일구획분석, 지연시간이 없는 모형이다. 
 모델의 R script 입력 여기서 THETA[1], THETA[2], THETA[3]는 각각 파라미터 중 k(제거 속도 상수), k~a~(흡수 속도 상수), V(부피)를 의미한다. 
 각각의 nonlinear regression을 위해서 theta에 대한 initial value를 넣어준다. (`nlr()` 함수의 `IE()` 인자에 적용)
 
@@ -151,6 +152,7 @@ fPK02a = function(THETA) # Prediction function
   Cp = DOSE/V*Ka/(Ka - K)*(exp(-K*TIME) - exp(-Ka*TIME)) # eq 2:1
   return(Cp)
 }
+
 TIME = dPK02[,"TIME"]
 r1 = nlr(fPK02a, dPK02, pNames=c("ka", "V", "k"), IE=c(0.1, 30, 0.05))
 
@@ -159,7 +161,7 @@ r1$Est
 
 ### Compartmental analysis with Tlag 
 
-경구 투여 일구획 분석, 지연시간이 있는 모형이다. k~a~, V, k에 T~lag~가 추가되어 농도를 나타낼 수 있다.
+경구 투여 일구획분석, 지연시간이 있는 모형이다. k~a~, V, k에 T~lag~가 추가되어 농도를 나타낼 수 있다.
 
 ```{r}
 fPK02b = function(THETA) # Prediction function
@@ -182,8 +184,8 @@ r2$Est
 ### Modeling Result
 
 위 두개의 모델을 비교할 때 지연 시간이 있는 모형의 적합이 더 좋은 것을 알 수 있다. C~max~ 부분을 주의깊게 살펴야 한다. 
-```{r}
 
+```{r}
 # Figure 2.3, p 480
 plot(dPK02[,"TIME"], dPK02[,"DV"], xlim=c(0, 400), ylim=c(0, 2.5), 
      xlab="Time (min)", ylab="Concentration (ug/L)", pch=16)
@@ -283,7 +285,7 @@ colnames(dPK14) = c("TIME", "DV") ; dPK14
 
 ### Compartmental analysis without Tlag
 
-아래의 코드는 경구 투여 2구획 분석, 지연시간이 없는 모형이다. 
+아래의 코드는 경구 투여 2구획분석, 지연시간이 없는 모형이다. 
 2차 지수로 감소하는 약물에서의 약동학 모형이여,이때의 농도 값(Cp)을 구하기 위한 공식을 사용하였으며, Ka, Vc, k21, alpha, beta 로 농도를 나타낼 수 있다.
 
 ```{r}
@@ -315,7 +317,7 @@ r1$Est
 
 ### Compartmental analysis with Tlag 
 
-경구 투여 2구획 분석, 지연시간이 있는 모형이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.
+경구 투여 2구획분석, 지연시간이 있는 모형이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.
 
 ```{r}
 ## with lag
