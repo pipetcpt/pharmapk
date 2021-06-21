@@ -129,7 +129,7 @@ rtfnca
 nca의-시각화-plotpk
 parameters
 기술통계-descriptive-statistics
-nca-후-생물학적-동등성-판별-bioequivalence
+bioequivalence
 이론
 be-r-패키지를-사용한-생물학적-동등성-판정
 웹브라우저를-통한-nca-및-생물학적동등성-판정

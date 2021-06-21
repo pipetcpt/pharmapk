@@ -499,7 +499,7 @@ desc_tblNCA(Indometh_tblNCA_selected) %>%
         caption = 'Descriptive statistics of selected PK parameters of Indometh IV infusion')
 ```
 
-## NCA 후 생물학적 동등성 판별 {#bioequivalence}\index{생물학적 동등성}
+## NCA 후 생물학적 동등성 판별 {#bioequivalence}
 
 ### 이론
 

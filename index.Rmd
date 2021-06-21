@@ -49,7 +49,7 @@ local({
 })
 
 if (!require("pacman")) install.packages("pacman")
-my_packages <- c('kableExtra', 'readxl', 'readr', 'knitr', 'tidyverse', 'nlme', 'nmw', 'xpose4')
+my_packages <- c('kableExtra', 'readxl', 'readr', 'knitr', 'tidyverse')
 pacman::p_load(char = my_packages)
 #knitr::write_bib(my_packages, 'references/packages.bib')
 
