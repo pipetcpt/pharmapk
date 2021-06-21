@@ -548,11 +548,20 @@ moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하
 <p>위는 인접한 채혈 시각 간의 AUMC를 구하는 방법이며, AUMC<sub>last</sub>, AUMC<sub>inf</sub>는 대응하는 AUC의 기간과 같은 의미이다.
 각 농도가 평균적으로 유지된 시간이라는 개념을 평균잔류시간(Mean residence time, MRT)이라 하는데, 조금 더 생각해 보면 적분 개념에서 각각의 농도는 약물 분자 하나하나의 합으로 이루어질 것이며, 그것이 평균적으로 유지된 시간이라는 것은 개별 분자 하나하나가 체내에 머무른 시간과 같다는 것을 알 수 있다.
 따라서, 이 둘은 같은 의미로 사용된다.
-다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입 또는 경구투여 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을
-주는 것이 제거만이 아니기 때문임).</p>
-<p><img src="media-02/image14.png" /></p>
-<p><img src="media-02/image15.png" /></p>
-<p>MRT를 구했다면, 이를 이용하여 V<sub>ss</sub>를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.4)</a>의 유도 과정을 거친다.
+다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입(식 <a href="비구획분석의-이론.html#eq:mrt1">(2.4)</a>) 또는 경구투여(식 <a href="비구획분석의-이론.html#eq:mrt2">(2.5)</a>) 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을 주는 것이 제거만이 아니기 때문임).</p>
+<p><span class="math display" id="eq:mrt1">\[\begin{equation}
+MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{T_{inf}}{2}
+\tag{2.4}
+\end{equation}\]</span></p>
+<p><span class="math display" id="eq:mrt2">\[\begin{equation}
+MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{K_a}
+\tag{2.5}
+\end{equation}\]</span></p>
+<!--
+![](media-02/image14.png)
+![](media-02/image15.png)
+-->
+<p>MRT를 구했다면, 이를 이용하여 V<sub>ss</sub>를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.6)</a>의 유도 과정을 거친다.
 </p>
 <p><span class="math display" id="eq:mrtvss">\[\begin{equation}
 \begin{split}
@@ -562,15 +571,15 @@ moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하
   C_{ss,avg} \cdot V_{\text{ss}} &amp;= CL \cdot AUC_{\tau} \\
   V_{\text{ss}} &amp;= CL \cdot MRT
 \end{split}
-\tag{2.4}
+\tag{2.6}
 \end{equation}\]</span></p>
 <p>AUC<sub>τ</sub>는 1회의 투여 간격 동안의 시간-농도곡선하면적을 의미하는데, 이 시기의 평균 농도는 C<sub>ss,avg</sub>이므로 AUC<sub>τ</sub>를 C<sub>ss,avg</sub>로 나눠주면 AUC와 AUMC와의 관계와 마찬가지로 MRT가 되기 때문이다.
-위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.4)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.5)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
+위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.6)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.7)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
 <p><span class="math display" id="eq:vss">\[\begin{equation}
 \begin{split}
   V_{ss} = \frac{Dose \cdot AUMC_{inf}}{{{(AUC}_{inf})}^2}
 \end{split}
-\tag{2.5}
+\tag{2.7}
 \end{equation}\]</span></p>
 <p>따라서, 이 역시 산출된 파라미터의 정확성에 좌우된다는 한계를 가진다.</p>
 </div>

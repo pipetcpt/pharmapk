@@ -781,7 +781,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.3 <span class="er">(</span><span class="ex">2021-06-11</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.0 <span class="er">(</span><span class="ex">2021-05-18</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-18 08:54:23 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-21 10:32:21 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -1326,7 +1326,7 @@ Vol Dist Steady State Pred (Vss_pred)
 <p>Rsq는 NCA에 사용 된 선형 회귀에서 상관 계수 (r)의 제곱이다. 즉, 로그 변환 된 관측 농도 대 시간 데이터가 적합 회귀선에 얼마나 가까운지를 알려주는 통계적 적합도 측정값이다. 그러나 R-제곱은 치우침을 결정할 수 없으므로 잔차(residual) 그림도 확인해야할 필요가 있다.</p>
 <p><strong>Rsq_adjusted (R2ADJ)</strong></p>
 <p>최적 모델을 검색하는 동안 데이터 포인트가 추가되면 적합도를 개선하지 않고 Rsq가 증가 할 수 있다. 조정 R-제곱은 예측 변수의 수(여기서는 데이터 포인트)에 대해 변형된 R- 제곱으로 모집단 R-제곱의 편향되지 않은 추정치로 사용할 수 있다. 일반적으로 Rsq 보다 작다. 가장 적은 수의 데이터 포인트로 조정 R-제곱을 최대화하는 기울기 및 절편이 탐색되고, 가장 적합한 모델로 선택된다. 공식은 아래와 같다.</p>
-<p><span class="math display">\[R_{\text{adj}}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}\]</span></p>
+<p><span class="math display">\[R_{adj}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}\]</span></p>
 <p><strong>Corr_XY (CORRXY)</strong></p>
 <p>람다 z 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.</p>
 <p><strong>b0 (b0)</strong></p>
@@ -1343,28 +1343,28 @@ Vol Dist Steady State Pred (Vss_pred)
 <p>최종 반감기. Lambda Z (LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 ln (2) / LAMZ로 계산된다.</p>
 <p><strong>Clast_pred (CLSTP)</strong></p>
 <p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라메터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
-<p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{\text{last}}) \]</span></p>
+<p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{last}) \]</span></p>
 <p><strong>C0 (C0)</strong></p>
 <p>초기 농도. 시간 0에서의 농도, 초기 농도. 처음 두 농도가 양수이고 첫 번째 농도가 두 번째 농도보다 크면 다음과 같이 C0를 계산할 수 있다. 그렇지 않으면 C0는 첫 번째 양수 농도가 된다.</p>
 <p><span class="math display">\[ C_ {0} = exp (log (c_ {1})-t_ {1} \frac {log (c_ {2})-log (c_ {1})} {t_ {2}-t_ {1} }) \]</span></p>
 <p><strong>AUClast (AUCLST)</strong></p>
 <p>투약 후 마지막 양수의 농도까지의 시간-농도 곡선 아래 영역을 의미한다. NCA에서 가장 널리 사용되는 계산 방법은 선형 사다리꼴 규칙 ( ‘linear-up, linear-down’) 또는 로그 선형 사다리꼴 규칙(‘linear-up, log-down’). 선형 사다리꼴 방법의 경우 아래의 공식을 사용한다.</p>
-<p><span class="math display">\[\text{AU}C_{\text{last}} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1})}{2}\]</span></p>
+<p><span class="math display">\[AUC_{last} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1})}{2}\]</span></p>
 <p>간헐적으로 나오는 0 농도는 AUCLST 및 AUCALL 모두에 포함되지만 AUCLST에서는 후행하는 0 값이 제거되는 반면, AUCALL에서는 제거되지 않는다는 큰 차이가 있다.</p>
 <p><strong>AUCall (AUCALL)</strong></p>
 <p>마지막 농도가 측정 가능한지 여부에 관계없이 투여 시점부터 마지막 관찰 시점까지의 곡선하 면적을 의미한다. 따라서 AUCALL은 모든 0 값 관찰을 계산에 사용한다.</p>
 <p><strong>AUCinf_obs (AUCIFO)</strong></p>
 <p>마지막으로 관찰 된 농도를 기준으로 투여 시간으로부터 무한대로 외삽된 곡선 아래 관찰된 면적(AUC)이며 공식은 아래와 같다.</p>
-<p><span class="math display">\[\text{AU}C_{inf,obs} = AUC_{\text{last}} + \frac{C_{\text{last}}}{\lambda_{z}}\]</span></p>
+<p><span class="math display">\[AUC_{inf,obs} = AUC_{last} + \frac{C_{last}}{\lambda_{z}}\]</span></p>
 <p><strong>AUC_%Extrap_obs (AUCPEO)</strong></p>
 <p>Tlast에서 무한대까지 관찰 된 무한대로 외삽된 곡선 아래 영역 (AUC)의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.</p>
-<p><span class="math display">\[\text{AU}C_{\% Extrap,obs} = (1 - \frac{\text{AU}C_{\text{last}}}{\text{AU}C_{inf,obs}}) \times 100\]</span></p>
+<p><span class="math display">\[AUC_{\% Extrap,obs} = (1 - \frac{AUC_{last}}{AUC_{inf,obs}}) \times 100\]</span></p>
 <p><strong>AUCinf_D_obs (AUCIFOD)</strong></p>
 <p>무한대로 외삽된 관찰 된 곡선하 면적 (AUC)을 투여 용량으로 나눈 값이다.</p>
-<p><span class="math display">\[\text{AU}C_{dose,inf,obs} = fracAUC_{inf,obs}\text{Dose}\]</span></p>
+<p><span class="math display">\[AUC_{dose,inf,obs} = \frac{AUC_{inf,obs}}{Dose}\]</span></p>
 <p><strong>AUCinf_pred (AUCIFP)</strong></p>
 <p>예측 된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 곡선하 면적 (AUC).
-<span class="math display">\[\text{AU}C_{inf,pred} = AUC_{\text{last}} + \frac{C_{last,pred}}{\lambda_{z}}\]</span></p>
+<span class="math display">\[AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}\]</span></p>
 </div>
 <div id="기술통계-descriptive-statistics" class="section level2" number="3.11">
 <h2><span class="header-section-number">3.11</span> 기술통계 (Descriptive statistics)</h2>
