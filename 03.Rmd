@@ -24,9 +24,9 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다. 
 따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. [@noe2020parameter]
 
-이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 기술적인 사항은 별도의 교재를 통해 습득해야 할 것이다.    
+이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 사항은 별도의 교재를 통해 습득해야 할 것이다. [@ggplot22016]
 
-## NCA를 위한 자료의 처리 
+## NCA를 위한 자료의 처리 {#data-prep}
 
 ### 채혈 시간
 
@@ -122,7 +122,7 @@ help(tblNCA)
 
 자료의 첫 10개 (표 \@ref(tab:head)) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력한다.
 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있다. 
-이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 3.2절의 내용을 참고할 수 있다. 
+이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 \@ref(data-prep)절의 내용을 참고할 수 있다. 
 
 ```r
 head(Theoph, n=10)
@@ -134,12 +134,12 @@ kable(head(Theoph, n=10), caption = 'Theoph 자료의 첫 10개 관찰값',
       row.names = FALSE, booktabs = TRUE)
 ```
 
-`ggplot2` 패키지[@R-ggplot2]로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \@ref(fig:ggtheoph)) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다.
+`ggplot2` 패키지[@R-ggplot2]로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \@ref(fig:ggtheoph)) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다. [@ggplot22016]
 
-```{r ggtheoph, fig.cap = 'Concentration-time curves of oral administration of Theoph (N = 12)', fig.width = 6, fig.height = 3.5}
-ggplot(Theoph, aes(Time, conc, group = Subject, color = Subject)) +
-  geom_point(size = 4) + 
-  geom_line(size = 1) +
+```{r ggtheoph, fig.cap = 'Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)', fig.width = 6, fig.height = 3.5}
+ggplot(Theoph, aes(Time, conc, color = Subject)) +
+  geom_point(size=2, alpha=0.5) + 
+  geom_line(size=1, alpha=0.5) +
   theme_bw() +
   labs(title = 'Oral Administration of Theoph (320 mg)',
        x = 'Time (hour)', y = 'Concentration (ng/mL)')
@@ -181,12 +181,13 @@ Theoph_tblNCA_selected <- Theoph_tblNCA %>%
 Theoph_tblNCA_selected
 ```
 
-위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. ?tblNCA() 혹은 `args(tblNCA)` 명령어를 통해 아래 결과를 얻을 수 있다.
+위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. `?tblNCA()` 혹은 `args(tblNCA)` 명령어를 통해 아래 결과를 얻을 수 있다.
 
 ```r
-tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", dose = 0, 
-       adm = "Extravascular", dur = 0, doseUnit = "mg", timeUnit = "h", 
-       concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, MW = 0, iAUC="")
+tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", 
+       dose = 0, adm = "Extravascular", dur = 0, doseUnit = "mg", 
+       timeUnit = "h", concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, 
+       MW = 0, iAUC="")
 ```
 R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인자(argument)를 통해 구체적인 자료의 성격을 입력해야 한다. 
 `concData`는 데이터셋 이름을 넣어주고, `key`는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태(`c('subject', 'period', 'treatment')`)로 지정할 수 있다. 여기서 key로 들어간 컬럼은 모두 결과 표의 초반에 그대로 출력되게 된다.
@@ -601,7 +602,7 @@ be2x2(NCAResult4BE, c("AUClast", "Cmax", "Tmax"))
 ```
 
 ```{r output-format, fig.cap = "(ref:output-format)", echo=FALSE}
-knitr::include_graphics("assets-paper/figure-2.png")
+knitr::include_graphics("media-03/figure-2.png")
 ```
 
 (ref:output-format) BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과.\index{생물학적 동등성}

@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획분석의 자료해석</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
-<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-자료의-처리"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
+<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#data-prep"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="nca-analysis.html"><a href="nca-analysis.html#채혈-시간"><i class="fa fa-check"></i><b>3.2.1</b> 채혈 시간</a></li>
 <li class="chapter" data-level="3.2.2" data-path="nca-analysis.html"><a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리"><i class="fa fa-check"></i><b>3.2.2</b> 정량한계를 벗어나거나 누락된 자료의 처리</a></li>
@@ -319,12 +319,16 @@ div.csl-indent {
 </p>
 <div id="서론-1" class="section level2" number="2.1">
 <h2><span class="header-section-number">2.1</span> 서론</h2>
-<p>비구획분석(Non-Compartmental Analysis)은 약동학 자료를 요약하고, 활용 가능한 정보로 만들어내는 가장 기초적인 방법이다. 매우 직관적인 방법이며 분석 과정에서 최소한의 가정만을 허용하기 때문에, 누가 분석을 수행했는가와 관계 없이 결과의 변동성이 적으며 이에 따라 규제적 측면에서 가장 선호되는 방법이기도 하다. 그러나, 약동학적 자료 이외의 다른 가정을 하지 않는다는 것은 그러한 약동학 자료(시간에 따른 농도 변화)가 어떠한 생리학적인 이유로 발생하게 되었는가에 대한 고려가 부족하다는 뜻이기도 하다. 따라서, 비구획분석만으로는 해당 의약품의 약동학적 지식에 대한 충분한 지식을 얻을 수 없다는 한계 역시 존재한다. 비구획분석의 방법론을 이해하고 그로부터 산출 또는 추정되는 약동학 파라미터의 의미를 확인함으로써, 비구획분석 결과의 올바르게 해석하고 활용할 수 있어야 하겠다.</p>
+<p>비구획분석(Non-Compartmental Analysis)은 약동학 자료를 요약하고, 활용 가능한 정보로 만들어내는 가장 기초적인 방법이다.
+매우 직관적인 방법이며 분석 과정에서 최소한의 가정만을 허용하기 때문에, 누가 분석을 수행했는가와 관계 없이 결과의 변동성이 적으며 이에 따라 규제적 측면에서 가장 선호되는 방법이기도 하다.
+그러나, 약동학적 자료 이외의 다른 가정을 하지 않는다는 것은 그러한 약동학 자료(시간에 따른 농도 변화)가 어떠한 생리학적인 이유로 발생하게 되었는가에 대한 고려가 부족하다는 뜻이기도 하다.
+따라서, 비구획분석만으로는 해당 의약품의 약동학에 대한 충분한 지식을 얻을 수 없다는 한계 역시 존재한다.
+비구획분석의 방법론을 이해하고 그로부터 산출 또는 추정되는 약동학 파라미터의 의미를 확인함으로써, 비구획분석 결과의 올바르게 해석하고 활용할 수 있어야 하겠다.</p>
 </div>
 <div id="비구획분석의-기본-개념과-관심사" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> 비구획분석의 기본 개념과 관심사</h2>
 <div class="figure" style="text-align: center"><span id="fig:pkprofile"></span>
-<img src="media-02/image1.jpeg" alt="인체 약동학 연구에서 얻어진 시간에 따른 약물의 혈중농도 변화" width="200%" />
+<img src="media-02/image1.jpeg" alt="인체 약동학 연구에서 얻어진 시간에 따른 약물의 혈중농도 변화" width="300%" />
 <p class="caption">
 그림 2.1: 인체 약동학 연구에서 얻어진 시간에 따른 약물의 혈중농도 변화
 </p>
@@ -420,10 +424,10 @@ div.csl-indent {
 <p>그리고 이 식의 양변을 분포용적으로 나누어 주면,</p>
 <p>특정 시점에서 관찰된 약물농도 = 제거속도상수 X 해당 시점 이후의 곡선하면적<br />
 ∴ 해당 시점 이후의 곡선하면적 = 특정 시점에서 관찰된 약물농도 / 제거속도상수</p>
-<p>의 식을 얻을 수 있으며, 이 식의 시점을 최종 관찰 시점으로 하면 궁극적으로 다음의 식 <a href="비구획분석의-이론.html#eq:eq1">(2.1)</a>을 얻을 수 있다.</p>
+<p>의 식을 얻을 수 있으며, 이 식의 시점을 최종 관찰 시점으로 하면 궁극적으로 다음의 식 <a href="principle.html#eq:eq1">(1.1)</a>을 얻을 수 있다.</p>
 <p><span class="math display" id="eq:eq1">\[\begin{equation}
 최종\ 측정\ 시점\ 이후의\ AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{최종\ 관찰된\ 약물농도\ {(C}_{last})\ }{최종제거속도상수(\lambda_{z})}
-\tag{2.1}
+\tag{1.1}
 \end{equation}\]</span></p>
 <p>C<sub>last</sub> 값은 알고 있으므로 알아내야 하는 값은 λ<sub>z</sub>이며, 여기서 두 번째 가정이 필요하다. 약물 흡수와 분포에 의한 혈장-조직 간 평형 등은 투약으로부터 가까운 시점에 완료되므로 가장 늦은 시점의 관찰값들이 약물의 제거를 대변한다는 것이다. 이에 시기적으로 가장 늦은 관찰값들을 로그변환하면 그러한 값들은 직선적인 관계를 가져야 하고(첫 번째 가정에 의해), 이 직선의 기울기가 바로 λ<sub>z</sub>가 된다. 그리고 이 기울기는 아래 그림 <a href="비구획분석의-이론.html#fig:image8">2.5</a>과 같이 3개 이상의 로그변환한 농도 관찰값들에 대한 선형회귀(linear regression)로 얻을 수 있다.</p>
 <div class="figure" style="text-align: center"><span id="fig:image8"></span>
@@ -452,10 +456,10 @@ div.csl-indent {
 <p>관심의 대상이 되는 첫 번째 지식은 청소율(Clearance, <em>CL</em>)의 값이다.
 청소율은 우리 몸이 가진 고유의 약물 제거 능력을 대변하는 값이다.
 비구획분석에서는 다음의 과정을 통해 이를 추정하고자 한다. 우선, 한
-개인의 체내에서 시간에 따른 약물량의 변화는 다음 식 <a href="비구획분석의-이론.html#eq:eq2">(2.2)</a>과 같다.</p>
+개인의 체내에서 시간에 따른 약물량의 변화는 다음 식 <a href="비구획분석의-이론.html#eq:eq2">(2.1)</a>과 같다.</p>
 <p><span class="math display" id="eq:eq2">\[\begin{equation}
 \frac{dA}{dt} = -CL \cdot C
-\tag{2.2}
+\tag{2.1}
 \end{equation}\]</span></p>
 <p>약물의 투여 및 제거는 혈장을 기준으로 이루어진다는 것을 상기하는 것이 좋다.
 분포 등 다양한 과정이 이루어질 수 있지만, 일단 투여된 약물은 혈장에 도달해야 체내에 흡수되었다고 생각하며, 제거 역시 혈장으로부터 간이나 신장을 통해 이루어진다.
@@ -538,30 +542,30 @@ B보다 그 값이 크고, 시간이 지남에 따라 B보다 A가 그 값이 �
 이론적으로 모멘트 값을 투여 시각으로부터 무한대까지 적분(area under the
 moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하는
 값이 하나 남게 되는데, 이는 각 농도가 평균적으로 유지된 시간이라는
-개념이 된다. 실제 비구획분석에서는 이를 다음의 식 <a href="비구획분석의-이론.html#eq:mrteq">(2.3)</a>으로 구한다.</p>
+개념이 된다. 실제 비구획분석에서는 이를 다음의 식 <a href="비구획분석의-이론.html#eq:mrteq">(2.2)</a>으로 구한다.</p>
 <p><img src="media-02/image12.png" style="width:4.24615in;height:0.49208in" /></p>
 <p><img src="media-02/image13.png" style="width:3.7in;height:0.55709in" /></p>
 <p><span class="math display" id="eq:mrteq">\[\begin{equation}
   MRT = \frac{AUMC_{\inf}}{AUC_{\inf}}
-\tag{2.3}
+\tag{2.2}
 \end{equation}\]</span></p>
 <p>위는 인접한 채혈 시각 간의 AUMC를 구하는 방법이며, AUMC<sub>last</sub>, AUMC<sub>inf</sub>는 대응하는 AUC의 기간과 같은 의미이다.
 각 농도가 평균적으로 유지된 시간이라는 개념을 평균잔류시간(Mean residence time, MRT)이라 하는데, 조금 더 생각해 보면 적분 개념에서 각각의 농도는 약물 분자 하나하나의 합으로 이루어질 것이며, 그것이 평균적으로 유지된 시간이라는 것은 개별 분자 하나하나가 체내에 머무른 시간과 같다는 것을 알 수 있다.
 따라서, 이 둘은 같은 의미로 사용된다.
-다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입(식 <a href="비구획분석의-이론.html#eq:mrt1">(2.4)</a>) 또는 경구투여(식 <a href="비구획분석의-이론.html#eq:mrt2">(2.5)</a>) 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을 주는 것이 제거만이 아니기 때문임).</p>
+다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입(식 <a href="비구획분석의-이론.html#eq:mrt1">(2.3)</a>) 또는 경구투여(식 <a href="비구획분석의-이론.html#eq:mrt2">(2.4)</a>) 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을 주는 것이 제거만이 아니기 때문임).</p>
 <p><span class="math display" id="eq:mrt1">\[\begin{equation}
 MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{T_{inf}}{2}
-\tag{2.4}
+\tag{2.3}
 \end{equation}\]</span></p>
 <p><span class="math display" id="eq:mrt2">\[\begin{equation}
 MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{K_a}
-\tag{2.5}
+\tag{2.4}
 \end{equation}\]</span></p>
 <!--
 ![](media-02/image14.png)
 ![](media-02/image15.png)
 -->
-<p>MRT를 구했다면, 이를 이용하여 V<sub>ss</sub>를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.6)</a>의 유도 과정을 거친다.
+<p>MRT를 구했다면, 이를 이용하여 V<sub>ss</sub>를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.5)</a>의 유도 과정을 거친다.
 </p>
 <p><span class="math display" id="eq:mrtvss">\[\begin{equation}
 \begin{split}
@@ -571,15 +575,15 @@ MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{K_a}
   C_{ss,avg} \cdot V_{\text{ss}} &amp;= CL \cdot AUC_{\tau} \\
   V_{\text{ss}} &amp;= CL \cdot MRT
 \end{split}
-\tag{2.6}
+\tag{2.5}
 \end{equation}\]</span></p>
 <p>AUC<sub>τ</sub>는 1회의 투여 간격 동안의 시간-농도곡선하면적을 의미하는데, 이 시기의 평균 농도는 C<sub>ss,avg</sub>이므로 AUC<sub>τ</sub>를 C<sub>ss,avg</sub>로 나눠주면 AUC와 AUMC와의 관계와 마찬가지로 MRT가 되기 때문이다.
-위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.6)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.7)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
+위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.5)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.6)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
 <p><span class="math display" id="eq:vss">\[\begin{equation}
 \begin{split}
   V_{ss} = \frac{Dose \cdot AUMC_{inf}}{{{(AUC}_{inf})}^2}
 \end{split}
-\tag{2.7}
+\tag{2.6}
 \end{equation}\]</span></p>
 <p>따라서, 이 역시 산출된 파라미터의 정확성에 좌우된다는 한계를 가진다.</p>
 </div>

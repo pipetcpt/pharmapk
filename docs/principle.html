@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획분석의 자료해석</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
-<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-자료의-처리"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
+<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#data-prep"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="nca-analysis.html"><a href="nca-analysis.html#채혈-시간"><i class="fa fa-check"></i><b>3.2.1</b> 채혈 시간</a></li>
 <li class="chapter" data-level="3.2.2" data-path="nca-analysis.html"><a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리"><i class="fa fa-check"></i><b>3.2.2</b> 정량한계를 벗어나거나 누락된 자료의 처리</a></li>
@@ -444,9 +444,11 @@ f(Dose, time, ka, F, Vd, CL) 용량과 채혈시간은 외부에서 인위적으
 장 상피세포, 간)을 거쳐야 하며 하나씩 통과할 때마다 일부분씩 약이
 제거된다. 이 세 관문을 통과하면서 약이 전신순환혈로 흡수되기 전에 제거되는
 현상을 초회통과효과(first pass effect)라 한다. 그러므로 전신으로
-흡수되는 약의 분율(생체이용률, bioavailability: F)은 아래 식과 같이
-나타낸다.</p>
-<p><span class="math display">\[F = F_{a} \times F_{g} \times F_{h}\]</span></p>
+흡수되는 약의 분율(생체이용률, bioavailability: F)은 아래 식 <a href="principle.html#eq:eq1">(1.1)</a>과 같이 나타낸다.</p>
+<p><span class="math display" id="eq:eq1">\[\begin{equation}
+F = F_{a} \times F_{g} \times F_{h}
+\tag{1.1}
+\end{equation}\]</span></p>
 <p>F는 분율(fraction)을 의미하며 F<sub>a</sub>는 소화관 내에서 장 상피의 세포막을
 투과하여 세포 내로 들어오는(F<sub>a</sub>의 a는 absorbed를 의미함) 약의 분율로서
 소화액이나 장내세균 등에 의해 약물이 흡수되기 전에 분해되어 사라지거나
@@ -741,27 +743,19 @@ ka와 F지만, 일단 소화관내의 약이 모두 전신순환혈로 들어온
 <h2><span class="header-section-number">1.4</span> 청소율의 개념과 적용</h2>
 <div id="청소율의-이해" class="section level3" number="1.4.1">
 <h3><span class="header-section-number">1.4.1</span> 청소율의 이해</h3>
-<p>몸이 약을 제거하는 능력을 시간당 제거하는 약물의 양(mg/h 와 같은
-단위)으로 나타내는 대신, 시간당 그 약이 녹아 있던 혈장이나 혈액을 얼마나
-청소해 주었는지(혈액이나 혈장의 부피)로 나타내는 것(L/h 등의 단위)이
-청소율(clearance: CL)이다. 즉 용매(혈장)에 녹아 있는 용질(약)을 제거하는
-몸의 능력을 용질보다는 용매를 중심으로 표현하는 것이다. 왜 번거롭게 이런
-식으로 설명하는가? 그것은 시간당 제거되는 약의 양이란 단위가 약의 혈장
-농도가 높을 때는 크다가 농도가 떨어지면 작아져서 일정한 값으로 표현하는
-것이 불가능한 반면, 시간당 청소되는 혈액이나 혈장의 부피는 같은 사람에서
-약물별로 고정불변의 값을 나타내기 때문이다. 이러한 고정불변의 청소율이
-있기 때문에 약물이 1차식에 의해 제거되고 일정한 반감기를 나타내지만,
-이를 처음 배우는 사람은 이 개념을 이해하는 것이 어렵다. 이해를 돕기 위해
-약을 제거하는 장기(간이나 콩팥)를 진공청소기로, 혈장을 공기로, 약물을
-먼지로 비유하여 설명하고자 한다. 이 비유적 사례를 통해 왜 CL를 장기의
-약물제거 능력을 나타내는 파라미터로 쓰는지 이해할 수 있을 것이다. <span class="citation">(<a href="#ref-yim2017tutorial" role="doc-biblioref">Dong-Seok Yim 2017</a>)</span></p>
+<p>몸이 약을 제거하는 능력을 시간당 제거하는 약물의 양(mg/h 와 같은 단위)으로 나타내는 대신, 시간당 그 약이 녹아 있던 혈장이나 혈액을 얼마나 청소해 주었는지(혈액이나 혈장의 부피)로 나타내는 것(L/h 등의 단위)이
+청소율(clearance: CL)이다.
+즉 용매(혈장)에 녹아 있는 용질(약)을 제거하는 몸의 능력을 용질보다는 용매를 중심으로 표현하는 것이다.
+왜 번거롭게 이런 식으로 설명하는가?
+그것은 시간당 제거되는 약의 양이란 단위가 약의 혈장 농도가 높을 때는 크다가 농도가 떨어지면 작아져서 일정한 값으로 표현하는 것이 불가능한 반면, 시간당 청소되는 혈액이나 혈장의 부피는 같은 사람에서 약물별로 고정불변의 값을 나타내기 때문이다. 이러한 고정불변의 청소율이 있기 때문에 약물이 1차식에 의해 제거되고 일정한 반감기를 나타내지만,
+이를 처음 배우는 사람은 이 개념을 이해하는 것이 어렵다. 
+이해를 돕기 위해 약을 제거하는 장기(간이나 콩팥)를 진공청소기로, 혈장을 공기로, 약물을 먼지로 비유하여 설명하고자 한다.
+이 비유적 사례를 통해 왜 CL를 장기의 약물제거 능력을 나타내는 파라미터로 쓰는지 이해할 수 있을 것이다. <span class="citation">(<a href="#ref-yim2017tutorial" role="doc-biblioref">Dong-Seok Yim 2017</a>)</span></p>
 <hr />
 <p><strong>사례</strong></p>
-<p>당신은 공기 중에 먼지가 100 ng/L의 농도로 존재하는 방에 있다. 이 방의
-공기를 새로 구입한 진공청소기를 이용해서 청소하고자 한다. 스위치를 켜고
-노즐을 허공을 향하게 하여 30분간 진공청소기를 돌리고 나서 청소기를
-분해하여 필터(집진주머니)에 걸린 먼지의 양을 저울로 측정해 보니 200 ng
-이였다. 그러면</p>
+<p>당신은 공기 중에 먼지가 100 ng/L의 농도로 존재하는 방에 있다. 이 방의 공기를 새로 구입한 진공청소기를 이용해서 청소하고자 한다.
+스위치를 켜고 노즐을 허공을 향하게 하여 30분간 진공청소기를 돌리고 나서 청소기를 분해하여 필터(집진주머니)에 걸린 먼지의 양을 저울로 측정해 보니 200 ng 이였다.
+그러면</p>
 
 <div class="rmdtip">
 <ol style="list-style-type: decimal">
@@ -921,23 +915,23 @@ height="2.9452055993000874in"}
 방금 혈관에 주입된 양(Dose) + τ 시간 전에 들어와서 남아있는 양(Dose x e<sup>-kτ</sup>) + 2τ 시간 전에 들어와서 남아있는 양(Dose x e<sup>-k2τ</sup>) + 3τ 시간 전에 들어와서 남아있는 양(Dose x e<sup>-k3τ</sup>) + 4τ 시간 전에 들어와서 남아있는 양(Dose x e<sup>-k4τ</sup>) + 5τ 시간 전에 들어와서(첫번째 투여) 남아있는 양(Dose x e<sup>-k5τ</sup>)이 그 값이다.
 혈장농도 역시 약물의 양과 같은 양상을 보일 것이다(몸안에 존재하는 약의 총량을 V<sub>d</sub>로 나누기만 한 값이므로).
 그림에서와 같이 최고농도(C<sub>max</sub>)가 커지는 정도는 투여를 거듭할수록 약해지면서 언젠가는 더 이상 올라가지 않는 양상을 보이게 될 것이다.
-만약 n번 투약을 했다면 식 <a href="principle.html#eq:cmax">(1.1)</a>로 표기될 수 있고 이는 초항이 Dose/V<sub>d</sub>이고 공비가 e<sup>-kτ</sup>인 등비수열의 n항까지의 합을 구하는 것과 같은 원리이다.
+만약 n번 투약을 했다면 식 <a href="principle.html#eq:cmax">(1.2)</a>로 표기될 수 있고 이는 초항이 Dose/V<sub>d</sub>이고 공비가 e<sup>-kτ</sup>인 등비수열의 n항까지의 합을 구하는 것과 같은 원리이다.
 공식에 의해 n번째 용량에서의 C<sub>max</sub> = Dose/V<sub>d</sub> x (1- e<sup>-knτ</sup>)/(1- e<sup>-kτ</sup>)로 나타난다.</p>
 <p><span class="math display" id="eq:cmax">\[\begin{equation}
 \begin{split}
   C_{max} &amp;= \frac{Dose}{V_{d}} \times \left( 1 + e^{- k\tau} + e^{- k2\tau} + e^{- k\tau 3} + \ldots + e^{- k\left( n - 1 \right)\tau} \right)  \\
   &amp;= \frac{Dose}{V_{d}} \times \frac{1 - e^{- kn\tau}}{1 - e^{- k\tau}}
 \end{split}
-\tag{1.1}
+\tag{1.2}
 \end{equation}\]</span></p>
 <!--
 $C_{max} = \frac{\text{Dose}}{V_{d}} \times \left( 1 + e^{- k\tau} + e^{- k2\tau} + e^{- k\tau 3} + \ldots + e^{- k\left( n - 1 \right)\tau} \right) = \frac{\text{Dose}}{V_{d}} \times \frac{1 - e^{- kn\tau}}{1 - e^{- k\tau}}$
 식 1.1
 -->
-<p>여러 번 투여할수록(n이 커질수록) e<sup>-knτ</sup>는 작아져서, 이론적으로 무한한 시간이 지나서, 무한번(n = ∞) 투여한 상황이 되면 e<sup>-knτ</sup> = 0이 되고 그 때의 농도는 비로소 더 이상 증가하지 않는 항정상태의 농도가 될 것이다(식 <a href="principle.html#eq:cmaxss">(1.2)</a>).</p>
+<p>여러 번 투여할수록(n이 커질수록) e<sup>-knτ</sup>는 작아져서, 이론적으로 무한한 시간이 지나서, 무한번(n = ∞) 투여한 상황이 되면 e<sup>-knτ</sup> = 0이 되고 그 때의 농도는 비로소 더 이상 증가하지 않는 항정상태의 농도가 될 것이다(식 <a href="principle.html#eq:cmaxss">(1.3)</a>).</p>
 <p><span class="math display" id="eq:cmaxss">\[\begin{equation}
 {C_{max\_ ss} = \lim_{n \rightarrow \infty}}{\frac{\text{Dose}}{V_{d}} \times \frac{1 - e^{- kn\tau}}{1 - e^{- k\tau}} = \frac{\text{Dose}}{V_{d}} \times \frac{1}{1 - e^{- k\tau}}}
-\tag{1.2}
+\tag{1.3}
 \end{equation}\]</span></p>
 <!--
 ${C_{max\_ ss} = \lim_{n \rightarrow \infty}}{\frac{\text{Dose}}{V_{d}} \times \frac{1 - e^{- kn\tau}}{1 - e^{- k\tau}} = \frac{\text{Dose}}{V_{d}} \times \frac{1}{1 - e^{- k\tau}}}$
@@ -949,7 +943,7 @@ e<sup>-knτ</sup> 식에서 지수부분(-knτ)은 제거속도 상수 k와 경�
 즉, 다회투여 시 4~5회의 반감기가 경과하면 항정상태에 도달하였다고 간주한다. 
 이 때 흔히, 투여간격 τ를 줄여 자주 투여하면 항정상태에 일찍 도달할 수 있을 것이라는 착각을 할 수 있다. 
 그러나 앞서 소개된 바와 같이 경과시간 nτ가 t<sub>1/2</sub>의 4~5배에 도달해야만 항정상태가 되므로 τ를 줄이면 그만큼 n을 늘려줘야만 nτ = t<sub>1/2</sub> x 4~5를 달성할 수 있다. 따라서 투여간격과 무관하게 항정상태에 도달하려면 t<sub>1/2</sub>의 4~5배만큼 시간이 경과해야만 한다. 
-다만 항정상태 도달시간을 줄이지는 못하지만 τ가 줄어든 만큼 식 <a href="principle.html#eq:cmaxss">(1.2)</a>의 분모 1-e<sup>-kτ</sup> 값이 작아지므로 얻어지는 C<sub>max_ss</sub>는 커지게 된다. 
+다만 항정상태 도달시간을 줄이지는 못하지만 τ가 줄어든 만큼 식 <a href="principle.html#eq:cmaxss">(1.3)</a>의 분모 1-e<sup>-kτ</sup> 값이 작아지므로 얻어지는 C<sub>max_ss</sub>는 커지게 된다. 
 마찬가지로 투여간격 τ를 늘여도 항정상태 도달시간은 변치 않으며, 1-e<sup>-kτ</sup> 값이 커지므로 얻어지는 C<sub>max_ss</sub>가 작아지게 된다. 
 또 t<sub>1/2</sub>가 τ에 비해 훨씬 짧을 경우 축적 자체가 일어나지 않게 되므로 항정상태라는 개념도 의미가 없게 되는데 수식으로 표현하면 t<sub>1/2</sub> × 4~5 &lt; τ 와 같은 상황이 되어 두번째 용량을 투여하기 이전에 이미 항정상태에 도달해 버렸다고도 생각할 수 있다.</p>
 </div>
@@ -1000,10 +994,10 @@ height="2.309394138232721in"}
 <h2><span class="header-section-number">1.8</span> 경구투여의 약동학</h2>
 <p>지금까지 쉬운 이해를 위해 정맥 bolus 주입 상황을 예시하여 설명하였지만, 우리가 아는 약의 99% 이상은 먹는 약이다.
 먹는 약이 전신순환혈로 흡수되는데 관련된 약동학 파라미터는 이 장의 처음에 나온대로 k<sub>a</sub>와 F이다.
-F가 1이라고 가정하고 일차식에 의해 경구흡수되고 제거되는 약동학을 표현하면 아래 식 <a href="principle.html#eq:oral">(1.3)</a>과 같다.</p>
+F가 1이라고 가정하고 일차식에 의해 경구흡수되고 제거되는 약동학을 표현하면 아래 식 <a href="principle.html#eq:oral">(1.4)</a>과 같다.</p>
 <p><span class="math display" id="eq:oral">\[\begin{equation}
 \frac{\text{dA}}{\text{dt}} = \left( - \frac{\text{dA}_{a}}{\text{dt}} \right) - kA = k_{a}A_{a} - kA = k_{a}A_{a} - kCV_{d}
-\tag{1.3}
+\tag{1.4}
 \end{equation}\]</span></p>
 <!-- 
 $\frac{\text{dA}}{\text{dt}} = \left( - \frac{\text{dA}_{a}}{\text{dt}} \right) - kA = k_{a}A_{a} - kA = k_{a}A_{a} - kCV_{d}$ 식 1.3
@@ -1066,8 +1060,8 @@ height="2.5160378390201226in"}
 <h3><span class="header-section-number">1.9.1</span> 비선형약동학과 선형약동학의 차이</h3>
 <p>이 장에서 지금까지 다룬 약동학은 CL이 일정하고 반감기가 일정한 선형(linear)약동학에 관한 내용이었다. 
 시판 중인 의약품의 거의 전부가 선형약동학을 따르지만 예외적인 경우가 있는데 phenytoin, salicylate, ethanol 등이 사람 몸에서 비선형(non-linear)약동학을 보이는 물질들이다.</p>
-<p>비선형약동학을 이해하기 위해서는 우선 그림 식 <a href="principle.html#eq:nonlin">(1.4)</a>에 나타난 바와 같이 혈장 약물농도와 대사속도(제거속도)의 관계, CL과의 관계를 살펴보아야 한다.
-식 <a href="principle.html#eq:nonlin">(1.4)</a>의 V<sub>max</sub>와 K<sub>m</sub>은 약을 대사시키는 장기(간)의 세포 내의 약물대사효소들(다양한 CYP이나 UGT 등)의 특성을 나타내는 값이다.
+<p>비선형약동학을 이해하기 위해서는 우선 그림 식 <a href="principle.html#eq:nonlin">(1.5)</a>에 나타난 바와 같이 혈장 약물농도와 대사속도(제거속도)의 관계, CL과의 관계를 살펴보아야 한다.
+식 <a href="principle.html#eq:nonlin">(1.5)</a>의 V<sub>max</sub>와 K<sub>m</sub>은 약을 대사시키는 장기(간)의 세포 내의 약물대사효소들(다양한 CYP이나 UGT 등)의 특성을 나타내는 값이다.
 이에 상응하는 농도는 간 세포 속의 약물농도이지만, 설명의 편의상 혈장약물농도와 동일하다고 가정하였다.
 선형약동학을 나타내는 약물은 CL가 혈장약물농도와 상관없이 일정하고, 따라서 약물제거속도는 혈장약물농도가 커질수록 정비례하여 커지게 된다(<span class="math inline">\(\frac{\text{dA}}{\text{dt}} = kA = CL \cdot C(t)\)</span>).
 이로 인해 일정한 반감기가 존재한다. 
@@ -1077,14 +1071,14 @@ $\frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C}$
 식 1.4-->
 <p><span class="math display" id="eq:nonlin">\[\begin{equation}
 \frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C}
-\tag{1.4}
+\tag{1.5}
 \end{equation}\]</span></p>
 <p>간에서 대사되는 약물의 경우 사람에서 얻을 수 있는 약물 농도의 범위가 K<sub>m</sub> 값보다 무시할만큼 작은 경우에는 선형약동학을 보인다.
-즉 식 <a href="principle.html#eq:nonlin">(1.4)</a>의 분모에서 K<sub>m</sub> &gt;&gt; C인 경우 <span class="math inline">\(\frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C} \approx \frac{V_{\max}}{K_{m}}C\)</span> 와 같이 제거속도(<span class="math inline">\(\frac{\text{dA}}{\text{dt}}\)</span>)는<span class="math inline">\(\frac{V_{\max}}{K_{m}}\)</span>에 비례하는데, 결국 CL는 <span class="math inline">\(\frac{V_{\max}}{K_{m}}\)</span>과 같은 값으로 나타나게 된다.
+즉 식 <a href="principle.html#eq:nonlin">(1.5)</a>의 분모에서 K<sub>m</sub> &gt;&gt; C인 경우 <span class="math inline">\(\frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C} \approx \frac{V_{\max}}{K_{m}}C\)</span> 와 같이 제거속도(<span class="math inline">\(\frac{\text{dA}}{\text{dt}}\)</span>)는<span class="math inline">\(\frac{V_{\max}}{K_{m}}\)</span>에 비례하는데, 결국 CL는 <span class="math inline">\(\frac{V_{\max}}{K_{m}}\)</span>과 같은 값으로 나타나게 된다.
 대부분의 약들의 K<sub>m</sub> 값은 C 보다 훨씬 커서 선형약동학으로 보이는 것이다.
-그런데 농도가 K<sub>m</sub>에 비해 무시할 수 없게 커지면 약물제거속도는 원래의 수식 <a href="principle.html#eq:nonlin">(1.4)</a>와 같이 나타나게 되고, 급기야 C가 K<sub>m</sub>보다 월등히 커지면(K<sub>m</sub> &lt;&lt; C), 식은 <span class="math inline">\(\frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C} \approx \frac{V_{\max} \cdot C}{C} = V_{\max}\)</span> 와 같이 변형된다.
+그런데 농도가 K<sub>m</sub>에 비해 무시할 수 없게 커지면 약물제거속도는 원래의 수식 <a href="principle.html#eq:nonlin">(1.5)</a>와 같이 나타나게 되고, 급기야 C가 K<sub>m</sub>보다 월등히 커지면(K<sub>m</sub> &lt;&lt; C), 식은 <span class="math inline">\(\frac{\text{dA}}{\text{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C} \approx \frac{V_{\max} \cdot C}{C} = V_{\max}\)</span> 와 같이 변형된다.
 이 때 수식에서 C가 사라지므로, 0차식(zero-order)의 양상을 나타낸다고도 표현한다.
-이 식은 사람의 몸이 일정 시간 동안에 제거할 수 있는 약의 최대량은 V<sub>max</sub>를 넘어설 수 없음을 나타낸다. 식 <a href="principle.html#eq:nonlin">(1.4)</a>에서의 농도 C는 사실 세포 내에서의 unbound concentration이라야 하지만 편의상 혈장 약물농도 C의 의미로 사용하였다.</p>
+이 식은 사람의 몸이 일정 시간 동안에 제거할 수 있는 약의 최대량은 V<sub>max</sub>를 넘어설 수 없음을 나타낸다. 식 <a href="principle.html#eq:nonlin">(1.5)</a>에서의 농도 C는 사실 세포 내에서의 unbound concentration이라야 하지만 편의상 혈장 약물농도 C의 의미로 사용하였다.</p>
 <!--
 ![](media-01/image14.png){width="6.268055555555556in"
 height="3.0506944444444444in"}

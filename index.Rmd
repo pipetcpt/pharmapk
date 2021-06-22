@@ -36,8 +36,8 @@ header-includes:
 #hyperrefoptions:
 #- linktoc=all
 #mainfont: NanumGothic # https://sujinlee.me/pandoc-thesis/
-#lot: yes
-#lof: yes
+lot: yes
+lof: yes
 ---
 
 ```{r setup, include=FALSE}

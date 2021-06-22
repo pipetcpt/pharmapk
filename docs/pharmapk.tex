@@ -341,6 +341,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\listoffigures
+\listoftables
 \setstretch{1.30}
 \hypertarget{uxba38uxb9acuxb9d0}{%
 \chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
@@ -556,10 +558,12 @@ f(Dose, time, ka, F, Vd, CL) 용량과 채혈시간은 외부에서 인위적으
 장 상피세포, 간)을 거쳐야 하며 하나씩 통과할 때마다 일부분씩 약이
 제거된다. 이 세 관문을 통과하면서 약이 전신순환혈로 흡수되기 전에 제거되는
 현상을 초회통과효과(first pass effect)라 한다. 그러므로 전신으로\index{초회통과효과}
-흡수되는 약의 분율(생체이용률, bioavailability: F)은 아래 식과 같이
-나타낸다.
+흡수되는 약의 분율(생체이용률, bioavailability: F)은 아래 식 \eqref{eq:eq1}과 같이 나타낸다.
 
-\[F = F_{a} \times F_{g} \times F_{h}\]
+\begin{equation}
+F = F_{a} \times F_{g} \times F_{h}
+\label{eq:eq1}
+\end{equation}
 
 F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 장 상피의 세포막을
 투과하여 세포 내로 들어오는(F\textsubscript{a}의 a는 absorbed를 의미함) 약의 분율로서
@@ -871,30 +875,22 @@ ka와 F지만, 일단 소화관내의 약이 모두 전신순환혈로 들어온
 \hypertarget{uxccaduxc18cuxc728uxc758-uxc774uxd574}{%
 \subsection{청소율의 이해}\label{uxccaduxc18cuxc728uxc758-uxc774uxd574}}
 
-몸이 약을 제거하는 능력을 시간당 제거하는 약물의 양(mg/h 와 같은
-단위)으로 나타내는 대신, 시간당 그 약이 녹아 있던 혈장이나 혈액을 얼마나
-청소해 주었는지(혈액이나 혈장의 부피)로 나타내는 것(L/h 등의 단위)이
-청소율(clearance: CL)이다. 즉 용매(혈장)에 녹아 있는 용질(약)을 제거하는
-몸의 능력을 용질보다는 용매를 중심으로 표현하는 것이다. 왜 번거롭게 이런
-식으로 설명하는가? 그것은 시간당 제거되는 약의 양이란 단위가 약의 혈장
-농도가 높을 때는 크다가 농도가 떨어지면 작아져서 일정한 값으로 표현하는
-것이 불가능한 반면, 시간당 청소되는 혈액이나 혈장의 부피는 같은 사람에서
-약물별로 고정불변의 값을 나타내기 때문이다. 이러한 고정불변의 청소율이
-있기 때문에 약물이 1차식에 의해 제거되고 일정한 반감기를 나타내지만,\index{반감기}
-이를 처음 배우는 사람은 이 개념을 이해하는 것이 어렵다. 이해를 돕기 위해
-약을 제거하는 장기(간이나 콩팥)를 진공청소기로, 혈장을 공기로, 약물을
-먼지로 비유하여 설명하고자 한다. 이 비유적 사례를 통해 왜 CL를 장기의
-약물제거 능력을 나타내는 파라미터로 쓰는지 이해할 수 있을 것이다. (\protect\hyperlink{ref-yim2017tutorial}{Dong-Seok Yim 2017})
+몸이 약을 제거하는 능력을 시간당 제거하는 약물의 양(mg/h 와 같은 단위)으로 나타내는 대신, 시간당 그 약이 녹아 있던 혈장이나 혈액을 얼마나 청소해 주었는지(혈액이나 혈장의 부피)로 나타내는 것(L/h 등의 단위)이
+청소율(clearance: CL)이다.
+즉 용매(혈장)에 녹아 있는 용질(약)을 제거하는 몸의 능력을 용질보다는 용매를 중심으로 표현하는 것이다.
+왜 번거롭게 이런 식으로 설명하는가?
+그것은 시간당 제거되는 약의 양이란 단위가 약의 혈장 농도가 높을 때는 크다가 농도가 떨어지면 작아져서 일정한 값으로 표현하는 것이 불가능한 반면, 시간당 청소되는 혈액이나 혈장의 부피는 같은 사람에서 약물별로 고정불변의 값을 나타내기 때문이다. 이러한 고정불변의 청소율이 있기 때문에 약물이 1차식에 의해 제거되고 일정한 반감기를 나타내지만,
+이를 처음 배우는 사람은 이 개념을 이해하는 것이 어렵다. \index{반감기}
+이해를 돕기 위해 약을 제거하는 장기(간이나 콩팥)를 진공청소기로, 혈장을 공기로, 약물을 먼지로 비유하여 설명하고자 한다.
+이 비유적 사례를 통해 왜 CL를 장기의 약물제거 능력을 나타내는 파라미터로 쓰는지 이해할 수 있을 것이다. (\protect\hyperlink{ref-yim2017tutorial}{Dong-Seok Yim 2017})
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
 \textbf{사례}
 
-당신은 공기 중에 먼지가 100 ng/L의 농도로 존재하는 방에 있다. 이 방의
-공기를 새로 구입한 진공청소기를 이용해서 청소하고자 한다. 스위치를 켜고
-노즐을 허공을 향하게 하여 30분간 진공청소기를 돌리고 나서 청소기를
-분해하여 필터(집진주머니)에 걸린 먼지의 양을 저울로 측정해 보니 200 ng
-이였다. 그러면
+당신은 공기 중에 먼지가 100 ng/L의 농도로 존재하는 방에 있다. 이 방의 공기를 새로 구입한 진공청소기를 이용해서 청소하고자 한다.
+스위치를 켜고 노즐을 허공을 향하게 하여 30분간 진공청소기를 돌리고 나서 청소기를 분해하여 필터(집진주머니)에 걸린 먼지의 양을 저울로 측정해 보니 200 ng 이였다.
+그러면
 
 \begin{rmdtip}
 \begin{enumerate}
@@ -1314,14 +1310,18 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 \hypertarget{uxc11cuxb860-1}{%
 \section{서론}\label{uxc11cuxb860-1}}
 
-비구획분석(Non-Compartmental Analysis)은 약동학 자료를 요약하고, 활용 가능한 정보로 만들어내는 가장 기초적인 방법이다. 매우 직관적인 방법이며 분석 과정에서 최소한의 가정만을 허용하기 때문에, 누가 분석을 수행했는가와 관계 없이 결과의 변동성이 적으며 이에 따라 규제적 측면에서 가장 선호되는 방법이기도 하다. 그러나, 약동학적 자료 이외의 다른 가정을 하지 않는다는 것은 그러한 약동학 자료(시간에 따른 농도 변화)가 어떠한 생리학적인 이유로 발생하게 되었는가에 대한 고려가 부족하다는 뜻이기도 하다. 따라서, 비구획분석만으로는 해당 의약품의 약동학적 지식에 대한 충분한 지식을 얻을 수 없다는 한계 역시 존재한다. 비구획분석의 방법론을 이해하고 그로부터 산출 또는 추정되는 약동학 파라미터의 의미를 확인함으로써, 비구획분석 결과의 올바르게 해석하고 활용할 수 있어야 하겠다.
+비구획분석(Non-Compartmental Analysis)은 약동학 자료를 요약하고, 활용 가능한 정보로 만들어내는 가장 기초적인 방법이다.
+매우 직관적인 방법이며 분석 과정에서 최소한의 가정만을 허용하기 때문에, 누가 분석을 수행했는가와 관계 없이 결과의 변동성이 적으며 이에 따라 규제적 측면에서 가장 선호되는 방법이기도 하다.
+그러나, 약동학적 자료 이외의 다른 가정을 하지 않는다는 것은 그러한 약동학 자료(시간에 따른 농도 변화)가 어떠한 생리학적인 이유로 발생하게 되었는가에 대한 고려가 부족하다는 뜻이기도 하다.
+따라서, 비구획분석만으로는 해당 의약품의 약동학에 대한 충분한 지식을 얻을 수 없다는 한계 역시 존재한다.
+비구획분석의 방법론을 이해하고 그로부터 산출 또는 추정되는 약동학 파라미터의 의미를 확인함으로써, 비구획분석 결과의 올바르게 해석하고 활용할 수 있어야 하겠다.
 
 \hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxae30uxbcf8-uxac1cuxb150uxacfc-uxad00uxc2ecuxc0ac}{%
 \section{비구획분석의 기본 개념과 관심사}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxae30uxbcf8-uxac1cuxb150uxacfc-uxad00uxc2ecuxc0ac}}
 
 \begin{figure}
 
-{\centering \includegraphics[width=2\linewidth]{media-02/image1} 
+{\centering \includegraphics[width=3\linewidth]{media-02/image1} 
 
 }
 
@@ -1704,10 +1704,10 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다.
 따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. (\protect\hyperlink{ref-noe2020parameter}{Noe 2020})
 
-이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 기술적인 사항은 별도의 교재를 통해 습득해야 할 것이다.
+이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 사항은 별도의 교재를 통해 습득해야 할 것이다. (\protect\hyperlink{ref-ggplot22016}{Wickham 2016})
 
-\hypertarget{ncauxb97c-uxc704uxd55c-uxc790uxb8ccuxc758-uxcc98uxb9ac}{%
-\section{NCA를 위한 자료의 처리}\label{ncauxb97c-uxc704uxd55c-uxc790uxb8ccuxc758-uxcc98uxb9ac}}
+\hypertarget{data-prep}{%
+\section{NCA를 위한 자료의 처리}\label{data-prep}}
 
 \hypertarget{uxcc44uxd608-uxc2dcuxac04}{%
 \subsection{채혈 시간}\label{uxcc44uxd608-uxc2dcuxac04}}
@@ -1850,7 +1850,7 @@ R을 사용하다가 도움이 필요할때는 맨 앞에 물음표를 붙여서
 
 자료의 첫 10개 (표 \ref{tab:head}) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력한다.
 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있다.
-이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 3.2절의 내용을 참고할 수 있다.
+이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 \ref{data-prep}절의 내용을 참고할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1882,13 +1882,13 @@ Subject & Wt & Dose & Time & conc\\
 \end{tabular}
 \end{table}
 
-\texttt{ggplot2} 패키지(\protect\hyperlink{ref-R-ggplot2}{Wickham, Chang, et al. 2021})로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \ref{fig:ggtheoph}) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다.
+\texttt{ggplot2} 패키지(\protect\hyperlink{ref-R-ggplot2}{Wickham, Chang, et al. 2021})로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \ref{fig:ggtheoph}) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다. (\protect\hyperlink{ref-ggplot22016}{Wickham 2016})
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{ggplot}\NormalTok{(Theoph, }\FunctionTok{aes}\NormalTok{(Time, conc, }\AttributeTok{group =}\NormalTok{ Subject, }\AttributeTok{color =}\NormalTok{ Subject)) }\SpecialCharTok{+}
-  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size =} \DecValTok{4}\NormalTok{) }\SpecialCharTok{+} 
-  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size =} \DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+\FunctionTok{ggplot}\NormalTok{(Theoph, }\FunctionTok{aes}\NormalTok{(Time, conc, }\AttributeTok{color =}\NormalTok{ Subject)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{size=}\DecValTok{2}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{size=}\DecValTok{1}\NormalTok{, }\AttributeTok{alpha=}\FloatTok{0.5}\NormalTok{) }\SpecialCharTok{+}
   \FunctionTok{theme\_bw}\NormalTok{() }\SpecialCharTok{+}
   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{\textquotesingle{}Oral Administration of Theoph (320 mg)\textquotesingle{}}\NormalTok{,}
        \AttributeTok{x =} \StringTok{\textquotesingle{}Time (hour)\textquotesingle{}}\NormalTok{, }\AttributeTok{y =} \StringTok{\textquotesingle{}Concentration (ng/mL)\textquotesingle{}}\NormalTok{)}
@@ -1901,7 +1901,7 @@ Subject & Wt & Dose & Time & conc\\
 
 }
 
-\caption{Concentration-time curves of oral administration of Theoph (N = 12)}\label{fig:ggtheoph}
+\caption{Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)}\label{fig:ggtheoph}
 \end{figure}
 
 \hypertarget{loading}{%
@@ -1959,13 +1959,14 @@ NonCompart 패키지의 핵심적인 기능이다.
 ## 12      12  9.75 3.52 119.98  6.287
 \end{verbatim}
 
-위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. ?tblNCA() 혹은 \texttt{args(tblNCA)} 명령어를 통해 아래 결과를 얻을 수 있다.
+위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. \texttt{?tblNCA()} 혹은 \texttt{args(tblNCA)} 명령어를 통해 아래 결과를 얻을 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\FunctionTok{tblNCA}\NormalTok{(concData, }\AttributeTok{key =} \StringTok{"Subject"}\NormalTok{, }\AttributeTok{colTime =} \StringTok{"Time"}\NormalTok{, }\AttributeTok{colConc =} \StringTok{"conc"}\NormalTok{, }\AttributeTok{dose =} \DecValTok{0}\NormalTok{, }
-       \AttributeTok{adm =} \StringTok{"Extravascular"}\NormalTok{, }\AttributeTok{dur =} \DecValTok{0}\NormalTok{, }\AttributeTok{doseUnit =} \StringTok{"mg"}\NormalTok{, }\AttributeTok{timeUnit =} \StringTok{"h"}\NormalTok{, }
-       \AttributeTok{concUnit =} \StringTok{"ug/L"}\NormalTok{, }\AttributeTok{down =} \StringTok{"Linear"}\NormalTok{, }\AttributeTok{R2ADJ =} \FloatTok{0.9}\NormalTok{, }\AttributeTok{MW =} \DecValTok{0}\NormalTok{, }\AttributeTok{iAUC=}\StringTok{""}\NormalTok{)}
+\FunctionTok{tblNCA}\NormalTok{(concData, }\AttributeTok{key =} \StringTok{"Subject"}\NormalTok{, }\AttributeTok{colTime =} \StringTok{"Time"}\NormalTok{, }\AttributeTok{colConc =} \StringTok{"conc"}\NormalTok{, }
+       \AttributeTok{dose =} \DecValTok{0}\NormalTok{, }\AttributeTok{adm =} \StringTok{"Extravascular"}\NormalTok{, }\AttributeTok{dur =} \DecValTok{0}\NormalTok{, }\AttributeTok{doseUnit =} \StringTok{"mg"}\NormalTok{, }
+       \AttributeTok{timeUnit =} \StringTok{"h"}\NormalTok{, }\AttributeTok{concUnit =} \StringTok{"ug/L"}\NormalTok{, }\AttributeTok{down =} \StringTok{"Linear"}\NormalTok{, }\AttributeTok{R2ADJ =} \FloatTok{0.9}\NormalTok{, }
+       \AttributeTok{MW =} \DecValTok{0}\NormalTok{, }\AttributeTok{iAUC=}\StringTok{""}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
 
@@ -2159,7 +2160,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.3 }\ErrorTok{(}\ExtensionTok{2021{-}06{-}11}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}22 12:38:38 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}22 15:57:27 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2707,14 +2708,9 @@ SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\\
 \end{Highlighting}
 \end{Shaded}
 
-\begin{figure}
-
-{\centering \includegraphics[width=1\linewidth]{assets-paper/figure-2} 
-
-}
-
-\caption{BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과.\index{생물학적 동등성}}\label{fig:output-format}
-\end{figure}
+\begin{verbatim}
+## Error in knitr::include_graphics("media-03/figure-2.png"): Cannot find the file(s): "media-03/figure-2.png"
+\end{verbatim}
 
 
 
@@ -3208,7 +3204,7 @@ V1, V2, V3 원통의 부피는 약물이 분포하는 용적이고, 높이는 �
 \section{구획분석에 활용할 수 있는 R package 소개}\label{uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}}
 
 이를 극복하기 위해 통계 및 수학적 계산에 적합한 R 언어 기반의 오픈소스 소프트웨어가 활발히 개발되고 있다.
-즉, 비구획분석을 위한 R 패키지를 3장에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
+즉, 비구획분석을 위한 R 패키지를 \protect\hyperlink{nca-analysis}{3장}에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
 본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020b})
 
 NONMEM에서는 비선형 회귀분석을 위해서 최대 우도 추정법(maximum likelihood estimation)을 사용한다.
@@ -3445,7 +3441,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
   해당하는 농도가 높은 쪽이 분포용적이 더 작을 것이라 예상할 수 있다.
 \end{itemize}
 
-이러한 탐색을 수치적인 해석으로 확장하기 위해 4명 자료의 NCA 분석을 수행한다. 3장에서 다루었던 \texttt{tblNCA()} 함수를 사용해 계산할 수 있다.
+이러한 탐색을 수치적인 해석으로 확장하기 위해 4명 자료의 NCA 분석을 수행한다. \protect\hyperlink{nca-analysis}{3장}에서 다루었던 \texttt{tblNCA()} 함수를 사용해 계산할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3914,8 +3910,11 @@ Richens, Alan, and Andrew Dunlop. 1975. {``Serum-Phenytoin Levels in Management 
 \leavevmode\vadjust pre{\hypertarget{ref-R-lubridate}{}}%
 Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. \emph{Lubridate: Make Dealing with Dates a Little Easier}. \url{https://CRAN.R-project.org/package=lubridate}.
 
+\leavevmode\vadjust pre{\hypertarget{ref-ggplot22016}{}}%
+Wickham, Hadley. 2016. \emph{Ggplot2: Elegant Graphics for Data Analysis}. Springer-Verlag New York. \url{https://ggplot2.tidyverse.org}.
+
 \leavevmode\vadjust pre{\hypertarget{ref-R-tidyr}{}}%
-Wickham, Hadley. 2021. \emph{Tidyr: Tidy Messy Data}. \url{https://CRAN.R-project.org/package=tidyr}.
+---------. 2021. \emph{Tidyr: Tidy Messy Data}. \url{https://CRAN.R-project.org/package=tidyr}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-ggplot2}{}}%
 Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2021. \emph{Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics}. \url{https://CRAN.R-project.org/package=ggplot2}.

@@ -213,7 +213,7 @@ div.csl-indent {
 <li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획분석의 자료해석</a>
 <ul>
 <li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
-<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-자료의-처리"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
+<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#data-prep"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
 <ul>
 <li class="chapter" data-level="3.2.1" data-path="nca-analysis.html"><a href="nca-analysis.html#채혈-시간"><i class="fa fa-check"></i><b>3.2.1</b> 채혈 시간</a></li>
 <li class="chapter" data-level="3.2.2" data-path="nca-analysis.html"><a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리"><i class="fa fa-check"></i><b>3.2.2</b> 정량한계를 벗어나거나 누락된 자료의 처리</a></li>
@@ -324,9 +324,9 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 약물 개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 주게 된다.
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다.
 따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. <span class="citation">(<a href="#ref-noe2020parameter" role="doc-biblioref">Noe 2020</a>)</span></p>
-<p>이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 기술적인 사항은 별도의 교재를 통해 습득해야 할 것이다.</p>
+<p>이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 사항은 별도의 교재를 통해 습득해야 할 것이다. <span class="citation">(<a href="#ref-ggplot22016" role="doc-biblioref">Wickham 2016</a>)</span></p>
 </div>
-<div id="nca를-위한-자료의-처리" class="section level2" number="3.2">
+<div id="data-prep" class="section level2" number="3.2">
 <h2><span class="header-section-number">3.2</span> NCA를 위한 자료의 처리</h2>
 <div id="채혈-시간" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> 채혈 시간</h3>
@@ -413,7 +413,7 @@ Some features are
 <h2><span class="header-section-number">3.5</span> NCA를 위한 데이터셋의 작성</h2>
 <p>자료의 첫 10개 (표 <a href="nca-analysis.html#tab:head">3.1</a>) 혹은 마지막 10개 관찰값만 보고 싶으면 다음을 입력한다.
 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있다.
-이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 3.2절의 내용을 참고할 수 있다.</p>
+이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 <a href="nca-analysis.html#data-prep">3.2</a>절의 내용을 참고할 수 있다.</p>
 <div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="nca-analysis.html#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(Theoph, <span class="at">n=</span><span class="dv">10</span>)</span>
 <span id="cb4-2"><a href="nca-analysis.html#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tail</span>(Theoph, <span class="at">n=</span><span class="dv">10</span>)</span></code></pre></div>
 <table>
@@ -612,17 +612,17 @@ conc
 </tr>
 </tbody>
 </table>
-<p><code>ggplot2</code> 패키지<span class="citation">(<a href="#ref-R-ggplot2" role="doc-biblioref">Wickham, Chang, et al. 2021</a>)</span>로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 <a href="nca-analysis.html#fig:ggtheoph">3.1</a>) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다.</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="nca-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Theoph, <span class="fu">aes</span>(Time, conc, <span class="at">group =</span> Subject, <span class="at">color =</span> Subject)) <span class="sc">+</span></span>
-<span id="cb5-2"><a href="nca-analysis.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">4</span>) <span class="sc">+</span> </span>
-<span id="cb5-3"><a href="nca-analysis.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size =</span> <span class="dv">1</span>) <span class="sc">+</span></span>
+<p><code>ggplot2</code> 패키지<span class="citation">(<a href="#ref-R-ggplot2" role="doc-biblioref">Wickham, Chang, et al. 2021</a>)</span>로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 <a href="nca-analysis.html#fig:ggtheoph">3.1</a>) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다. <span class="citation">(<a href="#ref-ggplot22016" role="doc-biblioref">Wickham 2016</a>)</span></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="nca-analysis.html#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(Theoph, <span class="fu">aes</span>(Time, conc, <span class="at">color =</span> Subject)) <span class="sc">+</span></span>
+<span id="cb5-2"><a href="nca-analysis.html#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">2</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb5-3"><a href="nca-analysis.html#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">size=</span><span class="dv">1</span>, <span class="at">alpha=</span><span class="fl">0.5</span>) <span class="sc">+</span></span>
 <span id="cb5-4"><a href="nca-analysis.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb5-5"><a href="nca-analysis.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg)&#39;</span>,</span>
 <span id="cb5-6"><a href="nca-analysis.html#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:ggtheoph"></span>
-<img src="pharmapk_files/figure-html/ggtheoph-1.svg" alt="Concentration-time curves of oral administration of Theoph (N = 12)" width="100%" />
+<img src="pharmapk_files/figure-html/ggtheoph-1.svg" alt="Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)" width="100%" />
 <p class="caption">
-그림 3.1: Concentration-time curves of oral administration of Theoph (N = 12)
+그림 3.1: Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)
 </p>
 </div>
 </div>
@@ -661,10 +661,11 @@ NonCompart 패키지의 핵심적인 기능이다.
 ## 10      10 10.21 3.55 138.37  9.247
 ## 11      11  8.00 0.98  80.09  7.261
 ## 12      12  9.75 3.52 119.98  6.287</code></pre>
-<p>위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. ?tblNCA() 혹은 <code>args(tblNCA)</code> 명령어를 통해 아래 결과를 얻을 수 있다.</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="nca-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tblNCA</span>(concData, <span class="at">key =</span> <span class="st">&quot;Subject&quot;</span>, <span class="at">colTime =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">colConc =</span> <span class="st">&quot;conc&quot;</span>, <span class="at">dose =</span> <span class="dv">0</span>, </span>
-<span id="cb9-2"><a href="nca-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">adm =</span> <span class="st">&quot;Extravascular&quot;</span>, <span class="at">dur =</span> <span class="dv">0</span>, <span class="at">doseUnit =</span> <span class="st">&quot;mg&quot;</span>, <span class="at">timeUnit =</span> <span class="st">&quot;h&quot;</span>, </span>
-<span id="cb9-3"><a href="nca-analysis.html#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">concUnit =</span> <span class="st">&quot;ug/L&quot;</span>, <span class="at">down =</span> <span class="st">&quot;Linear&quot;</span>, <span class="at">R2ADJ =</span> <span class="fl">0.9</span>, <span class="at">MW =</span> <span class="dv">0</span>, <span class="at">iAUC=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<p>위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. <code>?tblNCA()</code> 혹은 <code>args(tblNCA)</code> 명령어를 통해 아래 결과를 얻을 수 있다.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="nca-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tblNCA</span>(concData, <span class="at">key =</span> <span class="st">&quot;Subject&quot;</span>, <span class="at">colTime =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">colConc =</span> <span class="st">&quot;conc&quot;</span>, </span>
+<span id="cb9-2"><a href="nca-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">dose =</span> <span class="dv">0</span>, <span class="at">adm =</span> <span class="st">&quot;Extravascular&quot;</span>, <span class="at">dur =</span> <span class="dv">0</span>, <span class="at">doseUnit =</span> <span class="st">&quot;mg&quot;</span>, </span>
+<span id="cb9-3"><a href="nca-analysis.html#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">timeUnit =</span> <span class="st">&quot;h&quot;</span>, <span class="at">concUnit =</span> <span class="st">&quot;ug/L&quot;</span>, <span class="at">down =</span> <span class="st">&quot;Linear&quot;</span>, <span class="at">R2ADJ =</span> <span class="fl">0.9</span>, </span>
+<span id="cb9-4"><a href="nca-analysis.html#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">MW =</span> <span class="dv">0</span>, <span class="at">iAUC=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 <p>R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인자(argument)를 통해 구체적인 자료의 성격을 입력해야 한다.
 <code>concData</code>는 데이터셋 이름을 넣어주고, <code>key</code>는 subject ID의 컬럼명 혹은 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태(<code>c('subject', 'period', 'treatment')</code>)로 지정할 수 있다. 여기서 key로 들어간 컬럼은 모두 결과 표의 초반에 그대로 출력되게 된다.
 <code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 농도(concentration)의 컬럼명 등을 함수 인자로 갖는다. 그 외 인자들에 대해서 살펴보자면 다음과 같다.</p>
@@ -781,7 +782,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.3 <span class="er">(</span><span class="ex">2021-06-11</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.0 <span class="er">(</span><span class="ex">2021-05-18</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-22 12:38:10 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-22 15:56:07 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -2065,12 +2066,7 @@ R
 </div>
 <p>약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (Figure 2) 본 자료로 계산한 AUClast는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="nca-analysis.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">be2x2</span>(NCAResult4BE, <span class="fu">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:output-format"></span>
-<img src="assets-paper/figure-2.png" alt="BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과." width="100%" />
-<p class="caption">
-그림 3.9: BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과.
-</p>
-</div>
+<pre><code>## Error in knitr::include_graphics(&quot;media-03/figure-2.png&quot;): Cannot find the file(s): &quot;media-03/figure-2.png&quot;</code></pre>
 
 <p>위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. </p>
 <p><strong>AUCinf</strong></p>
@@ -2139,18 +2135,18 @@ R
 </div>
 <div id="웹브라우저를-통한-nca-및-생물학적동등성-판정" class="section level2" number="3.13">
 <h2><span class="header-section-number">3.13</span> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</h2>
-<p>웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. (그림 <a href="nca-analysis.html#fig:pkrshiny">3.10</a>) <a href="https://www.pipetapps.com/project/pkrshiny/" class="uri">https://www.pipetapps.com/project/pkrshiny/</a> <code>shiny-be</code>는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 <a href="https://www.pipetapps.com/project/shiny-be/" class="uri">https://www.pipetapps.com/project/shiny-be/</a>에서 서비스 하고 있다. (그림 <a href="nca-analysis.html#fig:shiny-be">3.11</a>)</p>
+<p>웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. (그림 <a href="nca-analysis.html#fig:pkrshiny">3.9</a>) <a href="https://www.pipetapps.com/project/pkrshiny/" class="uri">https://www.pipetapps.com/project/pkrshiny/</a> <code>shiny-be</code>는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 <a href="https://www.pipetapps.com/project/shiny-be/" class="uri">https://www.pipetapps.com/project/shiny-be/</a>에서 서비스 하고 있다. (그림 <a href="nca-analysis.html#fig:shiny-be">3.10</a>)</p>
 <div class="figure" style="text-align: center"><span id="fig:pkrshiny"></span>
 <img src="images/pkrshiny.png" alt="NCA용 앱, pkrshiny 접속 화면" width="100%" />
 <p class="caption">
-그림 3.10: NCA용 앱, <code>pkrshiny</code> 접속 화면
+그림 3.9: NCA용 앱, <code>pkrshiny</code> 접속 화면
 </p>
 </div>
 
 <div class="figure" style="text-align: center"><span id="fig:shiny-be"></span>
 <img src="images/figure-shiny-be.png" alt="NCA 및 BE용 앱, shiny-be 접속 화면" width="100%" />
 <p class="caption">
-그림 3.11: NCA 및 BE용 앱, <code>shiny-be</code> 접속 화면
+그림 3.10: NCA 및 BE용 앱, <code>shiny-be</code> 접속 화면
 </p>
 </div>
 
@@ -2183,8 +2179,11 @@ Noe, Dennis A. 2020. <span>“Parameter Estimation and Reporting in Noncompartme
 <div id="ref-R-lubridate" class="csl-entry">
 Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
 </div>
+<div id="ref-ggplot22016" class="csl-entry">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
 <div id="ref-R-tidyr" class="csl-entry">
-Wickham, Hadley. 2021. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
+———. 2021. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
 </div>
 <div id="ref-R-ggplot2" class="csl-entry">
 Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2021. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
