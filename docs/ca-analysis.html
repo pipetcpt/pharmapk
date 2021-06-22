@@ -239,7 +239,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
 </ul></li>
 <li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()</a></li>
-<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라메터의 의미</a></li>
+<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라미터의 의미</a></li>
 <li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)</a></li>
 <li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별</a>
 <ul>
@@ -319,10 +319,10 @@ div.csl-indent {
 </p>
 <div id="서론-3" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> 서론</h2>
-<p>약동학 구획분석을 한문장으로 표현하자면 시간 농도(time‐concentration data) 자료에 대한 약동학 파라메터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다.
-다시 말하자면, 인체의 여러 장기(organ) 혹은 계(system)를 몇개의 구획으로 단순화하여 우리의 관심이 되는 특성을 파라메터화하여 각 구획들 간의 연관성을 파악하는 것이다.
-약동학 파라메터의 추정을 위해서 약 30년 전부터 비선형 회귀분석(nonlinear regression analysis)이 사용 되어 왔고 현재 이 방식은 집단 약동학 분석에서 가장 필수적인 방법론으로 자리 잡은 상태이다.
-추정에는 약동학 수식이 필요한데, 비선형 회귀분석 시 모형식(model formulation)으로 사용되며, 이 수식 안에 우리가 추정하고자 하는 약동학 파라메터가 모두 포함되어 있다.</p>
+<p>약동학 구획분석을 한문장으로 표현하자면 시간 농도(time‐concentration data) 자료에 대한 약동학 파라미터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다.
+다시 말하자면, 인체의 여러 장기(organ) 혹은 계(system)를 몇개의 구획으로 단순화하여 우리의 관심이 되는 특성을 파라미터화하여 각 구획들 간의 연관성을 파악하는 것이다.
+약동학 파라미터의 추정을 위해서 약 30년 전부터 비선형 회귀분석(nonlinear regression analysis)이 사용 되어 왔고 현재 이 방식은 집단 약동학 분석에서 가장 필수적인 방법론으로 자리 잡은 상태이다.
+추정에는 약동학 수식이 필요한데, 비선형 회귀분석 시 모형식(model formulation)으로 사용되며, 이 수식 안에 우리가 추정하고자 하는 약동학 파라미터가 모두 포함되어 있다.</p>
 <p>구획간의 약물 이동은 1차 역학 (1st-order kinetics) 또는 선형 약동학(linear pharmacokinetics)을 따른다고 가정하게 된다.
 선형 약동학이란 간단히 말해서 용량이 두배가 되면 농도도 두 배가 되는 것을 말하며, D (용량) → C (농도) 로 나타낼 경우 2D → 2C 의 관계가 성립하는 것을 말한다.
 1구획 모델에서는 구획들 간의 약물 분포가 역학적으로 균일하다는 가정 하에 인체를 역학적 단일구획으로 기술한다.
@@ -587,7 +587,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 <span id="cb41-9"><a href="ca-analysis.html#cb41-9" aria-hidden="true" tabindex="-1"></a>  Cp <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span><span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME)  <span class="co"># External DOSE, TIME, eq 1:2</span></span>
 <span id="cb41-10"><a href="ca-analysis.html#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
 <span id="cb41-11"><a href="ca-analysis.html#cb41-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<p>Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기 위해서 <code>for</code> 함수를 사용하게 되는데, 다소 복잡해보이지만 <code>nlr</code> 함수를 여러번 사용하며 각 대상자의 약동학 파라메터 추정을 수행하는 것이 핵심이다.</p>
+<p>Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기 위해서 <code>for</code> 함수를 사용하게 되는데, 다소 복잡해보이지만 <code>nlr</code> 함수를 여러번 사용하며 각 대상자의 약동학 파라미터 추정을 수행하는 것이 핵심이다.</p>
 <div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="ca-analysis.html#cb42-1" aria-hidden="true" tabindex="-1"></a>Result <span class="ot">=</span> <span class="fu">vector</span>()</span>
 <span id="cb42-2"><a href="ca-analysis.html#cb42-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
 <span id="cb42-3"><a href="ca-analysis.html#cb42-3" aria-hidden="true" tabindex="-1"></a>  cID <span class="ot">=</span> IDs[i]</span>

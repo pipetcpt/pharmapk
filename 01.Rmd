@@ -472,31 +472,31 @@ ka와 F지만, 일단 소화관내의 약이 모두 전신순환혈로 들어온
 이였다. 그러면
 
 
-```{block2, note-text, type='rmdtip', echo=TRUE}
+```{block2, note-text1, type='rmdtip', echo=TRUE}
 1. 문: 이 청소기가 청소한 공기의 부피는 얼마인가?
 
 답: 30분에 200 ng의 먼지를 제거했으므로 2 L의 공기를 청소한 것이다.
 ```
 
-```{block2, note-text, type='rmdtip', echo=TRUE}
+```{block2, note-text2, type='rmdtip', echo=TRUE}
 2. 문: 시간당 청소한 공기의 부피는?
 
 답: 30분동안 2 L의 공기를 청소했으므로 4 L/h의 공기를 청소했다(청소기의 성능을 CL로 나타냈다.).
 ```
 
-```{block2, note-text, type='rmdtip', echo=TRUE}
+```{block2, note-text3, type='rmdtip', echo=TRUE}
 3. 문: 시간당 제거한 먼지의 양은?
 
 답: elimination rate = CL x conc = 4 L/h x 100 ng/L = 400 ng
 ```
 
-```{block2, note-text, type='rmdtip', echo=TRUE}
+```{block2, note-text4, type='rmdtip', echo=TRUE}
 4. 문: 세시간동안 청소기를 돌린다면 제거한 먼지의 양은?
 
 답: Amount eliminated = CL x conc x Δt(duration) = 4 L/h x 100 ng/L x 3 h = 1200 ng
 ```
 
-```{block2, note-text, type='rmdtip', echo=TRUE}
+```{block2, note-text5, type='rmdtip', echo=TRUE}
 5. 문: 이 청소기를 공기 중에 먼지가 50 ng/L의 농도로 존재하는 옆방에 가져가서 작동시킨다면 시간당 제거한 먼지의 양은?
 
 답: CL x conc = 4 L/h x 50 ng/L = 200 ng 청소기의 고유한 성능인 CL은
@@ -506,7 +506,7 @@ ka와 F지만, 일단 소화관내의 약이 모두 전신순환혈로 들어온
 양으로 청소기의 성능을 표현하는 것은 옳지 않고, CL로 표현해야 한다.
 ```
 
-```{block2, note-text, type='rmdtip', echo=TRUE}
+```{block2, note-text6, type='rmdtip', echo=TRUE}
 6. 문: 위의 사례에 제시된 질문 1)에서 5)를 풀 때의 가정은 방이 아주 넓어서 청소기로 먼지를 몇시간 빨아들였다고 해서 방안 공기 중의 먼지 농도는 전혀 변치 않는다는 것이었다. 그러나 실제 사람의 몸에서 간이나 콩팥이 약을 제거하면 혈장약물농도는 지속적으로 떨어지는 것을 관찰할 수 있다. 이런 상황에서 CL를 어떻게 구하겠는가?
 
 답: 아주 짧은 시간(Δt)동안에는 약물농도(시간의 함수로 C(t)로 표기)의

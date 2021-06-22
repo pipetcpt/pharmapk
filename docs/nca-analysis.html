@@ -239,7 +239,7 @@ div.csl-indent {
 <li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
 </ul></li>
 <li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()</a></li>
-<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라메터의 의미</a></li>
+<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라미터의 의미</a></li>
 <li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)</a></li>
 <li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별</a>
 <ul>
@@ -322,7 +322,7 @@ div.csl-indent {
 <p>약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(Non-compartmental analysis, NCA)이고 이는 약물의 임상 개발에 매우 중요하다.
 NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 음식 효과, 약물 상호 작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.
 약물 개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 주게 된다.
-이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라메터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다.
+이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다.
 따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. <span class="citation">(<a href="#ref-noe2020parameter" role="doc-biblioref">Noe 2020</a>)</span></p>
 <p>이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 기술적인 사항은 별도의 교재를 통해 습득해야 할 것이다.</p>
 </div>
@@ -330,7 +330,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 <h2><span class="header-section-number">3.2</span> NCA를 위한 자료의 처리</h2>
 <div id="채혈-시간" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> 채혈 시간</h3>
-<p>예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라메터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 드문 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석은 지양되어야 한다.</p>
+<p>예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라미터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 드문 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석은 지양되어야 한다.</p>
 <p>실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr <span class="citation">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, François, et al. 2021</a>)</span>, 자료의 형태를 변형하는 tidyr <span class="citation">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham 2021</a>)</span>, 시간 자료를 쉽게 처리할 수 있는 <span class="citation">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2021</a>)</span> 등이 있다.</p>
 <p>계획된 채혈 시간은 기술통계량을 구하여 표를 만들거나 농도-시간 곡선 등의 그림을 그리는데 사용될 수 있으므로 실제 채혈시간과 병기하여 하나의 최종 자료에 포함되어 있어야 한다.</p>
 </div>
@@ -338,7 +338,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 <h3><span class="header-section-number">3.2.2</span> 정량한계를 벗어나거나 누락된 자료의 처리</h3>
 <p>농도 분석 결과가 정량한계를 벗어나는 경우 실험실에서 “&lt;LLOQ” 혹은 “&gt;ULOQ”라는 보고를 하게 되며 각각 정량하한과 정량상한을 벗어나 신뢰성 있는 농도를 제공하지 못한다는 의미이다. 기본적으로 “&gt;ULOQ” 자료는 희석을 통해 재분석을 해야 하며 “&lt;LLOQ” 자료는 재분석을 통해 얻어지기 힘든 경우가 많으므로 그대로 보고하게 된다. 다만 실험실에서 농도분석을 세팅할 때 LLOQ를 과도하게 높게 설정하는 경우 과도하게 많은 “&lt;LLOQ” 값이 보고되는 상황이 발생할 수 있으므로 임상시험 혹은 비임상연구에서 예측되는 LLOQ 값을 어느정도 반영할 수 있어야 하는 것이 바람직하다. 구체적으로 약물의 최종 반감기(<span class="math inline">\(t_{1/2\beta}\)</span>)를 계산하는데 필요한 소실기의 농도 관찰값보다 LLOQ는 3배 이상 낮아야 하고, 과거에는 이러한 정밀도로 농도 측정이 불가능한 상황이 많았으나 현대 분석 기술에서는 이러한 제한이 많이 개선 되었다.</p>
 <p>정량한계 미만의 값은 문자로 보고되는 경우가 많으므로 R에서 <code>as.numeric()</code> 함수를 사용하면 숫자처럼 보이는 문자(<code>"10.1"</code>)는 숫자(<code>10.1</code>)로 변환되고, 문자(<code>"&lt;LLOQ"</code>)는 <code>NA</code>값으로 경고와 함께 변환된다. 이후 T<sub>max</sub> 값 이전의 NA값은 0으로 변환하고, 이후의 값은 dplyr의 <code>filter()</code> 함수를 사용하여 자료에서 제거(<code>filter(!is.na(DV))</code>와 같은 명령어를 사용)하는 것이 NCA용 자료를 구성하는 일반적인 방법이다.</p>
-<p>다양한 이유로 누락된 자료가 생길 수 있고, 누락된 자료는 NA로 간주하여 윗 문장과 같이 필터링 아웃 처리하여 제거되게 되나, 이러한 누락 자료가 NCA 파라메터에 어떤 영향을 미치는지 파악할 필요가 있다. 이를테면 C<sub>max</sub>(최고혈중농도)를 제공하는 채혈이 누락된 경우 AUC를 비롯한 이와 연관된 모든 파라메터에 큰 영향을 미치게 되나, 배설 단계 후반의 낮은 농도 값이 누락된 경우 미미한 영향을 미치게 된다.</p>
+<p>다양한 이유로 누락된 자료가 생길 수 있고, 누락된 자료는 NA로 간주하여 윗 문장과 같이 필터링 아웃 처리하여 제거되게 되나, 이러한 누락 자료가 NCA 파라미터에 어떤 영향을 미치는지 파악할 필요가 있다. 이를테면 C<sub>max</sub>(최고혈중농도)를 제공하는 채혈이 누락된 경우 AUC를 비롯한 이와 연관된 모든 파라미터에 큰 영향을 미치게 되나, 배설 단계 후반의 낮은 농도 값이 누락된 경우 미미한 영향을 미치게 된다.</p>
 </div>
 <div id="자료의-제외" class="section level3" number="3.2.3">
 <h3><span class="header-section-number">3.2.3</span> 자료의 제외</h3>
@@ -350,7 +350,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 <p>상용 소프트웨어 중 가장 많이 사용되는 것이 Certara 사의 Phoenix WinNonLin이다. 오랜 시간 많은 연구자들이 사용하여 익숙한 GUI 인터페이스를 제공하고 있고, 혈액, 소변 자료의 NCA 등을 제공하고 간단한 설계의 생물학적 동등성 판정 등 통계 분석도 지원하여 비교적 진입장벽이 낮은 자료 분석 도구라 할 수 있다. </p>
 <p>그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다.
 제약사와 규제기관 등에 더 높은 비용을 요구하고 있는 상황이라, NCA를 빈번하게 사용하지 않는 산업계 종사자들에게
-분석 초보자의 경우 유료 강의를 통한 학습을 필요하거나, CDISC 표준 용어로 파라메터를 제공하지 않아 그 의미를 따로 파악해야 하는 등의 제한점이 있을 수 있고, 비교적 경험이 쌓인 분석자의 경우 자료 분석 워크플로우를 자동화하는게 어려우며, 윈도우 환경에서만 실행 가능하다는 것도 제한점이 될 수 있다.</p>
+분석 초보자의 경우 유료 강의를 통한 학습을 필요하거나, CDISC 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 등의 제한점이 있을 수 있고, 비교적 경험이 쌓인 분석자의 경우 자료 분석 워크플로우를 자동화하는게 어려우며, 윈도우 환경에서만 실행 가능하다는 것도 제한점이 될 수 있다.</p>
 <p>식약처, 미국 FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA하는 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.</p>
 </div>
 <div id="nca에-활용할-수-있는-r-package-소개" class="section level2" number="3.4">
@@ -644,7 +644,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 <span id="cb6-2"><a href="nca-analysis.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">dose=</span><span class="dv">320</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
 <p>위 코드에서 dose=320으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.</p>
 <p>결과는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있다.
-본문에 결과를 싣기에 지면이 부족하여 <a href="Theoph-tblNCA.html#Theoph_tblNCA">별첨 A</a>에 수록하였고, 여기에서는 dplyr의 <code>select()</code> 함수를 사용하여 핵심적인 일부 파라메터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>, <span class="math inline">\(t_{1/2\beta}\)</span>)만 표시하였다.</p>
+본문에 결과를 싣기에 지면이 부족하여 <a href="Theoph-tblNCA.html#Theoph_tblNCA">별첨 A</a>에 수록하였고, 여기에서는 dplyr의 <code>select()</code> 함수를 사용하여 핵심적인 일부 파라미터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>, <span class="math inline">\(t_{1/2\beta}\)</span>)만 표시하였다.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="nca-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA_selected <span class="ot">&lt;-</span> Theoph_tblNCA <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="nca-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Subject, CMAX, TMAX, AUCLST, LAMZHL)</span>
 <span id="cb7-3"><a href="nca-analysis.html#cb7-3" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA_selected</span></code></pre></div>
@@ -697,7 +697,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 <span id="cb10-2"><a href="nca-analysis.html#cb10-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">colTime=</span><span class="st">&quot;time&quot;</span>, <span class="at">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="at">dose=</span><span class="dv">25</span>, </span>
 <span id="cb10-3"><a href="nca-analysis.html#cb10-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">adm=</span><span class="st">&quot;Infusion&quot;</span>, <span class="at">dur=</span><span class="fl">0.5</span>, </span>
 <span id="cb10-4"><a href="nca-analysis.html#cb10-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>, <span class="at">R2ADJ =</span> <span class="fl">0.8</span>)</span></code></pre></div>
-<p>역시 핵심적인 일부 파라메터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>, <span class="math inline">\(t_{1/2\beta}\)</span>)만 표시할 수 있다.</p>
+<p>역시 핵심적인 일부 파라미터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>, <span class="math inline">\(t_{1/2\beta}\)</span>)만 표시할 수 있다.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="nca-analysis.html#cb11-1" aria-hidden="true" tabindex="-1"></a>Indometh_tblNCA_selected <span class="ot">&lt;-</span> Indometh_tblNCA <span class="sc">%&gt;%</span> </span>
 <span id="cb11-2"><a href="nca-analysis.html#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Subject, CMAX, TMAX, AUCLST, LAMZHL) <span class="sc">%&gt;%</span> </span>
 <span id="cb11-3"><a href="nca-analysis.html#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>()</span></code></pre></div>
@@ -781,7 +781,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.3 <span class="er">(</span><span class="ex">2021-06-11</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.0 <span class="er">(</span><span class="ex">2021-05-18</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-21 10:37:26 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-22 12:38:10 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -882,32 +882,32 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <pre><code>## pdf 
 ##   2</code></pre>
 <p>조금 기다린 후 <code>Output</code> 폴더를 확인해 보면 세개의 그림 파일과 두개의 PDF 파일이 생성된 것을 볼 수 있다. (그림 <a href="nca-analysis.html#fig:pkr1">3.4</a>, <a href="nca-analysis.html#fig:pkr2">3.5</a>, <a href="nca-analysis.html#fig:pkr3">3.6</a>)
-평균 약동학 파라메터와 그룹 농도-시간 그림 및 개별 대상자의 약동학 파라메터와 개별 농도-시간 그림이 생성된다.</p>
+평균 약동학 파라미터와 그룹 농도-시간 그림 및 개별 대상자의 약동학 파라미터와 개별 농도-시간 그림이 생성된다.</p>
 <div class="figure" style="text-align: center"><span id="fig:pkr1"></span>
-<img src="Output/PK%20Profile%20Linear%20Scale%20for%20Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)" width="95%" />
+<img src="Output/PK%20Profile%20Linear%20Scale%20for%20Theoph.png" alt="평균 약동학 파라미터와 그룹 농도-시간 그림 (선형)" width="95%" />
 <p class="caption">
-그림 3.4: 평균 약동학 파라메터와 그룹 농도-시간 그림 (선형)
+그림 3.4: 평균 약동학 파라미터와 그룹 농도-시간 그림 (선형)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:pkr2"></span>
-<img src="Output/PK%20Profile%20Log%2010%20Scale%20for%20Theoph.png" alt="평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)" width="95%" />
+<img src="Output/PK%20Profile%20Log%2010%20Scale%20for%20Theoph.png" alt="평균 약동학 파라미터와 그룹 농도-시간 그림 (로그)" width="95%" />
 <p class="caption">
-그림 3.5: 평균 약동학 파라메터와 그룹 농도-시간 그림 (로그)
+그림 3.5: 평균 약동학 파라미터와 그룹 농도-시간 그림 (로그)
 </p>
 </div>
 <div class="figure" style="text-align: center"><span id="fig:pkr3"></span>
-<img src="Output/PK%20Profile%20with%20CI%20for%20Theoph.png" alt="평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)" width="95%" />
+<img src="Output/PK%20Profile%20with%20CI%20for%20Theoph.png" alt="평균 약동학 파라미터와 그룹 평균 농도-시간 그림 (로그)" width="95%" />
 <p class="caption">
-그림 3.6: 평균 약동학 파라메터와 그룹 평균 농도-시간 그림 (로그)
+그림 3.6: 평균 약동학 파라미터와 그룹 평균 농도-시간 그림 (로그)
 </p>
 </div>
 </div>
 <div id="parameters" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> 파라메터의 의미</h2>
-<p>NCA 시 여러 파라메터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.</p>
+<h2><span class="header-section-number">3.10</span> 파라미터의 의미</h2>
+<p>NCA 시 여러 파라미터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="nca-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?ncar<span class="sc">::</span><span class="fu">txtNCA</span>()</span>
 <span id="cb23-2"><a href="nca-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span>RptCfg</span></code></pre></div>
-<p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라메터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라메터 이름이다.</p>
+<p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라미터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라미터 이름이다.</p>
 <table>
 <caption>
 <span id="tab:rptcfg">표 3.2: </span>Description of NonCompart parameters
@@ -1309,7 +1309,7 @@ Vol Dist Steady State Pred (Vss_pred)
 </tr>
 </tbody>
 </table>
-<p>각 파라메터의 의미를 아래에 국문으로 풀이하였다.</p>
+<p>각 파라미터의 의미를 아래에 국문으로 풀이하였다.</p>
 <p><strong>Cmax (CMAX)</strong></p>
 <p>최대 농도. Cmax는 피크 (최대) 농도이다. 이 농도에서 시간은 T~max라고 지칭한다. 채혈 일정(샘플링 시간 간격)에 따라 실제 체내에서의 최대 농도와 차이가 클수도 크지 않을 수 있으며, 가급적 차이를 줄일 수 있도록 C<sub>max</sub> 부근에서의 채혈은 촘촘히 이뤄져야 한다.</p>
 <p><strong>Cmax_D (CMAXD)</strong></p>
@@ -1342,7 +1342,7 @@ Vol Dist Steady State Pred (Vss_pred)
 <p><strong>HL_Lambda_z (LAMZHL)</strong></p>
 <p>최종 반감기. Lambda Z (LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 ln (2) / LAMZ로 계산된다.</p>
 <p><strong>Clast_pred (CLSTP)</strong></p>
-<p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라메터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
+<p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
 <p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{last}) \]</span></p>
 <p><strong>C0 (C0)</strong></p>
 <p>초기 농도. 시간 0에서의 농도, 초기 농도. 처음 두 농도가 양수이고 첫 번째 농도가 두 번째 농도보다 크면 다음과 같이 C0를 계산할 수 있다. 그렇지 않으면 C0는 첫 번째 양수 농도가 된다.</p>
@@ -1675,9 +1675,9 @@ LAMZHL
 <div id="이론" class="section level3" number="3.12.1">
 <h3><span class="header-section-number">3.12.1</span> 이론</h3>
 <p>생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다.
-기존 오리지날 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 혈중 농도로부터 구한 약동학적 파라메터(pharmacokinetic parameter) 를 비교하여 평가하게 된다.</p>
+기존 오리지날 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 혈중 농도로부터 구한 약동학적 파라미터(pharmacokinetic parameter) 를 비교하여 평가하게 된다.</p>
 <p>2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 피험자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 피험자별로 투약 전후 정해진 시간마다 채혈하고 농도 측정한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과 (보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 혈액 채취 및 혈중농도 측정하게 된다.</p>
-<p>시나리오로 시뮬레이션을 통해 얻어진 약동학 파라메터를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(<code>key=c('SUBJ', 'GRP', 'PRD', 'TRT')</code>) 유사한 형태로 자료를 만들어야 한다.</p>
+<p>시나리오로 시뮬레이션을 통해 얻어진 약동학 파라미터를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(<code>key=c('SUBJ', 'GRP', 'PRD', 'TRT')</code>) 유사한 형태로 자료를 만들어야 한다.</p>
 <table>
 <thead>
 <tr class="header">
@@ -1846,7 +1846,7 @@ LAMZHL
 </tr>
 </tbody>
 </table>
-<p>비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUCt, Cmax, 반복투약 시 AUCτ, Css,max를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다. 약동학 파라메터는 로그정규분포(log-normal distribution)을 따르고, 대조약과 시험약의 산출된 곡선하 면적(AUC)과 최대 농도 Cmax의 geometric mean ratio가 0.8 ~ 1.25 이내일 때, 약동학적으로 동등하다고 평가하게 된다.
+<p>비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUCt, Cmax, 반복투약 시 AUCτ, Css,max를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다. 약동학 파라미터는 로그정규분포(log-normal distribution)을 따르고, 대조약과 시험약의 산출된 곡선하 면적(AUC)과 최대 농도 Cmax의 geometric mean ratio가 0.8 ~ 1.25 이내일 때, 약동학적으로 동등하다고 평가하게 된다.
 생물학적 동등성을 위한 수학 식은 다음과 같다. <a href="nca-analysis.html#eq:bioequiv">(3.1)</a></p>
 <p><span class="math display" id="eq:bioequiv">\[\begin{equation}
 \begin{split}
@@ -1886,7 +1886,7 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 그림 3.7: 전형적인 2x2 설계
 </p>
 </div>
-<p>BE 패키지에 내장되어 있는 자료인 <code>NCAResult4BE</code>를 사용하여 예제를 구성하였다. (표 <a href="nca-analysis.html#tab:beconcdata">3.5</a>) 33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라메터 AUC<sub>last</sub>, C<sub>max</sub>, T<sub>max</sub> 자료가 정리되어 있다. 33명의 대상자의 개인별 농도-시간 그래프는 그림 <a href="nca-analysis.html#fig:conc-time-curve">3.8</a>에 나타내었다.</p>
+<p>BE 패키지에 내장되어 있는 자료인 <code>NCAResult4BE</code>를 사용하여 예제를 구성하였다. (표 <a href="nca-analysis.html#tab:beconcdata">3.5</a>) 33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라미터 AUC<sub>last</sub>, C<sub>max</sub>, T<sub>max</sub> 자료가 정리되어 있다. 33명의 대상자의 개인별 농도-시간 그래프는 그림 <a href="nca-analysis.html#fig:conc-time-curve">3.8</a>에 나타내었다.</p>
 <table>
 <caption>
 <span id="tab:beconcdata">표 3.5: </span>A example dataset for the bioequivalence test.
@@ -2063,7 +2063,7 @@ R
 그림 3.8: Concentration-time curves of raw data (N=33)
 </p>
 </div>
-<p>약동학 파라메터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (Figure 2) 본 자료로 계산한 AUClast는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.</p>
+<p>약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (Figure 2) 본 자료로 계산한 AUClast는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.</p>
 <div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="nca-analysis.html#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">be2x2</span>(NCAResult4BE, <span class="fu">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:output-format"></span>
 <img src="assets-paper/figure-2.png" alt="BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과." width="100%" />
