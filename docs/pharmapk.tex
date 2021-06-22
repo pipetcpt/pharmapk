@@ -8,7 +8,7 @@
   krantz2, a4paper, twoside]{krantz}
 \title{신약개발을 위한 실전 약동학}
 \author{가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)}
-\date{Ver. 20210618}
+\date{Ver. 20210622}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -1604,12 +1604,17 @@ moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하
 위는 인접한 채혈 시각 간의 AUMC를 구하는 방법이며, AUMC\textsubscript{last}, AUMC\textsubscript{inf}는 대응하는 AUC의 기간과 같은 의미이다.
 각 농도가 평균적으로 유지된 시간이라는 개념을 평균잔류시간(Mean residence time, MRT)이라 하는데, 조금 더 생각해 보면 적분 개념에서 각각의 농도는 약물 분자 하나하나의 합으로 이루어질 것이며, 그것이 평균적으로 유지된 시간이라는 것은 개별 분자 하나하나가 체내에 머무른 시간과 같다는 것을 알 수 있다.
 따라서, 이 둘은 같은 의미로 사용된다.
-다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입 또는 경구투여 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을
-주는 것이 제거만이 아니기 때문임).
+다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입(식 \eqref{eq:mrt1}) 또는 경구투여(식 \eqref{eq:mrt2}) 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을 주는 것이 제거만이 아니기 때문임).
 
-\includegraphics{media-02/image14.png}
+\begin{equation}
+MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{T_{inf}}{2}
+\label{eq:mrt1}
+\end{equation}
 
-\includegraphics{media-02/image15.png}
+\begin{equation}
+MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{K_a}
+\label{eq:mrt2}
+\end{equation}
 
 MRT를 구했다면, 이를 이용하여 V\textsubscript{ss}를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 \eqref{eq:mrtvss}의 유도 과정을 거친다.
 \index{항정상태}
@@ -2121,7 +2126,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.3 }\ErrorTok{(}\ExtensionTok{2021{-}06{-}11}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}18 08:54:48 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}22 10:02:24 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2390,7 +2395,7 @@ Rsq는 NCA에 사용 된 선형 회귀에서 상관 계수 (r)의 제곱이다. 
 
 최적 모델을 검색하는 동안 데이터 포인트가 추가되면 적합도를 개선하지 않고 Rsq가 증가 할 수 있다. 조정 R-제곱은 예측 변수의 수(여기서는 데이터 포인트)에 대해 변형된 R- 제곱으로 모집단 R-제곱의 편향되지 않은 추정치로 사용할 수 있다. 일반적으로 Rsq 보다 작다. 가장 적은 수의 데이터 포인트로 조정 R-제곱을 최대화하는 기울기 및 절편이 탐색되고, 가장 적합한 모델로 선택된다. 공식은 아래와 같다.
 
-\[R_{\text{adj}}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}\]
+\[R_{adj}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}\]
 
 \textbf{Corr\_XY (CORRXY)}
 
@@ -2424,7 +2429,7 @@ Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기�
 
 선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라메터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.
 
-\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{\text{last}}) \]
+\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{last}) \]
 
 \textbf{C0 (C0)}
 
@@ -2436,7 +2441,7 @@ Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기�
 
 투약 후 마지막 양수의 농도까지의 시간-농도 곡선 아래 영역을 의미한다. NCA에서 가장 널리 사용되는 계산 방법은 선형 사다리꼴 규칙 ( `linear-up, linear-down') 또는 로그 선형 사다리꼴 규칙(`linear-up, log-down'). 선형 사다리꼴 방법의 경우 아래의 공식을 사용한다.
 
-\[\text{AU}C_{\text{last}} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1})}{2}\]
+\[AUC_{last} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1})}{2}\]
 
 간헐적으로 나오는 0 농도는 AUCLST 및 AUCALL 모두에 포함되지만 AUCLST에서는 후행하는 0 값이 제거되는 반면, AUCALL에서는 제거되지 않는다는 큰 차이가 있다.
 
@@ -2448,24 +2453,24 @@ Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기�
 
 마지막으로 관찰 된 농도를 기준으로 투여 시간으로부터 무한대로 외삽된 곡선 아래 관찰된 면적(AUC)이며 공식은 아래와 같다.
 
-\[\text{AU}C_{inf,obs} = AUC_{\text{last}} + \frac{C_{\text{last}}}{\lambda_{z}}\]
+\[AUC_{inf,obs} = AUC_{last} + \frac{C_{last}}{\lambda_{z}}\]
 
 \textbf{AUC\_\%Extrap\_obs (AUCPEO)}
 
 Tlast에서 무한대까지 관찰 된 무한대로 외삽된 곡선 아래 영역 (AUC)의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.
 
-\[\text{AU}C_{\% Extrap,obs} = (1 - \frac{\text{AU}C_{\text{last}}}{\text{AU}C_{inf,obs}}) \times 100\]
+\[AUC_{\% Extrap,obs} = (1 - \frac{AUC_{last}}{AUC_{inf,obs}}) \times 100\]
 
 \textbf{AUCinf\_D\_obs (AUCIFOD)}
 
 무한대로 외삽된 관찰 된 곡선하 면적 (AUC)을 투여 용량으로 나눈 값이다.
 
-\[\text{AU}C_{dose,inf,obs} = fracAUC_{inf,obs}\text{Dose}\]
+\[AUC_{dose,inf,obs} = \frac{AUC_{inf,obs}}{Dose}\]
 
 \textbf{AUCinf\_pred (AUCIFP)}
 
 예측 된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 곡선하 면적 (AUC).
-\[\text{AU}C_{inf,pred} = AUC_{\text{last}} + \frac{C_{last,pred}}{\lambda_{z}}\]
+\[AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}\]
 
 \hypertarget{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}{%
 \section{기술통계 (Descriptive statistics)}\label{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}}
@@ -2525,8 +2530,8 @@ LAMZHL & 6 & 2.439 & 1.0406 & 2.127 & 1.615 & 4.378\\
 \end{tabular}
 \end{table}
 
-\hypertarget{nca-uxd6c4-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxbcc4-bioequivalence}{%
-\section{\texorpdfstring{NCA 후 생물학적 동등성 판별 \{\#bioequivalence\}\index{생물학적 동등성}}{NCA 후 생물학적 동등성 판별 \{\#bioequivalence\}}}\label{nca-uxd6c4-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxbcc4-bioequivalence}}
+\hypertarget{bioequivalence}{%
+\section{NCA 후 생물학적 동등성 판별}\label{bioequivalence}}
 
 \hypertarget{uxc774uxb860}{%
 \subsection{이론}\label{uxc774uxb860}}
