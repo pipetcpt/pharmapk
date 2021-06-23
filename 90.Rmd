@@ -4,12 +4,51 @@
 
 # Theoph의 tblNCA의 전체 실행 결과 {#Theoph_tblNCA} 
 
-[3장 비구획분석의 자료해석](#nca-analysis)의 \@ref(tblNCA)절에서 언급된 `tblNCA()` 실행결과를 별첨으로 수록하였다. 
+[3장 비구획분석의 자료해석](#nca-analysis)의 \@ref(tblNCA)절에서 언급된 `NonCompart::tblNCA()` 실행결과를 별첨으로 수록하였다. 
 
 \tiny
 
 ```{r}
 Theoph_tblNCA
+```
+
+\normalsize
+
+# Theoph의 nlr의 전체 실행 결과 {#Theoph_nlr} 
+
+[5장 구획분석의 자료해석](#ca-analysis)의 \@ref(theoph-wnl)절에서 언급된 `wnl::nlr()` 실행결과를 별첨으로 수록하였다. 
+
+\tiny
+
+```{r}
+library(wnl)
+tData = Theoph
+colnames(tData) = c("ID", "BWT", "DOSE", "TIME", "DV")
+
+fPK = function(THETA)     # Prediction function
+{
+  DOSE = 320000           # in microgram
+  TIME = e$DATA[,"TIME"]  # use data in e$DATA
+
+  K    = THETA[1]
+  Ka   = THETA[2]
+  V    = THETA[3]
+
+  Cp   = DOSE/V*Ka/(Ka - K)*(exp(-K*TIME) - exp(-Ka*TIME))
+  return(Cp)
+}
+
+IDs = unique(tData[,"ID"])
+nID = length(IDs)
+for (i in 1:nID) {
+  Data = tData[tData$ID == IDs[i],]
+  Theoph_nlr = nlr(fPK, Data, 
+                   pNames=c("k", "ka", "V"), IE=c(0.1, 3, 500), 
+                   SecNames=c("CL", "Thalf", "MRT"), 
+                   SecForms=c(~V*k, ~log(2)/k, ~1/k))
+  print(paste("## ID =", i, "##"))
+  print(Theoph_nlr)
+}
 ```
 
 \normalsize

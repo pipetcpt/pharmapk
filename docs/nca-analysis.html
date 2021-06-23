@@ -156,7 +156,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">신약개발을 위한 실전 약동학</a></li>
-<li><a href="#" target="_blank">도서 구입</a></li>
+<li><a href="https://www.bookk.co.kr/shanmdphd" target="_blank">도서 구입</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
@@ -287,11 +287,12 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with Tlag</a></li>
 <li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#modeling-result-2"><i class="fa fa-check"></i><b>5.6.3</b> Modeling Result</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-약동학-자료의-구획분석"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
+<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
 <li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
 <li class="chapter" data-level="A" data-path="Theoph-tblNCA.html"><a href="Theoph-tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
+<li class="chapter" data-level="B" data-path="Theoph-nlr.html"><a href="Theoph-nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -630,9 +631,9 @@ conc
 <div id="loading" class="section level2" number="3.6">
 <h2><span class="header-section-number">3.6</span> 자료 불러오기</h2>
 <p>가장 단순한 형태의 자료는 CSV파일로 쉼표로 구분된 문서로 메모장 등 텍스트 편집기로 파일을 열었을 때에도 자료를 확인 가능한 형태이다.
-이러한 파일은 <code>read.csv()</code> 혹은 <code>readr</code>패키지의 <code>read_csv()</code> 함수를 사용해서 자료를 불러 온다.
-엑셀 파일을 사용하는 경우 <code>readxl</code> 패키지를 설치한 후에 <code>read_excel()</code> 함수를 사용해서 불러올 수 있다.</p>
-<p>다만 <code>read_csv(), read_excel()</code>을 사용하는 경우 <code>tibble</code> 형태로 자료가 변형되고 이러한 형태의 자료는 <code>tblNCA()</code> 사용시 오류를 일으키기 때문에 사전에 <code>as.data.frame()</code>을 사용해서 데이타프레임으로 변형해주어야 한다.</p>
+이러한 파일은 <code>read.csv()</code> 혹은 <code>readr</code>패키지<span class="citation">(<a href="#ref-R-readr" role="doc-biblioref">Wickham and Hester 2020</a>)</span>의 <code>read_csv()</code> 함수를 사용해서 자료를 불러 온다.
+엑셀 파일을 사용하는 경우 <code>readxl</code> 패키지<span class="citation">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2019</a>)</span>를 설치한 후에 <code>read_excel()</code> 함수를 사용해서 불러올 수 있다.</p>
+<p>다만 <code>read_csv(), read_excel()</code>을 사용하는 경우 <code>tibble</code> 형태로 자료가 변형되고 이러한 형태의 자료는 <code>tblNCA()</code> 사용시 오류를 일으키기 때문에 사전에 <code>as.data.frame()</code>을 사용해서 데이타프레임으로 변형해주어야 한다.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a></p>
 </div>
 <div id="noncompart-r-패키지를-이용한-nca" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> NonCompart R 패키지를 이용한 NCA</h2>
@@ -645,6 +646,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 <div class="example">
 <span id="exm:tblnca-code" class="example"><strong>코드 3.1  </strong></span>NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
 </div>
+<!--\vspace{-5ex} -->
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="nca-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA <span class="ot">&lt;-</span> <span class="fu">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb6-2"><a href="nca-analysis.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">dose=</span><span class="dv">320</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
 <p>코드 <a href="nca-analysis.html#exm:tblnca-code">3.1</a>에서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.</p>
@@ -787,7 +789,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.3 <span class="er">(</span><span class="ex">2021-06-11</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.0 <span class="er">(</span><span class="ex">2021-05-18</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-23 14:42:28 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-06-23 17:50:56 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -913,7 +915,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <p>NCA 시 여러 파라미터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="nca-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?ncar<span class="sc">::</span><span class="fu">txtNCA</span>()</span>
 <span id="cb23-2"><a href="nca-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span>RptCfg</span></code></pre></div>
-<p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라미터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라미터 이름이다.</p>
+<p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라미터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라미터 이름이다.</p>
 <table>
 <caption>
 <span id="tab:rptcfg">표 3.2: </span>Description of NonCompart parameters
@@ -1382,6 +1384,7 @@ psych 패키지의 <code>describe()</code> 함수를 사용하였으므로 이�
 <div class="example">
 <span id="exm:desctblnca" class="example"><strong>코드 3.2  </strong></span>핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
 </div>
+<!--\vspace{-5ex} -->
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="nca-analysis.html#cb24-1" aria-hidden="true" tabindex="-1"></a>desc_tblNCA <span class="ot">&lt;-</span> <span class="cf">function</span>(tblNCA){</span>
 <span id="cb24-2"><a href="nca-analysis.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">describe</span>(tblNCA) <span class="sc">%&gt;%</span></span>
 <span id="cb24-3"><a href="nca-analysis.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(n, mean, sd, median, min, max)</span>
@@ -2204,18 +2207,25 @@ Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Spr
 <div id="ref-R-tidyr" class="csl-entry">
 ———. 2021. <em>Tidyr: Tidy Messy Data</em>. <a href="https://CRAN.R-project.org/package=tidyr">https://CRAN.R-project.org/package=tidyr</a>.
 </div>
+<div id="ref-R-readxl" class="csl-entry">
+Wickham, Hadley, and Jennifer Bryan. 2019. <em>Readxl: Read Excel Files</em>. <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.
+</div>
 <div id="ref-R-ggplot2" class="csl-entry">
 Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2021. <em>Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
 </div>
 <div id="ref-R-dplyr" class="csl-entry">
 Wickham, Hadley, Romain François, Lionel Henry, and Kirill Müller. 2021. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
 </div>
+<div id="ref-R-readr" class="csl-entry">
+Wickham, Hadley, and Jim Hester. 2020. <em>Readr: Read Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
+</div>
 </div>
 <div class="footnotes">
 <hr />
 <ol start="1">
 <li id="fn1"><p>윈도의 외의 환경에 대한 것은 별도의 공간 <a href="https://github.com/pipetcpt/pharmapk/discussions" class="uri">https://github.com/pipetcpt/pharmapk/discussions</a> 에 정리되어 있다.<a href="nca-analysis.html#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>다음과 같이 CDISC note에 표시되어 있다. ‘Short name of the pharmacokinetic parameter. PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: “AUCALL,” “TMAX,” “CMAX.”’<a href="nca-analysis.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p><a href="https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o" class="uri">https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o</a><a href="nca-analysis.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>다음과 같이 CDISC note에 표시되어 있다. ‘Short name of the pharmacokinetic parameter. PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: “AUCALL,” “TMAX,” “CMAX.”’<a href="nca-analysis.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

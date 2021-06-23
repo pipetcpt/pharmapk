@@ -148,10 +148,10 @@ ggplot(Theoph, aes(Time, conc, color = Subject)) +
 ## 자료 불러오기 {#loading}
 
 가장 단순한 형태의 자료는 CSV파일로 쉼표로 구분된 문서로 메모장 등 텍스트 편집기로 파일을 열었을 때에도 자료를 확인 가능한 형태이다. 
-이러한 파일은 `read.csv()` 혹은 `readr`패키지의 `read_csv()` 함수를 사용해서 자료를 불러 온다.
-엑셀 파일을 사용하는 경우 `readxl` 패키지를 설치한 후에 `read_excel()` 함수를 사용해서 불러올 수 있다. 
+이러한 파일은 `read.csv()` 혹은 `readr`패키지[@R-readr]의 `read_csv()` 함수를 사용해서 자료를 불러 온다.
+엑셀 파일을 사용하는 경우 `readxl` 패키지[@R-readxl]를 설치한 후에 `read_excel()` 함수를 사용해서 불러올 수 있다. 
 
-다만 `read_csv(), read_excel()`을 사용하는 경우 `tibble` 형태로 자료가 변형되고 이러한 형태의 자료는 `tblNCA()` 사용시 오류를 일으키기 때문에 사전에 `as.data.frame()`을 사용해서 데이타프레임으로 변형해주어야 한다.
+다만 `read_csv(), read_excel()`을 사용하는 경우 `tibble` 형태로 자료가 변형되고 이러한 형태의 자료는 `tblNCA()` 사용시 오류를 일으키기 때문에 사전에 `as.data.frame()`을 사용해서 데이타프레임으로 변형해주어야 한다. ^[https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o]
 
 ## NonCompart R 패키지를 이용한 NCA 
 
@@ -168,7 +168,8 @@ NonCompart 패키지의 핵심적인 기능이다.
 ```{example, tblnca-code, echo=TRUE}
 NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
 ```
-\vspace{-5ex} 
+<!--\vspace{-5ex} -->
+\vspace{-2ex}
 ```{r}
 Theoph_tblNCA <- tblNCA(Theoph, "Subject", "Time", "conc", 
                         dose=320, concUnit="mg/L")
@@ -281,8 +282,10 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
            'Output-ncar/txtNCA-Theoph.txt')
 ```
 
+\small
 ```{bash, code = readLines('Output-ncar/txtNCA-Theoph.txt'), eval = FALSE}
 ```
+\normalsize
 
 ### pdfNCA()
 
@@ -484,7 +487,8 @@ psych 패키지의 `describe()` 함수를 사용하였으므로 이에 대한 �
 ```{example, desctblnca, echo=TRUE}
 핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
 ```
-\vspace{-5ex} 
+<!--\vspace{-5ex} -->
+\vspace{-2ex}
 ```{r}
 desc_tblNCA <- function(tblNCA){
   psych::describe(tblNCA) %>%

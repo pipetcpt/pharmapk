@@ -49,7 +49,7 @@ knitr::include_graphics('media-05/fig5-2.png')
 
 약동학 자료의 분석은 복잡하고 시간이 많이 걸리는 일이다. 모든 생물학 자료가 그러하듯 높은 변동성과 많은 노이즈가 PK 자료에 포함되어 있다. [@gabrielsson]
 따라서 비선형 회귀분석(Nonlinear regression analysis)이 필요한 구획분석을 위해서는 컴퓨터 소프트웨어의 사용이 필수적이다. 
-이 때 Certara Phoenix NLME, Monolix와 같은 여러가지 소프트웨어들이 사용되고 있지만, 가장 널리쓰이는 도구는 ICON사의 NONMEM이라고 하는 소프트웨어이다. (그림 \@ref(fig:fig5-2))
+이 때 Certara Phoenix NLME^[https://www.certara.com/software/phoenix-nlme/], Monolix^[https://lixoft.com/products/monolix/]와 같은 여러가지 소프트웨어들이 사용되고 있지만, 가장 널리쓰이는 도구는 ICON사의 NONMEM^[https://www.iconplc.com/innovation/nonmem/]이라고 하는 소프트웨어이다. (그림 \@ref(fig:fig5-2))
 이것은 FORTRAN 코드로 프로그램 되었으며 현재 버전 7.5.0까지 지속적으로 업데이트 되고 있는 소프트웨어로, 현재 구획분석 및 계량약리학 분야에서 가장 표준적인 도구로 생각되고 있다. 
 이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다. [@nonmem;@gabrielsson;@basic]
 
@@ -364,9 +364,11 @@ lines(TIME, fPK14a(r1$Est["PE", 1:5]), lty=2)
 lines(TIME, fPK14b(r2$Est["PE", 1:6]))
 ```
 
-## Theoph 약동학 자료의 구획분석
+## Theoph 약동학 자료의 구획분석 {#theoph-wnl}
 
 R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 사용하여 수행한다. Minimization이 된 후 1구획 약동학 모형에서 언급된 파라미터 이외에 다른 파라미터에 대해서도 값을 구하기 위해서 다음과 같이 (CL(제거 속도), T~half~(반감기), MRT(평균 체류 시간)) 추가적으로 넣어준 후, 입력한 파라미터값들을 구하기 위한 수식을 뒤쪽 부분'SecForms' 인자에 입력하게 된다. 이런 방법을 통하여 우리가 원하는 파라미터들의 점추정치와(point estimate), 그리고 표준 오차(standard error of estimates)를 모두 구할 수 있다.
+
+본문에 결과를 싣기에 지면이 부족하여 [별첨 B](#Theoph_nlr)에 수록하였다.
 
 ```{r eval=FALSE}
 library(wnl)
@@ -390,11 +392,12 @@ IDs = unique(tData[,"ID"])
 nID = length(IDs)
 for (i in 1:nID) {
   Data = tData[tData$ID == IDs[i],]
-  Res = nlr(fPK, Data, pNames=c("k", "ka", "V"), IE=c(0.1, 3, 500), 
-            SecNames=c("CL", "Thalf", "MRT"), 
-            SecForms=c(~V*k, ~log(2)/k, ~1/k))
+  Theoph_nlr = nlr(fPK, Data, 
+                   pNames=c("k", "ka", "V"), IE=c(0.1, 3, 500), 
+                   SecNames=c("CL", "Thalf", "MRT"), 
+                   SecForms=c(~V*k, ~log(2)/k, ~1/k))
   print(paste("## ID =", i, "##"))
-  print(Res)
+  print(Theoph_nlr)
 }
 ```
 

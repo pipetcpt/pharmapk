@@ -156,7 +156,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">신약개발을 위한 실전 약동학</a></li>
-<li><a href="#" target="_blank">도서 구입</a></li>
+<li><a href="https://www.bookk.co.kr/shanmdphd" target="_blank">도서 구입</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
@@ -287,11 +287,12 @@ div.csl-indent {
 <li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with Tlag</a></li>
 <li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#modeling-result-2"><i class="fa fa-check"></i><b>5.6.3</b> Modeling Result</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-약동학-자료의-구획분석"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
+<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
 <li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
 <li class="chapter" data-level="A" data-path="Theoph-tblNCA.html"><a href="Theoph-tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
+<li class="chapter" data-level="B" data-path="Theoph-nlr.html"><a href="Theoph-nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -375,9 +376,9 @@ div.csl-indent {
 그리고 의도한 것이듯 의도하지 않은 것이든 이러한 인체 반응의 정도는 각 개인 내에서 생성된 약물의 노출 정도와 일정한 상관성을 가지리라는 것은 누구나 쉽게 생각해 볼 수 있다.</p>
 
 <div class="figure" style="text-align: center"><span id="fig:fig2-3"></span>
-<img src="media-02/image3.png" alt="약물에 대한 노출과 인체 반응의 상관성 (확인 필요)" width="100%" />
+<img src="media-02/image3.png" alt="약물에 대한 노출과 인체 반응의 상관성" width="100%" />
 <p class="caption">
-그림 2.3: 약물에 대한 노출과 인체 반응의 상관성 (확인 필요)
+그림 2.3: 약물에 대한 노출과 인체 반응의 상관성
 </p>
 </div>
 <p>지금처럼 각 사람에서의 약물농도에 관한 연구방법론이 일반화되지 않았던 과거에는 이러한 인체 반응을 투여된 용량과의 관계로 해석할 수밖에 없었지만, 이제는 같은 용량을 투여하였을 때에도 사람에 따라 다르게 형성되는 약물에 대한 노출의 크기와 관련 짓는 것이 더욱 과학적이다. 그리고 ’약물에 대한 노출’에 대한 지표가 바로 약물 농도이다. 약물 농도는 시간에 따라 변하는 값으로 모든 값들을 일일이 사용하자면 이를 인체 반응의 정도와 연결시키기가 어렵다. 따라서, 비구획분석은 인체 반응의 크기와 관련 지을 수 있는, 반응의 원인으로써 약물 노출에 대한 지표값을 구하고자 하는 것이 1차적인 관심사가 된다.</p>
@@ -481,7 +482,10 @@ div.csl-indent {
 <p>마지막으로 언급할 것은 반감기(half-life)이다. 특정 약물이 선형약동학 특성을 보일 때, 의약품의 혈장농도가 어느 기준 시점의 값으로부터 반이 되는데 걸리는 시간을 의미한다. 체내 제거에 필요한 시간이나 항정상태 도달 시간 등을 결정하는 요인으로써, 약동학 전문가뿐만 아니라 대부분의 전임상/임상 전문가들이 그 의미에 대해 이해하고 있는 파라미터이다. 따라서, 관련된 의사 소통에 매우 자주 사용하며 상호 간의 이해의 수준이 높다. 그리고 반감기와 관련된 사항을 수학적으로 나타내면 다음과 같다.</p>
 <p><img src="media-02/image10.png" style="width:5.7in;height:2.73885in" /></p>
 <p>반복하지만, 비구획분석에서 <em>k</em>에 가장 가까운 지표는 λ<sub>z</sub>이다. 따라서, 비구획분석에서는 다음의 식을 통해 반감기 값을 제시한다.</p>
-<p><span class="math display">\[t_{1/2} = \ln 2/\lambda_{z}\]</span></p>
+<p><span class="math display" id="eq:halflife">\[\begin{equation}
+t_{1/2} = \frac{ln 2}{\lambda_{z}}
+\tag{2.2}
+\end{equation}\]</span></p>
 <p>이상은 비구획분석에서 산출한 파라미터를 통해 추가적인 의미를 찾고자 하는
 시도에 대한 설명이었으며, 이를 보다 분명히 하고자 산출이라는 용어보다는
 미지의 값에 대한 ’추정’이라는 용어를 사용하였다(통계학적인 추정과는 다른
@@ -543,30 +547,30 @@ B보다 그 값이 크고, 시간이 지남에 따라 B보다 A가 그 값이 �
 이론적으로 모멘트 값을 투여 시각으로부터 무한대까지 적분(area under the
 moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하는
 값이 하나 남게 되는데, 이는 각 농도가 평균적으로 유지된 시간이라는
-개념이 된다. 실제 비구획분석에서는 이를 다음의 식 <a href="비구획분석의-이론.html#eq:mrteq">(2.2)</a>으로 구한다.</p>
+개념이 된다. 실제 비구획분석에서는 이를 다음의 식 <a href="비구획분석의-이론.html#eq:mrteq">(2.3)</a>으로 구한다.</p>
 <p><img src="media-02/image12.png" style="width:4.24615in;height:0.49208in" /></p>
 <p><img src="media-02/image13.png" style="width:3.7in;height:0.55709in" /></p>
 <p><span class="math display" id="eq:mrteq">\[\begin{equation}
   MRT = \frac{AUMC_{\inf}}{AUC_{\inf}}
-\tag{2.2}
+\tag{2.3}
 \end{equation}\]</span></p>
 <p>위는 인접한 채혈 시각 간의 AUMC를 구하는 방법이며, AUMC<sub>last</sub>, AUMC<sub>inf</sub>는 대응하는 AUC의 기간과 같은 의미이다.
 각 농도가 평균적으로 유지된 시간이라는 개념을 평균잔류시간(Mean residence time, MRT)이라 하는데, 조금 더 생각해 보면 적분 개념에서 각각의 농도는 약물 분자 하나하나의 합으로 이루어질 것이며, 그것이 평균적으로 유지된 시간이라는 것은 개별 분자 하나하나가 체내에 머무른 시간과 같다는 것을 알 수 있다.
 따라서, 이 둘은 같은 의미로 사용된다.
-다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입(식 <a href="비구획분석의-이론.html#eq:mrt1">(2.3)</a>) 또는 경구투여(식 <a href="비구획분석의-이론.html#eq:mrt2">(2.4)</a>) 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을 주는 것이 제거만이 아니기 때문임).</p>
+다만, 위는 정맥주사 이후 제거만이 존재할 때의 MRT를 산출하는 방법이며, 정맥내주입(식 <a href="비구획분석의-이론.html#eq:mrt1">(2.4)</a>) 또는 경구투여(식 <a href="비구획분석의-이론.html#eq:mrt2">(2.5)</a>) 등 다른 투여 방법을 이용할 때에는 다소 변형이 필요하다(약물농도의 변화에 영향을 주는 것이 제거만이 아니기 때문임).</p>
 <p><span class="math display" id="eq:mrt1">\[\begin{equation}
 MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{T_{inf}}{2}
-\tag{2.3}
+\tag{2.4}
 \end{equation}\]</span></p>
 <p><span class="math display" id="eq:mrt2">\[\begin{equation}
 MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{K_a}
-\tag{2.4}
+\tag{2.5}
 \end{equation}\]</span></p>
 <!--
 ![](media-02/image14.png)
 ![](media-02/image15.png)
 -->
-<p>MRT를 구했다면, 이를 이용하여 V<sub>ss</sub>를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.5)</a>의 유도 과정을 거친다.
+<p>MRT를 구했다면, 이를 이용하여 V<sub>ss</sub>를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.6)</a>의 유도 과정을 거친다.
 </p>
 <p><span class="math display" id="eq:mrtvss">\[\begin{equation}
 \begin{split}
@@ -576,15 +580,15 @@ MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{K_a}
   C_{ss,avg} \cdot V_{\text{ss}} &amp;= CL \cdot AUC_{\tau} \\
   V_{\text{ss}} &amp;= CL \cdot MRT
 \end{split}
-\tag{2.5}
+\tag{2.6}
 \end{equation}\]</span></p>
 <p>AUC<sub>τ</sub>는 1회의 투여 간격 동안의 시간-농도곡선하면적을 의미하는데, 이 시기의 평균 농도는 C<sub>ss,avg</sub>이므로 AUC<sub>τ</sub>를 C<sub>ss,avg</sub>로 나눠주면 AUC와 AUMC와의 관계와 마찬가지로 MRT가 되기 때문이다.
-위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.5)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.6)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
+위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.6)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.7)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
 <p><span class="math display" id="eq:vss">\[\begin{equation}
 \begin{split}
   V_{ss} = \frac{Dose \cdot AUMC_{inf}}{{{(AUC}_{inf})}^2}
 \end{split}
-\tag{2.6}
+\tag{2.7}
 \end{equation}\]</span></p>
 <p>따라서, 이 역시 산출된 파라미터의 정확성에 좌우된다는 한계를 가진다.</p>
 </div>
