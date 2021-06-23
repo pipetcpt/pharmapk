@@ -163,14 +163,18 @@ library(NonCompart)
 
 가장 많이 쓰는 함수이다.
 NonCompart 패키지의 핵심적인 기능이다.
-아래의 코드를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다. 
+코드 \@ref(exm:tblnca-code)를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다. 
 
+```{example, tblnca-code, echo=TRUE}
+NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
+```
+\vspace{-5ex} 
 ```{r}
 Theoph_tblNCA <- tblNCA(Theoph, "Subject", "Time", "conc", 
                         dose=320, concUnit="mg/L")
 ```
 
-위 코드에서 dose=320으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
+코드 \@ref(exm:tblnca-code)에서 `dose=320`으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
 
 결과는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있다.
 본문에 결과를 싣기에 지면이 부족하여 [별첨 A](#Theoph_tblNCA)에 수록하였고, 여기에서는 dplyr의 `select()` 함수를 사용하여 핵심적인 일부 파라미터 (C~max~, T~max~, AUC~last~, $t_{1/2\beta}$)만 표시하였다.
@@ -409,11 +413,11 @@ $$R_{adj}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}$$
 
 LAMZ 계산에 사용되는 관찰 농도의 개수이다.
 
-**Lambda_z\_lower (LAMZLL)**
+**Lambda_z_lower (LAMZLL)**
 
 Lambda z의 계산에 포함되는 값의 시간 하한이다. LAMZ (터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.
 
-**Lambda_z\_upper (LAMZUL)**
+**Lambda_z_upper (LAMZUL)**
 
 Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기울기) 계산에 사용 된 마지막 시점이다.
 
@@ -451,13 +455,13 @@ $$AUC_{last} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1
 
 $$AUC_{inf,obs} = AUC_{last} + \frac{C_{last}}{\lambda_{z}}$$
 
-**AUC\_%Extrap_obs (AUCPEO)**
+**AUC_%Extrap_obs (AUCPEO)**
 
 Tlast에서 무한대까지 관찰 된 무한대로 외삽된 곡선 아래 영역 (AUC)의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.
 
 $$AUC_{\% Extrap,obs} = (1 - \frac{AUC_{last}}{AUC_{inf,obs}}) \times 100$$
 
-**AUCinf_D\_obs (AUCIFOD)**
+**AUCinf_D_obs (AUCIFOD)**
 
 무한대로 외삽된 관찰 된 곡선하 면적 (AUC)을 투여 용량으로 나눈 값이다.
 
@@ -474,8 +478,13 @@ $$AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}$$
 \index{기술통계}
 
 R에서는 필요에 따라서 자신만의 함수를 만들 수도 있다. 
-아래를 실행하면 `desc_tblNCA()` 함수를 사용하여 기술통계량을 쉽게 구할 수 있다. (표 \@ref(tab:theodesc) and \@ref(tab:indodesc))
+코드 \@ref(exm:desctblnca)를 실행하면 `desc_tblNCA()` 함수를 사용하여 기술통계량을 쉽게 구할 수 있다. (표 \@ref(tab:theodesc) and \@ref(tab:indodesc))
+psych 패키지의 `describe()` 함수를 사용하였으므로 이에 대한 설치를 해야 한다. (`install.packages('psych')`) [@R-psych]
 
+```{example, desctblnca, echo=TRUE}
+핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
+```
+\vspace{-5ex} 
 ```{r}
 desc_tblNCA <- function(tblNCA){
   psych::describe(tblNCA) %>%
@@ -641,4 +650,10 @@ knitr::include_graphics("images/figure-shiny-be.png")
 ```
 
 (ref:shiny-be) NCA 및 BE용 앱, `shiny-be` 접속 화면
+
+## 맺음말
+
+이상으로 비구획분석 자료해석을 위한 R 패키지에 대해 알아보았다. 
+정확한 비구획분석은 모든 약동학 자료해석의 기본이 되며, R을 통한 자료의 처리와 분석은 오류를 줄이고, 시간과 비용을 을 단축하는 등 큰 잇점이 있다. 
+처음에는 R을 사용하는 방법이 다소 생소할 수 있으나 약동학을 공부하는 사람이라면 반드시 접하게 되는 소프트웨어 이고, 약동학 관련 R 패키지에 대해 지속적인 연구와 개발이 이뤄지고 있으므로 연구자들은 이에 대해 꾸준한 공부를 지속해야 할 것이다.
 

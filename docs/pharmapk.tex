@@ -8,7 +8,7 @@
   krantz2, a4paper, twoside]{krantz}
 \title{신약개발을 위한 실전 약동학}
 \author{가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)}
-\date{Ver. 20210622}
+\date{Ver. 20210623}
 
 \usepackage{amsmath,amssymb}
 \usepackage{lmodern}
@@ -308,6 +308,23 @@
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
 
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[chapter]
+\newtheorem{lemma}{Lemma}[chapter]
+\newtheorem{corollary}{Corollary}[chapter]
+\newtheorem{proposition}{Proposition}[chapter]
+\newtheorem{conjecture}{Conjecture}[chapter]
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[chapter]
+\theoremstyle{definition}
+\newtheorem{example}{코드}[chapter]
+\theoremstyle{definition}
+\newtheorem{exercise}{Exercise}[chapter]
+\theoremstyle{definition}
+\newtheorem{hypothesis}{Hypothesis}[chapter]
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{solution}{Solution}
 \begin{document}
 \maketitle
 
@@ -1748,7 +1765,7 @@ NCA 결과는 약물 개발 중 수행 된 많은 임상 약리학 연구(예 : 
 
 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 NCA를 통한 약동학적 주요 지표를 구할 수 있다. 비용을 떠나 NCA를 R로 수행하는 가장 중요한 이유는 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문이다. 더 나아가 계량약리학 분석 전후 과정 중에 NCA를 같은 작업환경에서 빠르게 수행할 수 있다는 장점도 있다.
 
-이 책에서 주로 다루게 될 \texttt{NonCompart} (\protect\hyperlink{ref-R-NonCompart}{Bae 2021b}), \texttt{ncar} (\protect\hyperlink{ref-R-ncar}{Bae 2021a}), \texttt{pkr} (\protect\hyperlink{ref-R-pkr}{Bae and Lee 2018}) 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
+이 책에서 주로 다루게 될 \texttt{NonCompart} (\protect\hyperlink{ref-R-NonCompart}{Bae 2021c}), \texttt{ncar} (\protect\hyperlink{ref-R-ncar}{Bae 2021b}), \texttt{pkr} (\protect\hyperlink{ref-R-pkr}{Bae and Lee 2018}) 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
 
 \texttt{NonCompart}의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Data,
 \texttt{ncar}의 패키지 제목은 Noncompartmental Analysis for Pharmacokinetic Report,
@@ -1921,7 +1938,12 @@ Subject & Wt & Dose & Time & conc\\
 
 가장 많이 쓰는 함수이다.
 NonCompart 패키지의 핵심적인 기능이다.
-아래의 코드를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다.
+코드 \ref{exm:tblnca-code}를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다.
+
+\begin{example}
+\protect\hypertarget{exm:tblnca-code}{}{\label{exm:tblnca-code} }NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
+\end{example}
+\vspace{-5ex}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1930,7 +1952,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 \end{Highlighting}
 \end{Shaded}
 
-위 코드에서 dose=320으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
+코드 \ref{exm:tblnca-code}에서 \texttt{dose=320}으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
 
 결과는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있다.
 본문에 결과를 싣기에 지면이 부족하여 \protect\hyperlink{Theoph_tblNCA}{별첨 A}에 수록하였고, 여기에서는 dplyr의 \texttt{select()} 함수를 사용하여 핵심적인 일부 파라미터 (C\textsubscript{max}, T\textsubscript{max}, AUC\textsubscript{last}, \(t_{1/2\beta}\))만 표시하였다.
@@ -2160,7 +2182,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.3 }\ErrorTok{(}\ExtensionTok{2021{-}06{-}11}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.0 }\ErrorTok{(}\ExtensionTok{2021{-}05{-}18}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}22 15:57:27 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}06{-}23 14:45:54 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2512,7 +2534,13 @@ Tlast에서 무한대까지 관찰 된 무한대로 외삽된 곡선 아래 영�
 \index{기술통계}
 
 R에서는 필요에 따라서 자신만의 함수를 만들 수도 있다.
-아래를 실행하면 \texttt{desc\_tblNCA()} 함수를 사용하여 기술통계량을 쉽게 구할 수 있다. (표 \ref{tab:theodesc} and \ref{tab:indodesc})
+코드 \ref{exm:desctblnca}를 실행하면 \texttt{desc\_tblNCA()} 함수를 사용하여 기술통계량을 쉽게 구할 수 있다. (표 \ref{tab:theodesc} and \ref{tab:indodesc})
+psych 패키지의 \texttt{describe()} 함수를 사용하였으므로 이에 대한 설치를 해야 한다. (\texttt{install.packages(\textquotesingle{}psych\textquotesingle{})}) (\protect\hyperlink{ref-R-psych}{Revelle 2021})
+
+\begin{example}
+\protect\hypertarget{exm:desctblnca}{}{\label{exm:desctblnca} }핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
+\end{example}
+\vspace{-5ex}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2641,7 +2669,7 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;
 \hypertarget{be-r-uxd328uxd0a4uxc9c0uxb97c-uxc0acuxc6a9uxd55c-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxc815}{%
 \subsection{\texorpdfstring{BE R 패키지를 사용한 생물학적 동등성 판정\index{생물학적 동등성}}{BE R 패키지를 사용한 생물학적 동등성 판정}}\label{be-r-uxd328uxd0a4uxc9c0uxb97c-uxc0acuxc6a9uxd55c-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxc815}}
 
-2x2의 생물학적 동등성을 판정하기 위한 가장 간단하고 손쉬운 방법은 Chow와 Liu의 책의 내용(\protect\hyperlink{ref-chow2009design}{Chow and Liu 2008})을 충실히 반영한 BE 패키지(\protect\hyperlink{ref-R-BE}{Bae 2020a})를 사용하는 것이다. 위에서 NCA 관련 패키지를 설치하였듯 BE 패키지를 아래 명령어를 사용하여 설치 및 불러오기 할 수 있다. \index{생물학적 동등성}
+2x2의 생물학적 동등성을 판정하기 위한 가장 간단하고 손쉬운 방법은 Chow와 Liu의 책의 내용(\protect\hyperlink{ref-chow2009design}{Chow and Liu 2008})을 충실히 반영한 BE 패키지(\protect\hyperlink{ref-R-BE}{Bae 2021a})를 사용하는 것이다. 위에서 NCA 관련 패키지를 설치하였듯 BE 패키지를 아래 명령어를 사용하여 설치 및 불러오기 할 수 있다. \index{생물학적 동등성}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2655,7 +2683,7 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;
 \end{Highlighting}
 \end{Shaded}
 
-BE 패키지 중 핵심이 되는 함수는 \texttt{be2x2()} 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 이외의 디자인은 sasLM 패키지(\protect\hyperlink{ref-R-sasLM}{Bae 2021c})를 사용하여 분석해야 한다. (그림 \ref{fig:twobytwo})
+BE 패키지 중 핵심이 되는 함수는 \texttt{be2x2()} 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 이외의 디자인은 sasLM 패키지(\protect\hyperlink{ref-R-sasLM}{Bae 2021d})를 사용하여 분석해야 한다. (그림 \ref{fig:twobytwo})
 
 \begin{figure}
 
@@ -2768,6 +2796,13 @@ SAS: PROC MIXED & 0.90136 & 0.97984 & 1.06515 \\
 \end{figure}
 
 
+
+\hypertarget{uxb9fauxc74cuxb9d0-2}{%
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}}
+
+이상으로 비구획분석 자료해석을 위한 R 패키지에 대해 알아보았다.
+정확한 비구획분석은 모든 약동학 자료해석의 기본이 되며, R을 통한 자료의 처리와 분석은 오류를 줄이고, 시간과 비용을 을 단축하는 등 큰 잇점이 있다.
+처음에는 R을 사용하는 방법이 다소 생소할 수 있으나 약동학을 공부하는 사람이라면 반드시 접하게 되는 소프트웨어 이고, 약동학 관련 R 패키지에 대해 지속적인 연구와 개발이 이뤄지고 있으므로 연구자들은 이에 대해 꾸준한 공부를 지속해야 할 것이다.
 
 \hypertarget{ca-principle}{%
 \chapter{구획분석의 이론}\label{ca-principle}}
@@ -3116,8 +3151,8 @@ k\textsubscript{e} = CL/V\textsubscript{c}로서, 약을 제거하는 능력(CL)
 분포용적(V\textsubscript{z})이 반영되어 있고 V\textsubscript{c} ≪ V\textsubscript{z}이므로, 비록 분수의 윗부분에\index{분포용적}
 있는 CL도 두 방법간에 다르지만, β \textless{} k\textsubscript{e}의 단서를 찾을 수 있다.
 
-\hypertarget{uxb9fauxc74cuxb9d0-2}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}}
+\hypertarget{uxb9fauxc74cuxb9d0-3}{%
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}}
 
 비교적 간단한 NCA 방법이 있음에도 불구하고 구획모델을 사용하여
 약동학자료를 분석하는 이유는 이 장에서 열거한 바와 같이 NCA 결과에서
@@ -3205,7 +3240,7 @@ V1, V2, V3 원통의 부피는 약물이 분포하는 용적이고, 높이는 �
 
 이를 극복하기 위해 통계 및 수학적 계산에 적합한 R 언어 기반의 오픈소스 소프트웨어가 활발히 개발되고 있다.
 즉, 비구획분석을 위한 R 패키지를 \protect\hyperlink{nca-analysis}{3장}에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
-본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020b})
+본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020})
 
 NONMEM에서는 비선형 회귀분석을 위해서 최대 우도 추정법(maximum likelihood estimation)을 사용한다.
 최대 우도 추정법에서 sample데이터에서 Y가 현재 측정된 값, E(Y)는 model에 의해 각각의 관측 지점에서의 예상되는 값, 그리고 V(Y)를 그 모델의 분산으로 표현한다.
@@ -3323,9 +3358,8 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \hypertarget{compartmental-analysis-without-tlag}{%
 \subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag}}
 
-아래는 경구 투여 일구획분석, 지연시간이 없는 모형이다.
+아래는 경구 투여 일구획, 지연시간이 없는 모형이다.
 모델의 R script 입력 여기서 THETA{[}1{]}, THETA{[}2{]}, THETA{[}3{]}는 각각 파라미터 중 k(제거 속도 상수), k\textsubscript{a}(흡수 속도 상수), V(부피)를 의미한다.
-각각의 nonlinear regression을 위해서 theta에 대한 initial value를 넣어준다. (\texttt{nlr()} 함수의 \texttt{IE()} 인자에 적용)
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3336,10 +3370,17 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \NormalTok{  Ka }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
 \NormalTok{  V  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
 \NormalTok{  K  }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
-\NormalTok{  Cp }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{TIME) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{TIME)) }\CommentTok{\# eq 2:1}
+\NormalTok{  Cp }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{TIME) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{TIME))}
   \FunctionTok{return}\NormalTok{(Cp)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
 
+위 코드에서 \texttt{DOSE}는 Cp의 단위와 일치해야 하며, \texttt{fPK2a()}는 함수(function)로서, THETA를 입력 인자로 받고 Cp를 출력값으로 갖도록 작성된다.
+각각의 nonlinear regression을 위해서 THETA에 대한 초기값(initial estimate)을 아래와 같이 넣어준다. (\texttt{nlr()} 함수의 \texttt{IE()} 인자에 적용)
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK02[,}\StringTok{"TIME"}\NormalTok{]}
 \NormalTok{r1 }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK02a, dPK02, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\FloatTok{0.05}\NormalTok{))}
 
@@ -3371,6 +3412,11 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \NormalTok{  Cp  }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{(TIME }\SpecialCharTok{{-}}\NormalTok{ tlag)) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{(TIME }\SpecialCharTok{{-}}\NormalTok{ tlag))) }\CommentTok{\# eq 2:2}
   \FunctionTok{return}\NormalTok{(Cp)}
 \NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
 \NormalTok{TIME }\OtherTok{=}\NormalTok{ dPK02[,}\StringTok{"TIME"}\NormalTok{]}
 \NormalTok{r2 }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK02b, dPK02, }\AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{, }\StringTok{"k"}\NormalTok{, }\StringTok{"tlag"}\NormalTok{), }
          \AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{30}\NormalTok{, }\FloatTok{0.05}\NormalTok{, }\DecValTok{20}\NormalTok{))}
@@ -3406,7 +3452,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-30-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-32-1} \end{center}
 
 \hypertarget{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
 \section{1구획모델을 이용한 정맥주사 후 약동학 자료 분석}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
@@ -3427,7 +3473,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-31-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-33-1} \end{center}
 
 \begin{itemize}
 \tightlist
@@ -3573,7 +3619,7 @@ Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-35-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-37-1} \end{center}
 
 \hypertarget{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
 \section{2구획모델 경구 흡수 이용한 약동학 자료 분석}\label{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
@@ -3712,7 +3758,7 @@ Subject군이 여러명일 경우 각각의 대상자의 값을 모두 구하기
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-39-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-41-1} \end{center}
 
 \hypertarget{theoph-uxc57duxb3d9uxd559-uxc790uxb8ccuxc758-uxad6cuxd68duxbd84uxc11d}{%
 \section{Theoph 약동학 자료의 구획분석}\label{theoph-uxc57duxb3d9uxd559-uxc790uxb8ccuxc758-uxad6cuxd68duxbd84uxc11d}}
@@ -3751,8 +3797,8 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{uxacb0uxb860}{%
-\section{결론}\label{uxacb0uxb860}}
+\hypertarget{uxb9fauxc74cuxb9d0-4}{%
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-4}}
 
 이상으로 구획모델링(compartment modeling)에 대한 간략한 이론과 실제 자료해석을 R 코드를 사용해서 알아보았다.
 이는 단순하지만 여러 현상을 묘사할 수 있는 유용한 도구 중 하나이다.
@@ -3868,20 +3914,20 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 
 \hypertarget{refs}{}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-R-BE}{}}%
-Bae, Kyun-Seop. 2020a. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://cran.r-project.org/package=BE}.
-
 \leavevmode\vadjust pre{\hypertarget{ref-R-wnl}{}}%
----------. 2020b. \emph{Wnl: Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis}. \url{https://cran.r-project.org/package=wnl}.
+Bae, Kyun-Seop. 2020. \emph{Wnl: Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis}. \url{https://cran.r-project.org/package=wnl}.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-BE}{}}%
+---------. 2021a. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://cran.r-project.org/package=BE}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-ncar}{}}%
----------. 2021a. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://cran.r-project.org/package=ncar}.
+---------. 2021b. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://cran.r-project.org/package=ncar}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-NonCompart}{}}%
----------. 2021b. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://cran.r-project.org/package=NonCompart}.
+---------. 2021c. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://cran.r-project.org/package=NonCompart}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-sasLM}{}}%
----------. 2021c. \emph{sasLM: SAS Linear Model}. \url{https://cran.r-project.org/package=sasLM}.
+---------. 2021d. \emph{sasLM: SAS Linear Model}. \url{https://cran.r-project.org/package=sasLM}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-pkr}{}}%
 Bae, Kyun-Seop, and Jee Eun Lee. 2018. \emph{Pkr: Pharmacokinetics in r}. \url{https://cran.r-project.org/package=pkr}.
@@ -3903,6 +3949,9 @@ Noe, Dennis A. 2020. {``Parameter Estimation and Reporting in Noncompartmental A
 
 \leavevmode\vadjust pre{\hypertarget{ref-obach2008trend}{}}%
 Obach, R Scott, Franco Lombardo, and Nigel J Waters. 2008. {``Trend Analysis of a Database of Intravenous Pharmacokinetic Parameters in Humans for 670 Drug Compounds.''} \emph{Drug Metabolism and Disposition} 36 (7): 1385--405.
+
+\leavevmode\vadjust pre{\hypertarget{ref-R-psych}{}}%
+Revelle, William. 2021. \emph{Psych: Procedures for Psychological, Psychometric, and Personality Research}. \url{https://personality-project.org/r/psych/\%0Ahttps://personality-project.org/r/psych-manual.pdf}.
 
 \leavevmode\vadjust pre{\hypertarget{ref-richens1975serum}{}}%
 Richens, Alan, and Andrew Dunlop. 1975. {``Serum-Phenytoin Levels in Management of Epilepsy.''} \emph{The Lancet} 306 (7928): 247--48.

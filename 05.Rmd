@@ -137,9 +137,8 @@ NonCompart::sNCA(dPK02[,"TIME"], dPK02[,"DV"],
 
 ### Compartmental analysis without Tlag
 
-아래는 경구 투여 일구획분석, 지연시간이 없는 모형이다. 
+아래는 경구 투여 일구획, 지연시간이 없는 모형이다. 
 모델의 R script 입력 여기서 THETA[1], THETA[2], THETA[3]는 각각 파라미터 중 k(제거 속도 상수), k~a~(흡수 속도 상수), V(부피)를 의미한다. 
-각각의 nonlinear regression을 위해서 theta에 대한 initial value를 넣어준다. (`nlr()` 함수의 `IE()` 인자에 적용)
 
 ```{r}
 DOSE = 100
@@ -149,10 +148,15 @@ fPK02a = function(THETA) # Prediction function
   Ka = THETA[1]
   V  = THETA[2]
   K  = THETA[3]
-  Cp = DOSE/V*Ka/(Ka - K)*(exp(-K*TIME) - exp(-Ka*TIME)) # eq 2:1
+  Cp = DOSE/V*Ka/(Ka - K)*(exp(-K*TIME) - exp(-Ka*TIME))
   return(Cp)
 }
+```
 
+위 코드에서 `DOSE`는 Cp의 단위와 일치해야 하며, `fPK2a()`는 함수(function)로서, THETA를 입력 인자로 받고 Cp를 출력값으로 갖도록 작성된다. 
+각각의 nonlinear regression을 위해서 THETA에 대한 초기값(initial estimate)을 아래와 같이 넣어준다. (`nlr()` 함수의 `IE()` 인자에 적용)
+
+```{r}
 TIME = dPK02[,"TIME"]
 r1 = nlr(fPK02a, dPK02, pNames=c("ka", "V", "k"), IE=c(0.1, 30, 0.05))
 
@@ -174,6 +178,9 @@ fPK02b = function(THETA) # Prediction function
   Cp  = DOSE/V*Ka/(Ka - K)*(exp(-K*(TIME - tlag)) - exp(-Ka*(TIME - tlag))) # eq 2:2
   return(Cp)
 }
+```
+
+```{r}
 TIME = dPK02[,"TIME"]
 r2 = nlr(fPK02b, dPK02, pNames=c("ka", "V", "k", "tlag"), 
          IE=c(0.1, 30, 0.05, 20))
@@ -391,7 +398,7 @@ for (i in 1:nID) {
 }
 ```
 
-## 결론
+## 맺음말
 
 이상으로 구획모델링(compartment modeling)에 대한 간략한 이론과 실제 자료해석을 R 코드를 사용해서 알아보았다. 
 이는 단순하지만 여러 현상을 묘사할 수 있는 유용한 도구 중 하나이다. 
