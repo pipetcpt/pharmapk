@@ -4,6 +4,6 @@
 
 
 ```{r include=FALSE}
-knitr::write_bib(c(.packages(), 'lubridate', 'sasLM', 'psych'), 
-                 'bib/packages.bib')
+#knitr::write_bib(c(.packages(), 'lubridate', 'sasLM', 'psych'), 
+#                 'bib/packages.bib')
 ```
