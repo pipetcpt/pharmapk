@@ -3,7 +3,7 @@ title: |
   <center> 신약개발을 위한 실전 약동학 </center>\index{약동학}
   <center> (I-이론과 자료해석)  </center>
 #"신약개발을 위한 실전 약동학\newline(I-이론과 자료해석)"\index{약동학}
-author: "가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)"
+author: "가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.0 (2021-08-13)"
 date: "Ver. `r gsub('-', '', Sys.Date())`"
 documentclass: krantz
 classoption: krantz2, a4paper, twoside
@@ -20,6 +20,8 @@ biblio-style: apalike
 fontsize: 11pt
 link-citations: yes
 colorlinks: yes
+lot: no
+lof: no
 header-includes:
   - \usepackage{kotex} 
   - \usepackage{chemarr}
@@ -39,8 +41,6 @@ header-includes:
 #hyperrefoptions:
 #- linktoc=all
 #mainfont: NanumGothic # https://sujinlee.me/pandoc-thesis/
-lot: no #yes
-lof: no #yes
 ---
 
 ```{r setup, include=FALSE}
