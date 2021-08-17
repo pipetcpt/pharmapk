@@ -7,7 +7,7 @@ output:
 # 비구획분석의 자료해석 {#nca-analysis}
 
 \Large\hfill
-한성필
+한성필^[약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.] 
 \normalsize
 
 ```{r include=FALSE}
@@ -18,7 +18,6 @@ opts_chunk$set(echo=TRUE)
 
 ## 서론 
 
-> "약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다."\index{약동학}
 
 약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(Non-compartmental analysis, NCA)이고 이는 약물의 임상개발에 매우 중요하다.\index{약동학}\index{임상개발}
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.\index{생물학적 동등성}
@@ -80,12 +79,12 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 1. https://cran.r-project.org 사이트에 접속하여, `Download R for Windows` 링크를 선택한다.
 2. `Subdirectories` 유형에서 `base - install R for the first time'을 선택한다.
-3. `Download R for Windows` 링크를 선택하여 R-4.0.x-win.exe 설치파일을 다운로드한다.
+3. `Download R for Windows` 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.
 4. 설치파일을 실행한 후, `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 `예' 버튼을 클릭한다.
 5. 설치 언어는 `한국어'로 선택하고 `확인' 버튼을 클릭한다.
-6. R 4.0.0 설치 정보 내용을 확인하고, `다음' 버튼을 클릭한다.
-7. R 4.0.0 프로그램의 설치 경로를 지정하여 `다음' 버튼을 클릭한다.
-8. R.4.0.0 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 다음 버튼을 클릭한다.
+6. R 4.x.x 설치 정보 내용을 확인하고, `다음' 버튼을 클릭한다.
+7. R 4.x.x 프로그램의 설치 경로를 지정하여 `다음' 버튼을 클릭한다.
+8. R.4.x.x 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 다음 버튼을 클릭한다.
 9. 스타트 옵션을 조정하는 화면이 나타나면, `No'를 선택하고 `다음' 버튼을 클릭한다.
 
 ### Rstudio 설치 (윈도우 환경)
@@ -188,7 +187,7 @@ Theoph_tblNCA_selected <- Theoph_tblNCA %>%
 Theoph_tblNCA_selected
 ```
 
-위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. `?tblNCA()` 또는 `args(tblNCA)` 명령어를 통해 아래 결과를 얻을 수 있다.
+위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자(argument)를 살펴봄으로서 알 수 있다. `?tblNCA()` 또는 `args(tblNCA)` 명령어를 통해 아래 결과를 얻을 수 있다.
 
 ```r
 tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc", 
@@ -196,7 +195,7 @@ tblNCA(concData, key = "Subject", colTime = "Time", colConc = "conc",
        timeUnit = "h", concUnit = "ug/L", down = "Linear", R2ADJ = 0.9, 
        MW = 0, iAUC="")
 ```
-R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인자(argument)를 통해 구체적인 자료의 성격을 입력해야 한다. 
+R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인자를 통해 구체적인 자료의 성격을 입력해야 한다. 
 `concData`는 데이터셋 이름을 넣어주고, `key`는 subject ID의 컬럼명 또는 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태(`c('subject', 'period', 'treatment')`)로 지정할 수 있다. 여기서 key로 들어간 컬럼은 모두 결과 표의 초반에 그대로 출력되게 된다.
 `colTime`은 time의 컬럼명, `colConc`는 농도(concentration)의 컬럼명 등을 함수 인자로 갖는다. 그 외 인자들에 대해서 살펴보자면 다음과 같다. 
 
@@ -432,7 +431,7 @@ Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기�
 
 **Clast_pred (CLSTP)**
 
-선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.\index{약동학}
+선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.\index{약동학}
 
 $$ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{last}) $$
 
@@ -456,25 +455,25 @@ $$AUC_{last} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1
 
 **AUCinf_obs (AUCIFO)**
 
-마지막으로 관찰 된 농도를 기준으로 투여 시간으로부터 무한대로 외삽된 곡선 아래 관찰된 면적(AUC)이며 공식은 아래와 같다.
+마지막으로 관찰된 농도를 기준으로 투여 시간으로부터 무한대로 외삽된 AUC이며 공식은 아래와 같다.
 
 $$AUC_{inf,obs} = AUC_{last} + \frac{C_{last}}{\lambda_{z}}$$
 
 **AUC_%Extrap_obs (AUCPEO)**
 
-Tlast에서 무한대까지 관찰 된 무한대로 외삽된 곡선 아래 영역 (AUC)의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.
+Tlast에서 무한대로 외삽된 AUC의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.
 
 $$AUC_{\% Extrap,obs} = (1 - \frac{AUC_{last}}{AUC_{inf,obs}}) \times 100$$
 
 **AUCinf_D_obs (AUCIFOD)**
 
-무한대로 외삽된 관찰 된 곡선하 면적 (AUC)을 투여 용량으로 나눈 값이다.
+무한대로 외삽된 관찰된 AUC을 투여 용량으로 나눈 값이다.
 
 $$AUC_{dose,inf,obs} = \frac{AUC_{inf,obs}}{Dose}$$
 
 **AUCinf_pred (AUCIFP)**
 
-예측 된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 곡선하 면적 (AUC).
+예측된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 AUC.
 $$AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}$$
 
 
@@ -522,9 +521,9 @@ desc_tblNCA(Indometh_tblNCA_selected) %>%
 생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다.
 기존 오리지널 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 얻어진 혈장약물농도로부터 구한 C~max~와 AUC를 비교하여 평가하게 된다. 
 
-2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 대상자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 대상자별로 투약 전후 정해진 시간마다 약동학 채혈을 실시한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과 (보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 약동학 채혈을 실시한다. \index{반감기}\index{약동학}\index{반감기}
+2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 대상자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 대상자별로 투약 전후 정해진 시간마다 약동학 채혈을 실시한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과(보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 약동학 채혈을 실시한다. \index{반감기}\index{약동학}\index{반감기}
 
-시뮬레이션된 농도들로부터 얻어진 C~max~와 AUC를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(`key=c('SUBJ', 'GRP', 'PRD', 'TRT')`) 유사한 형태로 자료를 만들어야 한다. \index{시뮬레이션}
+시뮬레이션된 농도들로부터 얻어진 C~max~와 AUC를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ(sequence, 순서군) 혹은 GRP(group), TRT(treatment, 치료), SUBJ(subject, 대상자 구분자), PRD(period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(`key=c('SUBJ', 'GRP', 'PRD', 'TRT')`) 유사한 형태로 자료를 만들어야 한다. \index{시뮬레이션}
 
 SUBJ | GRP | PRD | TRT | nTIME | TIME | CONC
 --- | --- | --- | --- | --- | --- | ---
@@ -562,7 +561,7 @@ Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
 $$
 
 이때에 μ: 전체 평균, S~ik~: k 번째 sequence에서 i 번째 subject의 효과(랜덤), P~j~: j번째 period 의 효과(고정), F~j,k~; k 번째 sequence에서 j 번째 period의 제제의 효과(고정), C~(j-1,k)~: k 번째 sequence에서(j-1) 번째 period의 잔류효과(고정), ε~ijk~ : 오차항으로 정의한다. 
-이 모델에서 사용하는 가정은 1) S~ik~ ∼ N(0,σ~s~^2^), 2) ε~ijk~ ∼ N(0,σ~ε~^2^), 3) S~ik~ 와 ε~ijk~가 독립이라는 세가지 이다. 이때 (μ~T~ - μ~R~)에 대한 (1-2α) × 100% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다. 
+이 모델에서 사용하는 가정은 1) S~ik~ ∼ N(0,σ~s~^2^), 2) ε~ijk~ ∼ N(0,σ~ε~^2^), 3) S~ik~ 와 ε~ijk~가 독립이라는 세 가지이다. 이때 (μ~T~ - μ~R~)에 대한 (1-2α) × 100% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다. 
 
 생물학적 동등성을 평가하는데 통계학은 핵심적인 역할을 수행하고 있고, 통계적 분석을 위해서는 컴퓨터 소프트웨어가 필요하다. SAS는 통계 패키지중에서는 가장 방대하고 다양한 분석을 제공하고 전 세계적으로 생물학적동등성의 판단을 위해 표준으로 사용되고 있다. 아래의 SAS 코드로 ANOVA 표와 신뢰구간을 구할 수 있다.\index{생물학적 동등성}
 
@@ -612,7 +611,7 @@ knitr::kable(head(BE::NCAResult4BE), caption = '생물학적 동등성 평가를
 knitr::include_graphics("media-03/figure-conc-time-curve.png")
 ```
 
-약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (그림 \@ref(fig:output-format)) 본 자료로 계산한 AUC~last~는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.\index{생물학적 동등성}\index{약동학}
+아래 코드에서 `be2x2()` 함수의 인자인 NCAResult4BE가 처리 되어 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (그림 \@ref(fig:output-format)) 본 자료로 계산한 AUC~last~는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.\index{생물학적 동등성}\index{약동학}
 
 ```{r eval = FALSE}
 be2x2(NCAResult4BE, c("AUClast", "Cmax", "Tmax"))

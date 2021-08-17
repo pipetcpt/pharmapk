@@ -21,7 +21,7 @@
   <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
   <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
-<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석)" />
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.1 (2021-08-17)" />
 
 
 
@@ -323,13 +323,10 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="nca-analysis" class="section level1" number="3">
 <h1><span class="header-section-number">Chapter 3</span> 비구획분석의 자료해석</h1>
-<p>한성필
+<p>한성필<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
 </p>
 <div id="서론-2" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 서론</h2>
-<blockquote>
-<p>“약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.”</p>
-</blockquote>
 <p>약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(Non-compartmental analysis, NCA)이고 이는 약물의 임상개발에 매우 중요하다.
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.
 약물개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 준다.
@@ -383,16 +380,16 @@ Some features are
 </blockquote>
 <p>이를 사용하기 위해 아래의 순서로 R과 Rstudio를 설치해야 한다.</p>
 <div id="r-4.x.x의-설치-윈도우-환경" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> R 4.x.x의 설치 (윈도우 환경<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>)</h3>
+<h3><span class="header-section-number">3.4.1</span> R 4.x.x의 설치 (윈도우 환경<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>)</h3>
 <ol style="list-style-type: decimal">
 <li><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a> 사이트에 접속하여, <code>Download R for Windows</code> 링크를 선택한다.</li>
 <li><code>Subdirectories</code> 유형에서 `base - install R for the first time’을 선택한다.</li>
-<li><code>Download R for Windows</code> 링크를 선택하여 R-4.0.x-win.exe 설치파일을 다운로드한다.</li>
+<li><code>Download R for Windows</code> 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.</li>
 <li>설치파일을 실행한 후, <code>이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면</code>예’ 버튼을 클릭한다.</li>
 <li>설치 언어는 <code>한국어'로 선택하고</code>확인’ 버튼을 클릭한다.</li>
-<li>R 4.0.0 설치 정보 내용을 확인하고, `다음’ 버튼을 클릭한다.</li>
-<li>R 4.0.0 프로그램의 설치 경로를 지정하여 `다음’ 버튼을 클릭한다.</li>
-<li>R.4.0.0 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 다음 버튼을 클릭한다.</li>
+<li>R 4.x.x 설치 정보 내용을 확인하고, `다음’ 버튼을 클릭한다.</li>
+<li>R 4.x.x 프로그램의 설치 경로를 지정하여 `다음’ 버튼을 클릭한다.</li>
+<li>R.4.x.x 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 다음 버튼을 클릭한다.</li>
 <li>스타트 옵션을 조정하는 화면이 나타나면, <code>No'를 선택하고</code>다음’ 버튼을 클릭한다.</li>
 </ol>
 </div>
@@ -642,7 +639,7 @@ conc
 <p>가장 단순한 형태의 자료는 CSV파일로 쉼표로 구분된 문서로 메모장 등 텍스트 편집기로 파일을 열었을 때에도 자료를 확인 가능한 형태이다.
 이러한 파일은 <code>read.csv()</code> 또는 <code>readr</code>패키지<span class="citation">(<a href="#ref-R-readr" role="doc-biblioref">Wickham and Hester 2020</a>)</span>의 <code>read_csv()</code> 함수를 사용해서 자료를 불러 온다.
 엑셀 파일을 사용하는 경우 <code>readxl</code> 패키지<span class="citation">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2019</a>)</span>를 설치한 후에 <code>read_excel()</code> 함수를 사용해서 불러올 수 있다.</p>
-<p>다만 <code>read_csv(), read_excel()</code>을 사용하는 경우 <code>tibble</code> 형태로 자료가 변형되고 이러한 형태의 자료는 <code>tblNCA()</code> 사용시 오류를 일으키기 때문에 사전에 <code>as.data.frame()</code>을 사용해서 데이타프레임으로 변형해주어야 한다. <a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></p>
+<p>다만 <code>read_csv(), read_excel()</code>을 사용하는 경우 <code>tibble</code> 형태로 자료가 변형되고 이러한 형태의 자료는 <code>tblNCA()</code> 사용시 오류를 일으키기 때문에 사전에 <code>as.data.frame()</code>을 사용해서 데이타프레임으로 변형해주어야 한다. <a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a></p>
 </div>
 <div id="noncompart-r-패키지를-이용한-nca" class="section level2" number="3.7">
 <h2><span class="header-section-number">3.7</span> NonCompart R 패키지를 이용한 NCA</h2>
@@ -677,12 +674,12 @@ NonCompart 패키지의 핵심적인 기능이다.
 ## 10      10 10.21 3.55 138.37  9.247
 ## 11      11  8.00 0.98  80.09  7.261
 ## 12      12  9.75 3.52 119.98  6.287</code></pre>
-<p>위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자를 살펴봄으로서 알 수 있다. <code>?tblNCA()</code> 또는 <code>args(tblNCA)</code> 명령어를 통해 아래 결과를 얻을 수 있다.</p>
+<p>위의 예에서 가장 간단한 형태의 NCA를 실행하였지만, 보다 정밀한 분석은 tblNCA() 함수의 인자(argument)를 살펴봄으로서 알 수 있다. <code>?tblNCA()</code> 또는 <code>args(tblNCA)</code> 명령어를 통해 아래 결과를 얻을 수 있다.</p>
 <div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="nca-analysis.html#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tblNCA</span>(concData, <span class="at">key =</span> <span class="st">&quot;Subject&quot;</span>, <span class="at">colTime =</span> <span class="st">&quot;Time&quot;</span>, <span class="at">colConc =</span> <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb9-2"><a href="nca-analysis.html#cb9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">dose =</span> <span class="dv">0</span>, <span class="at">adm =</span> <span class="st">&quot;Extravascular&quot;</span>, <span class="at">dur =</span> <span class="dv">0</span>, <span class="at">doseUnit =</span> <span class="st">&quot;mg&quot;</span>, </span>
 <span id="cb9-3"><a href="nca-analysis.html#cb9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">timeUnit =</span> <span class="st">&quot;h&quot;</span>, <span class="at">concUnit =</span> <span class="st">&quot;ug/L&quot;</span>, <span class="at">down =</span> <span class="st">&quot;Linear&quot;</span>, <span class="at">R2ADJ =</span> <span class="fl">0.9</span>, </span>
 <span id="cb9-4"><a href="nca-analysis.html#cb9-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">MW =</span> <span class="dv">0</span>, <span class="at">iAUC=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
-<p>R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인자(argument)를 통해 구체적인 자료의 성격을 입력해야 한다.
+<p>R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인자를 통해 구체적인 자료의 성격을 입력해야 한다.
 <code>concData</code>는 데이터셋 이름을 넣어주고, <code>key</code>는 subject ID의 컬럼명 또는 treatment code의 컬럼명 (교차시험 등에서)을 벡터 형태(<code>c('subject', 'period', 'treatment')</code>)로 지정할 수 있다. 여기서 key로 들어간 컬럼은 모두 결과 표의 초반에 그대로 출력되게 된다.
 <code>colTime</code>은 time의 컬럼명, <code>colConc</code>는 농도(concentration)의 컬럼명 등을 함수 인자로 갖는다. 그 외 인자들에 대해서 살펴보자면 다음과 같다.</p>
 <ol style="list-style-type: decimal">
@@ -798,7 +795,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.4 <span class="er">(</span><span class="ex">2021-07-16</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.0 <span class="er">(</span><span class="ex">2021-05-18</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-08-11 19:26:49 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-08-17 08:52:11 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -924,7 +921,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <p>NCA 시 여러 파라미터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.</p>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="nca-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?ncar<span class="sc">::</span><span class="fu">txtNCA</span>()</span>
 <span id="cb23-2"><a href="nca-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span>RptCfg</span></code></pre></div>
-<p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라미터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라미터 이름이다.</p>
+<p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라미터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라미터 이름이다.</p>
 <table>
 <caption>
 <span id="tab:rptcfg">표 3.2: </span>Description of NonCompart parameters
@@ -1359,7 +1356,7 @@ Vol Dist Steady State Pred (Vss_pred)
 <p><strong>HL_Lambda_z (LAMZHL)</strong></p>
 <p>최종 반감기. Lambda Z (LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 ln (2) / LAMZ로 계산된다.</p>
 <p><strong>Clast_pred (CLSTP)</strong></p>
-<p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
+<p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
 <p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{last}) \]</span></p>
 <p><strong>C0 (C0)</strong></p>
 <p>초기 농도. 시간 0에서의 농도, 초기 농도. 처음 두 농도가 양수이고 첫 번째 농도가 두 번째 농도보다 크면 다음과 같이 C0를 계산할 수 있다. 그렇지 않으면 C0는 첫 번째 양수 농도가 된다.</p>
@@ -1371,16 +1368,16 @@ Vol Dist Steady State Pred (Vss_pred)
 <p><strong>AUCall (AUCALL)</strong></p>
 <p>마지막 농도가 측정 가능한지 여부에 관계없이 투여 시점부터 마지막 관찰 시점까지의 곡선하 면적을 의미한다. 따라서 AUCALL은 모든 0 값 관찰을 계산에 사용한다.</p>
 <p><strong>AUCinf_obs (AUCIFO)</strong></p>
-<p>마지막으로 관찰 된 농도를 기준으로 투여 시간으로부터 무한대로 외삽된 곡선 아래 관찰된 면적(AUC)이며 공식은 아래와 같다.</p>
+<p>마지막으로 관찰된 농도를 기준으로 투여 시간으로부터 무한대로 외삽된 AUC이며 공식은 아래와 같다.</p>
 <p><span class="math display">\[AUC_{inf,obs} = AUC_{last} + \frac{C_{last}}{\lambda_{z}}\]</span></p>
 <p><strong>AUC_%Extrap_obs (AUCPEO)</strong></p>
-<p>Tlast에서 무한대까지 관찰 된 무한대로 외삽된 곡선 아래 영역 (AUC)의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.</p>
+<p>Tlast에서 무한대로 외삽된 AUC의 백분율이다. AUCIFO에서 외삽된 부분이 과도하게 크다면 약물의 배설 과정에 대한 정보가 일부 누락되었다고 생각할 수 있다.</p>
 <p><span class="math display">\[AUC_{\% Extrap,obs} = (1 - \frac{AUC_{last}}{AUC_{inf,obs}}) \times 100\]</span></p>
 <p><strong>AUCinf_D_obs (AUCIFOD)</strong></p>
-<p>무한대로 외삽된 관찰 된 곡선하 면적 (AUC)을 투여 용량으로 나눈 값이다.</p>
+<p>무한대로 외삽된 관찰된 AUC을 투여 용량으로 나눈 값이다.</p>
 <p><span class="math display">\[AUC_{dose,inf,obs} = \frac{AUC_{inf,obs}}{Dose}\]</span></p>
 <p><strong>AUCinf_pred (AUCIFP)</strong></p>
-<p>예측 된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 곡선하 면적 (AUC).
+<p>예측된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 AUC.
 <span class="math display">\[AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}\]</span></p>
 </div>
 <div id="기술통계-descriptive-statistics" class="section level2" number="3.11">
@@ -1699,8 +1696,8 @@ LAMZHL
 <h3><span class="header-section-number">3.12.1</span> 이론</h3>
 <p>생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다.
 기존 오리지널 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 얻어진 혈장약물농도로부터 구한 C<sub>max</sub>와 AUC를 비교하여 평가하게 된다.</p>
-<p>2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 대상자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 대상자별로 투약 전후 정해진 시간마다 약동학 채혈을 실시한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과 (보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 약동학 채혈을 실시한다. </p>
-<p>시뮬레이션된 농도들로부터 얻어진 C<sub>max</sub>와 AUC를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ (sequence), TRT (treatment), SUBJ (subject), and PRD (period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(<code>key=c('SUBJ', 'GRP', 'PRD', 'TRT')</code>) 유사한 형태로 자료를 만들어야 한다. </p>
+<p>2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 대상자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 대상자별로 투약 전후 정해진 시간마다 약동학 채혈을 실시한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과(보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 약동학 채혈을 실시한다. </p>
+<p>시뮬레이션된 농도들로부터 얻어진 C<sub>max</sub>와 AUC를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ(sequence, 순서군) 혹은 GRP(group), TRT(treatment, 치료), SUBJ(subject, 대상자 구분자), PRD(period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(<code>key=c('SUBJ', 'GRP', 'PRD', 'TRT')</code>) 유사한 형태로 자료를 만들어야 한다. </p>
 <table>
 <thead>
 <tr class="header">
@@ -1882,7 +1879,7 @@ LAMZHL
 Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
 \]</span></p>
 <p>이때에 μ: 전체 평균, S<sub>ik</sub>: k 번째 sequence에서 i 번째 subject의 효과(랜덤), P<sub>j</sub>: j번째 period 의 효과(고정), F<sub>j,k</sub>; k 번째 sequence에서 j 번째 period의 제제의 효과(고정), C<sub>(j-1,k)</sub>: k 번째 sequence에서(j-1) 번째 period의 잔류효과(고정), ε<sub>ijk</sub> : 오차항으로 정의한다.
-이 모델에서 사용하는 가정은 1) S<sub>ik</sub> ∼ N(0,σ<sub>s</sub><sup>2</sup>), 2) ε<sub>ijk</sub> ∼ N(0,σ<sub>ε</sub><sup>2</sup>), 3) S<sub>ik</sub> 와 ε<sub>ijk</sub>가 독립이라는 세가지 이다. 이때 (μ<sub>T</sub> - μ<sub>R</sub>)에 대한 (1-2α) × 100% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다.</p>
+이 모델에서 사용하는 가정은 1) S<sub>ik</sub> ∼ N(0,σ<sub>s</sub><sup>2</sup>), 2) ε<sub>ijk</sub> ∼ N(0,σ<sub>ε</sub><sup>2</sup>), 3) S<sub>ik</sub> 와 ε<sub>ijk</sub>가 독립이라는 세 가지이다. 이때 (μ<sub>T</sub> - μ<sub>R</sub>)에 대한 (1-2α) × 100% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다.</p>
 <p>생물학적 동등성을 평가하는데 통계학은 핵심적인 역할을 수행하고 있고, 통계적 분석을 위해서는 컴퓨터 소프트웨어가 필요하다. SAS는 통계 패키지중에서는 가장 방대하고 다양한 분석을 제공하고 전 세계적으로 생물학적동등성의 판단을 위해 표준으로 사용되고 있다. 아래의 SAS 코드로 ANOVA 표와 신뢰구간을 구할 수 있다.</p>
 <pre class="sas"><code>PROC GLM DATA=BE OUTSTAT=STATRES; /* GLM use only complete subjects. */
 CLASS SEQ PRD TRT SUBJ;
@@ -2087,7 +2084,7 @@ R
 그림 3.8: 생물학적 동등성 평가를 위한 예제 데이터셋의 농도-시간 곡선 (N=33)
 </p>
 </div>
-<p>약동학 파라미터가 입력 자료가 되어 edisonBE 앱을 통해 처리되고 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (그림 <a href="nca-analysis.html#fig:output-format">3.9</a>) 본 자료로 계산한 AUC<sub>last</sub>는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.</p>
+<p>아래 코드에서 <code>be2x2()</code> 함수의 인자인 NCAResult4BE가 처리 되어 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (그림 <a href="nca-analysis.html#fig:output-format">3.9</a>) 본 자료로 계산한 AUC<sub>last</sub>는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.</p>
 <div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="nca-analysis.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">be2x2</span>(NCAResult4BE, <span class="fu">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span id="fig:output-format"></span>
 <img src="media-03/figure-2.png" alt="BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과." width="100%" />
@@ -2238,9 +2235,10 @@ Wickham, Hadley, and Jim Hester. 2020. <em>Readr: Read Rectangular Text Data</em
 <div class="footnotes">
 <hr />
 <ol start="2">
-<li id="fn2"><p>윈도의 외의 환경에 대한 것은 별도의 공간 <a href="https://github.com/pipetcpt/pharmapk/discussions" class="uri">https://github.com/pipetcpt/pharmapk/discussions</a> 에 정리되어 있다.<a href="nca-analysis.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p><a href="https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o" class="uri">https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o</a><a href="nca-analysis.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>다음과 같이 CDISC note에 표시되어 있다. ‘Short name of the pharmacokinetic parameter. PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: “AUCALL”, “TMAX”, “CMAX”.’<a href="nca-analysis.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.<a href="nca-analysis.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>윈도의 외의 환경에 대한 것은 별도의 공간 <a href="https://github.com/pipetcpt/pharmapk/discussions" class="uri">https://github.com/pipetcpt/pharmapk/discussions</a> 에 정리되어 있다.<a href="nca-analysis.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o" class="uri">https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o</a><a href="nca-analysis.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>다음과 같이 CDISC note에 표시되어 있다. ‘Short name of the pharmacokinetic parameter. PPTESTCD cannot contain characters other than letters, numbers, or underscores. Examples: “AUCALL”, “TMAX”, “CMAX”.’<a href="nca-analysis.html#fnref5" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
             </section>

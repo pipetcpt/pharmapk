@@ -1,7 +1,7 @@
 # 구획분석의 자료해석 {#ca-analysis}
 
 \Large\hfill
-한성필
+한성필^[약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.] 
 \normalsize
 
 ```{r include=FALSE}
@@ -11,8 +11,6 @@ opts_chunk$set(echo=TRUE)
 ```
 
 ## 서론
-
-> "약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다."\index{약동학}
 
 약동학 구획분석을 한문장으로 표현하자면 시간 농도(time-concentration data) 자료에 대한 약동학 파라미터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다. \index{약동학}
 다시 말하자면, 인체의 여러 장기(organ) 또는 계(system)를 몇개의 구획으로 단순화하고 우리의 관심이 되는 특성을 파라미터화하여 각 구획들 간의 연관성을 파악하는 것이다. 
@@ -25,8 +23,8 @@ opts_chunk$set(echo=TRUE)
 1구획 모델에서는 약물이 작용부위로 신속히 이동한다고 가정하며 혈장을 자료 분석의 기준 구획으로 사용한다. 
 1구획 모델의 로그 혈장농도값은 시간에 대해 하나의 기울기로 감소하는 양상을 나타낸다.
 2구획 모델에서는 구획들 간의 약물 분포가 균일하지 않다고 보며 인체를 중심 구획 (central compartment) 과 말초구획 (peripheral compartment)로 나누어 기술한다. \index{말초구획}
-중심구획은 관류(perfusion)가 빠른 기관(예: 간, 신장)을 나타내는데 이는 약물의 분포와 관계하고 α phase 로 나타낸다. \index{중심구획}
-반면 말초구획은 관류가 느린 기관(예: 근육, 지방)을 나타내며 이는 약물의 소실과 관계하고 β phase 로 나타낸다. \index{말초구획}
+중심구획은 관류(perfusion)가 빠른 기관(예: 간, 신장)을 나타내는데 이는 약물의 분포와 관계하고 α-phase로 나타낸다. \index{중심구획}
+반면 말초구획은 관류가 느린 기관(예: 근육, 지방)을 나타내며 이는 약물의 소실과 관계하고 β-phase로 나타낸다. \index{말초구획}
 2구획 모델의 혈장농도 로그값은 시간에 대해 기울기가 두 개인 이직선적으로 감소하는 양상을 나타내는데, 처음의 빠른 기울기는 분포기를 나타내고, 나중의 느린 기울기는 소실기를 나타내게 된다.
 
 ```{r fig5-1, fig.cap = "3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도", echo=FALSE}
@@ -52,7 +50,7 @@ knitr::include_graphics('media-05/fig5-2.png')
 약동학 자료의 분석은 복잡하고 시간이 많이 걸리는 일이다. 모든 생물학 자료가 그러하듯 높은 변동성과 많은 노이즈가 PK 자료에 포함되어 있다. [@gabrielsson]\index{약동학}
 따라서 비선형 회귀분석(Nonlinear regression analysis)이 필요한 구획분석을 위해서는 컴퓨터 소프트웨어의 사용이 필수적이다. 
 이 때 Certara Phoenix NLME^[https://www.certara.com/software/phoenix-nlme/], Monolix^[https://lixoft.com/products/monolix/]와 같은 여러가지 소프트웨어들이 사용되고 있지만, 가장 널리쓰이는 도구는 ICON사의 NONMEM^[https://www.iconplc.com/innovation/nonmem/]이라고 하는 소프트웨어이다. (그림 \@ref(fig:fig5-2))
-이것은 FORTRAN 코드로 프로그램 되어 있으며 현재 버전 7.5.0까지 지속적으로 업데이트 되고 있는 소프트웨어로, 구획분석 및 계량약리학 분야에서 가장 표준적인 도구로 쓰이고 있다. \index{계량약리학}
+이것은 FORTRAN 코드로 프로그램 되어 있으며 2021년 현재 버전 7.5.0까지 지속적으로 업데이트 되고 있는 소프트웨어로, 구획분석 및 계량약리학 분야에서 가장 표준적인 도구로 쓰이고 있다. \index{계량약리학}
 이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다. [@nonmem;@gabrielsson;@basic]
 
 상용 소프트웨어를 통한 구획분석 방법은 GUI 기반이고 많은 사용자가 확보되어 있다는 장점이 있으나,  상당한 비용을 매년 지불하여야 하며, 접근이 다소 쉽지 않다는 단점을 가지고 있다. 
@@ -80,21 +78,22 @@ L_i = \prod_{j=1}^{n_i}\frac{1}{\sqrt{2\pi V(Y_{ij})}} \cdot e^{-\frac{1}{2V(Y_{
 (\#eq:eq5-2)
 \end{equation}
 
-이것은 -2 로그 가능도로(-2 log likelihood) 전환 될 수 있으며, 이것은 다음과 같이 표현된다.\index{가능도}
+이것은 -2 로그 가능도(-2 log likelihood)로 전환 될 수 있으며, 식 \@ref(eq:eq5-3)다음과 같이 표현된다.\index{가능도}
 
 \begin{equation}
 -2log(L_i) = n_i \cdot log(2\pi) + \sum_{j=1}^{n}(log(V(Y_{ij}))+ \frac{(Y_{ij} - E(Y_{ij}))^2}{V(Y_{ij})})
 (\#eq:eq5-3)
 \end{equation}
 
-결국 NONMEM은 이 -2 로그 가능도의 값을 최소화(즉, 가능도의 값을 최대화) 해 주는 PK 파라미터 값들의 조합을 찾아준다. 이때, 오른쪽 수식에서 앞에있는 n~i~log(2π)는 상수이기 때문에 없애고, 실제 i번째 환자에서의 목적함수(objective function)는 다음과 같이 나타난다.\index{가능도}
+결국 NONMEM은 이 -2 로그 가능도의 값을 최소화(즉, 가능도의 값을 최대화) 해 주는 PK 파라미터 값들의 조합을 찾아준다. 
+이 때, 오른쪽 수식에서 앞에있는 n~i~log(2π)는 상수이기 때문에 없애고, 실제 i번째 환자에서의 목적함수(objective function)는 다음과 같이 나타난다.\index{가능도}
 
 \begin{equation}
 OBJ_i = n_i \cdot logV(Y_i) + \sum_{j=1}^{n} \frac{(Y_{ij} - E(Y_{ij}))^2}{V(Y_{ij})}
 (\#eq:eq5-4)
 \end{equation}
 
-실제 여기에서 derivation 을 정규 분포에만 적용한 것이 최대 가능도 측정법(maximum likelihood estimation method)^[최대 가능도 측정법(maximum likelihood estimation method)은 점 추정치를 찾는데까지는 오래 걸리나, 표준 오차(standard error of estimates)를 구하는게 유리하다. 최근에는 최소 제곱법(Least square method) 보다 널리 쓰이고 있다.]이라면, 정규 분포라는 가정 없이도 적용한 것이 NONMEM 소프트 웨어 이며 이 방식을 `확장된 최소 제곱법'(extended least square method)이라고 한다. \index{가능도}
+실제 여기에서 derivation 을 정규 분포에만 적용한 것이 최대 가능도 측정법(maximum likelihood estimation method)^[최대 가능도 측정법(maximum likelihood estimation method)은 점 추정치를 찾는데까지는 오래 걸리나, 표준 오차(standard error of estimates)를 구하는게 유리하다. 최근에는 최소 제곱법(least square method) 보다 널리 쓰이고 있다.]이라면, 정규 분포라는 가정 없이도 적용한 것이 NONMEM 소프트 웨어 이며 이 방식을 `확장된 최소 제곱법'(extended least square method)이라고 한다. \index{가능도}
 
 이 책의 예제에서는 NONMEM^®^ 의 확장된 최소 제곱법을 적용한 wnl 패키지의 `nlr()` 함수를 사용하였다.
 
@@ -129,14 +128,14 @@ NonCompart::sNCA(dPK02[,"TIME"], dPK02[,"DV"],
                  dose=100, doseUnit="ug", timeUnit="min")
 ```
 
-아래에서 경구 복용 후 1차 지수로 감소하는 약물에서의 약동학 모델을 사용한다. \index{약동학}
+아래에서 경구 복용 후 일차역학^[일차역학(first-order kinetics)에 의한 소실이란 체내에 남이 있는 특정시점의 약물량의 일정 분율만큼 약물이 단위시간당 소실되는 것을 말한다.]에 의해 소실되는 약물의 약동학 모델을 사용한다. \index{약동학}
 이 경우에는 wnl 패키지 내부에 기본적 equation이 정의되어 있으므로 추가적인 equation을 입력하지 않고 각각의 파라미터의 값에 해당하는 THETA에 대해서만 입력하였다. 
 필요한 THETA는 k(제거 속도 상수), k~a~(흡수 속도 상수), V(부피), t~lag~(흡수가 지연되는 시간)이다. 
 
 ### Compartmental analysis without Tlag
 
 아래는 경구 투여 1구획, 지연 시간이 없는 모델이다. \index{지연 시간}
-모델의 R script 입력 여기서 THETA[1], THETA[2], THETA[3]는 각각 파라미터 중 k(제거 속도 상수), k~a~(흡수 속도 상수), V(부피)를 의미한다. 
+모델의 R 스크립트에서 THETA[1], THETA[2], THETA[3]는 각각 파라미터 중 k(제거 속도 상수), k~a~(흡수 속도 상수), V(부피)를 의미한다. 
 
 ```{r}
 DOSE = 100
