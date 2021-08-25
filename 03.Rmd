@@ -19,7 +19,7 @@ opts_chunk$set(echo=TRUE)
 ## 서론 
 
 
-약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(Non-compartmental analysis, NCA)이고 이는 약물의 임상개발에 매우 중요하다.\index{약동학}\index{임상개발}
+약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(non-compartmental analysis, NCA)이고 이는 약물의 임상개발에 매우 중요하다.\index{약동학}\index{임상개발}
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.\index{생물학적 동등성}
 약물개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 준다.
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다. \index{약동학}
@@ -55,9 +55,9 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다. 
 제약사와 규제기관 등에 더 높은 비용을 요구하고 있는 상황이라, NCA를 빈번하게 사용하지 않는 산업계 종사자들에게 
-분석 초보자의 경우 유료 강의를 통한 학습을 필요로 하거나, CDISC 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 등의 제한점이 있고, 비교적 경험이 쌓인 분석자의 경우 자료 분석 워크플로우를 자동화하는게 어려우며, 윈도우 환경에서만 실행 가능하다는 것도 제한점이 될 수 있다. 
+분석 초보자의 경우 유료 강의를 통한 학습을 필요로 하거나, CDISC(Clinical Data Interchange Standards Consortium)^[임상시험에 관련된 국제표준을 개발하는 표준화 기구로, 2010년부터 미국 FDA와 유럽 EMA는 전자문서(eCTD)로 허가를 신청할 경우 CDISC에서 제정한 표준을 이용한 임상시험 데이터 제출만 허용하고 있다.] 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 어려움이 있다. 비교적 경험이 쌓인 연구자에게는 분석 워크플로우를 프로그래밍 코드를 통해 자동화하는게 불가능한 것이 단점으로 여겨질 수 있다. 윈도우 환경에서만 실행 가능하다는 것도 특정 운영체제를 선호하는 사람에게 제한점이 될 수 있다. 
 
-식약처, 미국 FDA (Food and Drug Administration)를 비롯한 대부분의 규제기관에서는 NCA에 쓰는 특정 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.\index{약동학}
+식약처, 미국 FDA(Food and Drug Administration), 유럽 EMA(European Medicines Agency)를 비롯한 대부분의 규제기관에서는 NCA에 쓰는 특정 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.\index{약동학}
 
 ## NCA에 활용할 수 있는 R package 소개
 
@@ -78,23 +78,23 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 ### R 4.x.x의 설치 (윈도우 환경^[윈도의 외의 환경에 대한 것은 별도의 공간 https://github.com/pipetcpt/pharmapk/discussions 에 정리되어 있다.])
 
 1. https://cran.r-project.org 사이트에 접속하여, `Download R for Windows` 링크를 선택한다.
-2. `Subdirectories` 유형에서 `base - install R for the first time'을 선택한다.
+2. `Subdirectories` 유형에서 `base - install R for the first time`을 선택한다.
 3. `Download R for Windows` 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.
-4. 설치파일을 실행한 후, `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 `예' 버튼을 클릭한다.
-5. 설치 언어는 `한국어'로 선택하고 `확인' 버튼을 클릭한다.
-6. R 4.x.x 설치 정보 내용을 확인하고, `다음' 버튼을 클릭한다.
-7. R 4.x.x 프로그램의 설치 경로를 지정하여 `다음' 버튼을 클릭한다.
+4. 설치파일을 실행한 후, `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?`라는 사용자 계정 컨트롤 창이 나타나면 `예` 버튼을 클릭한다.
+5. 설치 언어는 `한국어`로 선택하고 `확인` 버튼을 클릭한다.
+6. R 4.x.x 설치 정보 내용을 확인하고, `다음` 버튼을 클릭한다.
+7. R 4.x.x 프로그램의 설치 경로를 지정하여 `다음` 버튼을 클릭한다.
 8. R.4.x.x 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 다음 버튼을 클릭한다.
-9. 스타트 옵션을 조정하는 화면이 나타나면, `No'를 선택하고 `다음' 버튼을 클릭한다.
+9. 스타트 옵션을 조정하는 화면이 나타나면, `No`를 선택하고 `다음` 버튼을 클릭한다.
 
 ### Rstudio 설치 (윈도우 환경)
 1. <https://rstudio.com/products/rstudio/download/> 사이트에 접속하여 `Rstudio Desktop free download` 버튼을 클릭한다.
-2. [2. Download Rstudio Desktop]의 `DOWNLOAD RSTUDIO FOR WINDOWS(64bit)' 파란색 버튼을 클릭하고, RStudio-1.x.x.exe 파일을 다운받는다.
-3. RStudio-1.x.x.exe 파일을 실행하면 `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 `예' 버튼을 클릭한다.
-4. Rstudio 설치 시작 창이 나타나면 `다음' 버튼을 클릭한다.
-5. Rstudio를 설치할 경로를 지정하고 `다음' 버튼을 클릭한다.
-6. Rstudio 바로가기 아이콘이 생성될 시작메뉴 폴더 안에 `Rstudio'를 입력하고 `설치' 버튼을 클릭한다.
-7. Rstudio 설치가 완료되면 `마침'버튼을 클릭한다.
+2. [2. Download Rstudio Desktop]의 `DOWNLOAD RSTUDIO FOR WINDOWS(64bit)` 파란색 버튼을 클릭하고, `Studio-1.x.x.exe` 파일을 다운받는다.
+3. RStudio-1.x.x.exe 파일을 실행하면 `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?`라는 사용자 계정 컨트롤 창이 나타나면 `예` 버튼을 클릭한다.
+4. Rstudio 설치 시작 창이 나타나면 `다음` 버튼을 클릭한다.
+5. Rstudio를 설치할 경로를 지정하고 `다음` 버튼을 클릭한다.
+6. Rstudio 바로가기 아이콘이 생성될 시작메뉴 폴더 안에 `Rstudio`를 입력하고 `설치` 버튼을 클릭한다.
+7. Rstudio 설치가 완료되면 `마침`버튼을 클릭한다.
 
 Rstudio를 실행한 후, 콘솔 창에서 NCA를 위한 패키지를 설치하는 방법은 다음과 같다. 홑따옴표 등의 인용 부호에 주의해야 한다.
 
@@ -362,10 +362,10 @@ param_table <- ncar::RptCfg %>%
   select(1, 4)
 
 kable(param_table, 
-      caption = 'Description of NonCompart parameters',booktabs=TRUE, longtable = TRUE)
+      caption = 'NonCompart에서 결과로 제시하는 파라미터와 그에 대한 설명 및 Certara Phoenix WinNonLin에서 보고되는 파라미터',booktabs=TRUE, longtable = TRUE)
 ```
 
-각 파라미터의 의미를 아래에 국문으로 풀이하였다.
+각 파라미터의 의미를 아래에 풀이하였다.
 
 **Cmax (CMAX)**
 

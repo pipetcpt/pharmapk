@@ -177,14 +177,14 @@ V~ss~와 CL이 동일함에도 불구하고 최종반감기가 현저히 다른 
 ![](media-04/image4.jpg){width="2.885793963254593in"
 height="1.851613079615048in"}
 
-그림 4.4 동일한 Vss와 CL을 가져도 최종반감기와 C~max~가 차이나는 사례\index{반감기}\index{반감기}
+그림 4.4 동일한 Vss와 CL를 가져도 최종반감기와 C~max~가 차이나는 사례\index{반감기}\index{반감기}
 -->
 
 ```{r fig4-4, fig.cap = "(ref:fig4-4)"}
 knitr::include_graphics('media-04/image4.jpg')
 ```
 
-(ref:fig4-4) 동일한 Vss와 CL을 가져도 최종반감기와 C~max~가 차이나는 사례\index{반감기}\index{반감기}
+(ref:fig4-4) 동일한 Vss와 CL를 가져도 최종반감기와 C~max~가 차이나는 사례\index{반감기}\index{반감기}
 
 ### 정확한 C~max~, T~max~ 값의 추정
 
@@ -240,7 +240,7 @@ Table: (\#tab:pk-param-comparison) NCA와 구획모델 분석으로 얻어지는
 
 파라미터의 속성 | NCA 로 구한 파라미터 | 구획분석으로 구한 파라미터 | 비고
 -- | -- | -- | --
-제거능력 | CL=AUC/Dose | CL=k~e~   × V~c~ | CL을 구하는 수식 자체가 다름
+제거능력 | CL=AUC/Dose | CL=k~e~   × V~c~ | CL를 구하는 수식 자체가 다름
 분포 | V~ss~ = V~z~ = Dose/(AUC·β) = CL/β | V~c~, V~p~, <br /> V~ss~ = V~c~ + V~p~ | NCA에서는 V~c~, V~p~ 따로 구하지 못하고 구획모델에서는 V~z~ 안 나옴
 최종소실기 | β: 최종 농도 2~3개 연결하여 측정 | k~e~ | NCA에서는 k~e~ 못 구하고 구획모델에서는 β 못 구함
 구획간 분포 속도 | 개념 자체가 없음 | k~12~,   k~21~, Q = k~12~   × Vc = k~12~ × Vp | &nbsp;
