@@ -283,7 +283,7 @@ k~e~) 수 밖에 없다. 만약 말초구획이 존재하지 않고 중심구획
 k~e~가 관찰된다.
 \index{만니톨, mannitol}
 
-```{r fig4-6, fig.cap = "(ref:fig4-6)"}
+```{r fig4-6, fig.cap = "(ref:fig4-6)", out.width="80%"}
 knitr::include_graphics('media-04/image6.png')
 ```
 

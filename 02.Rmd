@@ -33,7 +33,7 @@ knitr::include_graphics('media-02/image1.png')
 생리학적인 가정이 없는 상황에서 의약품 투여 후 경과 시간은 농도 변화를 기술할 수 있는 유일한 독립변인이므로, 이러한 방법은 꽤나 타당한 것이다. 
 그림 \@ref(fig:pk-table)은 이러한 방식으로 나타낸 시간대 별 약물농도표이다.
 
-```{r pk-table, fig.cap = "(ref:pk-table)", out.width="130%"}
+```{r pk-table, fig.cap = "(ref:pk-table)", out.width="100%"}
 knitr::include_graphics('media-02/image2.png')
 ```
 
