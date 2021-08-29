@@ -1,8 +1,8 @@
 #grep -rl 'xyz' ./*.Rmd | xargs gsed -i '/xyz/ s/$/\\index{xyz}/'
-grep -rl '용량용법' ./*.Rmd | xargs gsed -i '/용량용법/ s/$/\\index{용량용법(dosage regimen)}/'
-grep -rl '최종반감기' ./*.Rmd | xargs gsed -i '/최종반감기/ s/$/\\index{최종반감기}/'
-erep -rl '조직결합' ./*.Rmd | xargs gsed -i '/조직결합/ s/$/\\index{조직결합}/'
-grep -rl '유효용량' ./*.Rmd | xargs gsed -i '/유효용량/ s/$/\\index{유효용량}/'
+#grep -rl '용량용법' ./*.Rmd | xargs gsed -i '/용량용법/ s/$/\\index{용량용법(dosage regimen)}/'
+#grep -rl '최종반감기' ./*.Rmd | xargs gsed -i '/최종반감기/ s/$/\\index{최종반감기}/'
+#grep -rl '조직결합' ./*.Rmd | xargs gsed -i '/조직결합/ s/$/\\index{조직결합}/'
+#grep -rl '유효용량' ./*.Rmd | xargs gsed -i '/유효용량/ s/$/\\index{유효용량}/'
 
 # 신장과 콩팥이 혼용되어 쓰이고 있었는데 전체에서 신장을 콩팥으로 바꿈
 # - "CL을" -> "CL를", "CL과" -> "CL와", "CL은" -> "CL는": CL이 clearance로 읽히므로 전체에서 바꿈

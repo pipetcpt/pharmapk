@@ -63,13 +63,13 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 NCA를 통한 약동학적 주요 지표를 구할 수 있다. 비용을 떠나 NCA를 R로 수행하는 가장 중요한 이유는 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문이다. 더 나아가 계량약리학 분석 전후 과정 중에 NCA를 같은 작업환경에서 빠르게 수행할 수 있다는 장점도 있다.\index{약동학}\index{계량약리학}
 
-이 책에서 주로 다루게 될 `NonCompart` [@R-NonCompart],  `ncar` [@R-ncar], `pkr` [@R-pkr] 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
+이 책에서 주로 다루게 될 NonCompart [@R-NonCompart],  ncar [@R-ncar], pkr [@R-pkr] 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
 
-`NonCompart`의 패키지 이름은 `r packageDescription("NonCompart")$Title`, 
-`ncar`의 패키지 이름은 `r packageDescription("ncar")$Title`,
-`pkr`의 패키지 이름은 `r packageDescription("pkr")$Title` 이다.
+NonCompart의 패키지 이름은 `r packageDescription("NonCompart")$Title`, 
+ncar의 패키지 이름은 `r packageDescription("ncar")$Title`,
+pkr의 패키지 이름은 `r packageDescription("pkr")$Title` 이다.
 
-이들의 기저에 있는 계산 방식은 모두 동일하고 앞서 설명한 상용소프트웨어와 완전히 일치하는 결과를 낼 수 있다. `NonCompart`의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있다. CDISC SDTM 용어를 사용하기 때문에 표준을 준수한다는 장점도 있다.
+이들의 기저에 있는 계산 방식은 모두 동일하고 앞서 설명한 상용소프트웨어와 완전히 일치하는 결과를 낼 수 있다. NonCompart의 `DESCRIPTION` 파일을 보면 다음과 같이 설명하고 있다. CDISC SDTM 용어를 사용하기 때문에 표준을 준수한다는 장점도 있다.
 
 > `r packageDescription('NonCompart')$Description`
 
@@ -407,7 +407,7 @@ $$R_{adj}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}$$
 
 **b0 (b0)**
 
-로그 농도 대 시간의 회귀선의 절편이다. CLSTP 계산에 사용되지만 정맥 주사(IV bolus)의 경우 외삽된 C0 (시간 0에서의 농도)에는 사용되지 않는다.
+로그 농도 대 시간의 회귀선의 절편이다. CLSTP 계산에 사용되지만 정맥주사(i.v. bolus)의 경우 외삽된 C0 (시간 0에서의 농도)에는 사용되지 않는다.
 
 **Lambda_z (LAMZ)**
 
@@ -443,7 +443,7 @@ $$ C_ {0} = exp (log (c_ {1})-t_ {1} \frac {log (c_ {2})-log (c_ {1})} {t_ {2}-t
 
 **AUClast (AUCLST)**
 
-투약 후 마지막 양수의 농도까지의 시간-농도 곡선 아래 영역을 의미한다. NCA에서 가장 널리 사용되는 계산 방법은 선형 사다리꼴 규칙 (`linear-up, linear-down') 또는 로그 선형 사다리꼴 규칙(`linear-up, log-down'). 선형 사다리꼴 방법의 경우 아래의 공식을 사용한다.
+투약 후 마지막 양수의 농도까지의 시간-농도 곡선 아래 영역을 의미한다. NCA에서 가장 널리 사용되는 계산 방법은 선형 사다리꼴 규칙 (linear-up, linear-down) 또는 로그 선형 사다리꼴 규칙(linear-up, log-down). 선형 사다리꼴 방법의 경우 아래의 공식을 사용한다.
 
 $$AUC_{last} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1})}{2}$$
 
@@ -505,13 +505,13 @@ desc_tblNCA(Indometh_tblNCA_selected)
 ```{r theodesc, echo = FALSE}
 desc_tblNCA(Theoph_tblNCA_selected) %>% 
   kable(booktabs = TRUE, 
-        caption = 'Descriptive statistics of selected PK parameters of Theoph oral administration')
+        caption = '테오필린 경구 투여 후 약동학 파라미터의 기술 통계')
 ```
 
 ```{r indodesc, echo = FALSE}
 desc_tblNCA(Indometh_tblNCA_selected) %>% 
   kable(booktabs = TRUE, 
-        caption = 'Descriptive statistics of selected PK parameters of Indometh IV infusion')
+        caption = '인도메타신 정맥 주입 후 약동학 파라미터의 기술 통계')
 ```
 
 ## NCA 후 생물학적 동등성 판별 {#bioequivalence}
@@ -604,7 +604,7 @@ knitr::include_graphics('media-03/twobytwo.jpg')
 BE 패키지에 내장되어 있는 자료인 `NCAResult4BE`를 사용하여 예제를 구성하였다. (표 \@ref(tab:beconcdata)) 33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라미터 AUC~last~, C~max~, T~max~ 자료가 정리되어 있다. 33명의 대상자의 개인별 농도-시간 그래프는 그림 \@ref(fig:conc-time-curve)에 나타내었다.\index{약동학}
 
 ```{r beconcdata, echo = FALSE}
-knitr::kable(head(BE::NCAResult4BE), caption = '생물학적 동등성 평가를 위한 예제 데이터셋 (`BE` 패키지에 내장된 `NCAResult4BE`의 첫 6개 관찰값)', booktabs = TRUE)
+knitr::kable(head(BE::NCAResult4BE), caption = '생물학적 동등성 평가를 위한 예제 데이터셋 (BE 패키지에 내장된 NCAResult4BE의 첫 6개 관찰값)', booktabs = TRUE)
 ```
 
 ```{r conc-time-curve, fig.cap="생물학적 동등성 평가를 위한 예제 데이터셋의 농도-시간 곡선 (N=33)", echo=FALSE}
