@@ -214,16 +214,17 @@ Table: (\#tab:pk-param-comparison) NCA와 구획모델 분석으로 얻어지는
 
 ```{r pk-param-comparison} 
 tribble(~"파라미터의 속성", ~"NCA 로 구한 파라미터", ~"구획분석으로 구한 파라미터", ~"비고",
-"제거능력", "CL=AUC/Dose", "CL=k~e~·V~c~", "CL 수식 다름",
-"분포", "V~ss~=CL·MRT\nV~z~=Dose/(AUC·β)=CL/β", "V~c~, V~p~,\nV~ss~=V~c~+V~p~", "NCA에서는 V~c~, V~p~ 따로 구하지 못하고 구획모델에서는 V~z~ 안 나옴, \nV~ss~ 수식 다름",
-"최종소실기", "β: 최종 농도 2~3개 연결하여 측정", "k~e~", "NCA에서는 k~e~ 못 구하고 구획모델에서는 β 못 구함",
-"구획간 분포 속도", "개념 자체가 없음", "k~12~, k~21~, \n Q = k~12~·V~c~ = k~21~·V~p~", " ") %>%
+"제거능력", "CL=AUC/Dose", "CL=k\\textsubscript{e}·V\\textsubscript{c}", "CL 수식 다름",
+"분포", "V\\textsubscript{ss}=CL·MRT\nV\\textsubscript{z}=Dose/(AUC·β)=CL/β", "V\\textsubscript{c}, V\\textsubscript{p},\nV\\textsubscript{ss}=V\\textsubscript{c}+V\\textsubscript{p}", "NCA에서는 V\\textsubscript{c}, V\\textsubscript{p} 따로 구하지 못하고 구획모델에서는 V\\textsubscript{z} 안 나옴, \nV\\textsubscript{ss} 수식 다름",
+"최종소실기", "β: 최종 농도 2~3개 연결하여 측정", "k\\textsubscript{e}", "NCA에서는 k\\textsubscript{e} 못 구하고 구획모델에서는 β 못 구함",
+"구획간 분포 속도", "개념 자체가 없음", "k\\textsubscript{12}, k\\textsubscript{21}, \n Q = k\\textsubscript{12}·V\\textsubscript{c} = k\\textsubscript{21}·V\\textsubscript{p}", " ") %>%
   mutate_all(linebreak) %>%
   kable(caption = "NCA와 구획모델 분석으로 얻어지는 PK 파라미터 비교", booktabs=TRUE, escape=FALSE) %>%
   column_spec(1, width = "2.0cm") %>%
   column_spec(2, width = "4.0cm") %>%
   column_spec(3, width = "4.0cm") %>%
-  column_spec(4, width = "3.0cm")
+  column_spec(4, width = "3.0cm") %>% 
+  kable_styling(font_size = 9)
 ```
 
 \normalsize

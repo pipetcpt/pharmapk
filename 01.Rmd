@@ -718,7 +718,7 @@ height="2.5160378390201226in"}
 그림15 흡수속도상수(k~a~) 와 혈장약물농도 곡선의 관계 (k 소문자로, 맨 우측 곡선 더 길게)\index{흡수속도상수}
 -->
 
-```{r flip-flop, fig.cap="(ref:flip-flop)", out.width="100%"}
+```{r flip-flop, fig.cap="(ref:flip-flop)", out.width="80%"}
 knitr::include_graphics("media-01/image13.jpeg")
 ```
 

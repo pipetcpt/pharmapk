@@ -9,6 +9,8 @@ _bookdown_files
 pdf-*.pdf
 zip
 basic.log
+Output
+Output-ncar
 
 # History files
 .Rhistory

@@ -2226,7 +2226,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.4 }\ErrorTok{(}\ExtensionTok{2021{-}07{-}16}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.1 }\ErrorTok{(}\ExtensionTok{2021{-}08{-}10}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}08{-}29 15:25:38 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}08{-}29 16:52:48 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -3067,10 +3067,10 @@ NCA로부터 PK파라미터를 구하는 시초는 혈장약물농도로부터 A
 \toprule
 파라미터의 속성 & NCA 로 구한 파라미터 & 구획분석으로 구한 파라미터 & 비고\\
 \midrule
-제거능력 & CL=AUC/Dose & CL=k\textasciitilde{}e\textasciitilde{}·V\textasciitilde{}c\textasciitilde{} & CL 수식 다름\\
-분포 & \textbackslash{}makecell[c]\{V\textasciitilde{}ss\textasciitilde{}=CL·MRT\textbackslash{}\textbackslash{}V\textasciitilde{}z\textasciitilde{}=Dose/(AUC·β)=CL/β\} & \textbackslash{}makecell[c]\{V\textasciitilde{}c\textasciitilde{}, V\textasciitilde{}p\textasciitilde{},\textbackslash{}\textbackslash{}V\textasciitilde{}ss\textasciitilde{}=V\textasciitilde{}c\textasciitilde{}+V\textasciitilde{}p\textasciitilde{}\} & \textbackslash{}makecell[c]\{NCA에서는 V\textasciitilde{}c\textasciitilde{}, V\textasciitilde{}p\textasciitilde{} 따로 구하지 못하고 구획모델에서는 V\textasciitilde{}z\textasciitilde{} 안 나옴, \textbackslash{}\textbackslash{}V\textasciitilde{}ss\textasciitilde{} 수식 다름\}\\
-최종소실기 & β: 최종 농도 2\textasciitilde{}3개 연결하여 측정 & k\textasciitilde{}e\textasciitilde{} & NCA에서는 k\textasciitilde{}e\textasciitilde{} 못 구하고 구획모델에서는 β 못 구함\\
-구획간 분포 속도 & 개념 자체가 없음 & \textbackslash{}makecell[l]\{k\textasciitilde{}12\textasciitilde{}, k\textasciitilde{}21\textasciitilde{}, \textbackslash{}\textbackslash{} Q = k\textasciitilde{}12\textasciitilde{}·V\textasciitilde{}c\textasciitilde{} = k\textasciitilde{}21\textasciitilde{}·V\textasciitilde{}p\textasciitilde{}\} & \\
+제거능력 & CL=AUC/Dose & CL=k\textsubscript{e}·V\textsubscript{c} & CL 수식 다름\\
+분포 & V\textsubscript{ss}=CL·MRT\newline V\textsubscript{z}=Dose/(AUC·β)=CL/β & V\textsubscript{c}, V\textsubscript{p},\newline V\textsubscript{ss}=V\textsubscript{c}+V\textsubscript{p} & NCA에서는 V\textsubscript{c}, V\textsubscript{p} 따로 구하지 못하고 구획모델에서는 V\textsubscript{z} 안 나옴, \newline V\textsubscript{ss} 수식 다름\\
+최종소실기 & β: 최종 농도 2~3개 연결하여 측정 & k\textsubscript{e} & NCA에서는 k\textsubscript{e} 못 구하고 구획모델에서는 β 못 구함\\
+구획간 분포 속도 & 개념 자체가 없음 & k\textsubscript{12}, k\textsubscript{21}, \newline  Q = k\textsubscript{12}·V\textsubscript{c} = k\textsubscript{21}·V\textsubscript{p} & \\
 \bottomrule
 \end{tabular}
 \end{table}
@@ -3402,7 +3402,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ##            ka      V         k AddErrVar AddErrSD
 ## PE   0.013202 21.018  0.013202   0.08701  0.29498
 ## SE   0.005442  8.623  0.005442   0.03413  0.05785
-## RSE 41.220676 41.029 41.220716  39.22314 19.61157
+## RSE 41.220612 41.029 41.220652  39.22314 19.61157
 \end{verbatim}
 
 \hypertarget{compartmental-analysis-with-tlag}{%
@@ -3719,13 +3719,13 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 
 \begin{verbatim}
 ##      Vc/F     Ka      k21  alpha     beta AddErrVar
-## PE  43.59  2.347   0.6955  2.347   0.3960    537.13
-## SE  40.96  2.240   0.9594  2.241   0.4919    202.99
-## RSE 93.98 95.439 137.9449 95.482 124.2005     37.79
+## PE  43.63  2.350   0.6979  2.346   0.3973     537.2
+## SE  40.61  2.222   0.9644  2.222   0.4938     203.0
+## RSE 93.07 94.574 138.1807 94.704 124.2789      37.8
 ##     AddErrSD
-## PE    23.176
-## SE     4.379
-## RSE   18.896
+## PE     23.18
+## SE      4.38
+## RSE    18.90
 \end{verbatim}
 
 \hypertarget{compartmental-analysis-with-tlag-1}{%
@@ -3762,14 +3762,14 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 \end{Shaded}
 
 \begin{verbatim}
-##       Vc/F     Ka       k21   alpha      beta    Tlag
-## PE  88.528 19.767 7.902e-03 0.73176 1.976e-03 0.12163
-## SE   2.315  3.763 1.243e-01 0.04575 1.129e-01 0.00812
-## RSE  2.615 19.036 1.573e+03 6.25139 5.713e+03 6.67610
+##       Vc/F     Ka       k21   alpha      beta     Tlag
+## PE  88.530 19.778 7.970e-03 0.73179 2.022e-03 0.121649
+## SE   2.319  3.774 1.245e-01 0.04592 1.131e-01 0.008134
+## RSE  2.619 19.085 1.562e+03 6.27477 5.592e+03 6.686128
 ##     AddErrVar AddErrSD
-## PE     17.894   4.2301
-## SE      6.851   0.8098
-## RSE    38.288  19.1441
+## PE     17.890   4.2296
+## SE      6.848   0.8096
+## RSE    38.281  19.1403
 \end{verbatim}
 
 \hypertarget{uxbaa8uxb378uxb9c1-uxacb0uxacfc-2}{%
@@ -4052,7 +4052,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.03011 secs
+## Time difference of 0.083 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4117,7 +4117,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005418 secs
+## Time difference of 0.017 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4182,7 +4182,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006927 secs
+## Time difference of 0.029 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4246,7 +4246,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005717 secs
+## Time difference of 0.019 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4311,7 +4311,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.00605 secs
+## Time difference of 0.016 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4375,7 +4375,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006549 secs
+## Time difference of 0.013 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4439,7 +4439,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.00981 secs
+## Time difference of 0.015 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4503,7 +4503,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.00578 secs
+## Time difference of 0.013 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4567,7 +4567,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008131 secs
+## Time difference of 0.03 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4632,7 +4632,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008586 secs
+## Time difference of 0.025 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4697,7 +4697,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007814 secs
+## Time difference of 0.021 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4762,7 +4762,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006198 secs
+## Time difference of 0.013 secs
 \end{verbatim}
 
 \normalsize
