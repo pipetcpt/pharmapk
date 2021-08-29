@@ -224,7 +224,7 @@ tribble(~"파라미터의 속성", ~"NCA 로 구한 파라미터", ~"구획분�
   column_spec(2, width = "4.0cm") %>%
   column_spec(3, width = "4.0cm") %>%
   column_spec(4, width = "3.0cm") %>% 
-  kable_styling(font_size = 9)
+  kable_styling(font_size = 10)
 ```
 
 \normalsize

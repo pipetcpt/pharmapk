@@ -80,7 +80,7 @@ pkr의 패키지 이름은 `r packageDescription("pkr")$Title` 이다.
 1. https://cran.r-project.org 사이트에 접속하여, `Download R for Windows` 링크를 선택한다.
 2. `Subdirectories` 유형에서 `base - install R for the first time`을 선택한다.
 3. `Download R for Windows` 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.
-4. 설치파일을 실행한 후, `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?`라는 사용자 계정 컨트롤 창이 나타나면 `예` 버튼을 클릭한다.
+4. 설치파일을 실행한 후, '이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 '예' 버튼을 클릭한다.
 5. 설치 언어는 `한국어`로 선택하고 `확인` 버튼을 클릭한다.
 6. R 4.x.x 설치 정보 내용을 확인하고, `다음` 버튼을 클릭한다.
 7. R 4.x.x 프로그램의 설치 경로를 지정하여 `다음` 버튼을 클릭한다.
@@ -90,7 +90,7 @@ pkr의 패키지 이름은 `r packageDescription("pkr")$Title` 이다.
 ### Rstudio 설치 (윈도우 환경)
 1. <https://rstudio.com/products/rstudio/download/> 사이트에 접속하여 `Rstudio Desktop free download` 버튼을 클릭한다.
 2. [2. Download Rstudio Desktop]의 `DOWNLOAD RSTUDIO FOR WINDOWS(64bit)` 파란색 버튼을 클릭하고, `Studio-1.x.x.exe` 파일을 다운받는다.
-3. RStudio-1.x.x.exe 파일을 실행하면 `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?`라는 사용자 계정 컨트롤 창이 나타나면 `예` 버튼을 클릭한다.
+3. RStudio-1.x.x.exe 파일을 실행하면 '이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 '예' 버튼을 클릭한다.
 4. Rstudio 설치 시작 창이 나타나면 `다음` 버튼을 클릭한다.
 5. Rstudio를 설치할 경로를 지정하고 `다음` 버튼을 클릭한다.
 6. Rstudio 바로가기 아이콘이 생성될 시작메뉴 폴더 안에 `Rstudio`를 입력하고 `설치` 버튼을 클릭한다.
@@ -169,8 +169,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 ```{example, tblnca-code, echo=TRUE}
 NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
 ```
-<!--\vspace{-5ex} -->
-\vspace{-2ex}
+\vspace{-5ex}
 ```{r}
 Theoph_tblNCA <- tblNCA(Theoph, "Subject", "Time", "conc", 
                         dose=320, concUnit="mg/L")
@@ -283,7 +282,7 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
            'Output-ncar/txtNCA-Theoph.txt')
 ```
 
-\small
+\footnotesize
 ```{bash, code = readLines('Output-ncar/txtNCA-Theoph.txt'), eval = FALSE}
 ```
 \normalsize
@@ -293,14 +292,14 @@ writeLines(txtNCA(Theoph[Theoph$Subject=="1","Time"],
 pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 \@ref(fig:pdfncaoutput)) 이렇게 생성된 파일은 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.
 
 ```{r pdfNCA, eval=FALSE}
-ncar::pdfNCA(fileName="Output-ncar/pdfNCA-Theoph.pdf", Theoph, key="Subject", 
+ncar::pdfNCA("Output-ncar/Theoph.pdf", Theoph, key="Subject", 
              colTime="Time",  colConc="conc", dose=320, doseUnit="mg", 
              timeUnit="h", concUnit="mg/L")
 ```
 
-```{r include = FALSE}
-system("magick -density 150 Output-ncar/pdfNCA-Theoph.pdf Output-ncar/pdfNCA-Theoph-%02d.png")
-system("magick montage Output-ncar/pdfNCA-Theoph-01.png Output-ncar/pdfNCA-Theoph-02.png Output-ncar/montage.png")
+```{r, include=FALSE, eval=FALSE}
+system("magick -density 150 Output-ncar/Theoph.pdf Output-ncar/Theoph-%02d.png")
+system("magick montage Output-ncar/Theoph-01.png Output-ncar/Theoph-02.png Output-ncar/montage.png")
 ```
 
 ```{r pdfncaoutput, fig.cap = 'pdfNCA() 출력 결과', echo = FALSE}
@@ -312,7 +311,7 @@ include_graphics('Output-ncar/pdfNCA-Theoph-01.png')
 마이크로소프트 워드에서 편집가능한 rtf파일을 만들 수 있다. 이렇게 생성된 파일은 위 PDF파일과 마찬가지로 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.
 
 ```{r eval = FALSE}
-ncar::rtfNCA(fileName="rtfNCA-Theoph.rtf", Theoph, key="Subject", 
+ncar::rtfNCA("rtfNCA-Theoph.rtf", Theoph, key="Subject", 
              colTime="Time", colConc="conc", dose=320, doseUnit="mg", 
              timeUnit="h", concUnit="mg/L")
 ```
@@ -323,7 +322,7 @@ NCA에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줄 �
 이를 비교적 쉽게 가능하게 해 주는 `pkr` 패키지[@R-pkr]가 있다.
 `Theoph` 자료의 시각화를 아래의 명령어를 통해 수행할 수 있다. 
 
-```{r eval = TRUE}
+```{r eval = FALSE}
 library(pkr)
 pkr::plotPK(Theoph, "Subject", "Time", "conc", 
             unitTime = "hr", unitConc = "mg/L", dose = 320)
@@ -488,16 +487,21 @@ psych 패키지의 `describe()` 함수를 사용하였으므로 이에 대한 �
 ```{example, desctblnca, echo=TRUE}
 핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
 ```
-<!--\vspace{-5ex} -->
-\vspace{-2ex}
-```{r}
+\vspace{-5ex}
+```{r eval = FALSE}
 desc_tblNCA <- function(tblNCA){
   psych::describe(tblNCA) %>%
     select(n, mean, sd, median, min, max)
 }
+desc_tblNCA(Theoph_tblNCA_selected)
+desc_tblNCA(Indometh_tblNCA_selected)
 ```
 
-```{r eval = FALSE}
+```{r include = FALSE}
+desc_tblNCA <- function(tblNCA){
+  psych::describe(tblNCA) %>%
+    select(n, mean, sd, median, min, max)
+}
 desc_tblNCA(Theoph_tblNCA_selected)
 desc_tblNCA(Indometh_tblNCA_selected)
 ```
@@ -625,21 +629,16 @@ knitr::include_graphics("media-03/figure-2.png")
 
 위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. \index{생물학적 동등성}
 
-**AUC~inf~**
-
-Analysis | Lower Limit | Point Estimate | Upper Limit
---- | --- | --- | --- 
-R BE 패키지 | 0.88944 | 0.95408 | 1.02341
-SAS: PROC GLM | 0.88944 | 0.95408 | 1.02341
-SAS: PROC MIXED | 0.88944 | 0.95408 | 1.02341
-
-**C~max~**
-
-Analysis | Lower Limit | Point Estimate | Upper Limit
---- | --- | --- | --- 
-R BE 패키지 | 0.90136 | 0.97984 | 1.06515
-SAS: PROC GLM | 0.90136 | 0.97984 | 1.06515
-SAS: PROC MIXED | 0.90136 | 0.97984 | 1.06515
+```{r, echo=FALSE}
+tribble(~"PK parameter", ~"Analysis", ~"Lower Limit", ~"Point Estimate", ~"Upper Limit",
+"AUC~inf~", "R BE 패키지", "0.88944", "0.95408", "1.02341",
+"", "SAS: PROC GLM", "0.88944", "0.95408", "1.02341",
+"", "SAS: PROC MIXED", "0.88944", "0.95408", "1.02341",
+"C~max~", "R BE 패키지", "0.90136", "0.97984", "1.06515",
+"", "SAS: PROC GLM", "0.90136", "0.97984", "1.06515",
+"", "SAS: PROC MIXED", "0.90136", "0.97984", "1.06515") %>%
+  kable(caption = "R BE 패키지와 SAS의 PROC GLM, PROC MIXED 계산 결과값의 비교", booktabs=TRUE, escape=FALSE)
+```
 
 ## 웹브라우저를 통한 NCA 및 생물학적동등성 판정
 

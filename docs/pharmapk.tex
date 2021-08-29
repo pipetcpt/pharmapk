@@ -18,7 +18,6 @@
   \usepackage{unicode-math}
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
-  \setmainfont[]{NanumMyeongjo}
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -40,7 +39,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.2 (2021-08-29)},
+  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)},
   colorlinks=true,
   linkcolor={Maroon},
   filecolor={Maroon},
@@ -139,11 +138,16 @@
 \usepackage{graphicx}
 %\usepackage{polyglossia}
 %\usepackage{ctex}
-\usepackage{fontspec}
-\usepackage{xetexko}
+%\usepackage{fontspec}
+%\usepackage{xetexko}
+%\setmainfont{NanumMyeongjo}
 \setmainfont{Noto Serif CJK KR}
 %\setmainhangulfont{Noto Serif CJK KR} 
+%\setmainhangulfont{NanumMyeongjo}
 %\setmainhanjafont{Noto Serif CJK KR}[Language=Chinese Simplified]
+%\setmainhanjafont{Noto Serif CJK KR}
+\usepackage{kotex}
+\setmonohangulfont{NanumGothicCoding}
 
 %sungpil defined above
 
@@ -151,7 +155,7 @@
 \usepackage{longtable}
 \usepackage[bf,singlelinecheck=off]{caption}
 
-\usepackage[utf8]{inputenc}
+%\usepackage[utf8]{inputenc}
 
 %\usepackage{xeCJK}
 %\setCJKmainfont[$for(CJKoptions)$$CJKoptions$$sep$,$endfor$]{$CJKmainfont$}
@@ -304,7 +308,7 @@
 \index{약동학}
 
 (I-기본원리과 자료해석)}
-\author{가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.2 (2021-08-29)}
+\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)}
 \date{2021-08-30}
 
 \usepackage{amsthm}
@@ -359,6 +363,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\listoffigures
+\listoftables
 \setstretch{1.30}
 \hypertarget{uxba38uxb9acuxb9d0}{%
 \chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
@@ -1467,7 +1473,7 @@ AUC\textsubscript{inf} 역시 산출해야 하는 파라미터이다. AUC\textsu
 의 식을 얻을 수 있으며, 이 식의 시점을 최종 관찰 시점으로 하면 궁극적으로 다음의 식 \eqref{eq:eq1}을 얻을 수 있다.
 
 \begin{equation}
-최종\ 측정\ 시점\ 이후의\ AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{최종\ 관찰된\ 약물농도\ {(C}_{last})\ }{최종제거속도상수(\lambda_{z})}
+AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{(C_{last})}{\lambda_z}
 \label{eq:eq1}
 \end{equation}
 
@@ -1849,7 +1855,7 @@ Some features are
 \item
   \texttt{Download\ R\ for\ Windows} 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.
 \item
-  설치파일을 실행한 후, \texttt{이\ 앱이\ 디바이스를\ 변경할\ 수\ 있도록\ 허용하시겠어요?}라는 사용자 계정 컨트롤 창이 나타나면 \texttt{예} 버튼을 클릭한다.
+  설치파일을 실행한 후, `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 '예' 버튼을 클릭한다.
 \item
   설치 언어는 \texttt{한국어}로 선택하고 \texttt{확인} 버튼을 클릭한다.
 \item
@@ -1873,7 +1879,7 @@ Some features are
 \item
   {[}2. Download Rstudio Desktop{]}의 \texttt{DOWNLOAD\ RSTUDIO\ FOR\ WINDOWS(64bit)} 파란색 버튼을 클릭하고, \texttt{Studio-1.x.x.exe} 파일을 다운받는다.
 \item
-  RStudio-1.x.x.exe 파일을 실행하면 \texttt{이\ 앱이\ 디바이스를\ 변경할\ 수\ 있도록\ 허용하시겠어요?}라는 사용자 계정 컨트롤 창이 나타나면 \texttt{예} 버튼을 클릭한다.
+  RStudio-1.x.x.exe 파일을 실행하면 `이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?'라는 사용자 계정 컨트롤 창이 나타나면 '예' 버튼을 클릭한다.
 \item
   Rstudio 설치 시작 창이 나타나면 \texttt{다음} 버튼을 클릭한다.
 \item
@@ -1994,7 +2000,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 \begin{example}
 \protect\hypertarget{exm:tblnca-code}{}{\label{exm:tblnca-code} }NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
 \end{example}
-\vspace{-2ex}
+\vspace{-5ex}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2227,7 +2233,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 \end{Highlighting}
 \end{Shaded}
 
-\small
+\footnotesize
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2235,7 +2241,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.4 }\ErrorTok{(}\ExtensionTok{2021{-}07{-}16}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.1 }\ErrorTok{(}\ExtensionTok{2021{-}08{-}10}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}08{-}30 01:03:16 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}08{-}30 03:01:03 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2315,7 +2321,7 @@ pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 \ref{fig:pdfncaoutput}) 이
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ncar}\SpecialCharTok{::}\FunctionTok{pdfNCA}\NormalTok{(}\AttributeTok{fileName=}\StringTok{"Output{-}ncar/pdfNCA{-}Theoph.pdf"}\NormalTok{, Theoph, }\AttributeTok{key=}\StringTok{"Subject"}\NormalTok{, }
+\NormalTok{ncar}\SpecialCharTok{::}\FunctionTok{pdfNCA}\NormalTok{(}\StringTok{"Output{-}ncar/Theoph.pdf"}\NormalTok{, Theoph, }\AttributeTok{key=}\StringTok{"Subject"}\NormalTok{, }
              \AttributeTok{colTime=}\StringTok{"Time"}\NormalTok{,  }\AttributeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\AttributeTok{dose=}\DecValTok{320}\NormalTok{, }\AttributeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }
              \AttributeTok{timeUnit=}\StringTok{"h"}\NormalTok{, }\AttributeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
 \end{Highlighting}
@@ -2337,7 +2343,7 @@ pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 \ref{fig:pdfncaoutput}) 이
 
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{ncar}\SpecialCharTok{::}\FunctionTok{rtfNCA}\NormalTok{(}\AttributeTok{fileName=}\StringTok{"rtfNCA{-}Theoph.rtf"}\NormalTok{, Theoph, }\AttributeTok{key=}\StringTok{"Subject"}\NormalTok{, }
+\NormalTok{ncar}\SpecialCharTok{::}\FunctionTok{rtfNCA}\NormalTok{(}\StringTok{"rtfNCA{-}Theoph.rtf"}\NormalTok{, Theoph, }\AttributeTok{key=}\StringTok{"Subject"}\NormalTok{, }
              \AttributeTok{colTime=}\StringTok{"Time"}\NormalTok{, }\AttributeTok{colConc=}\StringTok{"conc"}\NormalTok{, }\AttributeTok{dose=}\DecValTok{320}\NormalTok{, }\AttributeTok{doseUnit=}\StringTok{"mg"}\NormalTok{, }
              \AttributeTok{timeUnit=}\StringTok{"h"}\NormalTok{, }\AttributeTok{concUnit=}\StringTok{"mg/L"}\NormalTok{)}
 \end{Highlighting}
@@ -2357,11 +2363,6 @@ NCA에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줄 �
             \AttributeTok{unitTime =} \StringTok{"hr"}\NormalTok{, }\AttributeTok{unitConc =} \StringTok{"mg/L"}\NormalTok{, }\AttributeTok{dose =} \DecValTok{320}\NormalTok{)}
 \end{Highlighting}
 \end{Shaded}
-
-\begin{verbatim}
-## pdf 
-##   2
-\end{verbatim}
 
 조금 기다린 후 \texttt{Output} 폴더를 확인해 보면 세개의 그림 파일과 두개의 PDF 파일이 생성된 것을 볼 수 있다. (그림 \ref{fig:pkr1}, \ref{fig:pkr2}, \ref{fig:pkr3})
 평균 약동학 파라미터와 그룹 농도-시간 그림 및 개별 대상자의 약동학 파라미터와 개별 농도-시간 그림이 생성된다.\index{약동학}
@@ -2595,7 +2596,7 @@ psych 패키지의 \texttt{describe()} 함수를 사용하였으므로 이에 �
 \begin{example}
 \protect\hypertarget{exm:desctblnca}{}{\label{exm:desctblnca} }핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
 \end{example}
-\vspace{-2ex}
+\vspace{-5ex}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2603,11 +2604,6 @@ psych 패키지의 \texttt{describe()} 함수를 사용하였으므로 이에 �
 \NormalTok{  psych}\SpecialCharTok{::}\FunctionTok{describe}\NormalTok{(tblNCA) }\SpecialCharTok{\%\textgreater{}\%}
     \FunctionTok{select}\NormalTok{(n, mean, sd, median, min, max)}
 \NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \FunctionTok{desc\_tblNCA}\NormalTok{(Theoph\_tblNCA\_selected)}
 \FunctionTok{desc\_tblNCA}\NormalTok{(Indometh\_tblNCA\_selected)}
 \end{Highlighting}
@@ -2798,31 +2794,24 @@ SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\\
 
 위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. \index{생물학적 동등성}
 
-\textbf{AUC\textsubscript{inf}}
+\begin{table}
 
-\begin{longtable}[]{@{}llll@{}}
+\caption{\label{tab:unnamed-chunk-24}R BE 패키지와 SAS의 PROC GLM, PROC MIXED 계산 결과값의 비교}
+\centering
+\begin{tabular}[t]{lllll}
 \toprule
-Analysis & Lower Limit & Point Estimate & Upper Limit \\
+PK parameter & Analysis & Lower Limit & Point Estimate & Upper Limit\\
 \midrule
-\endhead
-R BE 패키지 & 0.88944 & 0.95408 & 1.02341 \\
-SAS: PROC GLM & 0.88944 & 0.95408 & 1.02341 \\
-SAS: PROC MIXED & 0.88944 & 0.95408 & 1.02341 \\
+AUC~inf~ & R BE 패키지 & 0.88944 & 0.95408 & 1.02341\\
+ & SAS: PROC GLM & 0.88944 & 0.95408 & 1.02341\\
+ & SAS: PROC MIXED & 0.88944 & 0.95408 & 1.02341\\
+C~max~ & R BE 패키지 & 0.90136 & 0.97984 & 1.06515\\
+ & SAS: PROC GLM & 0.90136 & 0.97984 & 1.06515\\
+\addlinespace
+ & SAS: PROC MIXED & 0.90136 & 0.97984 & 1.06515\\
 \bottomrule
-\end{longtable}
-
-\textbf{C\textsubscript{max}}
-
-\begin{longtable}[]{@{}llll@{}}
-\toprule
-Analysis & Lower Limit & Point Estimate & Upper Limit \\
-\midrule
-\endhead
-R BE 패키지 & 0.90136 & 0.97984 & 1.06515 \\
-SAS: PROC GLM & 0.90136 & 0.97984 & 1.06515 \\
-SAS: PROC MIXED & 0.90136 & 0.97984 & 1.06515 \\
-\bottomrule
-\end{longtable}
+\end{tabular}
+\end{table}
 
 \hypertarget{uxc6f9uxbe0cuxb77cuxc6b0uxc800uxb97c-uxd1b5uxd55c-nca-uxbc0f-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxc815}{%
 \section{웹브라우저를 통한 NCA 및 생물학적동등성 판정}\label{uxc6f9uxbe0cuxb77cuxc6b0uxc800uxb97c-uxd1b5uxd55c-nca-uxbc0f-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxc815}}
@@ -3072,7 +3061,7 @@ NCA로부터 PK파라미터를 구하는 시초는 혈장약물농도로부터 A
 
 \caption{\label{tab:pk-param-comparison}NCA와 구획모델 분석으로 얻어지는 PK 파라미터 비교}
 \centering
-\fontsize{9}{11}\selectfont
+\fontsize{10}{12}\selectfont
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{3.0cm}}
 \toprule
 파라미터의 속성 & NCA 로 구한 파라미터 & 구획분석으로 구한 파라미터 & 비고\\
@@ -3326,7 +3315,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \end{Highlighting}
 \end{Shaded}
 
-\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-26-1} \end{center}
+\begin{center}\includegraphics[width=1\linewidth]{pharmapk_files/figure-latex/unnamed-chunk-27-1} \end{center}
 
 먼저 NCA를 수행한다. T\textsubscript{max}는 40분, C\textsubscript{max}는 2.00 ug/L인 것을 알 수 있다.
 
@@ -4062,7 +4051,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02456 secs
+## Time difference of 0.02969 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4127,7 +4116,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005103 secs
+## Time difference of 0.005221 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4192,7 +4181,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006164 secs
+## Time difference of 0.00586 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4256,7 +4245,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005083 secs
+## Time difference of 0.004995 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4321,7 +4310,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005303 secs
+## Time difference of 0.005183 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4385,7 +4374,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006101 secs
+## Time difference of 0.005716 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4449,7 +4438,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009145 secs
+## Time difference of 0.006174 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4513,7 +4502,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005211 secs
+## Time difference of 0.005282 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4577,7 +4566,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007214 secs
+## Time difference of 0.007446 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4642,7 +4631,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007373 secs
+## Time difference of 0.007765 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4707,7 +4696,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006914 secs
+## Time difference of 0.01006 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4772,7 +4761,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005691 secs
+## Time difference of 0.005352 secs
 \end{verbatim}
 
 \normalsize

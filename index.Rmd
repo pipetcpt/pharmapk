@@ -3,13 +3,13 @@ title: |
   <center> 신약개발을 위한 실전 약동학 </center>\index{약동학}
   <center> (I-기본원리과 자료해석)  </center>
 #"신약개발을 위한 실전 약동학\newline(I-이론과 자료해석)"\index{약동학}
-author: "가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.2 (2021-08-29)"
+author: "가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)"
 #date: "Ver. `r gsub('-', '', Sys.Date())`"
 date: "`r Sys.Date()`"
 documentclass: krantz
 classoption: krantz2, a4paper, twoside
 linestretch: 1.30 # https://github.com/jgm/pandoc/issues/5179
-mainfont: NanumMyeongjo
+#mainfont: NanumMyeongjo
 knit: "bookdown::render_book"
 site: bookdown::bookdown_site
 description: "신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다."
@@ -21,8 +21,8 @@ biblio-style: apalike
 fontsize: 11pt
 link-citations: yes
 colorlinks: yes
-#lot: no
-#lof: no
+lot: no
+lof: no
 header-includes:
   - \usepackage{kotex} 
   - \usepackage{chemarr}

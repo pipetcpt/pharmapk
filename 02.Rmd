@@ -155,7 +155,7 @@ AUC~inf~ 역시 산출해야 하는 파라미터이다. AUC~inf~는 앞서 구�
 의 식을 얻을 수 있으며, 이 식의 시점을 최종 관찰 시점으로 하면 궁극적으로 다음의 식 \@ref(eq:eq1)을 얻을 수 있다.
 
 \begin{equation}
-최종\ 측정\ 시점\ 이후의\ AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{최종\ 관찰된\ 약물농도\ {(C}_{last})\ }{최종제거속도상수(\lambda_{z})}
+AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{(C_{last})}{\lambda_z}
 (\#eq:eq1)
 \end{equation}
 
