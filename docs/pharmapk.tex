@@ -684,11 +684,22 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 
 \begin{figure}
 
-{\centering \includegraphics[width=0.8\linewidth]{media-01/image5} 
+{\centering \includegraphics[width=0.7\linewidth]{media-01/image5} 
 
 }
 
 \caption{두개의 경사를 보이는 혈장약물농도 변화(i.v. bolus 주입 후 흔히 보이는 현상)}\label{fig:two-slope}
+\end{figure}
+
+
+
+\begin{figure}
+
+{\centering \includegraphics[width=0.8\linewidth]{media-01/image6} 
+
+}
+
+\caption{약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델}\label{fig:distribution-two-slope}
 \end{figure}
 
 
@@ -701,17 +712,6 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 이 두 그래프를 참조하면, 두 개의 비커가 연결되어 있고 그 중 우측 비커에 잉크 제거 장치가 작동하는 상황에서 잉크농도는 그래프 c)와 같이 나타날 것이다.
 잉크를 약이라고 가정하면, 우리 몸에서 보이는 혈장약물농도가 두 개의 기울기를 가진 직선으로 나타나는 원인은 이와 같이 설명되는 것이다.
 즉 혈관 속이나 약물이 혈류와 거의 동시에 빠르게 퍼져서 평형이 일어나는 장기들이 오른쪽 비커에 해당하고 그 외 평형이 빨리 일어나지 않는 장기들(혈류가 낮거나, 특정 약물이 혈액-뇌 장벽 등을 통과하는데 시간이 걸리는 등)은 왼쪽 비커에 해당된다.
-
-\begin{figure}
-
-{\centering \includegraphics[width=0.8\linewidth]{media-01/image6} 
-
-}
-
-\caption{약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델}\label{fig:distribution-two-slope}
-\end{figure}
-
-
 
 실제 사람의 몸에서 약이 분포하는 과정을 그림 \ref{fig:iv-distribution}에 나타냈다. 앞 그림의
 오른쪽 비커에 해당되는 것이 혈관 속(혈장), 간이나 콩팥과 같이 혈류가
@@ -2241,7 +2241,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.4 }\ErrorTok{(}\ExtensionTok{2021{-}07{-}16}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.1 }\ErrorTok{(}\ExtensionTok{2021{-}08{-}10}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}08{-}30 03:01:03 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}08{-}30 19:11:55 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -4051,7 +4051,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02969 secs
+## Time difference of 0.02574 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4116,7 +4116,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005221 secs
+## Time difference of 0.005183 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4181,7 +4181,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.00586 secs
+## Time difference of 0.005846 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4245,7 +4245,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.004995 secs
+## Time difference of 0.004987 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4310,7 +4310,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005183 secs
+## Time difference of 0.005134 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4374,7 +4374,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005716 secs
+## Time difference of 0.005436 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4438,7 +4438,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006174 secs
+## Time difference of 0.006176 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4502,7 +4502,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005282 secs
+## Time difference of 0.005315 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4566,7 +4566,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007446 secs
+## Time difference of 0.007167 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4631,7 +4631,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007765 secs
+## Time difference of 0.007648 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4696,7 +4696,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01006 secs
+## Time difference of 0.009776 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4761,7 +4761,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005352 secs
+## Time difference of 0.005274 secs
 \end{verbatim}
 
 \normalsize

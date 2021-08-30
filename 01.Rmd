@@ -225,11 +225,17 @@ knitr::include_graphics("media-01/image4.png")
 ![F1677-003-006](media-01/image5.jpeg){width="2.8761406386701664in" height="2.4106200787401573in"}
 -->
 
-```{r two-slope, fig.cap="(ref:two-slope)", out.width="80%"}
+```{r two-slope, fig.cap="(ref:two-slope)", out.width="70%"}
 knitr::include_graphics("media-01/image5.jpeg")
 ```
 
 (ref:two-slope) 두개의 경사를 보이는 혈장약물농도 변화(i.v. bolus 주입 후 흔히 보이는 현상)
+
+```{r distribution-two-slope, fig.cap="(ref:distribution-two-slope)", out.width="80%"}
+knitr::include_graphics("media-01/image6.jpeg")
+```
+
+(ref:distribution-two-slope) 약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델
 
 왜 이와 같은 현상이 나타나는지 설명하는 모델은 그림 \@ref(fig:distribution-two-slope)과 같은데, 사람의 몸을 물이 차 있는 하나의 비커 또는 두개의 비커가 연결된 형태로 단순화하여 가정한 것이다. 
 파스퇴르 피펫으로 우측 비커에 잉크를 한 방울 떨어뜨렸을 때 비커의 물 속의 잉크 농도를 시간에 따라 찍어준 것이 오른쪽의 그래프들이다. 
@@ -239,12 +245,6 @@ knitr::include_graphics("media-01/image5.jpeg")
 이 두 그래프를 참조하면, 두 개의 비커가 연결되어 있고 그 중 우측 비커에 잉크 제거 장치가 작동하는 상황에서 잉크농도는 그래프 c)와 같이 나타날 것이다. 
 잉크를 약이라고 가정하면, 우리 몸에서 보이는 혈장약물농도가 두 개의 기울기를 가진 직선으로 나타나는 원인은 이와 같이 설명되는 것이다. 
 즉 혈관 속이나 약물이 혈류와 거의 동시에 빠르게 퍼져서 평형이 일어나는 장기들이 오른쪽 비커에 해당하고 그 외 평형이 빨리 일어나지 않는 장기들(혈류가 낮거나, 특정 약물이 혈액-뇌 장벽 등을 통과하는데 시간이 걸리는 등)은 왼쪽 비커에 해당된다.
-
-```{r distribution-two-slope, fig.cap="(ref:distribution-two-slope)", out.width="80%"}
-knitr::include_graphics("media-01/image6.jpeg")
-```
-
-(ref:distribution-two-slope) 약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델
 
 실제 사람의 몸에서 약이 분포하는 과정을 그림 \@ref(fig:iv-distribution)에 나타냈다. 앞 그림의
 오른쪽 비커에 해당되는 것이 혈관 속(혈장), 간이나 콩팥과 같이 혈류가

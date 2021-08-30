@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.30)  30 AUG 2021 03:04
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.30)  30 AUG 2021 19:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1734,24 +1734,23 @@ File: media-01/image4.png Graphic file (type bmp)
 [7]
 File: media-01/image5.jpeg Graphic file (type bmp)
 <media-01/image5.jpeg>
-[8]
 File: media-01/image6.jpeg Graphic file (type bmp)
 <media-01/image6.jpeg>
+[8] [9]
 File: media-01/image7.png Graphic file (type bmp)
 <media-01/image7.png>
-[9]
+[10]
 File: media-01/image8.jpeg Graphic file (type bmp)
 <media-01/image8.jpeg>
-[10] [11]
+[11]
 File: media-01/image9.png Graphic file (type bmp)
 <media-01/image9.png>
 [12]
 File: media-01/image10.png Graphic file (type bmp)
 <media-01/image10.png>
-[13]
 File: media-01/chart.png Graphic file (type bmp)
 <media-01/chart.png>
-[14] [15]
+[13] [14] [15]
 File: images/tip.png Graphic file (type bmp)
 <images/tip.png>
 File: images/tip.png Graphic file (type bmp)
@@ -1774,7 +1773,6 @@ LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
 [17]
 Missing character: There is no ≒ (U+2252) in font Noto Serif CJK KR/OT:script=l
 atn;language=dflt;mapping=tex-text;!
-[18]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
 (Font)              scaled to size 10.0pt on input line 1007.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
@@ -1797,12 +1795,13 @@ LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
 (Font)              scaled to size 8.34721pt on input line 1007.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
 (Font)              scaled to size 7.0pt on input line 1007.
+[18]
 File: media-01/chart2.png Graphic file (type bmp)
 <media-01/chart2.png>
-[19] [20]
+[19]
 File: media-01/image11.png Graphic file (type bmp)
 <media-01/image11.png>
-[21]
+[20] [21]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
 (Font)              scaled to size 5.5pt on input line 1088.
 [22]
@@ -1814,10 +1813,9 @@ File: media-01/image13.jpeg Graphic file (type bmp)
 [25] [26]
 File: media-01/image14.png Graphic file (type bmp)
 <media-01/image14.png>
-[27]
 File: media-01/image15.png Graphic file (type bmp)
 <media-01/image15.png>
-[28] [29]
+[27] [28] [29]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
@@ -2919,7 +2917,7 @@ Package rerunfilecheck Info: File `pharmapk.out' has not changed.
 Here is how much of TeX's memory you used:
  24655 strings out of 478532
  422337 string characters out of 5861974
- 899786 words of memory out of 5000000
+ 900786 words of memory out of 5000000
  44438 multiletter control sequences out of 15000+600000
  413256 words of font info for 145 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
