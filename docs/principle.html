@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 1 약동학 기초 이론 | pharmapk.knit</title>
   <meta name="description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 1 약동학 기초 이론 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
   <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
-<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.1.9000 (2021-08-22)" />
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)" />
 
 
-<meta name="date" content="2021-08-25" />
+<meta name="date" content="2021-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,8 @@
 <link rel="prev" href="index.html"/>
 <link rel="next" href="비구획분석의-이론.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,10 @@
 
 
 
-
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -292,8 +294,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
-<li class="chapter" data-level="A" data-path="Theoph-tblNCA.html"><a href="Theoph-tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
-<li class="chapter" data-level="B" data-path="Theoph-nlr.html"><a href="Theoph-nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
+<li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
+<li class="chapter" data-level="B" data-path="Theoph_nlr.html"><a href="Theoph_nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -335,22 +337,24 @@ div.csl-indent {
 <p>약동학(藥動學, pharmacokinetics, PK)이란 용어는 그리스어로 약을 의미하는 pharmacon과 움직임이라는 kineticos를 합하여 만든 것이다. 약동학은 약이 몸 안으로 흡수되고, 분포되었다가 대사, 배설을 통해 몸 밖으로 나갈 때까지 혈액과 각 조직에서 발견되는 약의 농도가 시간에 따라 쉼없이 변화하는(즉, 움직이는) 과정을 설명하는 방법이다. 용어만 들으면 마치 약물 분자들이 스스로 몸 속에서 움직여서 그 농도가 변하는 것으로 오해할 수도 있다. 그러나 실제로는 생체 장기와 조직들이 몸 밖에서 들어온 `약’이라 불리는 이물질을 다루면서 일어나는 작용들, 즉 장관에서의 흡수, 심장박동으로 일어나는 혈류에 의한 말초조직으로의 분포, 간이나 콩팥을 통한 몸 밖으로 제거 등이 혈액과 각 조직들에서의 약물의 농도가 올라갔다가 다시 내려가는 현상을 일으키는 원인인 것이다.</p>
 <p></p>
 <p>반면 약이 수용체에 결합한 후 일어나는 세포나 몸에서 일어나는 변화(약효)의 크기와 양상을 약물농도와의 관계로 설명하는 학문은 약력학(pharmacodynamics, PD: pharmacon에 힘을 의미하는 그리스어 dynamicos를 붙임)라 부른다. 
-이 두 방법론은 사람에서의 약효를 예측하고 적절한 용량용법(dosage regimen)을 찾기 위한 필수적인 도구로 쓰이고 있다.
+이 두 방법론은 사람에서의 약효를 예측하고 적절한 용량용법(dosage regimen)을 찾기 위한 필수적인 도구로 쓰이고 있다. 
 약동학과 약력학을 구분하기 위해 흔히 쓰이는 정확하고 간결한 설명으로는 “몸이 약에게 하는 작용을 다루는 것이 약동학, 약이 몸에게 하는 작용을 다루는 것이 약력학” 이란 말이 있다. 
 그러나 이들 분야를 처음 접하는 사람이 들으면 무슨 뜻인지 이해하기 어려운 표현이다.
 과거 약력학에 대한 연구나 이해가 적던 시절, pharmacokinetics를 약물동력학 이라고 번역하기도 했으나, 이 용어는 약력학과의 구분이 어려우므로 피하는 것이 좋다. 
 일본에서는 약물동태학이라고도 번역하고 있으나 약동학과 같은 의미이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:pkpd-diagram"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkpd-diagram"></span>
 <img src="media-01/image1.png" alt="약동학과 약력학의 구분" width="100%" />
 <p class="caption">
 그림 1.1: 약동학과 약력학의 구분
 </p>
 </div>
 
+<p></p>
 </div>
 <div id="약동학을-공부하는-목적" class="section level3" number="1.1.2">
 <h3><span class="header-section-number">1.1.2</span> 약동학을 공부하는 목적</h3>
 <p>
+
 
 </p>
 <p>신약 한가지를 발굴(discovery)에서부터 시판허가에 이르기까지의 과정에서
@@ -389,11 +393,7 @@ div.csl-indent {
 그 약의 혈장농도와 약효의 연관성에 관한 정보(약력학)가 확보되어 있을
 경우에만 그 두 가지를 결합하여 개발과 인허가의 의사결정에 적극 활용할 수
 있게 된다는 것이다.</p>
-<!--
-![http://www.nature.com/ijir/journal/v19/n3/images/3901522f2.jpg](media-01/image2.jpeg){width="4.191666666666666in"
-height="2.555123578302712in"}
--->
-<div class="figure" style="text-align: center"><span id="fig:pkpd-concept"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkpd-concept"></span>
 <img src="media-01/image2.jpeg" alt="약동학과 약력학을 이용한 적절한 용량용법의 추정 원리 (Derendorf and Meibohm 1999)" width="100%" />
 <p class="caption">
 그림 1.2: 약동학과 약력학을 이용한 적절한 용량용법의 추정 원리 <span class="citation">(<a href="#ref-derendorf1999modeling" role="doc-biblioref">Derendorf and Meibohm 1999</a>)</span>
@@ -471,7 +471,7 @@ F = F_{a} \times F_{g} \times F_{h}
 ![](media-01/image3.png){width="3.2528094925634297in"
 height="2.155675853018373in"}
 -->
-<div class="figure" style="text-align: center"><span id="fig:fa-fg-fh"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fa-fg-fh"></span>
 <img src="media-01/image3.png" alt="F(=Fa × Fg × Fh, 생체이용률)를 구성하는 세가지 요소. 100 mg을 먹었을 때 소화관 내강과 장 상피세포, 간을 순차적으로 통과하여 전신순환혈에 도달하는 분율을 계산하는 예" width="100%" />
 <p class="caption">
 그림 1.3: F(=F<sub>a</sub> × F<sub>g</sub> × F<sub>h</sub>, 생체이용률)를 구성하는 세가지 요소. 100 mg을 먹었을 때 소화관 내강과 장 상피세포, 간을 순차적으로 통과하여 전신순환혈에 도달하는 분율을 계산하는 예
@@ -516,7 +516,7 @@ height="2.155675853018373in"}
 <!--
 ![](media-01/image4.png){width="4.2998151793525805in" height="3.061224846894138in"}
 -->
-<div class="figure" style="text-align: center"><span id="fig:first-order-elim"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:first-order-elim"></span>
 <img src="media-01/image4.png" alt="1차식에 따라 제거되는 혈장약물농도의 시간에 따른 변화" width="100%" />
 <p class="caption">
 그림 1.4: 1차식에 따라 제거되는 혈장약물농도의 시간에 따른 변화
@@ -537,10 +537,17 @@ height="2.155675853018373in"}
 <!--
 ![F1677-003-006](media-01/image5.jpeg){width="2.8761406386701664in" height="2.4106200787401573in"}
 -->
-<div class="figure" style="text-align: center"><span id="fig:two-slope"></span>
-<img src="media-01/image5.jpeg" alt="두개의 경사를 보이는 혈장약물농도 변화(i.v. bolus 주입 후 흔히 보이는 현상)" width="80%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:two-slope"></span>
+<img src="media-01/image5.jpeg" alt="두개의 경사를 보이는 혈장약물농도 변화(i.v. bolus 주입 후 흔히 보이는 현상)" width="70%" />
 <p class="caption">
 그림 1.5: 두개의 경사를 보이는 혈장약물농도 변화(i.v. bolus 주입 후 흔히 보이는 현상)
+</p>
+</div>
+
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:distribution-two-slope"></span>
+<img src="media-01/image6.jpeg" alt="약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델" width="80%" />
+<p class="caption">
+그림 1.6: 약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델
 </p>
 </div>
 
@@ -552,13 +559,6 @@ height="2.155675853018373in"}
 이 두 그래프를 참조하면, 두 개의 비커가 연결되어 있고 그 중 우측 비커에 잉크 제거 장치가 작동하는 상황에서 잉크농도는 그래프 c)와 같이 나타날 것이다.
 잉크를 약이라고 가정하면, 우리 몸에서 보이는 혈장약물농도가 두 개의 기울기를 가진 직선으로 나타나는 원인은 이와 같이 설명되는 것이다.
 즉 혈관 속이나 약물이 혈류와 거의 동시에 빠르게 퍼져서 평형이 일어나는 장기들이 오른쪽 비커에 해당하고 그 외 평형이 빨리 일어나지 않는 장기들(혈류가 낮거나, 특정 약물이 혈액-뇌 장벽 등을 통과하는데 시간이 걸리는 등)은 왼쪽 비커에 해당된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:distribution-two-slope"></span>
-<img src="media-01/image6.jpeg" alt="약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델" width="80%" />
-<p class="caption">
-그림 1.6: 약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델
-</p>
-</div>
-
 <p>실제 사람의 몸에서 약이 분포하는 과정을 그림 <a href="principle.html#fig:iv-distribution">1.7</a>에 나타냈다. 앞 그림의
 오른쪽 비커에 해당되는 것이 혈관 속(혈장), 간이나 콩팥과 같이 혈류가
 많이 가고 쉽게 약물이 분포하는 장기 등이고 이를 중심구획(central
@@ -572,7 +572,7 @@ compartment)라 한다. 이외에 약물이 더 늦게 분포하는 나머지 �
 일부)에서 약물 농도가 떨어지는 데 더 많이 기여하는 것은 몸에서 제거되는
 기전보다 말초구획으로 이동(확산)하는 기전의 영향이 두드러진다고 보기
 때문이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:iv-distribution"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:iv-distribution"></span>
 <img src="media-01/image7.png" alt="사람에서 정맥주사 후 시간에 따른 약물의 분포" width="100%" />
 <p class="caption">
 그림 1.7: 사람에서 정맥주사 후 시간에 따른 약물의 분포
@@ -596,7 +596,7 @@ compartment)라 한다. 이외에 약물이 더 늦게 분포하는 나머지 �
 약물이 몸 속에서 혈장과 그 이외의 부위로 분포하는 비율을 아는 것은
 중요하며, 그것을 정량적으로 나타내기 위해 V<sub>d</sub>라는 개념을 쓰고 있다.
 </p>
-<div class="figure" style="text-align: center"><span id="fig:vd-concept"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:vd-concept"></span>
 <img src="media-01/image8.jpeg" alt="분포용적의 개념" width="100%" />
 <p class="caption">
 그림 1.8: 분포용적의 개념
@@ -631,14 +631,14 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 소분자의약품과는 달리 혈관 내피세포를 투과하는 별도의 기전이 존재하나
 혈관 밖으로의 분포가 이루어지는 것이 소분자 의약품에 비해 매우 느리다.)</p>
 <p>분자량이 작은 약들의 경우 V<sub>d</sub>가 커지는 경향은 있지만 약물 분자의 극성도
-영향을 미친다. 그림 <a href="principle.html#fig:mannitol">1.9</a>의 mannitol과 같이 -OH 기로 인한 극성이 큰 물질은
+영향을 미친다. 그림 <a href="principle.html#fig:mannitol">1.9</a>의 mannitol과 같이 -OH 기로 인한 극성이 큰 물질은 
 세포막 안으로 들어가지 못하므로 그 V<sub>d</sub>는 세포외액의 부피(체중 60 kg인
 성인에서 14 L)와 유사함이 알려져 있다.</p>
 <!--
 ![](media-01/image9.png){width="1.5962456255468067in" height="0.6099475065616798in"}
-그림 1.9 분자량은 작지만 극성으로 인해 V~d~가 작은 mannitol의 분자구조.
+그림9 분자량은 작지만 극성으로 인해 V~d~가 작은 mannitol의 분자구조.
 -->
-<div class="figure" style="text-align: center"><span id="fig:mannitol"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mannitol"></span>
 <img src="media-01/image9.png" alt="분자량은 작지만 극성으로 인해 Vd가 작은 mannitol의 분자구조." width="50%" />
 <p class="caption">
 그림 1.9: 분자량은 작지만 극성으로 인해 V<sub>d</sub>가 작은 mannitol의 분자구조.
@@ -650,7 +650,7 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 반면, 지용성이 높은 물질들의 경우 세포막을 쉽게 투과함은 물론, 세포 내의 수분에 한정되지 않고 지질 속으로 그 용해도만큼 녹아 들어갈 수 있으므로 매우 큰 V<sub>d</sub>를 나타낼 수 있다(예, propofol: 500 L).
 지용성 뿐 아니라 특정 조직에 분포하는 성질 또한 V<sub>d</sub>에 영향을 주는데, 골격근 조직 표면에 결합함으로써 혈장보다 조직에 100배 가량 높은 농도로 분포하는 digoxin의 V<sub>d</sub>는 500 L 내외임이 알려져 있다.
 그러므로 이와 같이 큰 V<sub>d</sub> 값은 사람 몸에서 얻을 수 있는 생리적인 부피와는 무관하고 단지 약물이 혈관 밖에 상대적으로 더 많이 분포한다는 것을 의미한다.</p>
-<p>약이 효과를 나타내는 타겟 세포나 조직에 얼마나 분포하는지는 단순히 약동학 뿐 아니라 유효용량이나 유효혈장농도를 결정함에 있어서도 매우 중요한 정보이다.
+<p>약이 효과를 나타내는 타겟 세포나 조직에 얼마나 분포하는지는 단순히 약동학 뿐 아니라 유효용량이나 유효혈장농도를 결정함에 있어서도 매우 중요한 정보이다. 
 
 실제 환자에서 약물의 V<sub>d</sub>는 혈장의 용적, 조직의 용적이 큰 사람일수록 커지므로(즉 체중이 클수록 커지므로) 보통 L/kg의 단위로 표기하게 된다.
 </p>
@@ -675,7 +675,7 @@ f<sub>u</sub>가 1이면 전혀 혈장단백질에 약물이 결합하지 않는
 지나치게 단순화시킨 주장이며 이것이 성립하기 위해서는 여러가지 조건이
 붙지만 약동학을 처음 배우는 수준에서는 그냥 받아들이자.) 혈장단백질에
 결합하지 않은 약물이 조직 내로 이동하면 그 조직내에 존재하는 단백질 등에
-혈장단백 결합과 마찬가지의 기전으로 결합하게 되고 조직마다 약물에 따라 고유한 조직결합율을 나타내게 된다.
+혈장단백 결합과 마찬가지의 기전으로 결합하게 되고 조직마다 약물에 따라 고유한 조직결합율을 나타내게 된다. 
 조직결합율이 높거나, 조직 내에 약물의 용해도가 높은 경우에는 혈장에 있던 비결합 약물들이 대거
 조직 내로 확산되어 이동하게 된다. 그러면 혈장에서는 약물마다의 고유한 특성이라 할
 수 있는 본래의 f<sub>u</sub> 값을 유지하기 위해 단백결합약물들이 대거 떨어져
@@ -684,9 +684,9 @@ f<sub>u</sub>가 1이면 전혀 혈장단백질에 약물이 결합하지 않는
 ![](media-01/image10.png){width="4.320895669291339in"
 height="2.9512860892388453in"}
 
-그림 1.10 혈장단백결합과 조직결합, 약물의 분포의 관계\index{혈장단백결합}
+그림10 혈장단백결합과 조직결합, 약물의 분포의 관계\index{혈장단백결합}\index{조직결합}
 -->
-<div class="figure" style="text-align: center"><span id="fig:plasma-protein"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:plasma-protein"></span>
 <img src="media-01/image10.png" alt="혈장단백결합과 조직결합, 약물의 분포의 관계 (모세혈관과 세포외액, 혈장의 구분은 생략되어 있음)" width="100%" />
 <p class="caption">
 그림 1.10: 혈장단백결합과 조직결합, 약물의 분포의 관계 (모세혈관과 세포외액, 혈장의 구분은 생략되어 있음)
@@ -703,7 +703,7 @@ height="2.9512860892388453in"}
 결합율이 감소하는 경우(간기능 이상 등으로 혈장단백질 자체가 감소하거나
 요독증으로 인해 혈장단백질과 약물의 결합부위를 두고 약물과 경쟁하는 혈중
 노폐물 등의 증가)에는 V<sub>d</sub>가 건강인에 비해 증가함이 알려져 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:chart"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:chart"></span>
 <img src="media-01/chart.png" alt="알려진 670가지 소분자 의약품의 약동학 파라미터(Obach, Lombardo, and Waters 2008)로 비교한 Vd(Vdss)와 fu의 관계" width="100%" />
 <p class="caption">
 그림 1.11: 알려진 670가지 소분자 의약품의 약동학 파라미터<span class="citation">(<a href="#ref-obach2008trend" role="doc-biblioref">Obach, Lombardo, and Waters 2008</a>)</span>로 비교한 V<sub>d</sub>(V<sub>dss</sub>)와 f<sub>u</sub>의 관계
@@ -833,12 +833,7 @@ CL값이 커지면 V<sub>d</sub>가 비례해서 커진다는(V<sub>d</sub>=CL/k
 세뇨관을 통한 재흡수율이 높아져 콩팥에 의한 CL는 오히려 떨어질 것이다.
 그러므로 670개 성분에서 보고된 CL와 V<sub>d</sub>의 산점도(scatterplot)을
 그려보면 아무런 경향성도 찾을 수 없다. (그림 <a href="principle.html#fig:cl-vd">1.12</a>)</p>
-<!--
-(그림 1.12 이걸 실제로 이런지 670개 약 논문으로 그려서 그림으로 삽입하기)
-
-그림 1. 12
--->
-<div class="figure" style="text-align: center"><span id="fig:cl-vd"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cl-vd"></span>
 <img src="media-01/chart2.png" alt="670가지 약물에서 보고된 CL와 Vd로써 그려 본 산점도 (Obach, Lombardo, and Waters 2008)" width="100%" />
 <p class="caption">
 그림 1.12: 670가지 약물에서 보고된 CL와 V<sub>d</sub>로써 그려 본 산점도 <span class="citation">(<a href="#ref-obach2008trend" role="doc-biblioref">Obach, Lombardo, and Waters 2008</a>)</span>
@@ -867,12 +862,12 @@ CL의 경우는 콩팥과 간에 의한 대사속도를 반영하는데 콩팥�
 ![](media-01/image11.png){width="3.936699475065617in"
 height="2.9452055993000874in"}
 
-그림 1.13
+그림13
 -->
-<div class="figure" style="text-align: center"><span id="fig:iv-6"></span>
-<img src="media-01/image11.png" alt="IV bolus 6회 투약 후 체내 약물의 양" width="100%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:iv-6"></span>
+<img src="media-01/image11.png" alt="정맥주사(i.v. bolus) 6회 투약 후 체내 약물의 양" width="100%" />
 <p class="caption">
-그림 1.13: IV bolus 6회 투약 후 체내 약물의 양
+그림 1.13: 정맥주사(i.v. bolus) 6회 투약 후 체내 약물의 양
 </p>
 </div>
 
@@ -934,7 +929,7 @@ t<sub>1/2</sub>를 측정하게 된다. 분포기의 기울기로도 t<sub>1/2</
 부르며 일반적으로 반감기라는 용어는 최종반감기를 의미한다. 이
 최종반감기의 4배가 경과해야 몸에서 약이 대부분 제거된다는 것이 앞에서
 언급된 약동학의 기본적 상식이며 대부분의 경우 옳다.</p>
-<div class="figure" style="text-align: center"><span id="fig:three-slope"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:three-slope"></span>
 <img src="media-01/image12.png" alt="3개의 반감기가 관찰되는 경우. 최종반감기는 매우 길지만 몸에 들어온 대부분의 약은 최종 반감기를 보이는 γ-phase 이전에 이미 제거되었으므로 최종반감기의 4배가 지나야 몸에 있는 약물이 대부분 제거된다는 단순한 예상이 어긋나는 사례이다." width="100%" />
 <p class="caption">
 그림 1.14: 3개의 반감기가 관찰되는 경우. 최종반감기는 매우 길지만 몸에 들어온 대부분의 약은 최종 반감기를 보이는 γ-phase 이전에 이미 제거되었으므로 최종반감기의 4배가 지나야 몸에 있는 약물이 대부분 제거된다는 단순한 예상이 어긋나는 사례이다.
@@ -951,7 +946,7 @@ t<sub>1/2</sub>를 측정하게 된다. 분포기의 기울기로도 t<sub>1/2</
 ![](media-01/image12.png){width="3.8719214785651794in"
 height="2.309394138232721in"}
 
-그림 1.14 3개의 반감기가 관찰되는 경우. 최종반감기는 매우 길지만 몸에 들어온 대부분의 약은 최종 반감기를 보이는 γ-phase 이전에 이미 제거되었으므로 최종반감기의 4배가 지나야 몸에 있는 약물이 대부분 제거된다는 단순한 예상이 어긋나는 사례이다.\index{반감기}\index{반감기}
+그림14 3개의 반감기가 관찰되는 경우. 최종반감기는 매우 길지만 몸에 들어온 대부분의 약은 최종 반감기를 보이는 γ-phase 이전에 이미 제거되었으므로 최종반감기의 4배가 지나야 몸에 있는 약물이 대부분 제거된다는 단순한 예상이 어긋나는 사례이다.\index{반감기}\index{반감기}\index{최종반감기}
 -->
 </div>
 <div id="경구투여의-약동학" class="section level2" number="1.8">
@@ -1006,10 +1001,10 @@ k<sub>a</sub>가 바뀌었다고 해서 t<sub>1/2</sub>가 바뀌어서는 안�
 ![임상약리학flipflop](media-01/image13.jpeg){width="3.8027777777777776in"
 height="2.5160378390201226in"}
 
-그림 1.15 흡수속도상수(k~a~) 와 혈장약물농도 곡선의 관계 (k 소문자로, 맨 우측 곡선 더 길게)\index{흡수속도상수}
+그림15 흡수속도상수(k~a~) 와 혈장약물농도 곡선의 관계 (k 소문자로, 맨 우측 곡선 더 길게)\index{흡수속도상수}
 -->
-<div class="figure" style="text-align: center"><span id="fig:flip-flop"></span>
-<img src="media-01/image13.jpeg" alt="흡수속도상수(ka) 와 혈장약물농도 곡선의 관계 " width="100%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:flip-flop"></span>
+<img src="media-01/image13.jpeg" alt="흡수속도상수(ka) 와 혈장약물농도 곡선의 관계 " width="80%" />
 <p class="caption">
 그림 1.15: 흡수속도상수(k<sub>a</sub>) 와 혈장약물농도 곡선의 관계 
 </p>
@@ -1045,9 +1040,9 @@ $\frac{{dA}}{{dt}} = \frac{V_{\max} \cdot C}{K_{m} + C}$
 ![](media-01/image14.png){width="6.268055555555556in"
 height="3.0506944444444444in"}
 
-그림 1.14 비선형약동학을 따르는 약의 혈장농도와 대사속도, CL의 관계 (Vm 을 V~max~로 등등)\index{약동학}\index{비선형약동학}
+그림14 비선형약동학을 따르는 약의 혈장농도와 대사속도, CL의 관계 (Vm 을 V~max~로 등등)\index{약동학}\index{비선형약동학}
 -->
-<div class="figure" style="text-align: center"><span id="fig:nonlin-pk"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:nonlin-pk"></span>
 <img src="media-01/image14.png" alt="비선형약동학을 따르는 약의 혈장농도와 대사속도, CL의 관계" width="100%" />
 <p class="caption">
 그림 1.16: 비선형약동학을 따르는 약의 혈장농도와 대사속도, CL의 관계
@@ -1060,7 +1055,7 @@ height="3.0506944444444444in"}
 올라가는 경우가 흔히 발생함이(그림 <a href="principle.html#fig:phenytoin">1.17</a>) 오래전부터 알려져 있다 <span class="citation">(<a href="#ref-richens1975serum" role="doc-biblioref">Richens and Dunlop 1975</a>)</span>.
 안전역이 좁은 약들의 경우 비선형약동학을 따르는 경우 용량조절을 위해 혈장농도를 측정하면서 개인별 약동학 파라미터를 추정하는 등 주의를 기울여야 한다. 
 보통의 선형약동학을 따르는 약물의 경우는 투여량의 증감에 농도도 정비례한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:phenytoin"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:phenytoin"></span>
 <img src="media-01/image15.png" alt="phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. (Richens and Dunlop 1975)" width="100%" />
 <p class="caption">
 그림 1.17: phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. <span class="citation">(<a href="#ref-richens1975serum" role="doc-biblioref">Richens and Dunlop 1975</a>)</span>
@@ -1071,11 +1066,11 @@ height="3.0506944444444444in"}
 ![](media-01/image15.png){width="5.733829833770779in"
 height="3.600311679790026in"}
 
-그림 1.15 phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. (Ref: *Lancet* 1975;2: 247-248)\index{약동학}\index{비선형약동학}
+그림15 phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. (Ref: *Lancet* 1975;2: 247-248)\index{약동학}\index{비선형약동학}
 
 ![](media-01/image16.png){width="3.5330413385826773in" height="5.846183289588802in"}
 
-그림 1.16 비선형약동학을 따르는 약물의 혈장약물농도가 시간에 따라 떨어지는 양상\index{약동학}\index{비선형약동학}
+그림16 비선형약동학을 따르는 약물의 혈장약물농도가 시간에 따라 떨어지는 양상\index{약동학}\index{비선형약동학}
 -->
 <!--
 <div class="figure" style="text-align: center">
@@ -1133,7 +1128,6 @@ Yim, Dong-Seok. 2017. <span>“Tutorial for Beginners: The Concept of Clearance 
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -1173,6 +1167,10 @@ gitbook.start({
 "text": null
 },
 "download": ["pharmapk.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -1180,7 +1178,6 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"search": false,
 "info": false
 });
 });

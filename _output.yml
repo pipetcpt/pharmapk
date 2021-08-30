@@ -13,7 +13,8 @@ bookdown::gitbook:
       position: fixed
     edit: https://github.com/pipetcpt/basic/edit/master/inst/examples/%s
     download: [pdf] #download: [pdf, epub, mobi]
-    search: no
+    search:
+      engine: fuse    
     sharing:
       github: yes
       facebook: no

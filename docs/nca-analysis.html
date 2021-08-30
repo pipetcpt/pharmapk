@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 비구획분석의 자료해석 | pharmapk.knit</title>
   <meta name="description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 비구획분석의 자료해석 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
   <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
-<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.1.9000 (2021-08-22)" />
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)" />
 
 
-<meta name="date" content="2021-08-25" />
+<meta name="date" content="2021-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,8 @@
 <link rel="prev" href="비구획분석의-이론.html"/>
 <link rel="next" href="ca-principle.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,10 @@
 
 
 
-
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -292,8 +294,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
-<li class="chapter" data-level="A" data-path="Theoph-tblNCA.html"><a href="Theoph-tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
-<li class="chapter" data-level="B" data-path="Theoph-nlr.html"><a href="Theoph-nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
+<li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
+<li class="chapter" data-level="B" data-path="Theoph_nlr.html"><a href="Theoph_nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -365,11 +367,11 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 <div id="nca에-활용할-수-있는-r-package-소개" class="section level2" number="3.4">
 <h2><span class="header-section-number">3.4</span> NCA에 활용할 수 있는 R package 소개</h2>
 <p>무료로 누구나 사용할 수 있는 R 패키지를 사용하여 NCA를 통한 약동학적 주요 지표를 구할 수 있다. 비용을 떠나 NCA를 R로 수행하는 가장 중요한 이유는 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문이다. 더 나아가 계량약리학 분석 전후 과정 중에 NCA를 같은 작업환경에서 빠르게 수행할 수 있다는 장점도 있다.</p>
-<p>이 책에서 주로 다루게 될 <code>NonCompart</code> <span class="citation">(<a href="#ref-R-NonCompart" role="doc-biblioref">Bae 2021c</a>)</span>, <code>ncar</code> <span class="citation">(<a href="#ref-R-ncar" role="doc-biblioref">Bae 2021b</a>)</span>, <code>pkr</code> <span class="citation">(<a href="#ref-R-pkr" role="doc-biblioref">Bae and Lee 2018</a>)</span> 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.</p>
-<p><code>NonCompart</code>의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Data,
-<code>ncar</code>의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Report,
-<code>pkr</code>의 패키지 이름은 Pharmacokinetics in R 이다.</p>
-<p>이들의 기저에 있는 계산 방식은 모두 동일하고 앞서 설명한 상용소프트웨어와 완전히 일치하는 결과를 낼 수 있다. <code>NonCompart</code>의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있다. CDISC SDTM 용어를 사용하기 때문에 표준을 준수한다는 장점도 있다.</p>
+<p>이 책에서 주로 다루게 될 NonCompart <span class="citation">(<a href="#ref-R-NonCompart" role="doc-biblioref">Bae 2021c</a>)</span>, ncar <span class="citation">(<a href="#ref-R-ncar" role="doc-biblioref">Bae 2021b</a>)</span>, pkr <span class="citation">(<a href="#ref-R-pkr" role="doc-biblioref">Bae and Lee 2018</a>)</span> 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.</p>
+<p>NonCompart의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Data,
+ncar의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Report,
+pkr의 패키지 이름은 Pharmacokinetics in R 이다.</p>
+<p>이들의 기저에 있는 계산 방식은 모두 동일하고 앞서 설명한 상용소프트웨어와 완전히 일치하는 결과를 낼 수 있다. NonCompart의 <code>DESCRIPTION</code> 파일을 보면 다음과 같이 설명하고 있다. CDISC SDTM 용어를 사용하기 때문에 표준을 준수한다는 장점도 있다.</p>
 <blockquote>
 <p>Conduct a noncompartmental analysis with industrial strength.
 Some features are
@@ -386,7 +388,7 @@ Some features are
 <li><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a> 사이트에 접속하여, <code>Download R for Windows</code> 링크를 선택한다.</li>
 <li><code>Subdirectories</code> 유형에서 <code>base - install R for the first time</code>을 선택한다.</li>
 <li><code>Download R for Windows</code> 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.</li>
-<li>설치파일을 실행한 후, <code>이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?</code>라는 사용자 계정 컨트롤 창이 나타나면 <code>예</code> 버튼을 클릭한다.</li>
+<li>설치파일을 실행한 후, ‘이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?’라는 사용자 계정 컨트롤 창이 나타나면 ’예’ 버튼을 클릭한다.</li>
 <li>설치 언어는 <code>한국어</code>로 선택하고 <code>확인</code> 버튼을 클릭한다.</li>
 <li>R 4.x.x 설치 정보 내용을 확인하고, <code>다음</code> 버튼을 클릭한다.</li>
 <li>R 4.x.x 프로그램의 설치 경로를 지정하여 <code>다음</code> 버튼을 클릭한다.</li>
@@ -399,7 +401,7 @@ Some features are
 <ol style="list-style-type: decimal">
 <li><a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> 사이트에 접속하여 <code>Rstudio Desktop free download</code> 버튼을 클릭한다.</li>
 <li>[2. Download Rstudio Desktop]의 <code>DOWNLOAD RSTUDIO FOR WINDOWS(64bit)</code> 파란색 버튼을 클릭하고, <code>Studio-1.x.x.exe</code> 파일을 다운받는다.</li>
-<li>RStudio-1.x.x.exe 파일을 실행하면 <code>이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?</code>라는 사용자 계정 컨트롤 창이 나타나면 <code>예</code> 버튼을 클릭한다.</li>
+<li>RStudio-1.x.x.exe 파일을 실행하면 ‘이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?’라는 사용자 계정 컨트롤 창이 나타나면 ’예’ 버튼을 클릭한다.</li>
 <li>Rstudio 설치 시작 창이 나타나면 <code>다음</code> 버튼을 클릭한다.</li>
 <li>Rstudio를 설치할 경로를 지정하고 <code>다음</code> 버튼을 클릭한다.</li>
 <li>Rstudio 바로가기 아이콘이 생성될 시작메뉴 폴더 안에 <code>Rstudio</code>를 입력하고 <code>설치</code> 버튼을 클릭한다.</li>
@@ -628,7 +630,7 @@ conc
 <span id="cb5-4"><a href="nca-analysis.html#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
 <span id="cb5-5"><a href="nca-analysis.html#cb5-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg)&#39;</span>,</span>
 <span id="cb5-6"><a href="nca-analysis.html#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ggtheoph"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ggtheoph"></span>
 <img src="pharmapk_files/figure-html/ggtheoph-1.svg" alt="Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)" width="100%" />
 <p class="caption">
 그림 3.1: Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)
@@ -653,12 +655,11 @@ NonCompart 패키지의 핵심적인 기능이다.
 <div class="example">
 <span id="exm:tblnca-code" class="example"><strong>코드 3.1  </strong></span>NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
 </div>
-<!--\vspace{-5ex} -->
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="nca-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA <span class="ot">&lt;-</span> <span class="fu">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb6-2"><a href="nca-analysis.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">dose=</span><span class="dv">320</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
 <p>코드 <a href="nca-analysis.html#exm:tblnca-code">3.1</a>에서 <code>dose=320</code>으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.</p>
 <p>결과는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있다.
-본문에 결과를 싣기에 지면이 부족하여 <a href="Theoph-tblNCA.html#Theoph_tblNCA">별첨 A</a>에 수록하였고, 여기에서는 dplyr의 <code>select()</code> 함수를 사용하여 핵심적인 일부 파라미터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>, <span class="math inline">\(t_{1/2\beta}\)</span>)만 표시하였다.</p>
+본문에 결과를 싣기에 지면이 부족하여 <a href="Theoph_tblNCA.html#Theoph_tblNCA">별첨 A</a>에 수록하였고, 여기에서는 dplyr의 <code>select()</code> 함수를 사용하여 핵심적인 일부 파라미터 (C<sub>max</sub>, T<sub>max</sub>, AUC<sub>last</sub>, <span class="math inline">\(t_{1/2\beta}\)</span>)만 표시하였다.</p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="nca-analysis.html#cb7-1" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA_selected <span class="ot">&lt;-</span> Theoph_tblNCA <span class="sc">%&gt;%</span> </span>
 <span id="cb7-2"><a href="nca-analysis.html#cb7-2" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(Subject, CMAX, TMAX, AUCLST, LAMZHL)</span>
 <span id="cb7-3"><a href="nca-analysis.html#cb7-3" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA_selected</span></code></pre></div>
@@ -767,7 +768,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 <span id="cb15-4"><a href="nca-analysis.html#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>() <span class="sc">+</span></span>
 <span id="cb15-5"><a href="nca-analysis.html#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title =</span> <span class="st">&#39;Oral Administration of Theoph (320 mg) (Subject 1)&#39;</span>,</span>
 <span id="cb15-6"><a href="nca-analysis.html#cb15-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x =</span> <span class="st">&#39;Time (hour)&#39;</span>, <span class="at">y =</span> <span class="st">&#39;Concentration (ng/mL)&#39;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:ggtheophindi"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:ggtheophindi"></span>
 <img src="pharmapk_files/figure-html/ggtheophindi-1.svg" alt="테오필린의 경구 투여 후 개별 대상자의 농도-시간 곡선 (Subject 1)" width="100%" />
 <p class="caption">
 그림 3.2: 테오필린의 경구 투여 후 개별 대상자의 농도-시간 곡선 (Subject 1)
@@ -796,7 +797,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.4 <span class="er">(</span><span class="ex">2021-07-16</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.1 <span class="er">(</span><span class="ex">2021-08-10</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-08-25 11:51:54 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-08-30 19:52:43 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -868,10 +869,10 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <div id="pdfnca" class="section level3" number="3.8.2">
 <h3><span class="header-section-number">3.8.2</span> pdfNCA()</h3>
 <p>pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 <a href="nca-analysis.html#fig:pdfncaoutput">3.3</a>) 이렇게 생성된 파일은 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="nca-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span><span class="fu">pdfNCA</span>(<span class="at">fileName=</span><span class="st">&quot;Output-ncar/pdfNCA-Theoph.pdf&quot;</span>, Theoph, <span class="at">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="nca-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span><span class="fu">pdfNCA</span>(<span class="st">&quot;Output-ncar/Theoph.pdf&quot;</span>, Theoph, <span class="at">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
 <span id="cb19-2"><a href="nca-analysis.html#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">colTime=</span><span class="st">&quot;Time&quot;</span>,  <span class="at">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="at">dose=</span><span class="dv">320</span>, <span class="at">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </span>
 <span id="cb19-3"><a href="nca-analysis.html#cb19-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:pdfncaoutput"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pdfncaoutput"></span>
 <img src="Output-ncar/pdfNCA-Theoph-01.png" alt="pdfNCA() 출력 결과" width="100%" />
 <p class="caption">
 그림 3.3: pdfNCA() 출력 결과
@@ -881,7 +882,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <div id="rtfnca" class="section level3" number="3.8.3">
 <h3><span class="header-section-number">3.8.3</span> rtfNCA()</h3>
 <p>마이크로소프트 워드에서 편집가능한 rtf파일을 만들 수 있다. 이렇게 생성된 파일은 위 PDF파일과 마찬가지로 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="nca-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span><span class="fu">rtfNCA</span>(<span class="at">fileName=</span><span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="at">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="nca-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span><span class="fu">rtfNCA</span>(<span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="at">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
 <span id="cb20-2"><a href="nca-analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">colTime=</span><span class="st">&quot;Time&quot;</span>, <span class="at">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="at">dose=</span><span class="dv">320</span>, <span class="at">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </span>
 <span id="cb20-3"><a href="nca-analysis.html#cb20-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
 </div>
@@ -894,23 +895,21 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="nca-analysis.html#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pkr)</span>
 <span id="cb21-2"><a href="nca-analysis.html#cb21-2" aria-hidden="true" tabindex="-1"></a>pkr<span class="sc">::</span><span class="fu">plotPK</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb21-3"><a href="nca-analysis.html#cb21-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">unitTime =</span> <span class="st">&quot;hr&quot;</span>, <span class="at">unitConc =</span> <span class="st">&quot;mg/L&quot;</span>, <span class="at">dose =</span> <span class="dv">320</span>)</span></code></pre></div>
-<pre><code>## pdf 
-##   2</code></pre>
 <p>조금 기다린 후 <code>Output</code> 폴더를 확인해 보면 세개의 그림 파일과 두개의 PDF 파일이 생성된 것을 볼 수 있다. (그림 <a href="nca-analysis.html#fig:pkr1">3.4</a>, <a href="nca-analysis.html#fig:pkr2">3.5</a>, <a href="nca-analysis.html#fig:pkr3">3.6</a>)
 평균 약동학 파라미터와 그룹 농도-시간 그림 및 개별 대상자의 약동학 파라미터와 개별 농도-시간 그림이 생성된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:pkr1"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkr1"></span>
 <img src="Output/PK%20Profile%20Linear%20Scale%20for%20Theoph.png" alt="평균 약동학 파라미터와 그룹 농도-시간 그림 (선형)" width="95%" />
 <p class="caption">
 그림 3.4: 평균 약동학 파라미터와 그룹 농도-시간 그림 (선형)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:pkr2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkr2"></span>
 <img src="Output/PK%20Profile%20Log%2010%20Scale%20for%20Theoph.png" alt="평균 약동학 파라미터와 그룹 농도-시간 그림 (로그)" width="95%" />
 <p class="caption">
 그림 3.5: 평균 약동학 파라미터와 그룹 농도-시간 그림 (로그)
 </p>
 </div>
-<div class="figure" style="text-align: center"><span id="fig:pkr3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkr3"></span>
 <img src="Output/PK%20Profile%20with%20CI%20for%20Theoph.png" alt="평균 약동학 파라미터와 그룹 평균 농도-시간 그림 (로그)" width="95%" />
 <p class="caption">
 그림 3.6: 평균 약동학 파라미터와 그룹 평균 농도-시간 그림 (로그)
@@ -920,8 +919,8 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <div id="parameters" class="section level2" number="3.10">
 <h2><span class="header-section-number">3.10</span> 파라미터의 의미</h2>
 <p>NCA 시 여러 파라미터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.</p>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="nca-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>?ncar<span class="sc">::</span><span class="fu">txtNCA</span>()</span>
-<span id="cb23-2"><a href="nca-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span>RptCfg</span></code></pre></div>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="nca-analysis.html#cb22-1" aria-hidden="true" tabindex="-1"></a>?ncar<span class="sc">::</span><span class="fu">txtNCA</span>()</span>
+<span id="cb22-2"><a href="nca-analysis.html#cb22-2" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span>RptCfg</span></code></pre></div>
 <p>ncar::RptCfg의 일부를 첨부한다. (표 <a href="nca-analysis.html#tab:rptcfg">3.2</a>) <code>PPTESTCD</code>는 NonCompart 패키지에서 출력하는 파라미터 이름이며, CDISC SDTM PPTESTCD (Parameter Short Name)<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a>와 같은 값이다. <code>WNL</code> 열은 Certara Phoenix WinNonLin에서 구한 파라미터 이름이다.</p>
 <table>
 <caption>
@@ -1345,7 +1344,7 @@ Vol Dist Steady State Pred (Vss_pred)
 <p><strong>Corr_XY (CORRXY)</strong></p>
 <p>람다 z 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.</p>
 <p><strong>b0 (b0)</strong></p>
-<p>로그 농도 대 시간의 회귀선의 절편이다. CLSTP 계산에 사용되지만 정맥 주사(IV bolus)의 경우 외삽된 C0 (시간 0에서의 농도)에는 사용되지 않는다.</p>
+<p>로그 농도 대 시간의 회귀선의 절편이다. CLSTP 계산에 사용되지만 정맥주사(i.v. bolus)의 경우 외삽된 C0 (시간 0에서의 농도)에는 사용되지 않는다.</p>
 <p><strong>Lambda_z (LAMZ)</strong></p>
 <p>양의 값으로서 시간에 대한 자연로그 농도 회귀선의 마지막 기울기를 의미한다. 0 값의 로그 변환은 음의 무한대를 생성하고 회귀를 불가능하게하므로 회귀 전에 모든 0 값을 일시적으로 제거해야 한다. 최종 기울기(마지막 관찰 시점부터 최소 3 개 지점까지)가 자동으로 결정되는 경우 최적 기울기는 최대 R2ADJ에서 허용 한계 (기본값은 1e-4) 내에서 가장 긴 기울기로 결정된다.</p>
 <p><strong>No_points_Lambda_z (LAMZNPT)</strong></p>
@@ -1363,7 +1362,7 @@ Vol Dist Steady State Pred (Vss_pred)
 <p>초기 농도. 시간 0에서의 농도, 초기 농도. 처음 두 농도가 양수이고 첫 번째 농도가 두 번째 농도보다 크면 다음과 같이 C0를 계산할 수 있다. 그렇지 않으면 C0는 첫 번째 양수 농도가 된다.</p>
 <p><span class="math display">\[ C_ {0} = exp (log (c_ {1})-t_ {1} \frac {log (c_ {2})-log (c_ {1})} {t_ {2}-t_ {1} }) \]</span></p>
 <p><strong>AUClast (AUCLST)</strong></p>
-<p>투약 후 마지막 양수의 농도까지의 시간-농도 곡선 아래 영역을 의미한다. NCA에서 가장 널리 사용되는 계산 방법은 선형 사다리꼴 규칙 (<code>linear-up, linear-down') 또는 로그 선형 사다리꼴 규칙(</code>linear-up, log-down’). 선형 사다리꼴 방법의 경우 아래의 공식을 사용한다.</p>
+<p>투약 후 마지막 양수의 농도까지의 시간-농도 곡선 아래 영역을 의미한다. NCA에서 가장 널리 사용되는 계산 방법은 선형 사다리꼴 규칙 (linear-up, linear-down) 또는 로그 선형 사다리꼴 규칙(linear-up, log-down). 선형 사다리꼴 방법의 경우 아래의 공식을 사용한다.</p>
 <p><span class="math display">\[AUC_{last} = \sum_{i = 2}^{}\frac{(t_{i} - t_{i - 1}) \times (c_{i} - c_{i - 1})}{2}\]</span></p>
 <p>간헐적으로 나오는 0 농도는 AUCLST 및 AUCALL 모두에 포함되지만 AUCLST에서는 후행하는 0 값이 제거되는 반면, AUCALL에서는 제거되지 않는다는 큰 차이가 있다.</p>
 <p><strong>AUCall (AUCALL)</strong></p>
@@ -1391,16 +1390,15 @@ psych 패키지의 <code>describe()</code> 함수를 사용하였으므로 이�
 <div class="example">
 <span id="exm:desctblnca" class="example"><strong>코드 3.2  </strong></span>핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
 </div>
-<!--\vspace{-5ex} -->
-<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="nca-analysis.html#cb24-1" aria-hidden="true" tabindex="-1"></a>desc_tblNCA <span class="ot">&lt;-</span> <span class="cf">function</span>(tblNCA){</span>
-<span id="cb24-2"><a href="nca-analysis.html#cb24-2" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">describe</span>(tblNCA) <span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="nca-analysis.html#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(n, mean, sd, median, min, max)</span>
-<span id="cb24-4"><a href="nca-analysis.html#cb24-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="nca-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_tblNCA</span>(Theoph_tblNCA_selected)</span>
-<span id="cb25-2"><a href="nca-analysis.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_tblNCA</span>(Indometh_tblNCA_selected)</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="nca-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>desc_tblNCA <span class="ot">&lt;-</span> <span class="cf">function</span>(tblNCA){</span>
+<span id="cb23-2"><a href="nca-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">describe</span>(tblNCA) <span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="nca-analysis.html#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(n, mean, sd, median, min, max)</span>
+<span id="cb23-4"><a href="nca-analysis.html#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb23-5"><a href="nca-analysis.html#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_tblNCA</span>(Theoph_tblNCA_selected)</span>
+<span id="cb23-6"><a href="nca-analysis.html#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">desc_tblNCA</span>(Indometh_tblNCA_selected)</span></code></pre></div>
 <table>
 <caption>
-<span id="tab:theodesc">표 3.3: </span>Descriptive statistics of selected PK parameters of Theoph oral administration
+<span id="tab:theodesc">표 3.3: </span>테오필린 경구 투여 후 약동학 파라미터의 기술 통계
 </caption>
 <thead>
 <tr>
@@ -1546,7 +1544,7 @@ LAMZHL
 </table>
 <table>
 <caption>
-<span id="tab:indodesc">표 3.4: </span>Descriptive statistics of selected PK parameters of Indometh IV infusion
+<span id="tab:indodesc">표 3.4: </span>인도메타신 정맥 주입 후 약동학 파라미터의 기술 통계
 </caption>
 <thead>
 <tr>
@@ -1899,10 +1897,10 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 <div id="be-r-패키지를-사용한-생물학적-동등성-판정" class="section level3" number="3.12.2">
 <h3><span class="header-section-number">3.12.2</span> BE R 패키지를 사용한 생물학적 동등성 판정</h3>
 <p>2x2의 생물학적 동등성을 판정하기 위한 가장 간단하고 손쉬운 방법은 Chow와 Liu의 책의 내용<span class="citation">(<a href="#ref-chow2009design" role="doc-biblioref">Chow and Liu 2008</a>)</span>을 충실히 반영한 BE 패키지<span class="citation">(<a href="#ref-R-BE" role="doc-biblioref">Bae 2021a</a>)</span>를 사용하는 것이다. 위에서 NCA 관련 패키지를 설치하였듯 BE 패키지를 아래 명령어를 사용하여 설치 및 불러오기 할 수 있다. </p>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="nca-analysis.html#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BE&quot;</span>)</span>
-<span id="cb27-2"><a href="nca-analysis.html#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BE)</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="nca-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BE&quot;</span>)</span>
+<span id="cb25-2"><a href="nca-analysis.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BE)</span></code></pre></div>
 <p>BE 패키지 중 핵심이 되는 함수는 <code>be2x2()</code> 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 (그림 <a href="nca-analysis.html#fig:twobytwo">3.7</a>) 이외의 디자인은 sasLM 패키지<span class="citation">(<a href="#ref-R-sasLM" role="doc-biblioref">Bae 2021d</a>)</span>를 사용하여 분석해야 한다.</p>
-<div class="figure" style="text-align: center"><span id="fig:twobytwo"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:twobytwo"></span>
 <img src="media-03/twobytwo.jpg" alt="전형적인 2x2 설계" width="100%" />
 <p class="caption">
 그림 3.7: 전형적인 2x2 설계
@@ -1911,7 +1909,7 @@ ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 <p>BE 패키지에 내장되어 있는 자료인 <code>NCAResult4BE</code>를 사용하여 예제를 구성하였다. (표 <a href="nca-analysis.html#tab:beconcdata">3.5</a>) 33명의 대상자에 대해 2x2 교차설계 임상시험의 약동학 파라미터 AUC<sub>last</sub>, C<sub>max</sub>, T<sub>max</sub> 자료가 정리되어 있다. 33명의 대상자의 개인별 농도-시간 그래프는 그림 <a href="nca-analysis.html#fig:conc-time-curve">3.8</a>에 나타내었다.</p>
 <table>
 <caption>
-<span id="tab:beconcdata">표 3.5: </span>생물학적 동등성 평가를 위한 예제 데이터셋 (<code>BE</code> 패키지에 내장된 <code>NCAResult4BE</code>의 첫 6개 관찰값)
+<span id="tab:beconcdata">표 3.5: </span>생물학적 동등성 평가를 위한 예제 데이터셋 (BE 패키지에 내장된 NCAResult4BE의 첫 6개 관찰값)
 </caption>
 <thead>
 <tr>
@@ -2079,15 +2077,15 @@ R
 </tr>
 </tbody>
 </table>
-<div class="figure" style="text-align: center"><span id="fig:conc-time-curve"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:conc-time-curve"></span>
 <img src="media-03/figure-conc-time-curve.png" alt="생물학적 동등성 평가를 위한 예제 데이터셋의 농도-시간 곡선 (N=33)" width="100%" />
 <p class="caption">
 그림 3.8: 생물학적 동등성 평가를 위한 예제 데이터셋의 농도-시간 곡선 (N=33)
 </p>
 </div>
 <p>아래 코드에서 <code>be2x2()</code> 함수의 인자인 NCAResult4BE가 처리 되어 생물학적동등성 판단을 위한 ANOVA 표, 변이 (variability), Least square mean (LSM), geometric mean ratio (GMR)의 90% 신뢰구간, 샘플 수의 계산이 수행된다. (그림 <a href="nca-analysis.html#fig:output-format">3.9</a>) 본 자료로 계산한 AUC<sub>last</sub>는 생물학적 동등성 기준을 만족하고 있음을 알 수 있다.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="nca-analysis.html#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">be2x2</span>(NCAResult4BE, <span class="fu">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>))</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:output-format"></span>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="nca-analysis.html#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">be2x2</span>(NCAResult4BE, <span class="fu">c</span>(<span class="st">&quot;AUClast&quot;</span>, <span class="st">&quot;Cmax&quot;</span>, <span class="st">&quot;Tmax&quot;</span>))</span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:output-format"></span>
 <img src="media-03/figure-2.png" alt="BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과." width="100%" />
 <p class="caption">
 그림 3.9: BE R 패키지에 의해 수행된 생물학적 동등성 통계분석 결과.
@@ -2095,65 +2093,127 @@ R
 </div>
 
 <p>위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. </p>
-<p><strong>AUC<sub>inf</sub></strong></p>
 <table>
+<caption>
+<span id="tab:unnamed-chunk-24">표 3.6: </span>R BE 패키지와 SAS의 PROC GLM, PROC MIXED 계산 결과값의 비교
+</caption>
 <thead>
-<tr class="header">
-<th>Analysis</th>
-<th>Lower Limit</th>
-<th>Point Estimate</th>
-<th>Upper Limit</th>
+<tr>
+<th style="text-align:left;">
+PK parameter
+</th>
+<th style="text-align:left;">
+Analysis
+</th>
+<th style="text-align:left;">
+Lower Limit
+</th>
+<th style="text-align:left;">
+Point Estimate
+</th>
+<th style="text-align:left;">
+Upper Limit
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>R BE 패키지</td>
-<td>0.88944</td>
-<td>0.95408</td>
-<td>1.02341</td>
+<tr>
+<td style="text-align:left;">
+AUC<sub>inf</sub>
+</td>
+<td style="text-align:left;">
+R BE 패키지
+</td>
+<td style="text-align:left;">
+0.88944
+</td>
+<td style="text-align:left;">
+0.95408
+</td>
+<td style="text-align:left;">
+1.02341
+</td>
 </tr>
-<tr class="even">
-<td>SAS: PROC GLM</td>
-<td>0.88944</td>
-<td>0.95408</td>
-<td>1.02341</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+SAS: PROC GLM
+</td>
+<td style="text-align:left;">
+0.88944
+</td>
+<td style="text-align:left;">
+0.95408
+</td>
+<td style="text-align:left;">
+1.02341
+</td>
 </tr>
-<tr class="odd">
-<td>SAS: PROC MIXED</td>
-<td>0.88944</td>
-<td>0.95408</td>
-<td>1.02341</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+SAS: PROC MIXED
+</td>
+<td style="text-align:left;">
+0.88944
+</td>
+<td style="text-align:left;">
+0.95408
+</td>
+<td style="text-align:left;">
+1.02341
+</td>
 </tr>
-</tbody>
-</table>
-<p><strong>C<sub>max</sub></strong></p>
-<table>
-<thead>
-<tr class="header">
-<th>Analysis</th>
-<th>Lower Limit</th>
-<th>Point Estimate</th>
-<th>Upper Limit</th>
+<tr>
+<td style="text-align:left;">
+C<sub>max</sub>
+</td>
+<td style="text-align:left;">
+R BE 패키지
+</td>
+<td style="text-align:left;">
+0.90136
+</td>
+<td style="text-align:left;">
+0.97984
+</td>
+<td style="text-align:left;">
+1.06515
+</td>
 </tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>R BE 패키지</td>
-<td>0.90136</td>
-<td>0.97984</td>
-<td>1.06515</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+SAS: PROC GLM
+</td>
+<td style="text-align:left;">
+0.90136
+</td>
+<td style="text-align:left;">
+0.97984
+</td>
+<td style="text-align:left;">
+1.06515
+</td>
 </tr>
-<tr class="even">
-<td>SAS: PROC GLM</td>
-<td>0.90136</td>
-<td>0.97984</td>
-<td>1.06515</td>
-</tr>
-<tr class="odd">
-<td>SAS: PROC MIXED</td>
-<td>0.90136</td>
-<td>0.97984</td>
-<td>1.06515</td>
+<tr>
+<td style="text-align:left;">
+</td>
+<td style="text-align:left;">
+SAS: PROC MIXED
+</td>
+<td style="text-align:left;">
+0.90136
+</td>
+<td style="text-align:left;">
+0.97984
+</td>
+<td style="text-align:left;">
+1.06515
+</td>
 </tr>
 </tbody>
 </table>
@@ -2162,14 +2222,14 @@ R
 <div id="웹브라우저를-통한-nca-및-생물학적동등성-판정" class="section level2" number="3.13">
 <h2><span class="header-section-number">3.13</span> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</h2>
 <p>웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. (그림 <a href="nca-analysis.html#fig:pkrshiny">3.10</a>) <a href="https://www.pipetapps.com/project/pkrshiny/" class="uri">https://www.pipetapps.com/project/pkrshiny/</a> <code>shiny-be</code>는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 <a href="https://www.pipetapps.com/project/shiny-be/" class="uri">https://www.pipetapps.com/project/shiny-be/</a>에서 서비스 하고 있다. (그림 <a href="nca-analysis.html#fig:shiny-be">3.11</a>)</p>
-<div class="figure" style="text-align: center"><span id="fig:pkrshiny"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkrshiny"></span>
 <img src="media-03/pkrshiny.png" alt="NCA용 앱, pkrshiny 접속 화면" width="100%" />
 <p class="caption">
 그림 3.10: NCA용 앱, <code>pkrshiny</code> 접속 화면
 </p>
 </div>
 
-<div class="figure" style="text-align: center"><span id="fig:shiny-be"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:shiny-be"></span>
 <img src="media-03/figure-shiny-be.png" alt="NCA 및 BE용 앱, shiny-be 접속 화면" width="100%" />
 <p class="caption">
 그림 3.11: NCA 및 BE용 앱, <code>shiny-be</code> 접속 화면
@@ -2209,8 +2269,8 @@ Chow, S. C., and J. Liu. 2008. <em>Design and Analysis of Bioavailability and Bi
 Noe, Dennis A. 2020. <span>“Parameter Estimation and Reporting in Noncompartmental Analysis of Clinical Pharmacokinetic Data.”</span> <em>Clinical Pharmacology in Drug Development</em> 9: S5–35.
 </div>
 <div id="ref-R-psych" class="csl-entry">
-Revelle, William. 2021. <em>Psych: Procedures for Psychological, Psychometric, and Personality Research</em>. <a href="https://personality-project.org/r/psych/
-https://personality-project.org/r/psych-manual.pdf">https://personality-project.org/r/psych/
+Revelle, William. 2021. <em>Psych: Procedures for Psychological, Psychometric, and Personality Research</em>. <a href="https://personality-project.org/r/psych-manual.pdf">https://personality-project.org/r/psych-manual.pdf</a>.
+</div>
 <div id="ref-R-lubridate" class="csl-entry">
 Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. <em>Lubridate: Make Dealing with Dates a Little Easier</em>. <a href="https://CRAN.R-project.org/package=lubridate">https://CRAN.R-project.org/package=lubridate</a>.
 </div>
@@ -2253,7 +2313,6 @@ Wickham, Hadley, and Jim Hester. 2020. <em>Readr: Read Rectangular Text Data</em
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -2293,6 +2352,10 @@ gitbook.start({
 "text": null
 },
 "download": ["pharmapk.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -2300,7 +2363,6 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"search": false,
 "info": false
 });
 });

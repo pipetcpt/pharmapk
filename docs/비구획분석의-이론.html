@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 2 비구획분석의 이론 | pharmapk.knit</title>
   <meta name="description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 2 비구획분석의 이론 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
   <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
-<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.1.9000 (2021-08-22)" />
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)" />
 
 
-<meta name="date" content="2021-08-25" />
+<meta name="date" content="2021-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,8 @@
 <link rel="prev" href="principle.html"/>
 <link rel="next" href="nca-analysis.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,10 @@
 
 
 
-
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -292,8 +294,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
-<li class="chapter" data-level="A" data-path="Theoph-tblNCA.html"><a href="Theoph-tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
-<li class="chapter" data-level="B" data-path="Theoph-nlr.html"><a href="Theoph-nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
+<li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
+<li class="chapter" data-level="B" data-path="Theoph_nlr.html"><a href="Theoph_nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -336,7 +338,7 @@ div.csl-indent {
 </div>
 <div id="비구획분석의-기본-개념과-관심사" class="section level2" number="2.2">
 <h2><span class="header-section-number">2.2</span> 비구획분석의 기본 개념과 관심사</h2>
-<div class="figure" style="text-align: center"><span id="fig:pkprofile"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkprofile"></span>
 <img src="media-02/image1.png" alt="약동학 연구에서 얻을 수 있는 시간 농도 산점도 " width="80%" />
 <p class="caption">
 그림 2.1: 약동학 연구에서 얻을 수 있는 시간 농도 산점도 
@@ -353,8 +355,8 @@ div.csl-indent {
 <p>가장 단순한 수치화 방법은 관찰한 농도값을 의약품을 투여한 후 경과 시각에 따라 기술통계학(descriptive statistics)적으로 요약하는 것이다.
 생리학적인 가정이 없는 상황에서 의약품 투여 후 경과 시간은 농도 변화를 기술할 수 있는 유일한 독립변인이므로, 이러한 방법은 꽤나 타당한 것이다.
 그림 <a href="비구획분석의-이론.html#fig:pk-table">2.2</a>은 이러한 방식으로 나타낸 시간대 별 약물농도표이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:pk-table"></span>
-<img src="media-02/image2.png" alt="의약품 투여 후 시간대 별 약물농도표와 그래프" width="130%" />
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:pk-table"></span>
+<img src="media-02/image2.png" alt="의약품 투여 후 시간대 별 약물농도표와 그래프" width="100%" />
 <p class="caption">
 그림 2.2: 의약품 투여 후 시간대 별 약물농도표와 그래프
 </p>
@@ -385,7 +387,7 @@ div.csl-indent {
 효능과 독성이라고 하면 조금 극단적으로 받아들여지는 경우가 많아, 우리가 약을 쓸 때 의도한 생체 반응은 효능, 의도하지 않은 생체 반응은 부작용 또는 독성이라고 표현한다는 점을 명확히 하고자 한다.
 그리고 의도한 것이듯 의도하지 않은 것이든 이러한 생체 반응의 정도는 각 개인 내에서 생성된 약물의 노출 정도와 일정한 상관성을 가지리라는 것은 누구나 쉽게 생각해 볼 수 있다.</p>
 
-<div class="figure" style="text-align: center"><span id="fig:fig2-3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig2-3"></span>
 <img src="media-02/image3.png" alt="약물에 대한 노출과 생체 반응의 필연적 관련성" width="100%" />
 <p class="caption">
 그림 2.3: 약물에 대한 노출과 생체 반응의 필연적 관련성
@@ -424,7 +426,7 @@ div.csl-indent {
 <h2><span class="header-section-number">2.3</span> 비구획분석의 파라미터의 산출</h2>
 <p>지금부터는 각 파라미터 값을 어떻게 얻는 지에 대해 구체적으로 설명하고자 한다.
 우선, C<sub>max</sub>와 T<sub>max</sub>는 앞서 설명했듯이 실측값을 그대로 쓰기 때문에 별도의 산출 과정이 필요하지 않다. AUC와 관련된 파라미터들은 사다리꼴 공식을 기반으로 산출한다. 가장 많이 활용되는 사다리꼴 공식은 선형사다리꼴공식(linear trapezoidal rule)로, 그림 <a href="비구획분석의-이론.html#fig:image4">2.4</a>에 보는 바와 같이 인접한 두 개의 측정값을 직선으로 연결하고 각 관찰값으로부터 x축에 수선을 그어 얻어지는 사다리꼴의 면적을 합산하는 방식이다.</p>
-<div class="figure" style="text-align: center"><span id="fig:image4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image4"></span>
 <img src="media-02/image4.jpeg" alt="AUC를 구하기 위한 선형사다리꼴 공식" width="100%" />
 <p class="caption">
 그림 2.4: AUC를 구하기 위한 선형사다리꼴 공식
@@ -432,7 +434,7 @@ div.csl-indent {
 </div>
 <p>따라서, AUC<sub>last</sub>를 산출하고자 한다면, 최종 관찰 시점까지 이 작업을 수행하면 된다. 다만, 실제 농도의 변화는 1차 속도론을 따르기 때문에 각 측정치 간의 농도 변화가 실제로 직선으로 일어나지 않는다는 문제가 있다. 그러기에 이 방법을 사용하면, 농도 증가 구간에서는 실제 곡선하면적보다 작은 값이 산출되고, 농도 감소 구간에서는 실제보다 큰 값이 산출된다는 문제가 발생한다.
 이를 해결하기 위한 가장 좋은 방법은 관찰 간격을 좁게 하여 곡선과 직선 간의 편차가 작아지게 하는 것이다. (그림 <a href="비구획분석의-이론.html#fig:image5">2.5</a>)</p>
-<div class="figure" style="text-align: center"><span id="fig:image5"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image5"></span>
 <img src="media-02/under-over.jpg" alt="간헐적 관측으로 인한 사다리꼴 공식의 한게. 음영 처리된 영역 곡선하면적 산출 시, 농도가 상승하는 구간에서는 과소평가되고 농도가 하강하는 구간에서 과대평가됨을 알 수 있다. 관찰 간격을 줄임으로서 음영 처리된 영역을 줄일 수 있다." width="100%" />
 <p class="caption">
 그림 2.5: 간헐적 관측으로 인한 사다리꼴 공식의 한게. 음영 처리된 영역 곡선하면적 산출 시, 농도가 상승하는 구간에서는 과소평가되고 농도가 하강하는 구간에서 과대평가됨을 알 수 있다. 관찰 간격을 줄임으로서 음영 처리된 영역을 줄일 수 있다.
@@ -441,7 +443,7 @@ div.csl-indent {
 <!-- ![](media-02/image5.png) -->
 <p>그러나, 실제 임상 약동학 연구에서 채혈 횟수는 제한될 수밖에 없으며, 동일한 간격으로 5 반감기 이상의 기간 동안 약동학 채혈을 수행하는 것은 불가능에 가깝다. 따라서, 농도의 변화가 큰 구간(비교적 투약 시점에 가까운 구간)에서는 가급적 관찰 간격을 좁게 하고, 농도의 변화가 작은 구간(비교적 투약 시점에서 먼 구간)에서는 관찰 간격을 넓혀서 이 문제를 해결한다. 농도의 변화가 작을수록 곡선과 직선 간의 오차가 적어지기 때문이다.</p>
 <p>환자 대상 연구 등 불가피하게 충분한 횟수의 약동학 채혈이 어려운 경우에는 농도 감소 구간에서 선형사다리꼴공식을 쓰면 실제 곡선하면적과 산출값 간의 차이가 너무 커진다. 이러한 경우에는 산술적으로 그러한 오차를 보완할 수 있는데, 이러한 목적으로 사용하는 것이 로그-선형사다리꼴공식(log-linear trapezoidal rule)이다. 이 방법은 각 관찰값을 직선이 아닌 로그함수의 형태로 이어 그 밑면적을 구한다. (그림 <a href="비구획분석의-이론.html#fig:image6">2.6</a>)</p>
-<div class="figure" style="text-align: center"><span id="fig:image6"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image6"></span>
 <img src="media-02/log-linear.jpg" alt="선형사다리꼴공식(왼쪽)과 로그-선형사다리꼴공식(오른쪽)의 차이. 선형사다리꼴공식을 사용할 때 실제 곡선하면적과 산출값 간의 오차(음영 부분)를 로그-선형사다리꼴공식을 사용하여 줄일 수 있음." width="100%" />
 <p class="caption">
 그림 2.6: 선형사다리꼴공식(왼쪽)과 로그-선형사다리꼴공식(오른쪽)의 차이. 선형사다리꼴공식을 사용할 때 실제 곡선하면적과 산출값 간의 오차(음영 부분)를 로그-선형사다리꼴공식을 사용하여 줄일 수 있음.
@@ -449,7 +451,7 @@ div.csl-indent {
 </div>
 <!--![](media-02/image6.png)-->
 <p>이는 오차를 줄인다는 측면에서 강점은 있지만, 관찰값 간의 농도 변화가 실제로 그렇게 일어났다는 근거 없이 형태적 근사에 기반하기 때문에 생물학적동등성 입증 등 약동학 파라미터가 제품 허가 등의 유일한 근거가 되는 규제적 사안에는 인정되지 않는다. 하지만, 학술적인 목적 등 이외의 상황에서는 널리 활용되고 있다. 또한, 이러한 방법을 사용할 때라도 농도 증가 구간에 대해서는 선형사다리꼴공식을 적용하는 것이 일반적이다. (그림 <a href="비구획분석의-이론.html#fig:image7">2.7</a>)</p>
-<div class="figure" style="text-align: center"><span id="fig:image7"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image7"></span>
 <img src="media-02/lin-log.jpg" alt="농도 증가/감소 구간에서 선형사다리꼴공식/로그-선형사다리꼴을 각각 사용하는 예" width="100%" />
 <p class="caption">
 그림 2.7: 농도 증가/감소 구간에서 선형사다리꼴공식/로그-선형사다리꼴을 각각 사용하는 예
@@ -463,11 +465,11 @@ div.csl-indent {
 ∴ 해당 시점 이후의 곡선하면적 = 특정 시점에서 관찰된 약물농도 / 제거속도상수</p>
 <p>의 식을 얻을 수 있으며, 이 식의 시점을 최종 관찰 시점으로 하면 궁극적으로 다음의 식 <a href="비구획분석의-이론.html#eq:eq1">(2.1)</a>을 얻을 수 있다.</p>
 <p><span class="math display" id="eq:eq1">\[\begin{equation}
-최종\ 측정\ 시점\ 이후의\ AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{최종\ 관찰된\ 약물농도\ {(C}_{last})\ }{최종제거속도상수(\lambda_{z})}
+AUC \left(AUC_{t_{last}}^{\infty} \right) = \ \frac{(C_{last})}{\lambda_z}
 \tag{2.1}
 \end{equation}\]</span></p>
 <p>C<sub>last</sub> 값은 알고 있으므로 알아내야 하는 값은 λ<sub>z</sub>이며, 여기서 두 번째 가정이 필요하다. 약물 흡수와 분포에 의한 혈장-조직 간 평형 등은 투약으로부터 가까운 시점에 완료되므로 가장 늦은 시점의 관찰값들이 약물의 제거를 대변한다는 것이다. 이에 시기적으로 가장 늦은 관찰값들을 로그변환하면 그러한 값들은 직선적인 관계를 가져야 하고(첫 번째 가정에 의해), 이 직선의 기울기가 바로 λ<sub>z</sub>가 된다. 그리고 이 기울기는 아래 그림 <a href="비구획분석의-이론.html#fig:image8">2.8</a>과 같이 3개 이상의 로그변환한 농도 관찰값들에 대한 선형회귀(linear regression)로 얻을 수 있다.</p>
-<div class="figure" style="text-align: center"><span id="fig:image8"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image8"></span>
 <img src="media-02/terminal.jpg" alt="λz를 구하기 위한 선형회귀" width="70%" />
 <p class="caption">
 그림 2.8: λ<sub>z</sub>를 구하기 위한 선형회귀
@@ -484,7 +486,7 @@ div.csl-indent {
 당연히 어떤 조건으로 분석을 수행하는가에 따라, 결과값이 달라진다.
 두 번째는 정량분석 방법이나 연구 상황 등에 따라 C<sub>last</sub> 값이 인접한 다른 측정값들에서 얻는 직선적 경향을 벗어나는 결과를 얻을 때도 있다(C<sub>last</sub> 값이 이전 시점 농도에 비해 높은 경우 등).
 이 경우에는 그러한 값이 오히려 타당하지 않은 <span class="math inline">\({AUC}_{t_{{last}}}^{\infty}\)</span> 값을 만들어 낼 수 있기 때문에 <span class="math inline">\(C_{{last}}\)</span>를 대신해 <span class="math inline">\({\widehat{C}}_{{last}}\)</span> (회귀직선으로부터 최종 측정 시점에서 예상되는 농도값)을 사용하기도 한다. (그림 <a href="비구획분석의-이론.html#fig:image9">2.9</a>)</p>
-<div class="figure" style="text-align: center"><span id="fig:image9"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image9"></span>
 <img src="media-02/chat.jpg" alt="Clast(C*) 값이 인접한 다른 측정값들에서 얻는 직선적 경향을 벗어나는 결과를 얻을 때. Clast를 대신해 \({\widehat{C}}_{{last}}\) (회귀직선으로부터 최종 측정 시점에서 예상되는 농도값)을 사용하기도 한다. 과대예측(overestimation)된 음영부분을 최소화할 수 있다." width="100%" />
 <p class="caption">
 그림 2.9: C<sub>last</sub>(C*) 값이 인접한 다른 측정값들에서 얻는 직선적 경향을 벗어나는 결과를 얻을 때. C<sub>last</sub>를 대신해 <span class="math inline">\({\widehat{C}}_{{last}}\)</span> (회귀직선으로부터 최종 측정 시점에서 예상되는 농도값)을 사용하기도 한다. 과대예측(overestimation)된 음영부분을 최소화할 수 있다.
@@ -564,7 +566,7 @@ V_{d} &amp;= \frac{CL}{k}
 따라서, 관련된 의사 소통에 매우 자주 사용하며 상호 간의 이해의 수준이 높다.
 그리고 반감기와 관련된 사항을 수학적으로 나타내면 그림 <a href="비구획분석의-이론.html#fig:half-life-formula">2.10</a>과 같다.
 </p>
-<div class="figure" style="text-align: center"><span id="fig:half-life-formula"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:half-life-formula"></span>
 <img src="media-02/image10.png" alt="반감기와 관련된 수식" width="100%" />
 <p class="caption">
 그림 2.10: 반감기와 관련된 수식
@@ -580,28 +582,27 @@ t_{1/2} = \frac{ln 2}{\lambda_{z}}
 그러나, 이상의 과정으로부터 알 수 있듯이 이러한 값들은 계산에 사용되는 파라미터의 값에 크게 의존한다.
 정확히는 약동학적 원리를 이용해 그러한 파라미터들의 형태를 변경한 것에 불과하다.
 따라서, 계산에 사용되는 파라미터의 신뢰성이 보장되지 않는 상황에서 이러한 추정값들을 참값(true value)라고 착각해서는 안 되며, 분석 방법이나 추정 공식이 달라지면 그 값 역시 달라진다는 점을 인지하여야 한다.</p>
-<p>실제 생리학적으로는 각 개인의 청소율과 분포용적에 해당하는 기능이 고유의
-참값으로 존재하며, 그러한 기능들 간의 상호작용을 통해 반감기 등이
-정해지는 것이다. 즉, 비구획분석에서 추정하는 것이 원인이 되는 생리학적
-작용이며, 형성된 농도 및 그에 따른 산출 파라미터 값이 결과이다. 우리는
-결과를 통해 원인을 들여다 보고자 하는 것이다.</p>
+<p>
+실제 생리학적으로는 각 개인의 청소율과 분포용적에 해당하는 기능이 고유의 참값으로 존재하며, 그러한 기능들 간의 상호작용을 통해 반감기 등이 정해지는 것이다.
+즉, 비구획분석에서 추정하는 것이 원인이 되는 생리학적 작용이며, 형성된 농도 및 그에 따른 산출 파라미터 값이 결과이다.
+우리는 결과를 통해 원인을 들여다 보고자 하는 것이다.</p>
 </div>
 <div id="비구획분석의-개념-확장-항정상태에-대한-추정" class="section level2" number="2.5">
 <h2><span class="header-section-number">2.5</span> 비구획분석의 개념 확장 – 항정상태에 대한 추정</h2>
+<p> </p>
 <p>앞서 비구획분석에서 산출 또는 추정하는 파라미터들은 다양한 한계를 가짐을 설명하였다.
 이 절에서는 또다른 차원에 대한 설명을 추가하고자 한다.
 비구획분석은 기본적으로 1회의 약물 투여 후 충분한 시간 동안 관찰한 약물 농도를 기반으로 분석을 수행한다.
-그렇기에 단회 투여 약동학 연구에서 대상
-인구집단에서의 기초적 약동학 특성을 확인하고자 할 때 많이 사용된다.
-그런데, 대부분의 약물은 반복투여 기반의 용량용법을 설정하는 경우가 많으므로, 이러한 단회투여 연구 결과를 기반으로 항정상태 등에 대한 예측
-정보를 얻고자 한다.</p>
+그렇기에 단회 투여 약동학 연구에서 대상 인구집단에서의 기초적 약동학 특성을 확인하고자 할 때 많이 사용된다.
+그런데, 대부분의 약물은 반복투여 기반의 용량용법을 설정하는 경우가 많으므로, 이러한 단회투여 연구 결과를 기반으로 항정상태 등에 대한 예측 정보를 얻고자 한다.</p>
 <p>
-이제 항정상태의 정의를 생각해 보자. 항정상태는 단위시간 동안에 체내로 들어온 약물량과 제거된 약물량이 같아져서, 일정한 범위 내에서 약물의 농도가 유지되는 상태를 의미한다.
-일반적으로 단위시간은 투여 간격을 의미하는데, 동일한 약물 사용 시 이 간격이 작아질수록 제거될 수 있는 약물량이 적어지므로 투여 간격 중 발생할 수 있는 변동(최대농도와 최소농도 간의 차이, fluctuation)의 크기가 작아지며, 투여 간격이 거의 0에 가까워지는 지속정맥주입 시에는 변동 없이 일정한 농도를 유지하게 된다. 우리가 관심이 있는 것은, 특정한 용량용법 유지 시, 항정상태에서의 평균농도(C<sub>ss,avg</sub>)가 어느 수준일 것인가이다.
-희망하는 투여간격과 목표 C<sub>ss,avg</sub>를 정하고 이를 만족시킬 수 있는 용량을 찾는 것이 가장 기본적인 요구이다.
+이제 항정상태의 정의를 생각해 보자.
+항정상태는 단위시간 동안에 체내로 들어온 약물량과 제거된 약물량이 같아져서, 일정한 범위 내에서 약물의 농도가 유지되는 상태를 의미한다.
+일반적으로 단위시간은 투여 간격을 의미하는데, 동일한 약물 사용 시 이 간격이 작아질수록 제거될 수 있는 약물량이 적어지므로 투여 간격 중 발생할 수 있는 변동(최대농도와 최소농도 간의 차이, fluctuation)의 크기가 작아지며, 투여 간격이 거의 0에 가까워지는 지속정맥주입 시에는 변동 없이 일정한 농도를 유지하게 된다. 우리가 관심이 있는 것은, 특정한 용량용법 유지 시, 항정상태에서의 평균농도(C<sub>ss,avg</sub>)가 어느 수준일 것인가이다. 
+희망하는 투여간격과 목표 <em>C<sub>ss,avg</sub></em>를 정하고 이를 만족시킬 수 있는 용량을 찾는 것이 가장 기본적인 요구이다.
 단회 투여 시 비구획분석과 마찬가지로, 이 역시 용량과 농도 간의 관계이므로 일종의 scaling factor가 필요할 것이다.</p>
 <p>그런데, 그림 <a href="비구획분석의-이론.html#fig:image11">2.11</a>와 같은 약동학적 특성을 가지는 약물 A를 가정해 보자.</p>
-<div class="figure" style="text-align: center"><span id="fig:image11"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:image11"></span>
 <img src="media-02/2comp-plot.png" alt="2구획 약동학 모델. Cp(t): 시간 t에서 혈장 약물 농도." width="100%" />
 <p class="caption">
 그림 2.11: 2구획 약동학 모델. C<sub>p(t)</sub>: 시간 t에서 혈장 약물 농도.
@@ -662,8 +663,7 @@ MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{k_a}
   V_{{ss}} &amp;= CL \cdot MRT
 \end{split}
 \tag{2.11}
-\end{equation}\]</span>
-</p>
+\end{equation}\]</span></p>
 <p>AUC<sub>τ</sub>는 1회의 투여 간격 동안의 시간-농도곡선하면적을 의미하는데, 이 시기의 평균 농도는 C<sub>ss,avg</sub>이므로 AUC<sub>τ</sub>를 C<sub>ss,avg</sub>로 나눠주면 AUC와 AUMC와의 관계와 마찬가지로 MRT가 되기 때문이다.
 위 식 <a href="비구획분석의-이론.html#eq:mrtvss">(2.11)</a>을 다시 정리해 보자면, 식 <a href="비구획분석의-이론.html#eq:vss">(2.12)</a>을 통해서도 V<sub>ss</sub>를 구할 수 있다.</p>
 <p><span class="math display" id="eq:vss">\[\begin{equation}
@@ -676,7 +676,13 @@ MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{k_a}
 </div>
 <div id="비구획분석-결과의-요약" class="section level2" number="2.6">
 <h2><span class="header-section-number">2.6</span> 비구획분석 결과의 요약</h2>
-<p>비구획분석은 기본적으로 각 개인에서 관찰된 농도값으로부터 파라미터를 확보하고, 그러한 파라미터를 집단 수준에서 요약 정리하여 결과를 제시한다. 이 때, 기술통계학(descriptive statistics)적 분석 방법이 사용되는데 C<sub>max</sub>, AUC<sub>last</sub>, AUC<sub>inf</sub> 및 그로부터 추정되는 파라미터들은 연속변수이므로 평균 ± 표준편차(mean ± standard deviation)를 제시한다. 엄밀히 말하자면, 이러한 파라미터가 로그정규분포(log-normal distribution)를 따르는 것으로 알려져 있어, 각 개인에서 산출된 값을 로그변환한 후 그 평균과 표준편차를 구하고 이를 다시 지수변환하여 제시하는 것이 정확하겠다. T<sub>max</sub>는 정해진 측정 시각들 중 최대 관찰값을 보인 시각이므로 연속변수가 아니다. 단순히 시간에 대한 변수로 생각해서 이를 연속변수로 취급해서는 안 된다. 오히려 이는 명목시각(nominal time)에 가까운 개념이며, 단지 수치적인 형태를 띄고 있을 뿐이다. 그러기에 요약 시에는 다른 파라미터와 달리 중앙값(median)을 사용하고, 범위(range)를 제시한다.</p>
+<p>비구획분석은 기본적으로 각 개인에서 관찰된 농도값으로부터 파라미터를 확보하고, 그러한 파라미터를 집단 수준에서 요약 정리하여 결과를 제시한다.
+이 때, 기술통계학(descriptive statistics)적 분석 방법이 사용되는데 C<sub>max</sub>, AUC<sub>last</sub>, AUC<sub>inf</sub> 및 그로부터 추정되는 파라미터들은 연속변수이므로 평균 ± 표준편차(mean ± standard deviation)를 제시한다.
+엄밀히 말하자면, 이러한 파라미터가 로그정규분포(log-normal distribution)를 따르는 것으로 알려져 있어, 각 개인에서 산출된 값을 로그변환한 후 그 평균과 표준편차를 구하고 이를 다시 지수변환하여 제시하는 것이 정확하겠다.
+T<sub>max</sub>는 정해진 측정 시각들 중 최대 관찰값을 보인 시각이므로 연속변수가 아니다.
+단순히 시간에 대한 변수로 생각해서 이를 연속변수로 취급해서는 안 된다.
+오히려 이는 명목시각(nominal time)에 가까운 개념이며, 단지 수치적인 형태를 띄고 있을 뿐이다.
+그러기에 요약 시에는 다른 파라미터와 달리 중앙값(median)을 사용하고, 범위(range)를 제시한다.</p>
 </div>
 <div id="맺음말-1" class="section level2" number="2.7">
 <h2><span class="header-section-number">2.7</span> 맺음말</h2>
@@ -696,7 +702,6 @@ MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{k_a}
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -736,6 +741,10 @@ gitbook.start({
 "text": null
 },
 "download": ["pharmapk.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -743,7 +752,6 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"search": false,
 "info": false
 });
 });

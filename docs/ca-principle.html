@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 구획분석의 이론 | pharmapk.knit</title>
   <meta name="description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
-  <meta name="generator" content="bookdown 0.22 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 구획분석의 이론 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="신약개발에 종사하는 연구자라면 반드시 알아야 하는 약동학 이론을 습득하고 실습을 통해 실전 지식을 갖출 수 있도록 짜여져 있습니다." />
   <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
-<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 펴냄 (대표저자 임동석) - v0.9.1.9000 (2021-08-22)" />
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2 (2021-08-29)" />
 
 
-<meta name="date" content="2021-08-25" />
+<meta name="date" content="2021-08-30" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -34,7 +34,8 @@
 <link rel="prev" href="nca-analysis.html"/>
 <link rel="next" href="ca-analysis.html"/>
 <script src="libs/header-attrs/header-attrs.js"></script>
-<script src="libs/jquery/jquery.min.js"></script>
+<script src="libs/jquery/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-table.css" rel="stylesheet" />
 <link href="libs/gitbook/css/plugin-bookdown.css" rel="stylesheet" />
@@ -50,9 +51,10 @@
 
 
 
-
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
+<script src="libs/kePrint/kePrint.js"></script>
+<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
 <style type="text/css">
@@ -292,8 +294,8 @@ div.csl-indent {
 <li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
-<li class="chapter" data-level="A" data-path="Theoph-tblNCA.html"><a href="Theoph-tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
-<li class="chapter" data-level="B" data-path="Theoph-nlr.html"><a href="Theoph-nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
+<li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
+<li class="chapter" data-level="B" data-path="Theoph_nlr.html"><a href="Theoph_nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
 <li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
@@ -332,12 +334,7 @@ div.csl-indent {
 <p>NCA에서는 AUC로부터 다른 모든 파라미터들을 산출하지만, 그림 <a href="ca-principle.html#fig:two-comp-ex">4.1</a>과 같이 약물이 정맥주입된 후 중심구획에서 말초구획으로 확산되면서 두 개의 기울기를 나타내는 양상을 NCA에서 얻어진 파라미터들만으로 재현하는 것은 불가능하다. 
 그러나 이는 그림 <a href="ca-principle.html#fig:two-comp-ex">4.1</a>의 오른쪽과 같이 두 개의 분포구획(V<sub>c</sub>와 V<sub>p</sub>)를 가지는 모델을 상정하고 약물이 중심구획과 말초구획을 k<sub>12</sub>, k<sub>21</sub>의 1차속도상수에 따라 확산되는 것으로 가정하면 잘 설명할 수 있다.
 NCA에 비해 찾아야 할 파라미터들이 많고 거기에 따르는 가정들도 복잡하기 때문에 구획분석을 실제로 수행한다는 것은 각종 입력값들(용량, 투여경로, 채혈시간, 혈장약물농도)을 넣어 준 후 컴퓨터 프로그램으로 하여금 그 입력값들에 가장 잘 부합하는 최적의 파라미터 값들(V<sub>c</sub>, V<sub>p</sub>, CL, Q 등)을 찾아내도록 하는 과정을 의미한다.</p>
-<!---
-![](media-04/image1.png){width="5.441666666666666in" height="2.025in"}
-
-그림 \@ref(fig:two-comp-ex) 2구획모델의 예 
--->
-<div class="figure" style="text-align: center"><span id="fig:two-comp-ex"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:two-comp-ex"></span>
 <img src="media-04/image1rev.png" alt="2구획모델의 예" width="100%" />
 <p class="caption">
 그림 4.1: 2구획모델의 예
@@ -361,19 +358,15 @@ C_{{plasma}} \cdot V_{c} \cdot k_{12} = C_{{peripheral}} \cdot V_{p} \cdot k_{21
 분포용적을 곱한 것은 식 <a href="ca-principle.html#eq:eq4-1">(4.1)</a>의 A와 같은데, 평형이 이루어졌을 때
 중심구획과 말초구획의 농도는 같다고 가정하므로, 결국 식 <a href="ca-principle.html#eq:eq4-2">(4.2)</a>에서
 V<sub>c</sub>·k<sub>12</sub> = V<sub>p</sub>·k<sub>21</sub>의 관계가 성립된다. 이들은 부피/시간의 단위를
-가지므로 intercompartmental clearance라고도 부르며 Q라는 약어로
+가지므로 intercompartmental CL라고도 부르며 Q라는 약어로
 표기하기도 한다. 그러므로 식 <a href="ca-principle.html#eq:eq4-2">(4.2)</a>는 식 <a href="ca-principle.html#eq:eq4-3">(4.3)</a>과 같이 표기하기도 한다.</p>
 <!--$C_{{plasma}} \cdot Q = C_{{peripheral}} \cdot Q$ 식 \@ref(eq:eq4-3)-->
 <p><span class="math display" id="eq:eq4-3">\[\begin{equation}
 C_{{plasma}} \cdot Q = C_{{peripheral}} \cdot Q
 \tag{4.3}
 \end{equation}\]</span></p>
-<p>세 식 <a href="ca-principle.html#eq:eq4-1">(4.1)</a> ~ <a href="ca-principle.html#eq:eq4-3">(4.3)</a> 모두 분포의 평형상태에서만 등식이 성립하는 것이며, 분포가
-일어나는 초기에는 식의 왼쪽 값이 더 커서 중심에서 말초구획으로의
-약물분포가 일어나고, 평형에 도달한 이후에는 말초구획에 있던 약이 약물의
-제거가 일어나는 중심구획 쪽으로 이동하게 된다.</p>
-<p>혈장약물농도(중심구획의 약물농도)의 시간에 따른 변화는 중심구획의 농도를
-C<sub>1</sub>, 말초구획의 농도를 C<sub>2</sub>라 표기하면 식 <a href="ca-principle.html#eq:eq4-4">(4.4)</a>와 같이 표현된다.</p>
+<p>세 식 <a href="ca-principle.html#eq:eq4-1">(4.1)</a> ~ <a href="ca-principle.html#eq:eq4-3">(4.3)</a> 모두 분포의 평형상태에서만 등식이 성립하는 것이며, 분포가 일어나는 초기에는 식의 왼쪽 값이 더 커서 중심에서 말초구획으로의 약물분포가 일어나고, 평형에 도달한 이후에는 반대로 말초구획에 있던 약이 약물의 제거가 일어나는 중심구획 쪽으로 이동하게 된다.</p>
+<p>혈장약물농도(중심구획의 약물농도)의 시간에 따른 변화는 중심구획의 농도를 C<sub>1</sub>, 말초구획의 농도를 C<sub>2</sub>라 표기하면 식 <a href="ca-principle.html#eq:eq4-4">(4.4)</a>와 같이 표현된다.</p>
 <p><span class="math display" id="eq:eq4-4">\[\begin{equation}
 V_{c}\frac{{dC}_{1}}{{dt}} = {- V}_{c} \cdot C_{1} \cdot k_{12} + V_{p} \cdot C_{2} \cdot k_{21}{- V}_{c} \cdot C_{1} \cdot k_{e} 
 = - C_{1} \cdot Q + C_{2} \cdot Q - C_{1} \cdot {CL}
@@ -394,9 +387,9 @@ V_{c}\frac{{dC}_{1}}{{dt}} = {R - V}_{c} \cdot C_{1} \cdot k_{12} + V_{p} \cdot 
 ![](media-04/image2.png){width="1.9026957567804024in"
 height="2.269555993000875in"}
 
-그림 4.2 경구투여 약물의 2구획모델
+그림2 경구투여 약물의 2구획모델
 -->
-<div class="figure" style="text-align: center"><span id="fig:fig4-2"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig4-2"></span>
 <img src="media-04/image2.png" alt="경구투여 약물의 2구획모델" width="50%" />
 <p class="caption">
 그림 4.2: 경구투여 약물의 2구획모델
@@ -408,7 +401,7 @@ height="2.269555993000875in"}
 외에도 만약 로그 혈장농도 곡선에서 3개의 기울기가 관찰된다면 중심구획에
 두 개의 말초구획들이 제각기 다른 Q값들로 연결되어 있는 3구획모델로
 설명이 가능하다.</p>
-<p>이 1차식을 따라 제거되는 현상은 중심구획에서 일어난다고 가정하는 것이
+<p>1차식을 따라 제거되는 현상은 중심구획에서 일어난다고 가정하는 것이
 기본이다. 소분자의약품들의 경우 주로 제거되는 장기인 간과 콩팥은
 혈류량이 높아서 중심구획에 속해 있다고 가정하는데 무리가 없다. 또한
 말초구획에서의 약물농도를 자주 측정하는 것이 기술적으로 어렵기 때문에
@@ -421,24 +414,18 @@ height="2.269555993000875in"}
 k<sub>21</sub>이 k<sub>12</sub>에 비해 과도하게 큰 값으로 추정되는 등 왜곡된 파라미터들이
 산출되기도 한다. 이 때 중심구획과 말초구획에서 모두 약이 제거되는 좀 더
 사실에 부합하는 모델(예컨데 중심구획에서는 k<sub>e1,</sub> 말초구획에서는
-k<sub>e2</sub>라는 제거속도상수를 가진 모델)을 생각해 볼 수 있지만, 이 역시
-혈장약물(단클론항체)농도 값만으로 신뢰할만한 파라미터를 찾는 것은
-힘들다. 그로므로 단클론 항체의 약동학을 적절히 모델링하기 위해서는
-단순히 혈장약물농도 이외에 그항체의 타겟이 되는 물질의 생성, 제거속도,
-타겟이 어디에 존재하는지 등의 다양한 정보를 사전에 파악하여 모델에
-반영해야만 하며, 경험적인 구획모델의 수준을 넘어서는 작업이 된다. 본
-장에서 제시된 몇 가지 약물분포와 제거 모델은 가장 기본적인 예이며, 개별
-약물군의 약동학적 특성에 따라 다양한 모델들이 쓰이고 있다.</p>
+k<sub>e2</sub>라는 제거속도상수를 가진 모델)을 생각해 볼 수 있지만, 이 역시 혈장약물(단클론항체)농도 값만으로 신뢰할만한 파라미터를 찾는 것은 힘들다.
+그로므로 단클론 항체의 약동학을 적절히 모델링하기 위해서는 단순히 혈장약물농도 이외에 그항체의 타겟이 되는 물질의 생성, 제거속도, 타겟이 어디에 존재하는지 등의 다양한 정보를 사전에 파악하여 모델에 반영해야만 하며, 경험적인 구획모델의 수준을 넘어서는 작업이 된다.
+본 장에서 제시된 몇 가지 약물분포와 제거 모델은 가장 기본적인 예이며, 개별 약물군의 약동학적 특성에 따라 다양한 모델들이 쓰이고 있다.</p>
 </div>
 <div id="구획모델이-필요한-이유" class="section level2" number="4.2">
 <h2><span class="header-section-number">4.2</span> 구획모델이 필요한 이유</h2>
-<p>비교적 단순한 NCA만으로 PK 파라미터들을 다 구할 수 있는데 왜 굳이 어려운
-구획모델을 써야 하는가? 라는 의문을 품을 수 있다. 이에 대해 다음과 같은
-답들을 제시할 수 있다.</p>
+<p>비교적 단순한 NCA만으로 PK 파라미터들을 다 구할 수 있는데 왜 굳이 어려운 구획모델을 써야 하는가? 라는 의문을 품을 수 있다.
+이에 대해 다음과 같은 답들을 제시할 수 있다.</p>
 <div id="최종반감기와-관련한-이슈" class="section level3" number="4.2.1">
 <h3><span class="header-section-number">4.2.1</span> 최종반감기와 관련한 이슈</h3>
 <p>1장에서 이미 나온 것처럼 최종반감기가 반드시 의미있는 것은 아니다.</p>
-<p>그림 <a href="ca-principle.html#fig:fig4-3">4.3</a>과 같이 붉은 선은 최종반감기가 훨씬 긴(점선) 약임에도 불구하고 항정상태에 도달하는 시간은 검은 선에 비해 훨씬
+<p>그림 <a href="ca-principle.html#fig:fig4-3">4.3</a>과 같이 붉은 선은 최종반감기가 훨씬 긴 약임에도 불구하고 항정상태에 도달하는 시간은 검은 선에 비해 훨씬
 빠름을 알 수 있다. 이유는 최종반감기를 보여주는 완만한 경사가 나타나기
 전에 이미 몸 안의 약이 대부분 제거되었기 때문인데, 단순한 NCA로 얻어지는
 PK파라미터들만으로 이를 알아내기는 어렵다.</p>
@@ -446,9 +433,9 @@ PK파라미터들만으로 이를 알아내기는 어렵다.</p>
 ![](media-04/image3.jpg){width="3.2580643044619424in"
 height="1.9333245844269467in"}
 
-그림 4.3 최종반감기가 더 긴 약이 항정상태에 더 빨리 도달하는 사례\index{항정상태}\index{항정상태}\index{반감기}\index{반감기}\index{항정상태}
+그림3 최종반감기가 더 긴 약이 항정상태에 더 빨리 도달하는 사례\index{항정상태}\index{항정상태}\index{반감기}\index{반감기}\index{항정상태}\index{최종반감기}
 -->
-<div class="figure" style="text-align: center"><span id="fig:fig4-3"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig4-3"></span>
 <img src="media-04/image3.jpg" alt="최종반감기가 더 긴 약이 항정상태에 더 빨리 도달하는 사례" width="100%" />
 <p class="caption">
 그림 4.3: 최종반감기가 더 긴 약이 항정상태에 더 빨리 도달하는 사례
@@ -457,7 +444,7 @@ height="1.9333245844269467in"}
 
 <p>다음은, V<sub>d</sub>와 CL가 동일한 두 약의 최종반감기가 다른 사례이다. 두 약의
 V<sub>d</sub>나 CL가 동일하다면 k<sub>e</sub> = CL/V<sub>d</sub> 역시 동일할 것이고 t<sub>1/2</sub>를 단순히
-0.693/k<sub>e</sub>와 같이 정의한다면 그 역시 동일해야 하겠지만, 그림 4.4에서는
+0.693/k<sub>e</sub>와 같이 정의한다면 그 역시 동일해야 하겠지만, 그림 <a href="ca-principle.html#fig:fig4-4">4.4</a>에서는
 V<sub>ss</sub>와 CL이 동일함에도 불구하고 최종반감기가 현저히 다른 두 약의 사례가
 나타나 있다. 약물의 분포는 두개 이상의 구획으로 퍼지면서 일어나고 그
 구획들 간에 평형이 이루어지는데 걸리는 시간에 따라 최종 반감기가 다르게
@@ -468,13 +455,7 @@ V<sub>ss</sub>와 CL이 동일함에도 불구하고 최종반감기가 현저�
 선)가 중심구획에서의 C<sub>max</sub>가 훨씬 높기 때문이다. NCA는 약이
 말초구획으로 퍼지는 속도나 구획들 간의 평형에 도달하는 시간 등에 대한 고려가 없는
 분석법이므로 이 C<sub>max</sub>의 차이를 설명하지 못한다.</p>
-<!--
-![](media-04/image4.jpg){width="2.885793963254593in"
-height="1.851613079615048in"}
-
-그림 4.4 동일한 Vss와 CL를 가져도 최종반감기와 C~max~가 차이나는 사례\index{반감기}\index{반감기}
--->
-<div class="figure" style="text-align: center"><span id="fig:fig4-4"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig4-4"></span>
 <img src="media-04/image4.jpg" alt="동일한 Vss와 CL를 가져도 최종반감기와 Cmax가 차이나는 사례" width="100%" />
 <p class="caption">
 그림 4.4: 동일한 Vss와 CL를 가져도 최종반감기와 C<sub>max</sub>가 차이나는 사례
@@ -484,26 +465,12 @@ height="1.851613079615048in"}
 </div>
 <div id="정확한-cmax-tmax-값의-추정" class="section level3" number="4.2.2">
 <h3><span class="header-section-number">4.2.2</span> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</h3>
-<p>NCA에서는 그림 4.5에서 볼 수 있듯이 약동학적 채혈로 얻어진
-농도(동그라미)들 중에서 가장 높은 관찰값을 골라서 C<sub>max</sub>라 하고 그
-채혈시간을 T<sub>max</sub>라 한다. 그러나 이것은 채혈 후 관찰된 값들 중에서 가장
-큰 값일 뿐이고 실제 환자의 혈장 속에서 가장 높은 농도를 나타내는 시간과
-농도값은 그림 4.5의 경우 네모로 둘러싼 두 점 사이의 어떤 시간과 농도일
-것으로 추론할 수 있다. 가장 정확한 방법은 관찰된 농도와 채혈시간을
-부드럽게 연결한 곡선을 구해서 가장 높은 값을 나타내는 위치를 고르는
-것이다. 비단 C<sub>max</sub>뿐 아니라 채혈시점 이외의 어떤 시점에서의 농도라도 이
-방법으로 예측할 수 있다. 컴퓨터 프로그램을 이용하여 사람의
-혈장약물농도가 어떤 식으로 변하는지 설명하는 몇 가지 PK 모델들을
-테스트하고 이들 중 관찰된 농도에 가장 가까운 곡선을 나타내 주는 모델을
-선택하여 그 모델의 파라미터 값들을 얻는 것이 이 그림의 부드러운 곡선을
-구하는 방법이다.</p>
-<!--
-![](media-04/image5.jpg){width="3.9870964566929135in"
-height="1.7302744969378827in"}
-
-그림 4.5 정확한 C~max~, T~max~를 얻기 위해 NCA가 아닌 구획모델 분석이 필요한 사례
--->
-<div class="figure" style="text-align: center"><span id="fig:fig4-5"></span>
+<p>NCA에서는 그림 <a href="ca-principle.html#fig:fig4-5">4.5</a>에서 볼 수 있듯이 약동학적 채혈로 얻어진 농도(파란색 점)들 중에서 가장 높은 관찰값을 골라서 C<sub>max</sub>라 하고 그 채혈시간을 T<sub>max</sub>라 한다.
+그러나 이것은 채혈 후 관찰된 값들 중에서 가장 큰 값일 뿐이고 실제 환자의 혈장 속에서 가장 높은 농도를 나타내는 시간과 농도값은 그림 <a href="ca-principle.html#fig:fig4-5">4.5</a>의 경우 네모로 둘러싼 두 점 사이의 어떤 시간과 농도일 것으로 추론할 수 있다.
+가장 정확한 방법은 관찰된 농도와 채혈시간을 부드럽게 연결한 곡선을 구해서 가장 높은 값을 나타내는 위치를 고르는 것이다.
+비단 C<sub>max</sub>뿐 아니라 채혈시점 이외의 어떤 시점에서의 농도라도 이 방법으로 예측할 수 있다.
+컴퓨터 프로그램을 이용하여 사람의 혈장약물농도가 어떤 식으로 변하는지 설명하는 몇 가지 PK 모델들을 테스트하고 이들 중 관찰된 농도에 가장 가까운 곡선을 나타내 주는 모델을 선택하여 그 모델의 파라미터 값들을 얻는 것이 이 그림의 부드러운 곡선을 구하는 방법이다.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig4-5"></span>
 <img src="media-04/image5.jpg" alt="정확한 Cmax, Tmax를 얻기 위해 NCA가 아닌 구획모델 분석이 필요한 사례" width="100%" />
 <p class="caption">
 그림 4.5: 정확한 C<sub>max</sub>, T<sub>max</sub>를 얻기 위해 NCA가 아닌 구획모델 분석이 필요한 사례
@@ -530,51 +497,97 @@ height="1.7302744969378827in"}
 <p>NCA로부터 PK파라미터를 구하는 시초는 혈장약물농도로부터 AUC를 구하고, 마지막 농도 2~3개를 연결하여 최종소실기의 경사(slope)인 β를 구하는 것이다. 이로부터 CL(CL=Dose/AUC)와 V<sub>z</sub>(V<sub>z</sub> = Dose/(AUC·β) = CL/β)를 산출한다. 최종반감기 t<sub>1/2</sub> = 0.693/β로 구한다. 구획분석에서 얻는 파라미터들과의 차이는 표 <a href="ca-principle.html#tab:pk-param-comparison">4.1</a>에 요약되어 있다.</p>
 <p>구획모델에서 CL의 정의는 NCA와 달라서 같은 데이터를 두 방법으로 분석할 경우 CL 값이 약간의 차이를 보이게 된다. 어느 값이 옳고 틀린 것이 아니며 구하는 수식 자체가 다르게 정의되었기 때문이다.
 수식들의 정의가 조금씩 다르다 해도 몸이 약물을 제거하는 속도를 반영하는 수식들이므로 그 값들의 차이는 크지 않다.</p>
-<table>
-<caption><span id="tab:pk-param-comparison">표 4.1: </span> NCA와 구획모델 분석으로 얻어지는 PK 파라미터 비교</caption>
-<colgroup>
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-<col width="25%" />
-</colgroup>
+<!--
+Table: (\#tab:pk-param-comparison) NCA와 구획모델 분석으로 얻어지는 PK 파라미터 비교
+
+파라미터의 속성 | NCA 로 구한 파라미터 | 구획분석으로 구한 파라미터 | 비고
+-- | -- | -- | --
+제거능력 | CL=AUC/Dose | CL=k~e~   × V~c~ | CL를 구하는 수식 자체가 다름
+분포 | V~ss~ = CL   V~z~ = Dose/(AUC·β) = CL/β | V~c~, V~p~, <br /> V~ss~ = V~c~ + V~p~ | NCA에서는 V~c~, V~p~ 따로 구하지 못하고 구획모델에서는 V~z~ 안 나옴
+최종소실기 | β: 최종 농도 2~3개 연결하여 측정 | k~e~ | NCA에서는 k~e~ 못 구하고 구획모델에서는 β 못 구함
+구획간 분포 속도 | 개념 자체가 없음 | k~12~,   k~21~, Q = k~12~   × Vc = k~12~ × Vp | &nbsp;
+-->
+<table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
+<caption style="font-size: initial !important;">
+<span id="tab:pk-param-comparison">표 4.1: </span>NCA와 구획모델 분석으로 얻어지는 PK 파라미터 비교
+</caption>
 <thead>
-<tr class="header">
-<th>파라미터의 속성</th>
-<th>NCA 로 구한 파라미터</th>
-<th>구획분석으로 구한 파라미터</th>
-<th>비고</th>
+<tr>
+<th style="text-align:left;">
+파라미터의 속성
+</th>
+<th style="text-align:left;">
+NCA 로 구한 파라미터
+</th>
+<th style="text-align:left;">
+구획분석으로 구한 파라미터
+</th>
+<th style="text-align:left;">
+비고
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td>제거능력</td>
-<td>CL=AUC/Dose</td>
-<td>CL=k<sub>e</sub> × V<sub>c</sub></td>
-<td>CL를 구하는 수식 자체가 다름</td>
+<tr>
+<td style="text-align:left;width: 2.0cm; ">
+제거능력
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+CL=AUC/Dose
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+CL=k·V
+</td>
+<td style="text-align:left;width: 3.0cm; ">
+CL 수식 다름
+</td>
 </tr>
-<tr class="even">
-<td>분포</td>
-<td>V<sub>ss</sub> = V<sub>z</sub> = Dose/(AUC·β) = CL/β</td>
-<td>V<sub>c</sub>, V<sub>p</sub>, <br /> V<sub>ss</sub> = V<sub>c</sub> + V<sub>p</sub></td>
-<td>NCA에서는 V<sub>c</sub>, V<sub>p</sub> 따로 구하지 못하고 구획모델에서는 V<sub>z</sub> 안 나옴</td>
+<tr>
+<td style="text-align:left;width: 2.0cm; ">
+분포
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+
+</td>
+<td style="text-align:left;width: 3.0cm; ">
+
+</td>
 </tr>
-<tr class="odd">
-<td>최종소실기</td>
-<td>β: 최종 농도 2~3개 연결하여 측정</td>
-<td>k<sub>e</sub></td>
-<td>NCA에서는 k<sub>e</sub> 못 구하고 구획모델에서는 β 못 구함</td>
+<tr>
+<td style="text-align:left;width: 2.0cm; ">
+최종소실기
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+β: 최종 농도 2~3개 연결하여 측정
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+k
+</td>
+<td style="text-align:left;width: 3.0cm; ">
+NCA에서는 k 못 구하고 구획모델에서는 β 못 구함
+</td>
 </tr>
-<tr class="even">
-<td>구획간 분포 속도</td>
-<td>개념 자체가 없음</td>
-<td>k<sub>12</sub>, k<sub>21</sub>, Q = k<sub>12</sub> × Vc = k<sub>12</sub> × Vp</td>
-<td> </td>
+<tr>
+<td style="text-align:left;width: 2.0cm; ">
+구획간 분포 속도
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+개념 자체가 없음
+</td>
+<td style="text-align:left;width: 4.0cm; ">
+
+</td>
+<td style="text-align:left;width: 3.0cm; ">
+</td>
 </tr>
 </tbody>
 </table>
 <div id="분포용적-파라미터들의-차이" class="section level3" number="4.3.1">
 <h3><span class="header-section-number">4.3.1</span> 분포용적 파라미터들의 차이</h3>
+<p></p>
 <p>분포용적의 경우 NCA에서는 최종소실기의 기울기인 β를 써서 구한 V<sub>z</sub>를
 얻을 수 있는데 (NCA에 관한 2장에서 설명) 말초구획으로 분포가 완료되고 난
 후, 중심구획에서 약물의 제거가 지속되므로 말초구획의 농도가 중심구획보다
@@ -619,9 +632,10 @@ k<sub>e</sub>) 수 밖에 없다. 만약 말초구획이 존재하지 않고 중
 않으며, 말초에서 중심으로 약이 되돌아오는 현상도 존재하지 않으므로 최종
 기울기인 기울기 β도 k<sub>e</sub>와 같은 값을 나타낼 것이다. 이런 특수한 약물
 몇가지 외에는 모두 말초구획으로 분포하는 양상을 나타내므로 언제나 β &lt;
-k<sub>e</sub>가 관찰된다.</p>
-<div class="figure" style="text-align: center"><span id="fig:fig4-6"></span>
-<img src="media-04/image6.png" alt="Biexponential model로 분석한 약동학 파라미터들" width="100%" />
+k<sub>e</sub>가 관찰된다.
+</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:fig4-6"></span>
+<img src="media-04/image6.png" alt="Biexponential model로 분석한 약동학 파라미터들" width="80%" />
 <p class="caption">
 그림 4.6: Biexponential model로 분석한 약동학 파라미터들
 </p>
@@ -650,7 +664,7 @@ k<sub>e</sub> = CL/V<sub>c</sub>로서, 약을 제거하는 능력(CL)이 V<sub>
 <h2><span class="header-section-number">4.4</span> 맺음말</h2>
 <p>비교적 간단한 NCA 방법이 있음에도 불구하고 구획모델을 사용하여
 약동학자료를 분석하는 이유는 이 장에서 열거한 바와 같이 NCA 결과에서 누락되는 약동학적 정보를 놓치지 않기 위해서이다.
-약물의 분포기가 상대적으로 길어서 대부분의 약물이 분포기동안 제거된다면, 제거기에 얻어지는 최종반감기는 큰 의미가 없다.
+약물의 분포기가 상대적으로 길어서 대부분의 약물이 분포기동안 제거된다면, 제거기에 얻어지는 최종반감기는 큰 의미가 없다. 
 NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 기여하는지, 최종반감기의 기여도는 얼마나 되는지에 대해
 어떤 정보도 제공하지 않는다.
 
@@ -675,7 +689,6 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
     </div>
   </div>
 <script src="libs/gitbook/js/app.min.js"></script>
-<script src="libs/gitbook/js/lunr.js"></script>
 <script src="libs/gitbook/js/clipboard.min.js"></script>
 <script src="libs/gitbook/js/plugin-search.js"></script>
 <script src="libs/gitbook/js/plugin-sharing.js"></script>
@@ -715,6 +728,10 @@ gitbook.start({
 "text": null
 },
 "download": ["pharmapk.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
 "toc": {
 "collapse": "section",
 "scroll_highlight": true
@@ -722,7 +739,6 @@ gitbook.start({
 "toolbar": {
 "position": "fixed"
 },
-"search": false,
 "info": false
 });
 });
