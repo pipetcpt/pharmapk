@@ -355,13 +355,15 @@ r2$Est
 
 1구획모델에서와 같이 지연 시간이 있는 모델의 적합이 더 좋은 것을 알 수 있다. 특히 C~max~ 부분에서의 적합 차이를 주의해서 살펴 볼 필요가 있다.\index{지연 시간}
 
-```{r twocomp-lag, fig.cap = "wnl 패키지를 통해 얻어진 경구 투여 2구획모델 PK 파라미터로 25시간 시뮬레이션한 결과. 모델에서 지연 시간(lag time)의 유무에 따라 C~max~ 부분의 차이가 두드러지는 것을 알 수 있다. (실선: 지연 시간이 있는 모델, 점선: 지연 시간이 없는 모델, 점: 관찰값)", fig.width = 6, fig.height = 3.5}
+```{r twocomp-lag, fig.cap = "(ref:twocomp-lag)", fig.width = 6, fig.height = 3.5}
 plot(dPK14[,"TIME"], dPK14[,"DV"], xlim=c(0, 25), ylim=c(0, 250), 
      xlab="Time (min)", ylab="Concentration (ug/L)", pch=16)
 TIME = dPK14[,"TIME"]
 lines(TIME, fPK14a(r1$Est["PE", 1:5]), lty=2)
 lines(TIME, fPK14b(r2$Est["PE", 1:6]))
 ```
+
+(ref:twocomp-lag) wnl 패키지를 통해 얻어진 경구 투여 2구획모델 PK 파라미터로 25시간 시뮬레이션한 결과. 모델에서 지연 시간(lag time)의 유무에 따라 C~max~ 부분의 차이가 두드러지는 것을 알 수 있다. (실선: 지연 시간이 있는 모델, 점선: 지연 시간이 없는 모델, 점: 관찰값)
 
 ## Theoph 약동학 자료의 구획분석 {#theoph-wnl}
 
