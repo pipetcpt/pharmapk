@@ -21,10 +21,10 @@
   <meta name="twitter:description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
   <meta name="twitter:image" content="http://pipet.or.kr/books/pharmapk/images/cover.jpg" />
 
-<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2.9000" />
+<meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.3 (2021-09-10)" />
 
 
-<meta name="date" content="2021-09-09" />
+<meta name="date" content="2021-09-10" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -330,7 +330,7 @@ div.csl-indent {
 </p>
 <div id="서론-2" class="section level2" number="3.1">
 <h2><span class="header-section-number">3.1</span> 서론</h2>
-<p>약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(non-compartmental analysis, NCA)이고 이는 약물의 임상개발에 매우 중요하다.
+<p>약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 NCA(비구획분석, Non-Compartmental analysis)이고 이는 약물의 임상개발에 매우 중요하다.
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.
 약물개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 준다.
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다. 
@@ -342,7 +342,7 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 <div id="채혈-시간" class="section level3" number="3.2.1">
 <h3><span class="header-section-number">3.2.1</span> 채혈 시간</h3>
 <p>예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라미터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 적은 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석을 하면 안된다.</p>
-<p>실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr <span class="citation">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, Francois, et al. 2021</a>)</span>, 자료의 형태를 변형하는 tidyr <span class="citation">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham 2021</a>)</span>, 시간 자료를 쉽게 처리할 수 있는 <span class="citation">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2021</a>)</span> 등이 있다. </p>
+<p>실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr <span class="citation">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, Francois, et al. 2021</a>)</span>, 자료의 형태를 변형하는 tidyr <span class="citation">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham 2021</a>)</span>, 시간 자료를 쉽게 처리할 수 있는 lubridate <span class="citation">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2021</a>)</span> 등이 있다. </p>
 <p>계획된 채혈 시간은 기술통계량을 구하여 표를 만들거나 농도-시간 곡선 등의 그림을 그리는데 사용될 수 있으므로 실제 채혈시간과 병기하여 하나의 최종 자료에 포함되어 있어야 한다.</p>
 </div>
 <div id="정량한계를-벗어나거나-누락된-자료의-처리" class="section level3" number="3.2.2">
@@ -359,9 +359,10 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 <div id="상용-소프트웨어를-이용한-nca" class="section level2" number="3.3">
 <h2><span class="header-section-number">3.3</span> 상용 소프트웨어를 이용한 NCA</h2>
 <p>상용 소프트웨어 중 가장 많이 사용되는 것이 Certara 사의 Phoenix WinNonLin이다. 오랜 시간 많은 연구자들이 사용하여 익숙한 GUI 인터페이스를 제공하고 있고, 혈액, 소변 자료의 NCA 등을 제공하고 간단한 설계의 생물학적 동등성 판정 등 통계 분석도 지원하여 비교적 진입장벽이 낮은 자료 분석 도구라 할 수 있다. </p>
-<p>그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다.
-제약사와 규제기관 등에 더 높은 비용을 요구하고 있는 상황이라, NCA를 빈번하게 사용하지 않는 산업계 종사자들에게
-분석 초보자의 경우 유료 강의를 통한 학습을 필요로 하거나, CDISC(Clinical Data Interchange Standards Consortium)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 어려움이 있다. 비교적 경험이 쌓인 연구자에게는 분석 워크플로우를 프로그래밍 코드를 통해 자동화하는게 불가능한 것이 단점으로 여겨질 수 있다. 윈도우 환경에서만 실행 가능하다는 것도 특정 운영체제를 선호하는 사람에게 제한점이 될 수 있다.</p>
+<p>그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다. NCA를 빈번하게 사용하지 않는 제약사나 바이오텍에서는 이러한 유지비용이 부담으로 다가올 수 있다.
+분석 초보자의 경우 유료 강의를 통한 학습이 필요하며, CDISC(Clinical Data Interchange Standards Consortium)<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 어려움이 있다.
+비교적 경험이 쌓인 연구자에게는 분석 워크플로우를 프로그래밍 코드를 통해 자동화하는게 불가능한 것이 단점으로 여겨질 수 있다.
+윈도우 환경에서만 실행 가능하다는 것도 특정 운영체제를 선호하는 사람에게 제한점이 될 수 있다.</p>
 <p>식약처, 미국 FDA(Food and Drug Administration), 유럽 EMA(European Medicines Agency)를 비롯한 대부분의 규제기관에서는 NCA에 쓰는 특정 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.</p>
 </div>
 <div id="nca에-활용할-수-있는-r-package-소개" class="section level2" number="3.4">
@@ -797,7 +798,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.4 <span class="er">(</span><span class="ex">2021-07-16</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.1 <span class="er">(</span><span class="ex">2021-08-10</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-09-09 09:31:55 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-09-10 07:34:19 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -1342,7 +1343,7 @@ Vol Dist Steady State Pred (Vss_pred)
 <p>최적 모델을 검색하는 동안 데이터 포인트가 추가되면 적합도를 개선하지 않고 Rsq가 증가 할 수 있다. 조정 R-제곱은 예측 변수의 수(여기서는 데이터 포인트)에 대해 변형된 R- 제곱으로 모집단 R-제곱의 편향되지 않은 추정치로 사용할 수 있다. 일반적으로 Rsq 보다 작다. 가장 적은 수의 데이터 포인트로 조정 R-제곱을 최대화하는 기울기 및 절편이 탐색되고, 가장 적합한 모델로 선택된다. 공식은 아래와 같다.</p>
 <p><span class="math display">\[R_{adj}^{2} = 1 - (1 - R^{2}) \cdot \frac{n - 1}{n - 2}\]</span></p>
 <p><strong>Corr_XY (CORRXY)</strong></p>
-<p>람다 z 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.</p>
+<p>LAMZ 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.</p>
 <p><strong>b0 (b0)</strong></p>
 <p>로그 농도 대 시간의 회귀선의 절편이다. CLSTP 계산에 사용되지만 정맥주사(i.v. bolus)의 경우 외삽된 C0 (시간 0에서의 농도)에는 사용되지 않는다.</p>
 <p><strong>Lambda_z (LAMZ)</strong></p>
@@ -1350,13 +1351,13 @@ Vol Dist Steady State Pred (Vss_pred)
 <p><strong>No_points_Lambda_z (LAMZNPT)</strong></p>
 <p>LAMZ 계산에 사용되는 관찰 농도의 개수이다.</p>
 <p><strong>Lambda_z_lower (LAMZLL)</strong></p>
-<p>Lambda_z의 계산에 포함되는 값의 시간 하한이다. LAMZ(터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.</p>
+<p>LAMZ 계산에 사용 된 가장 빠른 시점이다.</p>
 <p><strong>Lambda_z_upper (LAMZUL)</strong></p>
-<p>Lambda_z 계산에 포함되는 값의 시간 상한이다. LAMZ(터미널 기울기) 계산에 사용 된 마지막 시점이다.</p>
+<p>LAMZ 계산에 사용 된 마지막 시점이다.</p>
 <p><strong>HL_Lambda_z (LAMZHL)</strong></p>
-<p>최종 반감기. Lambda_z(LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 <span class="math inline">\(\frac{ln(2)}{LAMZ}\)</span>로 계산된다.</p>
+<p>최종 반감기. LAMZ는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 <span class="math inline">\(\frac{ln(2)}{LAMZ}\)</span>로 계산된다.</p>
 <p><strong>Clast_pred (CLSTP)</strong></p>
-<p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
+<p>선형 회귀는 약동학 분석에서 LAMZ를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
 <p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda \cdot T_{last}) \]</span></p>
 <p><strong>C0 (C0)</strong></p>
 <p>초기 농도. 시간 0에서의 농도, 초기 농도. 처음 두 농도가 양수이고 첫 번째 농도가 두 번째 농도보다 크면 다음과 같이 C0를 계산할 수 있다. 그렇지 않으면 C0는 첫 번째 양수 농도가 된다.</p>
@@ -1878,7 +1879,7 @@ LAMZHL
 Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
 \]</span></p>
 <p>이때에 μ: 전체 평균, S<sub>ik</sub>: k 번째 sequence에서 i 번째 subject의 효과(랜덤), P<sub>j</sub>: j번째 period 의 효과(고정), F<sub>j,k</sub>; k 번째 sequence에서 j 번째 period의 제제의 효과(고정), C<sub>(j-1,k)</sub>: k 번째 sequence에서(j-1) 번째 period의 잔류효과(고정), ε<sub>ijk</sub> : 오차항으로 정의한다.
-이 모델에서 사용하는 가정은 1) S<sub>ik</sub> ∼ N(0,σ<sub>s</sub><sup>2</sup>), 2) ε<sub>ijk</sub> ∼ N(0,σ<sub>ε</sub><sup>2</sup>), 3) S<sub>ik</sub> 와 ε<sub>ijk</sub>가 독립이라는 세 가지이다. 이때 (μ<sub>T</sub> - μ<sub>R</sub>)에 대한 (1-2α) × 100% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다.</p>
+이 모델에서 사용하는 가정은 1) S<sub>ik</sub> ~ N(0,σ<sub>s</sub><sup>2</sup>), 2) ε<sub>ijk</sub> ~ N(0,σ<sub>ε</sub><sup>2</sup>), 3) S<sub>ik</sub> 와 ε<sub>ijk</sub>가 독립이라는 세 가지이다. 이때 (μ<sub>T</sub> - μ<sub>R</sub>)에 대한 (1-2α) × 100% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다.</p>
 <p>생물학적 동등성을 평가하는데 통계학은 핵심적인 역할을 수행하고 있고, 통계적 분석을 위해서는 컴퓨터 소프트웨어가 필요하다. SAS는 통계 패키지중에서는 가장 방대하고 다양한 분석을 제공하고 전 세계적으로 생물학적동등성의 판단을 위해 표준으로 사용되고 있다. 아래의 SAS 코드로 ANOVA 표와 신뢰구간을 구할 수 있다.</p>
 <pre class="sas"><code>PROC GLM DATA=BE OUTSTAT=STATRES; /* GLM use only complete subjects. */
 CLASS SEQ PRD TRT SUBJ;

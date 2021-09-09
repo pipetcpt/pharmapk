@@ -39,7 +39,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2.9000},
+  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.3 (2021-09-10)},
   colorlinks=true,
   linkcolor={Maroon},
   filecolor={Maroon},
@@ -308,8 +308,8 @@
 \index{약동학}
 
 (기본원리와 자료해석)}
-\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2.9000}
-\date{2021-09-09}
+\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.3 (2021-09-10)}
+\date{2021-09-10}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -634,9 +634,9 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 20세기 초에 혈장약물농도를 측정하는 기술들이 나오면서 정맥주입 후 측정한
 약물농도는 아래 그림 \ref{fig:first-order-elim}와 같이 시간에 따라 초기에는 급격히 감소하다가
 나중에는 완만하게 떨어지는 오목한 곡선모양을 보이는 것을 알게 되었다.
-로그 농도 단위로 그리면 농도곡선은 직선으로 변하므로 ln C = ln C(0) -kt와 같은 수식으로 표기할 수 있다.
+로그 농도 단위로 그리면 농도곡선은 직선으로 변하므로 ln(C) = ln(C(0))-kt와 같은 수식으로 표기할 수 있다.
 여기서 C(0)란 시간 0에서의 농도이고 x축에 표기된 시간 t에 따라 기울기 -k를 가지는 직선이다. (시간의 함수로서 농도 C는 C(t)로 표기할 수 있다.)
-로그 단위를 없애기 위해 이 식의 양 변에 지수를 취하면 C = C(0) exp(-kt) 와 같이 변형되고, 다시 미분방정식의 형태로 변형하면 dC/dt = -kC 과 같은 식이 된다.
+로그 단위를 없애기 위해 이 식의 양 변에 지수를 취하면 C = C(0)·exp(-kt) 와 같이 변형되고, 다시 미분방정식의 형태로 변형하면 dC/dt = -kC 과 같은 식이 된다.
 이 간단한 형태의 미분방정식이 의미하는 것은 매 순간마다 농도의 시간에 따른 변화 정도(dC/dt)가 농도의 1승(C=C\textsuperscript{1})에 비례(-kC)한다는 것이다.
 시간이 갈수록 그 변화의 방향이 감소하는 쪽이므로 비례상수 k에 -가 붙는다.
 이와 같이 어떤 값의 변화율이 그 값 자체(의 1승)에 비례하는 현상을 1차식(first-order kinetics)을 따른다고 한다.
@@ -961,8 +961,8 @@ AUC는 적분계산을 하지 않더라도, 채혈시간과 측정된 혈장약�
 제거속도상수 k는 뭔가가 사라지는 속도(rate)를 표기하기 위해 쓰는 비례상수라는 의미인데 혈장약물농도가 떨어지는 속도(dC/dt)의 경우 dC/dt = --k·C로 정의되고, 체내에 남아있는 약물의 총량(A: amount)이 줄어드는 속도(dA/dt)를 나타내고자 할 때는 dA/dt = -k·A와 같이 표기할 수 있을 것이다. 그런데 앞부분에서 나온 분포용적의 개념으로 추론하면 어느 순간 체내에 존재하는 약물의 양 A = C·V\textsubscript{d}이므로 -k·A = -k·C·V\textsubscript{d} 이고 또 CL의 정의로 나온 제거 속도는 CL·C이므로, -k·C·V\textsubscript{d} = CL·C가 된다. \index{분포용적}
 그러므로 결국 k = CL/V\textsubscript{d}이다. (감소를 의미하는 - 부호 생략) k의 단위는 시간의 역수(1/h)가 된다.
 
-혈장약물농도의 반감기는 일차약동학의 또다른 수식인 C(t) = C(0) × exp(-kt)에서, 시간의 함수인 C(t)가 처음 농도 C(0)의 1/2로 줄어드는데 걸리는 시간으로 구할 수 있다. \index{반감기}\index{약동학}\index{반감기}
-즉 C(t) = 1/2C(0) = C(0) · exp(-kt)에서 양 변에 자연로그를 취하고 풀어주면 ln(½) + ln(C(0)) = ln(C(0)) -- kt이고 t (=t\textsubscript{1/2}) = - ln(½)/k = ln(2)/k = 0.693/k이다.
+혈장약물농도의 반감기는 일차약동학의 또다른 수식인 C(t) = C(0)×exp(-kt)에서, 시간의 함수인 C(t)가 처음 농도 C(0)의 1/2로 줄어드는데 걸리는 시간으로 구할 수 있다. \index{반감기}\index{약동학}\index{반감기}
+즉 C(t) = 1/2·C(0) = C(0)·exp(-kt)에서 양 변에 자연로그를 취하고 풀어주면 ln(½) + ln(C(0)) = ln(C(0)) -- kt이고 t (=t\textsubscript{1/2}) = - ln(½)/k = ln(2)/k = 0.693/k이다.
 즉 t\textsubscript{1/2}는 k에 반비례하고 k = CL/V\textsubscript{d}이므로 CL에 반비례하고 V\textsubscript{d}에는 비례한다.
 예컨데, CL는 몸에서 약을 제거하는 능력을 나타내는 값인데, 똑같은 CL를 가진 서로 다른 두 약의 V\textsubscript{d}가 두 배 차이 난다면 V\textsubscript{d}가 큰 약의 반감기가 다른 약의 반감기의 두 배가 될 것이다. \index{반감기}\index{반감기}
 직관적으로 이해하기 위해서 분포모델을 생각해 본다면, 시간당 약이 녹아있는 용매인 혈장을 간에서 청소하는 능력(CL)은 A와 B라는 두 약에서 똑같지만, 혈관 외 조직에 약이 녹아있는 정도(농도, 양)가 A에 비해 B가 두 배 크다고 하자.
@@ -1075,7 +1075,7 @@ CL의 경우는 콩팥과 간에 의한 대사속도를 반영하는데 콩팥�
 \end{equation}
 
 그러나 현실에서는 무한대라는 시간을 적용하는 것이 불가능하고 대신 앞서 나온 C\textsubscript{max} = Dose/V\textsubscript{d} × (1- e\textsuperscript{-knτ})/( 1- e\textsuperscript{-kτ}) 수식의 분자 부분의 e\textsuperscript{-knτ}가 0에 대략 비슷할 정도로 충분히 작아지는 시간을 추산하여 쓴다.
-e\textsuperscript{-knτ} 식에서 지수부분(-knτ)은 제거속도 상수 k와 경과시간 nτ의 곱으로 이루어져 있다.
+e\textsuperscript{-knτ} 식에서 지수부분(-knτ)은 제거속도상수 k와 경과시간 nτ의 곱으로 이루어져 있다.
 상수 k는 0.693/t\textsubscript{1/2}이고 경과시간 nτ가 만약 t\textsubscript{1/2}의 4배 또는 5배라면, 지수 -knτ는 -2.8 \textasciitilde{} -3.5로서 e\textsuperscript{-knτ}는 0.03\textasciitilde0.06 정도의 작은 값이 되어 항정상태에 유사하다고 간주한다. \index{항정상태}\index{항정상태}\index{항정상태}
 즉, 다회투여 시 4\textasciitilde5회의 반감기가 경과하면 항정상태에 도달하였다고 간주한다. \index{항정상태}\index{항정상태}\index{반감기}\index{반감기}\index{항정상태}
 이 때 흔히, 투여간격 τ를 줄여 자주 투여하면 항정상태에 일찍 도달할 수 있을 것이라는 착각을 할 수 있다. \index{항정상태}\index{항정상태}\index{항정상태}
@@ -1327,7 +1327,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 
 이처럼 단순한 수치화 작업만으로도 우리는 집단의 평균 수준에서 시간의 흐름에 따라 약물의 농도가 어떻게 변한다고 할 수 있는지에 대한 보다 나은 의사소통 수단을 확보할 수 있다.
 평균 값 이외에 표준편차 등을 함께 나타낸다면 연구 대상 집단 내에서 약물농도의 변이 정도에 대한 추가적인 정보도 확보할 수 있을 것이다.
-그러나, 우리가 약동학 연구를 하는 중요한 목적 중 하나는 생체에서의 약동학적 특성(인체가 약을 어떻게 흡수, 분포, 제거하는가)을 알고자 하는 것다.
+그러나, 우리가 약동학 연구를 하는 중요한 목적 중 하나는 생체에서의 약동학적 특성(인체가 약을 어떻게 흡수, 분포, 제거하는가)을 알고자 하는 것이다.
 체내에서 발생하는 시간에 따른 약물농도의 변화는 사실 약물 처리와 관련된 생리학적 작용(=약동학적 작용)의 결과이기 때문이다.
 따라서, 이러한 방식의 수치화를 통해서는 우리가 원하는 정보를 얻을 수 없을 가능성이 크다. \index{약동학}
 결과를 단순하게 기술통계학적으로 요약하는 것보다는 어떠한 방법으로든 약동학적 특성 자체를 요약해서 보여주는 것이 더욱 큰 의미를 가진다고 하겠다. \index{약동학}
@@ -1336,7 +1336,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 비구획분석의 명칭은 매우 흥미롭다.
 앞서 언급한 방법과 같이 이 방법은 가급적 분석결과에 영향을 미칠 수 있는 여러 가지 가정들을 제외하고자 한다.
 이 방법은 오래 전부터 활용되었던 방법이며, 어떤 면에서는 컴퓨터의 도움 없이 약동학에 관한 다양한 가정들을 분석에 반영할 수 없었기 때문에 그러한 특성을 가지게 되었을 가능성이 크다.
-약동학 분석에서 가장 큰 가정은 인간 등 생체의 생리학적 특성에 대한 것이다. \index{약동학}
+약동학 분석에서 가장 큰 가정은 사람의 몸(생체)의 생리학적 특성에 대한 것이다. \index{약동학}
 약동학이라는 학문 자체가 약(藥)의 이동(動)에 대한 것이며, 이렇게 약을 이동시키는 것은 생물이다. \index{약동학}
 생물이 약을 흡수, 분포, 대사, 배설하기 때문에 약이 생체를 거쳐 이동(보관되어 있던 장소에서 배설한 장소로)하는데, 이 경로 상에 생체가 놓여 있기 때문에 약물의 노출이 만들어진다.
 그렇기 때문에 이러한 약동학을 정확하게 해석하기 위해서는 생체의 구조 및 기능에 대한 가정이 핵심적이다. \index{약동학}
@@ -1379,7 +1379,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 그러기에 이 값은 언제나 실제로 발생한 최대 농도보다 같거나 작을 수밖에 없으며, 우연히 특정한 채혈 시점에 실제 최대 농도가 발생할 확률은 매우 작으므로, 이 값은 언제나 음의 편차를 갖는(negatively biased) 특성이 있다.
 이러한 편차를 최소화하기 위해서는 예상되는 T\textsubscript{max} 부근에서 채혈 간격을 좁혀 촘촘한 농도값을 얻으면 되지만, 인체 약동학연구에서는 과도하게 많은 채혈 시 환자가 부당한 위험을 감수해야만 한다는 문제가 있어 적절한 균형이 필요하다.
 또한, C\textsubscript{max}와 관련하여 시간-농도 그래프를 부드럽게 꺾이는 그래프로 그리는 경우 실제 관측값보다 그래프가 위로 올라가는 상황이 생길 수 있어 오해의 원인이 된다.
-따라서, 비구획분석이 시간-농도 그래프를 그린다면, 단순히 점과 점을 잇는 형태가 더 나을 수 있다.
+따라서, 비구획분석에서 시간-농도 그래프를 그린다면, 단순히 점과 점을 잇는 형태가 더 나을 수 있다.
 
 더 어려운 것은 AUC인데, 이는 곡선하면적이라 설명한 바 있다.
 그러나, 일반적인 약동학 연구에서는 각 시점 별 농도값을 측정할 뿐이므로 연속된 점의 형태로 결과를 얻을 수 있을 뿐 실제로 곡선 형태를 관찰할 수는 없다. \index{약동학}
@@ -1410,7 +1410,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 \caption{AUC를 구하기 위한 선형사다리꼴 공식}\label{fig:image4}
 \end{figure}
 
-따라서, AUC\textsubscript{last}를 산출하고자 한다면, 최종 관찰 시점까지 이 작업을 수행하면 된다. 다만, 실제 농도의 변화는 1차 속도론을 따르기 때문에 각 측정치 간의 농도 변화가 실제로 직선으로 일어나지 않는다는 문제가 있다. 그러기에 이 방법을 사용하면, 농도 증가 구간에서는 실제 곡선하면적보다 작은 값이 산출되고, 농도 감소 구간에서는 실제보다 큰 값이 산출된다는 문제가 발생한다.
+따라서, AUC\textsubscript{last}를 산출하고자 한다면, 최종 관찰 시점까지 이 작업을 수행하면 된다. 다만, 실제 농도의 변화는 1차식을 따르기 때문에 각 측정치 간의 농도 변화가 실제로 직선으로 일어나지 않는다는 문제가 있다. 그러기에 이 방법을 사용하면, 농도 증가 구간에서는 실제 곡선하면적보다 작은 값이 산출되고, 농도 감소 구간에서는 실제보다 큰 값이 산출된다는 문제가 발생한다.
 이를 해결하기 위한 가장 좋은 방법은 관찰 간격을 좁게 하여 곡선과 직선 간의 편차가 작아지게 하는 것이다. (그림 \ref{fig:image5})
 
 \begin{figure}
@@ -1419,7 +1419,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 
 }
 
-\caption{간헐적 관측으로 인한 사다리꼴 공식의 한게. 음영 처리된 영역 곡선하면적 산출 시, 농도가 상승하는 구간에서는 과소평가되고 농도가 하강하는 구간에서 과대평가됨을 알 수 있다. 관찰 간격을 줄임으로서 음영 처리된 영역을 줄일 수 있다.}\label{fig:image5}
+\caption{간헐적 관측으로 인한 사다리꼴 공식의 한계. 음영 처리된 영역 곡선하면적 산출 시, 농도가 상승하는 구간에서는 과소평가되고 농도가 하강하는 구간에서 과대평가됨을 알 수 있다. 관찰 간격을 줄임으로서 음영 처리된 영역을 줄일 수 있다.}\label{fig:image5}
 \end{figure}
 
 그러나, 실제 임상 약동학 연구에서 채혈 횟수는 제한될 수밖에 없으며, 동일한 간격으로 5 반감기 이상의 기간 동안 약동학 채혈을 수행하는 것은 불가능에 가깝다. 따라서, 농도의 변화가 큰 구간(비교적 투약 시점에 가까운 구간)에서는 가급적 관찰 간격을 좁게 하고, 농도의 변화가 작은 구간(비교적 투약 시점에서 먼 구간)에서는 관찰 간격을 넓혀서 이 문제를 해결한다. 농도의 변화가 작을수록 곡선과 직선 간의 오차가 적어지기 때문이다.\index{반감기}\index{약동학}\index{반감기}
@@ -1446,7 +1446,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 \caption{농도 증가/감소 구간에서 선형사다리꼴공식/로그-선형사다리꼴을 각각 사용하는 예}\label{fig:image7}
 \end{figure}
 
-AUC\textsubscript{inf} 역시 산출해야 하는 파라미터이다. AUC\textsubscript{inf}는 앞서 구한 AUC\textsubscript{last}에 최종 측정 시각 이후의 면적을 더하는 방식으로 산출하는데, 최종 측정 시각 이후에는 실측한 관찰값이 없으므로, 이 면적을 구할 때에는 당연히 가정이 포함될 수밖에 없다. 첫 번째 가정은, `약물의 제거가 1차 속도론적으로 일어났다(선형약동학을 따른다)'는 것이다. 이와 같은 상황에서는 다음의 관계식을 적용할 수 있다.\index{약동학}
+AUC\textsubscript{inf} 역시 산출해야 하는 파라미터이다. AUC\textsubscript{inf}는 앞서 구한 AUC\textsubscript{last}에 최종 측정 시각 이후의 면적을 더하는 방식으로 산출하는데, 최종 측정 시각 이후에는 실측한 관찰값이 없으므로, 이 면적을 구할 때에는 당연히 가정이 포함될 수밖에 없다. 첫 번째 가정은, `약물의 제거가 1차식을 따라 일어났다(선형약동학을 따른다)'는 것이다. 이와 같은 상황에서는 다음의 관계식을 적용할 수 있다.\index{약동학}
 
 특정 시점에서 체내에 잔존하는 약물의 양 = 청소율 × 해당 시점 이후의 곡선하면적\index{청소율}
 
@@ -1637,7 +1637,7 @@ t_{1/2} = \frac{ln 2}{\lambda_{z}}
 이제 항정상태의 정의를 생각해 보자.
 항정상태는 단위시간 동안에 체내로 들어온 약물량과 제거된 약물량이 같아져서, 일정한 범위 내에서 약물의 농도가 유지되는 상태를 의미한다.
 일반적으로 단위시간은 투여 간격을 의미하는데, 동일한 약물 사용 시 이 간격이 작아질수록 제거될 수 있는 약물량이 적어지므로 투여 간격 중 발생할 수 있는 변동(최대농도와 최소농도 간의 차이, fluctuation)의 크기가 작아지며, 투여 간격이 거의 0에 가까워지는 지속정맥주입 시에는 변동 없이 일정한 농도를 유지하게 된다. 우리가 관심이 있는 것은, 특정한 용량용법 유지 시, 항정상태에서의 평균농도(C\textsubscript{ss,avg})가 어느 수준일 것인가이다. \index{용량용법(dosage regimen)}
-희망하는 투여간격과 목표 \emph{C\textsubscript{ss,avg}}를 정하고 이를 만족시킬 수 있는 용량을 찾는 것이 가장 기본적인 요구이다.
+희망하는 투여간격과 목표 C\textsubscript{ss,avg}를 정하고 이를 만족시킬 수 있는 용량을 찾는 것이 가장 기본적인 요구이다.
 단회 투여 시 비구획분석과 마찬가지로, 이 역시 용량과 농도 간의 관계이므로 일종의 scaling factor가 필요할 것이다.
 
 그런데, 그림 \ref{fig:image11}와 같은 약동학적 특성을 가지는 약물 A를 가정해 보자.\index{약동학}
@@ -1648,7 +1648,7 @@ t_{1/2} = \frac{ln 2}{\lambda_{z}}
 
 }
 
-\caption{2구획 약동학 모델. C\textsubscript{p(t)}: 시간 t에서 혈장 약물 농도.\index{약동학}}\label{fig:image11}
+\caption{AUC\textsubscript{inf}가 동일하지만 시간-농도 양상이 다른 사례}\label{fig:image11}
 \end{figure}
 
 
@@ -1664,15 +1664,11 @@ t_{1/2} = \frac{ln 2}{\lambda_{z}}
 \index{분포용적}
 
 V\textsubscript{ss}를 구하기 위해서는 우선 곡선의 형태 차이를 확인하여야 한다.
-그리고 이러한 형태의 차이를 정량화하기 위해 모멘트(moment)라는 개념을
-도입한다. 이는 물리학적 개념인데, 여기에서는 특정 시점의 농도값과 그것이
-유지된 시간의 곱으로 정의한다. 이렇게 되면, 투여 직후에는 약물 A에서
-B보다 그 값이 크고, 시간이 지남에 따라 B보다 A가 그 값이 커지는 등
-시간에 따른 곡선 형태의 변화를 반영할 수 있게 된다. 이에 덧붙여,
-이론적으로 모멘트 값을 투여 시각으로부터 무한대까지 적분(area under the
-moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하는
-값이 하나 남게 되는데, 이는 각 농도가 평균적으로 유지된 시간이라는
-개념이 된다. 실제 비구획분석에서는 이를 다음의 식 \eqref{eq:mrteq}으로 구한다.
+그리고 이러한 형태의 차이를 정량화하기 위해 모멘트(moment)라는 개념을 도입한다.
+이는 물리학적 개념인데, 여기에서는 특정 시점의 농도값과 그것이 유지된 시간의 곱으로 정의한다.
+이렇게 되면, 투여 직후에는 약물 A에서 B보다 그 값이 크고, 시간이 지남에 따라 B보다 A가 그 값이 커지는 등 시간에 따른 곡선 형태의 변화를 반영할 수 있게 된다.
+이에 덧붙여, 이론적으로 모멘트 값을 투여 시각으로부터 무한대까지 적분(area under the moment curve, AUMC)하고, 이 값을 total AUC로 나누면 시간에 해당하는 값이 하나 남게 되는데, 이는 각 농도가 평균적으로 유지된 시간이라는 개념이 된다.
+실제 비구획분석에서는 이를 다음의 식 \eqref{eq:mrteq}으로 구한다.
 
 \begin{equation}
 \begin{split}
@@ -1697,6 +1693,13 @@ MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{T_{inf}}{2}
 MRT = \frac{AUMC_{0}^{\infty}}{AUC_{0}^{\infty}} - \frac{1}{k_a}
 \label{eq:mrt2}
 \end{equation}
+
+MRT와 반감기는 둘 다 시간을 단위로 쓴다는 차원에서 쉽게 혼동을 야기한다.
+MRT는 약물의 분포 양상을 설명하기 위해 도입되는 산술적인 개념인 반면, 반감기는 실측데이터로부터 쉽게 확인이 가능한 직관적인 개념이다.
+만일, 어떤 약물이 그림 \ref{fig:image11}의 B와 같이 단순한 하나의 기울기를 가지는 제거 곡선을 가지는 약물이라면 둘의 관계는 `반감기 = MRT · ln(2)' 라는 단순한 식으로 나타낼 수 있다.
+그러나 MRT는 그림 \ref{fig:image11}의 A와 같이 제거 곡선이 두 개 이상의 기울기를 가지는 경우에 그 의미를 가지는 파라미터이며, 각각의 기울기가 나타나는 양상에 따라 MRT가 다른 값으로 산출될 것임을 예상해 볼 수 있다.
+이 경우, MRT와 반감기의 관계는 약동학적 양상에 따라 다르게 나타나게 된다.
+보다 자세한 사항은 참고문헌(\protect\hyperlink{ref-sobol2004relationships}{Sobol and Bialer 2004})을 참고할 수 있다.
 
 MRT를 구했다면, 이를 이용하여 V\textsubscript{ss}를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 \eqref{eq:mrtvss}의 유도 과정을 거친다.\index{항정상태}
 \index{항정상태}\index{항정상태}
@@ -1757,7 +1760,7 @@ T\textsubscript{max}는 정해진 측정 시각들 중 최대 관찰값을 보�
 \hypertarget{uxc11cuxb860-2}{%
 \section{서론}\label{uxc11cuxb860-2}}
 
-약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 비구획분석(non-compartmental analysis, NCA)이고 이는 약물의 임상개발에 매우 중요하다.\index{약동학}\index{임상개발}
+약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 NCA(비구획분석, Non-Compartmental analysis)이고 이는 약물의 임상개발에 매우 중요하다.\index{약동학}\index{임상개발}
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.\index{생물학적 동등성}
 약물개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 준다.
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다. \index{약동학}
@@ -1773,7 +1776,7 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라미터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 적은 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석을 하면 안된다.
 
-실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr (\protect\hyperlink{ref-R-dplyr}{Wickham, Francois, et al. 2021}), 자료의 형태를 변형하는 tidyr (\protect\hyperlink{ref-R-tidyr}{Wickham 2021}), 시간 자료를 쉽게 처리할 수 있는 (\protect\hyperlink{ref-R-lubridate}{Spinu, Grolemund, and Wickham 2021}) 등이 있다. \index{약동학}
+실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr (\protect\hyperlink{ref-R-dplyr}{Wickham, Francois, et al. 2021}), 자료의 형태를 변형하는 tidyr (\protect\hyperlink{ref-R-tidyr}{Wickham 2021}), 시간 자료를 쉽게 처리할 수 있는 lubridate (\protect\hyperlink{ref-R-lubridate}{Spinu, Grolemund, and Wickham 2021}) 등이 있다. \index{약동학}
 
 계획된 채혈 시간은 기술통계량을 구하여 표를 만들거나 농도-시간 곡선 등의 그림을 그리는데 사용될 수 있으므로 실제 채혈시간과 병기하여 하나의 최종 자료에 포함되어 있어야 한다.
 
@@ -1796,9 +1799,10 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 상용 소프트웨어 중 가장 많이 사용되는 것이 Certara 사의 Phoenix WinNonLin이다. 오랜 시간 많은 연구자들이 사용하여 익숙한 GUI 인터페이스를 제공하고 있고, 혈액, 소변 자료의 NCA 등을 제공하고 간단한 설계의 생물학적 동등성 판정 등 통계 분석도 지원하여 비교적 진입장벽이 낮은 자료 분석 도구라 할 수 있다. \index{생물학적 동등성}
 
-그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다.
-제약사와 규제기관 등에 더 높은 비용을 요구하고 있는 상황이라, NCA를 빈번하게 사용하지 않는 산업계 종사자들에게
-분석 초보자의 경우 유료 강의를 통한 학습을 필요로 하거나, CDISC(Clinical Data Interchange Standards Consortium)\footnote{임상시험에 관련된 국제표준을 개발하는 표준화 기구로, 2010년부터 미국 FDA와 유럽 EMA는 전자문서(eCTD)로 허가를 신청할 경우 CDISC에서 제정한 표준을 이용한 임상시험 데이터 제출만 허용하고 있다.} 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 어려움이 있다. 비교적 경험이 쌓인 연구자에게는 분석 워크플로우를 프로그래밍 코드를 통해 자동화하는게 불가능한 것이 단점으로 여겨질 수 있다. 윈도우 환경에서만 실행 가능하다는 것도 특정 운영체제를 선호하는 사람에게 제한점이 될 수 있다.
+그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다. NCA를 빈번하게 사용하지 않는 제약사나 바이오텍에서는 이러한 유지비용이 부담으로 다가올 수 있다.
+분석 초보자의 경우 유료 강의를 통한 학습이 필요하며, CDISC(Clinical Data Interchange Standards Consortium)\footnote{임상시험에 관련된 국제표준을 개발하는 표준화 기구로, 2010년부터 미국 FDA와 유럽 EMA는 전자문서(eCTD)로 허가를 신청할 경우 CDISC에서 제정한 표준을 이용한 임상시험 데이터 제출만 허용하고 있다.} 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 어려움이 있다.
+비교적 경험이 쌓인 연구자에게는 분석 워크플로우를 프로그래밍 코드를 통해 자동화하는게 불가능한 것이 단점으로 여겨질 수 있다.
+윈도우 환경에서만 실행 가능하다는 것도 특정 운영체제를 선호하는 사람에게 제한점이 될 수 있다.
 
 식약처, 미국 FDA(Food and Drug Administration), 유럽 EMA(European Medicines Agency)를 비롯한 대부분의 규제기관에서는 NCA에 쓰는 특정 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.\index{약동학}
 
@@ -2226,7 +2230,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.4 }\ErrorTok{(}\ExtensionTok{2021{-}07{-}16}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.1 }\ErrorTok{(}\ExtensionTok{2021{-}08{-}10}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}09{-}09 09:32:03 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}09{-}10 07:34:29 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2496,7 +2500,7 @@ Rsq는 NCA에 사용 된 선형 회귀에서 상관 계수 (r)의 제곱이다. 
 
 \textbf{Corr\_XY (CORRXY)}
 
-람다 z 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.
+LAMZ 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.
 
 \textbf{b0 (b0)}
 
@@ -2512,19 +2516,19 @@ LAMZ 계산에 사용되는 관찰 농도의 개수이다.
 
 \textbf{Lambda\_z\_lower (LAMZLL)}
 
-Lambda\_z의 계산에 포함되는 값의 시간 하한이다. LAMZ(터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.
+LAMZ 계산에 사용 된 가장 빠른 시점이다.
 
 \textbf{Lambda\_z\_upper (LAMZUL)}
 
-Lambda\_z 계산에 포함되는 값의 시간 상한이다. LAMZ(터미널 기울기) 계산에 사용 된 마지막 시점이다.
+LAMZ 계산에 사용 된 마지막 시점이다.
 
 \textbf{HL\_Lambda\_z (LAMZHL)}
 
-최종 반감기. Lambda\_z(LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 \(\frac{ln(2)}{LAMZ}\)로 계산된다.\index{반감기}\index{반감기}
+최종 반감기. LAMZ는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 \(\frac{ln(2)}{LAMZ}\)로 계산된다.\index{반감기}\index{반감기}
 
 \textbf{Clast\_pred (CLSTP)}
 
-선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.\index{약동학}
+선형 회귀는 약동학 분석에서 LAMZ를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.\index{약동학}
 
 \[ C_ {last, pred} = exp(\beta_{0}-\lambda \cdot T_{last}) \]
 
@@ -2682,7 +2686,7 @@ Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
 \]
 
 이때에 μ: 전체 평균, S\textsubscript{ik}: k 번째 sequence에서 i 번째 subject의 효과(랜덤), P\textsubscript{j}: j번째 period 의 효과(고정), F\textsubscript{j,k}; k 번째 sequence에서 j 번째 period의 제제의 효과(고정), C\textsubscript{(j-1,k)}: k 번째 sequence에서(j-1) 번째 period의 잔류효과(고정), ε\textsubscript{ijk} : 오차항으로 정의한다.
-이 모델에서 사용하는 가정은 1) S\textsubscript{ik} ∼ N(0,σ\textsubscript{s}\textsuperscript{2}), 2) ε\textsubscript{ijk} ∼ N(0,σ\textsubscript{ε}\textsuperscript{2}), 3) S\textsubscript{ik} 와 ε\textsubscript{ijk}가 독립이라는 세 가지이다. 이때 (μ\textsubscript{T} - μ\textsubscript{R})에 대한 (1-2α) × 100\% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다.
+이 모델에서 사용하는 가정은 1) S\textsubscript{ik} \textasciitilde{} N(0,σ\textsubscript{s}\textsuperscript{2}), 2) ε\textsubscript{ijk} \textasciitilde{} N(0,σ\textsubscript{ε}\textsuperscript{2}), 3) S\textsubscript{ik} 와 ε\textsubscript{ijk}가 독립이라는 세 가지이다. 이때 (μ\textsubscript{T} - μ\textsubscript{R})에 대한 (1-2α) × 100\% 신뢰구간이 ln(0.8), ln(1.25) 안에 들어가면 두 제제가 생물학적으로 동등하다 결론을 내릴 수 있다.
 
 생물학적 동등성을 평가하는데 통계학은 핵심적인 역할을 수행하고 있고, 통계적 분석을 위해서는 컴퓨터 소프트웨어가 필요하다. SAS는 통계 패키지중에서는 가장 방대하고 다양한 분석을 제공하고 전 세계적으로 생물학적동등성의 판단을 위해 표준으로 사용되고 있다. 아래의 SAS 코드로 ANOVA 표와 신뢰구간을 구할 수 있다.\index{생물학적 동등성}
 
@@ -2954,10 +2958,9 @@ k\textsubscript{e2}라는 제거속도상수를 가진 모델)을 생각해 볼 
 
 1장에서 이미 나온 것처럼 최종반감기가 반드시 의미있는 것은 아니다.\index{반감기}\index{반감기}\index{최종반감기}
 
-그림 \ref{fig:fig4-3}과 같이 붉은 선은 최종반감기가 훨씬 긴 약임에도 불구하고 항정상태에 도달하는 시간은 검은 선에 비해 훨씬\index{항정상태}\index{항정상태}\index{반감기}\index{반감기}\index{항정상태}\index{최종반감기}
-빠름을 알 수 있다. 이유는 최종반감기를 보여주는 완만한 경사가 나타나기\index{반감기}\index{반감기}\index{최종반감기}
-전에 이미 몸 안의 약이 대부분 제거되었기 때문인데, 단순한 NCA로 얻어지는
-PK파라미터들만으로 이를 알아내기는 어렵다.
+그림 \ref{fig:fig4-3}과 같이 붉은 선은 최종반감기가 훨씬 긴 약임에도 불구하고 항정상태에 도달하는 시간은 검은 선에 비해 훨씬 빠름을 알 수 있다.
+이유는 최종반감기를 보여주는 완만한 경사가 나타나기 전에 이미 몸 안의 약이 대부분 제거되었기 때문인데, 단순한 NCA로 얻어지는 PK 파라미터들만으로 이를 알아내기는 어렵다.
+\index{항정상태}\index{항정상태}\index{반감기}\index{반감기}\index{항정상태}\index{최종반감기} \index{반감기}\index{반감기}\index{최종반감기}
 
 \begin{figure}
 
@@ -3047,11 +3050,11 @@ NCA로부터 PK파라미터를 구하는 시초는 혈장약물농도로부터 A
 \fontsize{10}{12}\selectfont
 \begin{tabular}[t]{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{3.0cm}}
 \toprule
-파라미터의 속성 & NCA 로 구한 파라미터 & 구획분석으로 구한 파라미터 & 비고\\
+파라미터의 속성 & NCA 파라미터 & 구획분석 파라미터 & 비고\\
 \midrule
-제거능력 & CL=AUC/Dose & CL=k\textsubscript{e}·V\textsubscript{c} & CL 수식 다름\\
+\cellcolor{gray!6}{제거능력} & \cellcolor{gray!6}{CL=AUC/Dose} & \cellcolor{gray!6}{CL=k\textsubscript{e}·V\textsubscript{c}} & \cellcolor{gray!6}{CL 수식 다름}\\
 분포 & V\textsubscript{ss}=CL·MRT\newline V\textsubscript{z}=Dose/(AUC·β)=CL/β & V\textsubscript{c}, V\textsubscript{p},\newline V\textsubscript{ss}=V\textsubscript{c}+V\textsubscript{p} & NCA에서는 V\textsubscript{c}, V\textsubscript{p} 따로 구하지 못하고 구획모델에서는 V\textsubscript{z} 안 나옴, \newline V\textsubscript{ss} 수식 다름\\
-최종소실기 & β: 최종 농도 2~3개 연결하여 측정 & k\textsubscript{e} & NCA에서는 k\textsubscript{e} 못 구하고 구획모델에서는 β 못 구함\\
+\cellcolor{gray!6}{최종소실기} & \cellcolor{gray!6}{β: 최종 농도 3개 이상 연결하여 측정} & \cellcolor{gray!6}{k\textsubscript{e}} & \cellcolor{gray!6}{NCA에서는 k\textsubscript{e} 못 구하고 구획모델에서는 β 못 구함}\\
 구획간 분포 속도 & 개념 자체가 없음 & k\textsubscript{12}, k\textsubscript{21}, \newline  Q = k\textsubscript{12}·V\textsubscript{c} = k\textsubscript{21}·V\textsubscript{p} & \\
 \bottomrule
 \end{tabular}
@@ -3088,13 +3091,10 @@ V\textsubscript{ss} = V\textsubscript{c}+V\textsubscript{p}로 정의된다. 두
 \hypertarget{ux3b2uxc640-kek10uxc758-uxcc28uxc774}{%
 \subsection{\texorpdfstring{β와 k\textsubscript{e}(k\textsubscript{10})의 차이}{β와 ke(k10)의 차이}}\label{ux3b2uxc640-kek10uxc758-uxcc28uxc774}}
 
-NCA 분석에서 마지막 2\textasciitilde3개의 농도를 직선으로 연결하여 구하는 최종
-기울기를 β라 한다. 이는 흔히 정맥주사 후 두 개의 기울기를 관찰할 수
-있어서 처음 것은 α, 두번째 것을 β라 하기 때문이다. 그림 \ref{fig:fig4-6}은 두 개의
-지수함수(biexponential)로 혈장약물농도의 변화를 모델링하는 방법인데,\index{모델링}
-구획모델보다 조금 간단한 모델링 방법이지만 지금은 잘 쓰이지 않는다.\index{모델링}
-NCA가 지수함수 모델을 이용하는 것은 아니지만, 마지막 농도들로써 β를
-구하는 원리는 동일하다.
+NCA 분석에서 마지막 최소 3개의 농도를 직선으로 연결하여 구하는 최종 기울기를 β라 한다.
+이는 흔히 정맥주사 후 두 개의 기울기를 관찰할 수 있어서 처음 것은 α, 두번째 것을 β라 하기 때문이다.
+그림 \ref{fig:fig4-6}은 두 개의 지수함수(biexponential)로 혈장약물농도의 변화를 모델링하는 방법인데, 구획모델보다 조금 간단한 모델링 방법이지만 지금은 잘 쓰이지 않는다.\index{모델링}
+NCA가 지수함수 모델을 이용하는 것은 아니지만, 마지막 농도들로써 β를 구하는 원리는 지수함수 모델의 경우와 동일하다.
 
 식 \eqref{eq:eq4-7}을 보면 β는 k\textsubscript{e}(k\textsubscript{10})와 관련되어 있지만 다른 구획모델
 파라미터들(각 파라미터들의 의미는 그림 \ref{fig:two-comp-ex} 참조)의 영향도 있어서 동일하지
@@ -3110,7 +3110,7 @@ k\textsubscript{e}) 수 밖에 없다. 만약 말초구획이 존재하지 않�
 약이라면(mannitol과 같이 세포외액에만 분포하는 약물이나 heparin과 같이
 혈관 내에만 분포하는 약물 등) 정맥투여 직후의 분포기가 따로 존재하지
 않으며, 말초에서 중심으로 약이 되돌아오는 현상도 존재하지 않으므로 최종
-기울기인 기울기 β도 k\textsubscript{e}와 같은 값을 나타낼 것이다. 이런 특수한 약물
+기울기인 β도 k\textsubscript{e}와 같은 값을 나타낼 것이다. 이런 특수한 약물
 몇가지 외에는 모두 말초구획으로 분포하는 양상을 나타내므로 언제나 β \textless{}
 k\textsubscript{e}가 관찰된다.
 \index{만니톨, mannitol}
@@ -3144,7 +3144,7 @@ k\textsubscript{e} = CL/V\textsubscript{c}로서, 약을 제거하는 능력(CL)
 전체보다는 중심구획을 위주로 표현한 것이다. NCA에서 β = CL/V\textsubscript{z}의\index{중심구획}\index{중심구획}
 관계로부터 β는 중심구획 뿐 아니라 전신으로 약이 다 퍼져있는 상태에서의\index{중심구획}\index{중심구획}
 분포용적(V\textsubscript{z})이 반영되어 있고 V\textsubscript{c} ≪ V\textsubscript{z}이므로, 비록 분수식의 분자에\index{분포용적}
-있는 CL도 두 방법간에 다르게 구해지지만, β \textless{} k\textsubscript{e}의 단서를 찾을 수 있다.
+있는 CL도 두 방법간에 다르게 구해진 것임을 감안하더라도, β \textless{} k\textsubscript{e}의 단서를 찾을 수 있다.
 
 \hypertarget{uxb9fauxc74cuxb9d0-3}{%
 \section{맺음말}\label{uxb9fauxc74cuxb9d0-3}}
@@ -3156,13 +3156,11 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
 어떤 정보도 제공하지 않는다.
 \index{반감기}\index{반감기}
 이에 비해 구획모델은 분포의 속도에 관련된 파라미터(k\textsubscript{12}, k\textsubscript{21} 또는 Q), 얼마나 많은 양이 말초구획으로\index{말초구획}\index{말초구획}
-분포하는지에 관련된 파라미터(V\textsubscript{p}) 등을 중심구획의 부피(V\textsubscript{c})와 분리하여\index{중심구획}\index{중심구획}
+분포하는지에 관련된 파라미터(V\textsubscript{p}) 등을 중심구획의 분포용적(V\textsubscript{c})과 분리하여\index{중심구획}\index{중심구획}
 구해주므로 신약의 전임상, 임상개발의 과정들에서 발생하는 많은 질문들에\index{임상개발}
 대한 답을 시뮬레이션할 수 있는 근거를 얻게 해 준다. 다만 모델의\index{시뮬레이션}
 복잡성으로 인해 NCA와는 달리 반드시 전문적인 소프트웨어를 이용해야 한다.
-또한 NCA와 구획모델의 두 방법으로 얻어지는 결과인 PK 파라미터들은 명칭과
-사용하는 수식이 조금씩 다르므로 결과를 해석할 때 혼동하지
-않도록 주의해야 한다.
+또한 NCA와 구획모델의 두 방법으로 얻어지는 결과인 PK 파라미터들은 명칭과 사용하는 수식이 조금씩 다르므로 결과를 해석할 때 혼동하지 않도록 주의해야 한다.
 
 \hypertarget{ca-analysis}{%
 \chapter{구획분석의 자료해석}\label{ca-analysis}}
@@ -3196,16 +3194,18 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
 
 }
 
-\caption{3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도}\label{fig:fig5-1}
+\caption{3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도 (\protect\hyperlink{ref-han2014pharmacokinetic}{Han 2014})}\label{fig:fig5-1}
 \end{figure}
+
+
 
 정맥주사 후 3구획 모델을 비유를 들어 설명하자면, 구획을 나타내는 원통이 그림 \ref{fig:fig5-1}과 같이 세 개가 있다고 가정을 할 수 있다.
 약물을 정맥주사(i.v.bolus)하면 직후에 혈중 농도가 최대에 도달하였다가 시간이 지남에 따라 감소하게 되는데, 구획간의 분포 및 제거에 의해 약물의 농도가 감소를 하게 된다.
-여기서 V1은 중심구획, V2는 rapid peripheral compartment이고, V3은 slow peripheral compartment이다. \index{중심구획}
-V1, V2, V3 원통의 부피는 약물이 분포하는 용적이고, 높이는 농도에 해당한다.
+여기서 V\textsubscript{1}은 중심구획, V\textsubscript{2}는 rapid peripheral compartment이고, V\textsubscript{3}은 slow peripheral compartment이다. \index{중심구획}
+V\textsubscript{1}, V\textsubscript{2}, V\textsubscript{3} 원통의 부피는 약물이 분포하는 용적이고, 높이는 농도에 해당한다.
 수평의 연결 파이프에 의해 약물이 분포 및 제거된다.
-정맥주사 후 초기에는 약물이 주로 V1에서 V2로 이동하면서 혈중농도가 급격하게 감소하고(rapid distribution phase), 그 이후에는 V1에서 V3로 약물이 이동하면서 동시에 V2에서는 거꾸로 V1으로 이동하며 전체적으로는 혈중농도가 감소(slow distribution phase)하게 된다.
-그 후에는 V2, V3에서의 약물은 V1으로 이동해 나오면서 동시에 V1에서는 elimination이 일어나 농도가 아주 서서히 감소하게 된다. (terminal phase)
+정맥주사 후 초기에는 약물이 주로 V\textsubscript{1}에서 V\textsubscript{2}로 이동하면서 혈중농도가 급격하게 감소하고(rapid distribution phase), 그 이후에는 V\textsubscript{1}에서 V\textsubscript{3}로 약물이 이동하면서 동시에 V\textsubscript{2}에서는 거꾸로 V\textsubscript{1}으로 이동하며 전체적으로는 혈중농도가 감소(slow distribution phase)하게 된다.
+그 후에는 V\textsubscript{2}, V\textsubscript{3}에서의 약물은 V\textsubscript{1}으로 이동해 나오면서 동시에 V\textsubscript{1}에서는 elimination이 일어나 농도가 아주 서서히 감소하게 된다. (terminal phase)
 
 이렇게 약물의 이동에 대한 정량적인 표현을 위해서는 약동학 수식에 대해 익숙해 져야 할 필요가 있고, 수식을 잘 아는 것 만큼이나 자료를 해석하고 추정값을 실제로 구하는 작업을 충분히 경험할 필요가 있다. \index{약동학}
 
@@ -3268,16 +3268,15 @@ OBJ_i = n_i \cdot logV(Y_i) + \sum_{j=1}^{n} \frac{(Y_{ij} - E(Y_{ij}))^2}{V(Y_{
 \label{eq:eq5-4}
 \end{equation}
 
-실제 여기에서 derivation 을 정규 분포에만 적용한 것이 최대 가능도 측정법(maximum likelihood estimation method)\footnote{최대 가능도 측정법(maximum likelihood estimation method)은 점 추정치를 찾는데까지는 오래 걸리나, 표준 오차(standard error of estimates)를 구하는게 유리하다. 최근에는 최소 제곱법(least square method) 보다 널리 쓰이고 있다.}이라면, 정규 분포라는 가정 없이도 적용한 것이 NONMEM 소프트 웨어 이며 이 방식을 `확장된 최소 제곱법'(extended least square method)이라고 한다. \index{가능도}
+실제 여기에서 derivation 을 정규 분포에만 적용한 것이 최대 가능도 측정법(maximum likelihood estimation method)\footnote{최대 가능도 측정법(maximum likelihood estimation method)은 점 추정치를 찾는데까지는 오래 걸리나, 표준 오차(standard error of estimates)를 구하는게 유리하다. 최근에는 최소 제곱법(least square method) 보다 널리 쓰이고 있다.}이라면, 정규 분포라는 가정 없이도 적용한 것이 NONMEM이며 이 방식을 `확장된 최소 제곱법'(extended least square method)이라고 한다. \index{가능도}
 
-이 책의 예제에서는 NONMEM\textsuperscript{®} 의 확장된 최소 제곱법을 적용한 wnl 패키지의 \texttt{nlr()} 함수를 사용하였다.
+이 책의 예제에서는 NONMEM의 확장된 최소 제곱법을 적용한 wnl 패키지의 \texttt{nlr()} 함수를 사용하였다.
 
 각 모델에 맞는 적합한 모델에 따라 다음과 같은 script 형태로 입력해 주게 되며, 그에 대한 표준 오차(standard error of estimates), 공분산 행렬(covariance matrix of estimates), run test results on residuals, AIC, AICc, SBC를 내부 계산을 통하여 도출하게 된다.
 
-이때 run test란 residual들이 random하게 분포하는지를 보기 위해서 각각의
-residual에서 최대 양수와 음수가 연속구간의 길이가 얼마나 되는지를 보는
-방법이다. 이 때 계산된 p-value를 통해서 실제로 residual이 random하게
-분포하는지, 편향되게 분포하는지를 고려해 볼 수 있다.
+이때 run test란 잔차(residual)들이 무작위적으로 분포하는지를 보기 위해서 각각의
+잔차에서 최대 양수와 음수가 연속구간의 길이가 얼마나 되는지를 보는
+방법이다. 이 때 계산된 p-value를 통해서 실제로 잔차가 무작위적으로 분포하는지, 편향되게 분포하는지를 고려해 볼 수 있다.
 
 AIC, AICc, SBC는 Akaike information criterion, Akaike information
 criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모델에서
@@ -3343,15 +3342,15 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## [1]  7  8  9 10 11 12 13
 \end{verbatim}
 
-아래에서 경구 복용 후 일차역학\footnote{일차역학(first-order kinetics)에 의한 소실이란 체내에 남이 있는 특정시점의 약물량의 일정 분율만큼 약물이 단위시간당 소실되는 것을 말한다.}에 의해 소실되는 약물의 약동학 모델을 사용한다. \index{약동학}
+아래에서 경구 복용 후 1차식\footnote{1차식(first-order kinetics)에 의한 소실이란 체내에 남이 있는 특정시점의 약물량의 일정 분율만큼 약물이 단위시간당 소실되는 것을 말한다.}에 의해 소실되는 약물의 약동학 모델을 사용한다. \index{약동학}
 이 경우에는 wnl 패키지 내부에 기본적 equation이 정의되어 있으므로 추가적인 equation을 입력하지 않고 각각의 파라미터의 값에 해당하는 THETA에 대해서만 입력하였다.
-필요한 THETA는 k(제거 속도 상수), k\textsubscript{a}(흡수 속도 상수), V(부피), t\textsubscript{lag}(흡수가 지연되는 시간)이다.
+필요한 THETA는 k(제거속도상수), k\textsubscript{a}(흡수속도상수), V(부피), t\textsubscript{lag}(흡수가 지연되는 시간)이다.
 
 \hypertarget{compartmental-analysis-without-tlag}{%
 \subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag}}
 
 아래는 경구 투여 1구획, 지연 시간이 없는 모델이다. \index{지연 시간}
-모델의 R 스크립트에서 THETA{[}1{]}, THETA{[}2{]}, THETA{[}3{]}는 각각 파라미터 중 k(제거 속도 상수), k\textsubscript{a}(흡수 속도 상수), V(부피)를 의미한다.
+모델의 R 스크립트에서 THETA{[}1{]}, THETA{[}2{]}, THETA{[}3{]}는 각각 파라미터 중 k(제거속도상수), k\textsubscript{a}(흡수속도상수), V(부피)를 의미한다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3668,7 +3667,7 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 \subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag-1}}
 
 아래의 코드는 경구 투여 2구획, 지연 시간이 없는 모델이다. \index{지연 시간}
-2차 지수로 감소하는 약물에서의 약동학 모델이며, 이때의 농도 값(Cp)을 구하기 위한 공식을 사용하였으며, Ka, Vc, k21, alpha, beta 로 농도를 나타낼 수 있다.\index{약동학}
+2차 지수로 감소하는 약물에서의 약동학 모델이며, 이때의 농도 값(Cp)을 구하기 위한 공식을 사용하였으며, K\textsubscript{a}(\texttt{Ka}), V\textsubscript{c}(\texttt{Vc}), k\textsubscript{21}(\texttt{k21}), alpha(\texttt{a}), beta(\texttt{b})로 농도를 나타낼 수 있다.\index{약동학}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3783,7 +3782,7 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 \hypertarget{theoph-wnl}{%
 \section{Theoph 약동학 자료의 구획분석}\label{theoph-wnl}}
 
-R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 사용하여 수행한다. Minimization이 된 후 1구획 약동학 모델에서 언급된 파라미터 이외에 다른 파라미터에 대해서도 값을 구하기 위해서 다음과 같이 CL(제거 속도), T\textsubscript{1/2}(반감기), MRT(평균 체류 시간)를 추가한 후, 입력한 파라미터값들을 구하기 위한 수식을 뒤쪽 부분 `SecForms' 인자에 입력하게 된다. 이런 방법을 통하여 우리가 원하는 파라미터들의 점추정치와(point estimate), 그리고 표준 오차(standard error of estimates)를 모두 구할 수 있다.\index{약동학}\index{반감기}
+R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 사용하여 수행한다. Minimization이 된 후 1구획 약동학 모델에서 언급된 파라미터 이외에 다른 파라미터에 대해서도 값을 구하기 위해서 다음과 같이 CL(제거 속도), t\textsubscript{1/2}(반감기), MRT(평균잔류시간)를 추가한 후, 입력한 파라미터값들을 구하기 위한 수식을 뒤쪽 부분 `SecForms' 인자에 입력하게 된다. 이런 방법을 통하여 우리가 원하는 파라미터들의 점추정치와(point estimate), 그리고 표준 오차(standard error of estimates)를 모두 구할 수 있다.\index{약동학}\index{반감기}
 
 본문에 결과를 싣기에 지면이 부족하여 \protect\hyperlink{Theoph_nlr}{별첨 B}에 수록하였다.
 
@@ -4036,7 +4035,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02734 secs
+## Time difference of 0.03539 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4101,7 +4100,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005369 secs
+## Time difference of 0.006827 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4166,7 +4165,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006162 secs
+## Time difference of 0.008197 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4230,7 +4229,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005283 secs
+## Time difference of 0.007261 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4295,7 +4294,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005408 secs
+## Time difference of 0.007208 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4359,7 +4358,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005694 secs
+## Time difference of 0.007985 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4423,7 +4422,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006335 secs
+## Time difference of 0.008815 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4487,7 +4486,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005505 secs
+## Time difference of 0.007096 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4551,7 +4550,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007464 secs
+## Time difference of 0.01038 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4616,7 +4615,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008036 secs
+## Time difference of 0.01051 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4681,7 +4680,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01046 secs
+## Time difference of 0.01313 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4746,7 +4745,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005528 secs
+## Time difference of 0.007355 secs
 \end{verbatim}
 
 \normalsize
@@ -4789,6 +4788,9 @@ Derendorf, Hartmut, and Bernd Meibohm. 1999. {``Modeling of Pharmacokinetic/Phar
 \leavevmode\vadjust pre{\hypertarget{ref-gabrielsson}{}}%
 Gabrielsson, Johan. 2006. \emph{Pharmacokinetic \& Pharmacodynamic Data Analysis : Concepts and Applications}. Stockholm: Apotekarsocieteten.
 
+\leavevmode\vadjust pre{\hypertarget{ref-han2014pharmacokinetic}{}}%
+Han, Dong Woo. 2014. {``Pharmacokinetic and Pharmacodynamic Modeling in Anesthetic Field.''} \emph{Anesthesia and Pain Medicine} 9 (2): 77--86.
+
 \leavevmode\vadjust pre{\hypertarget{ref-noe2020parameter}{}}%
 Noe, Dennis A. 2020. {``Parameter Estimation and Reporting in Noncompartmental Analysis of Clinical Pharmacokinetic Data.''} \emph{Clinical Pharmacology in Drug Development} 9: S5--35.
 
@@ -4800,6 +4802,9 @@ Revelle, William. 2021. \emph{Psych: Procedures for Psychological, Psychometric,
 
 \leavevmode\vadjust pre{\hypertarget{ref-richens1975serum}{}}%
 Richens, Alan, and Andrew Dunlop. 1975. {``Serum-Phenytoin Levels in Management of Epilepsy.''} \emph{The Lancet} 306 (7928): 247--48.
+
+\leavevmode\vadjust pre{\hypertarget{ref-sobol2004relationships}{}}%
+Sobol, Eyal, and Meir Bialer. 2004. {``The Relationships Between Half-Life (T1/2) and Mean Residence Time (MRT) in the Two-Compartment Open Body Model.''} \emph{Biopharmaceutics \& Drug Disposition} 25 (4): 157--62.
 
 \leavevmode\vadjust pre{\hypertarget{ref-R-lubridate}{}}%
 Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. \emph{Lubridate: Make Dealing with Dates a Little Easier}. \url{https://CRAN.R-project.org/package=lubridate}.
