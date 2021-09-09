@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 4 구획분석의 이론 | pharmapk.knit</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 4 구획분석의 이론 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2.9000" />
 
 
-<meta name="date" content="2021-09-02" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -372,17 +372,15 @@ V_{c}\frac{{dC}_{1}}{{dt}} = {- V}_{c} \cdot C_{1} \cdot k_{12} + V_{p} \cdot C_
 = - C_{1} \cdot Q + C_{2} \cdot Q - C_{1} \cdot {CL}
 \tag{4.4}
 \end{equation}\]</span></p>
-<p>식 <a href="ca-principle.html#eq:eq4-4">(4.4)</a>는 가장 단순한 상태인 정맥주사(bolus)에 대한 것으로 시간 0에
-순식간에 중심구획으로 약이 들어오는 상황은 생략되어 있고 들어오자 마자
-중심구획에 고루 퍼진다고 가정한 것이다. 만약 중심구획으로 일정시간동안
-정맥주입(infusion)한다면 수식은 정맥주입이 진행되는 동안에는 시간당
-일정한 양이 들어오는 속도 R(rate의 약어)이 추가되고(식 <a href="ca-principle.html#eq:eq4-5">(4.5)</a>), 주입이 끝난 후에는 R=0가
-되어 다시 식 <a href="ca-principle.html#eq:eq4-4">(4.4)</a>와 동일하게 표기된다.</p>
+<p>
+식 <a href="ca-principle.html#eq:eq4-4">(4.4)</a>는 간단한 모델인 정맥주사(bolus)에 대한 것으로 시간 0에 순식간에 중심구획으로 약이 들어오는 상황은 생략되어 있고 들어오자 마자 중심구획에 고루 퍼진다고 가정한 것이다.
+만약 중심구획으로 일정시간동안 정맥주입(infusion)한다면 수식은 정맥주입이 진행되는 동안에는 시간당 일정한 양이 들어오는 속도 R(rate의 약어)이 추가되고(식 <a href="ca-principle.html#eq:eq4-5">(4.5)</a>), 주입이 끝난 후에는 R=0가 되어 다시 식 <a href="ca-principle.html#eq:eq4-4">(4.4)</a>와 동일하게 표기된다.</p>
 <p><span class="math display" id="eq:eq4-5">\[\begin{equation}
 V_{c}\frac{{dC}_{1}}{{dt}} = {R - V}_{c} \cdot C_{1} \cdot k_{12} + V_{p} \cdot C_{2} \cdot k_{21}{- V}_{c} \cdot C_{1} \cdot k_{e}
 \tag{4.5}
 \end{equation}\]</span></p>
-<p>경구투여를 하는 경우라면 그림 <a href="ca-principle.html#fig:fig4-2">4.2</a>와 같은 모델을 흔히 쓰는데 약을 삼켜서 위장관 내로 들어가는 것은 정맥주사(bolus)와 같이 일어나고, 위장관 내강에서 중심구획으로 흡수되는 속도는 위장관 내강에 남아있는 약물의 양에 흡수속도상수인 k<sub>a</sub>를 곱한 값으로 정의되는 1차흡수를 따른다고 가정하는 방식이 흔히 쓰인다. 이외에 F의 추정이나 흡수의 지체시간(lag time), 1차식 이외의 다른 흡수모델 등을 적용하기 위해 이 모델을 변형할 수 있다.</p>
+<p>경구투여를 하는 경우라면 그림 <a href="ca-principle.html#fig:fig4-2">4.2</a>와 같은 모델을 흔히 쓰는데 약을 삼켜서 위장관 내로 들어가는 것은 정맥주사(bolus)와 같이 일어나고, 위장관 내강에서 중심구획으로 흡수되는 속도는 위장관 내강에 남아있는 약물의 양에 흡수속도상수인 k<sub>a</sub>를 곱한 값으로 정의되는 1차흡수를 따른다고 가정하는 방식이 흔히 쓰인다.
+이외에 F의 추정이나 흡수의 지체시간(lag time), 1차식 이외의 다른 흡수모델 등을 적용하기 위해 이 모델을 변형할 수 있다. </p>
 <!--
 ![](media-04/image2.png){width="1.9026957567804024in"
 height="2.269555993000875in"}
@@ -404,7 +402,7 @@ height="2.269555993000875in"}
 <p>1차식을 따라 제거되는 현상은 중심구획에서 일어난다고 가정하는 것이
 기본이다. 소분자의약품들의 경우 주로 제거되는 장기인 간과 콩팥은
 혈류량이 높아서 중심구획에 속해 있다고 가정하는데 무리가 없다. 또한
-말초구획에서의 약물농도를 자주 측정하는 것이 기술적으로 어렵기 때문에
+말초구획에서의 약물농도를 측정하는 것이 기술적으로 어렵기 때문에
 대부분의 약동학 자료분석은 혈장약물농도만 측정하여 수행하는데, 만약
 말초구획에서 약물의 제거가 일어난다면, 말초구획의 농도를 측정하지 않는
 한 정확한 k<sub>e</sub>의 추정이 불가능하다. 예컨데, 단클론항체의 경우 중심구획

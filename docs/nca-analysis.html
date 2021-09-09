@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 비구획분석의 자료해석 | pharmapk.knit</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 비구획분석의 자료해석 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2.9000" />
 
 
-<meta name="date" content="2021-09-02" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -388,11 +388,11 @@ Some features are
 <li><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a> 사이트에 접속하여, <code>Download R for Windows</code> 링크를 선택한다.</li>
 <li><code>Subdirectories</code> 유형에서 <code>base - install R for the first time</code>을 선택한다.</li>
 <li><code>Download R for Windows</code> 링크를 선택하여 R-4.x.x-win.exe 설치파일을 다운로드한다.</li>
-<li>설치파일을 실행한 후, ‘이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?’라는 사용자 계정 컨트롤 창이 나타나면 ’예’ 버튼을 클릭한다.</li>
+<li>설치파일을 실행한 후, ’이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?’라는 사용자 계정 컨트롤 창이 나타나면 <code>예</code> 버튼을 클릭한다.</li>
 <li>설치 언어는 <code>한국어</code>로 선택하고 <code>확인</code> 버튼을 클릭한다.</li>
 <li>R 4.x.x 설치 정보 내용을 확인하고, <code>다음</code> 버튼을 클릭한다.</li>
 <li>R 4.x.x 프로그램의 설치 경로를 지정하여 <code>다음</code> 버튼을 클릭한다.</li>
-<li>R.4.x.x 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 다음 버튼을 클릭한다.</li>
+<li>R.4.x.x 구성요소 설치는 32bit files를 제외하고 나머지 구성요소들만 체크한 후 <code>다음</code> 버튼을 클릭한다.</li>
 <li>스타트 옵션을 조정하는 화면이 나타나면, <code>No</code>를 선택하고 <code>다음</code> 버튼을 클릭한다.</li>
 </ol>
 </div>
@@ -400,12 +400,12 @@ Some features are
 <h3><span class="header-section-number">3.4.2</span> Rstudio 설치 (윈도우 환경)</h3>
 <ol style="list-style-type: decimal">
 <li><a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> 사이트에 접속하여 <code>Rstudio Desktop free download</code> 버튼을 클릭한다.</li>
-<li>[2. Download Rstudio Desktop]의 <code>DOWNLOAD RSTUDIO FOR WINDOWS(64bit)</code> 파란색 버튼을 클릭하고, <code>Studio-1.x.x.exe</code> 파일을 다운받는다.</li>
-<li>RStudio-1.x.x.exe 파일을 실행하면 ‘이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?’라는 사용자 계정 컨트롤 창이 나타나면 ’예’ 버튼을 클릭한다.</li>
+<li><code>2. Download Rstudio Desktop</code>의 <code>DOWNLOAD RSTUDIO FOR WINDOWS(64bit)</code> 파란색 버튼을 클릭하고, <code>Studio-1.x.x.exe</code> 파일을 다운받는다.</li>
+<li>RStudio-1.x.x.exe 파일을 실행하면 ’이 앱이 디바이스를 변경할 수 있도록 허용하시겠어요?’라는 사용자 계정 컨트롤 창이 나타나면 <code>예</code> 버튼을 클릭한다.</li>
 <li>Rstudio 설치 시작 창이 나타나면 <code>다음</code> 버튼을 클릭한다.</li>
 <li>Rstudio를 설치할 경로를 지정하고 <code>다음</code> 버튼을 클릭한다.</li>
 <li>Rstudio 바로가기 아이콘이 생성될 시작메뉴 폴더 안에 <code>Rstudio</code>를 입력하고 <code>설치</code> 버튼을 클릭한다.</li>
-<li>Rstudio 설치가 완료되면 <code>마침</code>버튼을 클릭한다.</li>
+<li>Rstudio 설치가 완료되면 <code>마침</code> 버튼을 클릭한다.</li>
 </ol>
 <p>Rstudio를 실행한 후, 콘솔 창에서 NCA를 위한 패키지를 설치하는 방법은 다음과 같다. 홑따옴표 등의 인용 부호에 주의해야 한다.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="nca-analysis.html#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&#39;NonCompart&#39;</span>)</span>
@@ -797,7 +797,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.4 <span class="er">(</span><span class="ex">2021-07-16</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.1 <span class="er">(</span><span class="ex">2021-08-10</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-09-02 22:37:02 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-09-09 09:31:55 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -1340,24 +1340,24 @@ Vol Dist Steady State Pred (Vss_pred)
 <p>Rsq는 NCA에 사용 된 선형 회귀에서 상관 계수 (r)의 제곱이다. 즉, 로그 변환 된 관측 농도 대 시간 데이터가 적합 회귀선에 얼마나 가까운지를 알려주는 통계적 적합도 측정값이다. 그러나 R-제곱은 치우침을 결정할 수 없으므로 잔차(residual) 그림도 확인해야할 필요가 있다.</p>
 <p><strong>Rsq_adjusted (R2ADJ)</strong></p>
 <p>최적 모델을 검색하는 동안 데이터 포인트가 추가되면 적합도를 개선하지 않고 Rsq가 증가 할 수 있다. 조정 R-제곱은 예측 변수의 수(여기서는 데이터 포인트)에 대해 변형된 R- 제곱으로 모집단 R-제곱의 편향되지 않은 추정치로 사용할 수 있다. 일반적으로 Rsq 보다 작다. 가장 적은 수의 데이터 포인트로 조정 R-제곱을 최대화하는 기울기 및 절편이 탐색되고, 가장 적합한 모델로 선택된다. 공식은 아래와 같다.</p>
-<p><span class="math display">\[R_{adj}^{2} = 1 - (1 - R^{2})\frac{n - 1}{n - 2}\]</span></p>
+<p><span class="math display">\[R_{adj}^{2} = 1 - (1 - R^{2}) \cdot \frac{n - 1}{n - 2}\]</span></p>
 <p><strong>Corr_XY (CORRXY)</strong></p>
 <p>람다 z 추정에 사용된 포인트에 대한 시간(X)과 로그 농도(Y) 간의 상관 관계이며, 일반적으로 음수값이다. 상관 관계가 높을수록 불규칙한 농도가 줄어들고 더 잘 맞는다고 생각할 수 있다.</p>
 <p><strong>b0 (b0)</strong></p>
 <p>로그 농도 대 시간의 회귀선의 절편이다. CLSTP 계산에 사용되지만 정맥주사(i.v. bolus)의 경우 외삽된 C0 (시간 0에서의 농도)에는 사용되지 않는다.</p>
 <p><strong>Lambda_z (LAMZ)</strong></p>
-<p>양의 값으로서 시간에 대한 자연로그 농도 회귀선의 마지막 기울기를 의미한다. 0 값의 로그 변환은 음의 무한대를 생성하고 회귀를 불가능하게하므로 회귀 전에 모든 0 값을 일시적으로 제거해야 한다. 최종 기울기(마지막 관찰 시점부터 최소 3 개 지점까지)가 자동으로 결정되는 경우 최적 기울기는 최대 R2ADJ에서 허용 한계 (기본값은 1e-4) 내에서 가장 긴 기울기로 결정된다.</p>
+<p>양의 값으로서 시간에 대한 자연로그 농도 회귀선의 마지막 기울기를 의미한다. 0 값의 로그 변환은 음의 무한대를 생성하고 회귀를 불가능하게하므로 회귀 전에 모든 0 값을 일시적으로 제거해야 한다. 최종 기울기(마지막 관찰 시점부터 최소 3 개 지점까지)가 자동으로 결정되는 경우 최적 기울기는 최대 R2ADJ에서 허용 한계(기본값은 <span class="math inline">\(10^{-4}\)</span>) 내에서 가장 긴(가장 많은 관찰값으로 생성 된) 기울기로 결정된다.</p>
 <p><strong>No_points_Lambda_z (LAMZNPT)</strong></p>
 <p>LAMZ 계산에 사용되는 관찰 농도의 개수이다.</p>
 <p><strong>Lambda_z_lower (LAMZLL)</strong></p>
-<p>Lambda z의 계산에 포함되는 값의 시간 하한이다. LAMZ (터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.</p>
+<p>Lambda_z의 계산에 포함되는 값의 시간 하한이다. LAMZ(터미널 기울기) 계산에 사용 된 가장 빠른 시점이다.</p>
 <p><strong>Lambda_z_upper (LAMZUL)</strong></p>
-<p>Lambda z 계산에 포함되는 값의 시간 상한이다. LAMZ (터미널 기울기) 계산에 사용 된 마지막 시점이다.</p>
+<p>Lambda_z 계산에 포함되는 값의 시간 상한이다. LAMZ(터미널 기울기) 계산에 사용 된 마지막 시점이다.</p>
 <p><strong>HL_Lambda_z (LAMZHL)</strong></p>
-<p>최종 반감기. Lambda Z (LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 ln (2) / LAMZ로 계산된다.</p>
+<p>최종 반감기. Lambda_z(LAMZ)는 로그 농도-시간 곡선의 최종 부분에 대한 1 차 속도 상수이며, 최종 반감기는 <span class="math inline">\(\frac{ln(2)}{LAMZ}\)</span>로 계산된다.</p>
 <p><strong>Clast_pred (CLSTP)</strong></p>
 <p>선형 회귀는 약동학 분석에서 제거율 상수를 계산하는 데 사용되며 적합도에 대한 기울기, 절편 및 R-제곱을 추정한다. 계산은 가중치가 없는 선형 회귀에 의해 수행되며, CLSTP는 회귀에 의해 Tlast에서 예측 된 농도이다. CLSTP은 AUCIFP, AUCPEP, AUMCIFP, AUMCPEP, MRTIVIFP, MRTEVIFP, VZP, VZFP, CLP, CLFP 및 VSSP (P로 끝나는 파라미터) 계산에 사용되며, 이 값을 얻는 공식은 다음과 같다.</p>
-<p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda\cdot T_{last}) \]</span></p>
+<p><span class="math display">\[ C_ {last, pred} = exp(\beta_{0}-\lambda \cdot T_{last}) \]</span></p>
 <p><strong>C0 (C0)</strong></p>
 <p>초기 농도. 시간 0에서의 농도, 초기 농도. 처음 두 농도가 양수이고 첫 번째 농도가 두 번째 농도보다 크면 다음과 같이 C0를 계산할 수 있다. 그렇지 않으면 C0는 첫 번째 양수 농도가 된다.</p>
 <p><span class="math display">\[ C_ {0} = exp (log (c_ {1})-t_ {1} \frac {log (c_ {2})-log (c_ {1})} {t_ {2}-t_ {1} }) \]</span></p>

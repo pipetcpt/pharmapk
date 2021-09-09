@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 5 구획분석의 자료해석 | pharmapk.knit</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.23 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 5 구획분석의 자료해석 | pharmapk.knit" />
   <meta property="og:type" content="book" />
@@ -24,7 +24,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v0.9.2.9000" />
 
 
-<meta name="date" content="2021-09-02" />
+<meta name="date" content="2021-09-09" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -764,11 +764,12 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 <span id="cb50-4"><a href="ca-analysis.html#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK14a</span>(r1<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>]), <span class="at">lty=</span><span class="dv">2</span>)</span>
 <span id="cb50-5"><a href="ca-analysis.html#cb50-5" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(TIME, <span class="fu">fPK14b</span>(r2<span class="sc">$</span>Est[<span class="st">&quot;PE&quot;</span>, <span class="dv">1</span><span class="sc">:</span><span class="dv">6</span>]))</span></code></pre></div>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:twocomp-lag"></span>
-<img src="pharmapk_files/figure-html/twocomp-lag-1.svg" alt="wnl 패키지를 통해 얻어진 경구 투여 2구획모델 PK 파라미터로 25시간 시뮬레이션한 결과. 모델에서 지연 시간(lag time)의 유무에 따라 C~max~ 부분의 차이가 두드러지는 것을 알 수 있다. (실선: 지연 시간이 있는 모델, 점선: 지연 시간이 없는 모델, 점: 관찰값)" width="100%" />
+<img src="pharmapk_files/figure-html/twocomp-lag-1.svg" alt="wnl 패키지를 통해 얻어진 경구 투여 2구획모델 PK 파라미터로 25시간 시뮬레이션한 결과. 모델에서 지연 시간(lag time)의 유무에 따라 Cmax 부분의 차이가 두드러지는 것을 알 수 있다. (실선: 지연 시간이 있는 모델, 점선: 지연 시간이 없는 모델, 점: 관찰값)" width="100%" />
 <p class="caption">
 그림 5.6: wnl 패키지를 통해 얻어진 경구 투여 2구획모델 PK 파라미터로 25시간 시뮬레이션한 결과. 모델에서 지연 시간(lag time)의 유무에 따라 C<sub>max</sub> 부분의 차이가 두드러지는 것을 알 수 있다. (실선: 지연 시간이 있는 모델, 점선: 지연 시간이 없는 모델, 점: 관찰값)
 </p>
 </div>
+
 </div>
 </div>
 <div id="theoph-wnl" class="section level2" number="5.7">

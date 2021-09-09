@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.8.30)  2 SEP 2021 22:40
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.2)  9 SEP 2021 09:35
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2178,8 +2178,8 @@ Underfull \hbox (badness 10000) detected at line 1865
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 1865--1867
-[]\TU/NotoSerifCJKKR(0)/m/it/11 [2. Download Rstudio Desktop] 의 \TU/lmtt/m/n/11
- DOWNLOAD RSTUDIO FOR
+[]\TU/lmtt/m/n/11 2. Download Rstudio Desktop \TU/NotoSerifCJKKR(0)/m/it/11 의 \
+TU/lmtt/m/n/11 DOWNLOAD RSTUDIO FOR
  []
 
 
@@ -2466,9 +2466,9 @@ File: media-04/image5.jpg Graphic file (type bmp)
 <media-04/image5.jpg>
 [90]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 3054.
+(Font)              scaled to size 7.0pt on input line 3052.
 
-Overfull \hbox (13.8858pt too wide) in paragraph at lines 3050--3060
+Overfull \hbox (13.8858pt too wide) in paragraph at lines 3048--3058
  [][] 
  []
 
@@ -2515,46 +2515,46 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [96
 
 ]
-Underfull \vbox (badness 10000) detected at line 3170
+Underfull \vbox (badness 10000) detected at line 3168
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3170
+Overfull \hbox (395.75pt too wide) detected at line 3168
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3170
+Underfull \vbox (badness 10000) detected at line 3168
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3170
+Overfull \hbox (395.75pt too wide) detected at line 3168
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3170
+Underfull \vbox (badness 10000) detected at line 3168
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3170
+Overfull \hbox (395.75pt too wide) detected at line 3168
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3170
+Underfull \vbox (badness 10000) detected at line 3168
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3170
+Overfull \hbox (395.75pt too wide) detected at line 3168
 []
  []
 
 Chapter 5.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 317
-0.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 316
+8.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2580,12 +2580,12 @@ File: pharmapk_files/figure-latex/onecomp-lag-1.pdf Graphic file (type pdf)
 File: pharmapk_files/figure-latex/ggonecomp-iv-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/ggonecomp-iv-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3491--3493
+Underfull \hbox (badness 10000) in paragraph at lines 3489--3491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3493--3496
+Underfull \hbox (badness 10000) in paragraph at lines 3491--3494
 
  []
 
@@ -2595,15 +2595,15 @@ File: pharmapk_files/figure-latex/onecomp-iv-1.pdf Graphic file (type pdf)
 [111] [112]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <11> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3679.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3677.
 
 
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/it' in size <11> not
  available
 (Font)              Font shape `TU/NanumGothicCoding(0)/b/it' tried instead on 
-input line 3679.
+input line 3677.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/it' will be
-(Font)              scaled to size 12.23099pt on input line 3679.
+(Font)              scaled to size 12.23099pt on input line 3677.
 [113] [114]
 File: pharmapk_files/figure-latex/twocomp-lag-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/twocomp-lag-1.pdf>
@@ -2915,8 +2915,8 @@ Package rerunfilecheck Info: File `pharmapk.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  24655 strings out of 478532
- 422337 string characters out of 5861974
- 899729 words of memory out of 5000000
+ 422337 string characters out of 5861975
+ 899730 words of memory out of 5000000
  44438 multiletter control sequences out of 15000+600000
  413256 words of font info for 145 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
