@@ -309,7 +309,7 @@
 
 (기본원리와 자료해석)}
 \author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.0 (2021-09-16)}
-\date{2021-09-16}
+\date{2021-09-17}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -2227,7 +2227,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
                        \ExtensionTok{Package}\NormalTok{ version 0.4.4 }\ErrorTok{(}\ExtensionTok{2021{-}07{-}16}\NormalTok{ KST}\KeywordTok{)}
                           \ExtensionTok{R}\NormalTok{ version 4.1.1 }\ErrorTok{(}\ExtensionTok{2021{-}08{-}10}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}09{-}16 16:58:43 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}09{-}17 14:46:47 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2786,14 +2786,13 @@ SUBJ & GRP & PRD & TRT & AUClast & Cmax & Tmax\\
 \centering
 \begin{tabular}[t]{lllll}
 \toprule
-PK parameter & Analysis & Lower Limit & Point Estimate & Upper Limit\\
+Parameter & Analysis & LL & PE & UL\\
 \midrule
-AUC~inf~ & R BE 패키지 & 0.88944 & 0.95408 & 1.02341\\
+AUC\textsubscript{inf} & R BE 패키지 & 0.88944 & 0.95408 & 1.02341\\
  & SAS: PROC GLM & 0.88944 & 0.95408 & 1.02341\\
  & SAS: PROC MIXED & 0.88944 & 0.95408 & 1.02341\\
-C~max~ & R BE 패키지 & 0.90136 & 0.97984 & 1.06515\\
+C\textsubscript{max} & R BE 패키지 & 0.90136 & 0.97984 & 1.06515\\
  & SAS: PROC GLM & 0.90136 & 0.97984 & 1.06515\\
-\addlinespace
  & SAS: PROC MIXED & 0.90136 & 0.97984 & 1.06515\\
 \bottomrule
 \end{tabular}
@@ -3165,6 +3164,7 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
 \Large\hfill
 
 한성필\footnote{약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.}
+
 \normalsize
 
 \hypertarget{uxc11cuxb860-3}{%
@@ -3384,9 +3384,11 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 \end{verbatim}
 
 \hypertarget{compartmental-analysis-with-tlag}{%
-\subsection{Compartmental analysis with Tlag}\label{compartmental-analysis-with-tlag}}
+\subsection{\texorpdfstring{Compartmental analysis with T\textsubscript{lag}}{Compartmental analysis with Tlag}}\label{compartmental-analysis-with-tlag}}
 
 경구 투여 1구획분석, 지연 시간이 있는 모델이다. k\textsubscript{a}, V, k에 T\textsubscript{lag}가 추가되어 농도를 나타낼 수 있다.\index{지연 시간}
+
+\small
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3423,6 +3425,8 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## SE   0.02441
 ## RSE 19.61169
 \end{verbatim}
+
+\normalsize
 
 \hypertarget{uxbaa8uxb378uxb9c1-uxacb0uxacfc}{%
 \subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc}}
@@ -3605,6 +3609,8 @@ Subject가 여러 명일 경우 각 대상자의 값을 구하기 위해서 \tex
 
 정맥주사 후 약동학 자료에 대해 1구획모델로 구획분석을 수행하였고, 이때 구해진 PK 파라미터를 사용하여 150분까지 시뮬레이션 한 결과를 그림으로 나타내었다 (그림 \ref{fig:onecomp-iv}). \index{약동학}\index{시뮬레이션}
 
+\small
+
 \begin{Shaded}
 \begin{Highlighting}[]
 \FunctionTok{plot}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{1}\NormalTok{, }\AttributeTok{type=}\StringTok{"n"}\NormalTok{, }\AttributeTok{xlim=}\FunctionTok{c}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{160}\NormalTok{), }\AttributeTok{ylim=}\FunctionTok{c}\NormalTok{(}\DecValTok{10}\NormalTok{, }\DecValTok{1000}\NormalTok{), }
@@ -3627,6 +3633,8 @@ Subject가 여러 명일 경우 각 대상자의 값을 구하기 위해서 \tex
 
 \caption{wnl 패키지를 통해 얻어진 정맥 투여 1구획모델 PK 파라미터로 150분까지 시뮬레이션한 결과. (실선: 예측값 곡선, 도형: 관찰값)}\label{fig:onecomp-iv}
 \end{figure}
+
+\normalsize
 
 \hypertarget{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
 \section{\texorpdfstring{2구획모델 경구 흡수 이용한 약동학 자료 분석\index{약동학}}{2구획모델 경구 흡수 이용한 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
@@ -3707,7 +3715,7 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 \end{verbatim}
 
 \hypertarget{compartmental-analysis-with-tlag-1}{%
-\subsection{Compartmental analysis with Tlag}\label{compartmental-analysis-with-tlag-1}}
+\subsection{\texorpdfstring{Compartmental analysis with T\textsubscript{lag}}{Compartmental analysis with Tlag}}\label{compartmental-analysis-with-tlag-1}}
 
 경구 투여 2구획, 지연 시간이 있는 모델이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.\index{지연 시간}
 
@@ -4032,7 +4040,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.09236 secs
+## Time difference of 0.02632 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4097,7 +4105,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01542 secs
+## Time difference of 0.005364 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4162,7 +4170,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02181 secs
+## Time difference of 0.006151 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4226,7 +4234,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01961 secs
+## Time difference of 0.005141 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4291,7 +4299,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01864 secs
+## Time difference of 0.005465 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4355,7 +4363,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01927 secs
+## Time difference of 0.005724 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4419,7 +4427,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02436 secs
+## Time difference of 0.006394 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4483,7 +4491,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02037 secs
+## Time difference of 0.005736 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4547,7 +4555,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02463 secs
+## Time difference of 0.007556 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4612,7 +4620,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02444 secs
+## Time difference of 0.008083 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4677,7 +4685,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.0347 secs
+## Time difference of 0.01006 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4742,7 +4750,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01911 secs
+## Time difference of 0.005525 secs
 \end{verbatim}
 
 \normalsize

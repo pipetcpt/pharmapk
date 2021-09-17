@@ -24,7 +24,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.0 (2021-09-16)" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,7 +276,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
 <ul>
 <li class="chapter" data-level="5.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>5.4.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with Tlag</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
 <li class="chapter" data-level="5.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>5.4.3</b> 모델링 결과</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
@@ -287,7 +287,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>5.6.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with Tlag</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
 <li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>5.6.3</b> 모델링 결과</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
@@ -326,8 +326,7 @@ div.csl-indent {
             <section class="normal" id="section-">
 <div id="ca-analysis" class="section level1" number="5">
 <h1><span class="header-section-number">Chapter 5</span> 구획분석의 자료해석</h1>
-<p>한성필<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
-</p>
+<p>한성필<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 <div id="서론-3" class="section level2" number="5.1">
 <h2><span class="header-section-number">5.1</span> 서론</h2>
 <p>약동학 구획분석을 한문장으로 표현하자면 시간 농도(time-concentration data) 자료에 대한 약동학 파라미터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다. 
@@ -485,7 +484,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## RSE 41.220676 41.029 41.220716  39.22314 19.61157</code></pre>
 </div>
 <div id="compartmental-analysis-with-tlag" class="section level3" number="5.4.2">
-<h3><span class="header-section-number">5.4.2</span> Compartmental analysis with Tlag</h3>
+<h3><span class="header-section-number">5.4.2</span> Compartmental analysis with T<sub>lag</sub></h3>
 <p>경구 투여 1구획분석, 지연 시간이 있는 모델이다. k<sub>a</sub>, V, k에 T<sub>lag</sub>가 추가되어 농도를 나타낼 수 있다.</p>
 <div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="ca-analysis.html#cb33-1" aria-hidden="true" tabindex="-1"></a>fPK02b <span class="ot">=</span> <span class="cf">function</span>(THETA) <span class="co"># Prediction function</span></span>
 <span id="cb33-2"><a href="ca-analysis.html#cb33-2" aria-hidden="true" tabindex="-1"></a>{</span>
@@ -721,7 +720,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## RSE   18.896</code></pre>
 </div>
 <div id="compartmental-analysis-with-tlag-1" class="section level3" number="5.6.2">
-<h3><span class="header-section-number">5.6.2</span> Compartmental analysis with Tlag</h3>
+<h3><span class="header-section-number">5.6.2</span> Compartmental analysis with T<sub>lag</sub></h3>
 <p>경구 투여 2구획, 지연 시간이 있는 모델이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.</p>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="ca-analysis.html#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="do">## with lag</span></span>
 <span id="cb48-2"><a href="ca-analysis.html#cb48-2" aria-hidden="true" tabindex="-1"></a>fPK14b <span class="ot">=</span> <span class="cf">function</span>(THETA)</span>

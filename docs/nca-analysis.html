@@ -24,7 +24,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.0 (2021-09-16)" />
 
 
-<meta name="date" content="2021-09-16" />
+<meta name="date" content="2021-09-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -276,7 +276,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
 <ul>
 <li class="chapter" data-level="5.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>5.4.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with Tlag</a></li>
+<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
 <li class="chapter" data-level="5.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>5.4.3</b> 모델링 결과</a></li>
 </ul></li>
 <li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
@@ -287,7 +287,7 @@ div.csl-indent {
 <li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
 <ul>
 <li class="chapter" data-level="5.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>5.6.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with Tlag</a></li>
+<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
 <li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>5.6.3</b> 모델링 결과</a></li>
 </ul></li>
 <li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
@@ -798,7 +798,7 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.4 <span class="er">(</span><span class="ex">2021-07-16</span> KST<span class="kw">)</span></span>
 <span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.1 <span class="er">(</span><span class="ex">2021-08-10</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-09-16 16:58:21 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-09-17 15:01:21 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -2101,26 +2101,26 @@ R
 <thead>
 <tr>
 <th style="text-align:left;">
-PK parameter
+Parameter
 </th>
 <th style="text-align:left;">
 Analysis
 </th>
 <th style="text-align:left;">
-Lower Limit
+LL
 </th>
 <th style="text-align:left;">
-Point Estimate
+PE
 </th>
 <th style="text-align:left;">
-Upper Limit
+UL
 </th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td style="text-align:left;">
-AUC<sub>inf</sub>
+AUC
 </td>
 <td style="text-align:left;">
 R BE 패키지
@@ -2169,7 +2169,7 @@ SAS: PROC MIXED
 </tr>
 <tr>
 <td style="text-align:left;">
-C<sub>max</sub>
+C
 </td>
 <td style="text-align:left;">
 R BE 패키지

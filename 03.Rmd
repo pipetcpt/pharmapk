@@ -631,14 +631,15 @@ knitr::include_graphics("media-03/figure-2.png")
 위 과정으로 얻어진 계산값은 가장 정확하게 생물학적 동등성을 평가하고 있어 표준으로 사용되는 SAS 소프트웨어 결과값과 완전히 동일하였다. \index{생물학적 동등성}
 
 ```{r, echo=FALSE}
-tribble(~"PK parameter", ~"Analysis", ~"Lower Limit", ~"Point Estimate", ~"Upper Limit",
-"AUC~inf~", "R BE 패키지", "0.88944", "0.95408", "1.02341",
+tribble(~"Parameter", ~"Analysis", ~"LL", ~"PE", ~"UL",
+"AUC\\textsubscript{inf}", "R BE 패키지", "0.88944", "0.95408", "1.02341",
 "", "SAS: PROC GLM", "0.88944", "0.95408", "1.02341",
 "", "SAS: PROC MIXED", "0.88944", "0.95408", "1.02341",
-"C~max~", "R BE 패키지", "0.90136", "0.97984", "1.06515",
+"C\\textsubscript{max}", "R BE 패키지", "0.90136", "0.97984", "1.06515",
 "", "SAS: PROC GLM", "0.90136", "0.97984", "1.06515",
 "", "SAS: PROC MIXED", "0.90136", "0.97984", "1.06515") %>%
-  kable(caption = "R BE 패키지와 SAS의 PROC GLM, PROC MIXED 계산 결과값의 비교", booktabs=TRUE, escape=FALSE)
+  kable(caption = "R BE 패키지와 SAS의 PROC GLM, PROC MIXED 계산 결과값의 비교", booktabs=TRUE, escape=FALSE,
+        linesep = "")
 ```
 
 ## 웹브라우저를 통한 NCA 및 생물학적동등성 판정

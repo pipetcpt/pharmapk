@@ -2,6 +2,7 @@
 
 \Large\hfill
 한성필^[약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.] 
+
 \normalsize
 
 ```{r include=FALSE}
@@ -161,9 +162,11 @@ r1 = nlr(fPK02a, dPK02, pNames=c("ka", "V", "k"), IE=c(0.1, 30, 0.05))
 r1$Est
 ```
 
-### Compartmental analysis with Tlag 
+### Compartmental analysis with T~lag~ 
 
 경구 투여 1구획분석, 지연 시간이 있는 모델이다. k~a~, V, k에 T~lag~가 추가되어 농도를 나타낼 수 있다.\index{지연 시간}
+
+\small 
 
 ```{r}
 fPK02b = function(THETA) # Prediction function
@@ -185,6 +188,8 @@ r2 = nlr(fPK02b, dPK02, pNames=c("ka", "V", "k", "tlag"),
 
 r2$Est
 ```
+
+\normalsize
 
 ### 모델링 결과
 
@@ -267,6 +272,8 @@ for (i in 1:nID) {
 
 정맥주사 후 약동학 자료에 대해 1구획모델로 구획분석을 수행하였고, 이때 구해진 PK 파라미터를 사용하여 150분까지 시뮬레이션 한 결과를 그림으로 나타내었다 (그림 \@ref(fig:onecomp-iv)). \index{약동학}\index{시뮬레이션}
 
+\small
+
 ```{r onecomp-iv, fig.cap = "wnl 패키지를 통해 얻어진 정맥 투여 1구획모델 PK 파라미터로 150분까지 시뮬레이션한 결과. (실선: 예측값 곡선, 도형: 관찰값)", fig.width = 6, fig.height = 3.5}
 plot(0, 1, type="n", xlim=c(0, 160), ylim=c(10, 1000), 
      log="y", xlab="Time (min)", ylab="Concentration (ug/L)")
@@ -278,6 +285,8 @@ for (i in 1:nID) {
   lines(TIME, fPK01(cTHETA))   
 }
 ```
+
+\normalsize
 
 ## 2구획모델 경구 흡수 이용한 약동학 자료 분석\index{약동학}
 
@@ -322,7 +331,7 @@ r1 <- nlr(fPK14a, dPK14,
 r1$Est
 ```
 
-### Compartmental analysis with Tlag 
+### Compartmental analysis with T~lag~ 
 
 경구 투여 2구획, 지연 시간이 있는 모델이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.\index{지연 시간}
 

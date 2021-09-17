@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.2)  16 SEP 2021 17:05
+This is XeTeX, Version 3.141592653-2.6-0.999993 (TeX Live 2021) (preloaded format=xelatex 2021.9.2)  17 SEP 2021 14:50
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -2308,49 +2308,44 @@ File: media-03/figure-conc-time-curve.png Graphic file (type bmp)
 [80]
 File: media-03/figure-2.png Graphic file (type bmp)
 <media-03/figure-2.png>
-
-Overfull \hbox (32.92804pt too wide) in paragraph at lines 2787--2800
- [][] 
- []
-
 [81]
 File: media-03/pkrshiny.png Graphic file (type bmp)
 <media-03/pkrshiny.png>
 File: media-03/figure-shiny-be.png Graphic file (type bmp)
 <media-03/figure-shiny-be.png>
 [82] [83] [84]
-Underfull \vbox (badness 10000) detected at line 2837
+Underfull \vbox (badness 10000) detected at line 2836
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2837
+Overfull \hbox (395.75pt too wide) detected at line 2836
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2837
+Underfull \vbox (badness 10000) detected at line 2836
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2837
+Overfull \hbox (395.75pt too wide) detected at line 2836
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2837
+Underfull \vbox (badness 10000) detected at line 2836
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2837
+Overfull \hbox (395.75pt too wide) detected at line 2836
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2837
+Underfull \vbox (badness 10000) detected at line 2836
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2837
+Overfull \hbox (395.75pt too wide) detected at line 2836
 []
  []
 
@@ -2358,7 +2353,7 @@ Chapter 4.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
 (Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 283
-7.
+6.
 
 File: media-04/image1rev.png Graphic file (type bmp)
 <media-04/image1rev.png>
@@ -2384,9 +2379,9 @@ File: media-04/image5.jpg Graphic file (type bmp)
 <media-04/image5.jpg>
 [90]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 3052.
+(Font)              scaled to size 7.0pt on input line 3051.
 
-Overfull \hbox (13.8858pt too wide) in paragraph at lines 3048--3058
+Overfull \hbox (13.8858pt too wide) in paragraph at lines 3047--3057
  [][] 
  []
 
@@ -2433,38 +2428,38 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [96
 
 ]
-Underfull \vbox (badness 10000) detected at line 3163
+Underfull \vbox (badness 10000) detected at line 3162
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3163
+Overfull \hbox (395.75pt too wide) detected at line 3162
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3163
+Underfull \vbox (badness 10000) detected at line 3162
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3163
+Overfull \hbox (395.75pt too wide) detected at line 3162
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3163
+Underfull \vbox (badness 10000) detected at line 3162
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3163
+Overfull \hbox (395.75pt too wide) detected at line 3162
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3163
+Underfull \vbox (badness 10000) detected at line 3162
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3163
+Overfull \hbox (395.75pt too wide) detected at line 3162
 []
  []
 
@@ -2472,7 +2467,7 @@ Chapter 5.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
 (Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 316
-3.
+2.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2491,19 +2486,30 @@ File: media-05/fig5-2.png Graphic file (type bmp)
 File: pharmapk_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf
 )
 <use pharmapk_files/figure-latex/unnamed-chunk-27-1.pdf>
-[102] [103] [104] [105]
+[102] [103] [104]
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3395.
+LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/n' in size <10> not 
+available
+(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on i
+nput line 3395.
+LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/n' will be
+(Font)              scaled to size 11.11908pt on input line 3395.
+LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/it' will be
+(Font)              scaled to size 11.2648pt on input line 3395.
+[105]
 File: pharmapk_files/figure-latex/onecomp-lag-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/onecomp-lag-1.pdf>
 [106]
 File: pharmapk_files/figure-latex/ggonecomp-iv-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/ggonecomp-iv-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3485--3487
+Underfull \hbox (badness 10000) in paragraph at lines 3489--3491
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3487--3490
+Underfull \hbox (badness 10000) in paragraph at lines 3491--3494
 
  []
 
@@ -2513,15 +2519,15 @@ File: pharmapk_files/figure-latex/onecomp-iv-1.pdf Graphic file (type pdf)
 [111] [112]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <11> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3673.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3681.
 
 
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/it' in size <11> not
  available
 (Font)              Font shape `TU/NanumGothicCoding(0)/b/it' tried instead on 
-input line 3673.
+input line 3681.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/it' will be
-(Font)              scaled to size 12.23099pt on input line 3673.
+(Font)              scaled to size 12.23099pt on input line 3681.
 [113] [114]
 File: pharmapk_files/figure-latex/twocomp-lag-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/twocomp-lag-1.pdf>
@@ -2565,49 +2571,49 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [118
 
 ]
-Underfull \vbox (badness 10000) detected at line 3836
+Underfull \vbox (badness 10000) detected at line 3844
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3836
+Overfull \hbox (395.75pt too wide) detected at line 3844
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3836
+Underfull \vbox (badness 10000) detected at line 3844
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3836
+Overfull \hbox (395.75pt too wide) detected at line 3844
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3836
+Underfull \vbox (badness 10000) detected at line 3844
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3836
+Overfull \hbox (395.75pt too wide) detected at line 3844
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3836
+Underfull \vbox (badness 10000) detected at line 3844
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3836
+Overfull \hbox (395.75pt too wide) detected at line 3844
 []
  []
 
 별첨 A.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 383
-6.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 384
+4.
 
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/n' will be
-(Font)              scaled to size 6.75888pt on input line 3843.
+(Font)              scaled to size 6.75888pt on input line 3851.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -2617,57 +2623,57 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ] [120]
-Underfull \vbox (badness 10000) detected at line 3932
+Underfull \vbox (badness 10000) detected at line 3940
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3932
+Overfull \hbox (395.75pt too wide) detected at line 3940
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3932
+Underfull \vbox (badness 10000) detected at line 3940
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3932
+Overfull \hbox (395.75pt too wide) detected at line 3940
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3932
+Underfull \vbox (badness 10000) detected at line 3940
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3932
+Overfull \hbox (395.75pt too wide) detected at line 3940
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3932
+Underfull \vbox (badness 10000) detected at line 3940
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3932
+Overfull \hbox (395.75pt too wide) detected at line 3940
 []
  []
 
 별첨 B.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 393
-2.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 394
+0.
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <6> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3944.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3952.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/n' in size <6> not a
 vailable
 (Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on i
-nput line 3944.
+nput line 3952.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/n' will be
-(Font)              scaled to size 6.67145pt on input line 3944.
+(Font)              scaled to size 6.67145pt on input line 3952.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/it' will be
-(Font)              scaled to size 6.75888pt on input line 3944.
+(Font)              scaled to size 6.75888pt on input line 3952.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -2716,65 +2722,65 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [134
 
 ]
-Underfull \vbox (badness 10000) detected at line 4753
+Underfull \vbox (badness 10000) detected at line 4761
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4753
+Overfull \hbox (395.75pt too wide) detected at line 4761
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4753
+Underfull \vbox (badness 10000) detected at line 4761
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4753
+Overfull \hbox (395.75pt too wide) detected at line 4761
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4753
+Underfull \vbox (badness 10000) detected at line 4761
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4753
+Overfull \hbox (395.75pt too wide) detected at line 4761
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4753
+Underfull \vbox (badness 10000) detected at line 4761
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4753
+Overfull \hbox (395.75pt too wide) detected at line 4761
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4753
+Underfull \hbox (badness 10000) detected at line 4761
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 475
-3.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 476
+1.
 
 
-Underfull \hbox (badness 4391) in paragraph at lines 4758--4760
+Underfull \hbox (badness 4391) in paragraph at lines 4766--4768
 \TU/NotoSerifCJKKR(0)/m/it/11 Bae, Kyun-Seop. 2020. Wnl: Minimization Tool for 
 Pharmacokinetic-
  []
 
 
-Underfull \hbox (badness 1776) in paragraph at lines 4761--4763
+Underfull \hbox (badness 1776) in paragraph at lines 4769--4771
 []\TU/NotoSerifCJKKR(0)/m/it/11 ———. 2021a. BE: Bioequivalence Study Data Analy
 sis. [][]$[][][][][] [] [] [] [][][][] [] [] [][]
  []
 
 
-Underfull \hbox (badness 5331) in paragraph at lines 4770--4772
+Underfull \hbox (badness 5331) in paragraph at lines 4778--4780
 []\TU/NotoSerifCJKKR(0)/m/it/11 ———. 2021d. sasLM: SAS Linear Model. [][]$[][][
 ][][] [] [] [] [][][][] [] [] [][] [][][][][][][] [] [][][] []
  []
@@ -2788,14 +2794,14 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ]
-Underfull \hbox (badness 1867) in paragraph at lines 4797--4799
+Underfull \hbox (badness 1867) in paragraph at lines 4805--4807
 \TU/NotoSerifCJKKR(0)/m/it/11 and Personality Research. [][]$[][][][][] [] [] [
 ] [][][][][][][][][][][] [][] [][][][][][][] [] [][][] [] [] [] [][][][][] [][]
 
  []
 
 
-Underfull \hbox (badness 2073) in paragraph at lines 4809--4811
+Underfull \hbox (badness 2073) in paragraph at lines 4817--4819
 []\TU/NotoSerifCJKKR(0)/m/it/11 Wickham, Hadley. 2016. Ggplot2: Elegant Graphic
 s for Data Analysis.
  []
@@ -2870,11 +2876,11 @@ Package rerunfilecheck Info: File `pharmapk.out' has not changed.
 (rerunfilecheck)             Checksum: 1F8BAC465285378FD06D7705F9889D11;15801.
  ) 
 Here is how much of TeX's memory you used:
- 24651 strings out of 478532
- 422205 string characters out of 5861975
- 898897 words of memory out of 5000000
- 44434 multiletter control sequences out of 15000+600000
- 413256 words of font info for 145 fonts, out of 8000000 for 9000
+ 24660 strings out of 478532
+ 422403 string characters out of 5861975
+ 898977 words of memory out of 5000000
+ 44440 multiletter control sequences out of 15000+600000
+ 413280 words of font info for 148 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  87i,17n,122p,647b,2586s stack positions out of 5000i,500n,10000p,200000b,80000s
 

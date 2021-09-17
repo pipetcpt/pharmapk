@@ -1,4 +1,4 @@
-# 신약개발을 위한 실전 약동학 (I - 이론과 자료해석)<img src="images/cover.jpg"  align="right" height="150" />
+# 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)<img src="images/cover.jpg"  align="right" height="150" />
 
 **Phamacokinetics for pharmaceutical scientists**
 
@@ -93,7 +93,7 @@
 ## Cover 제작용 비율 
 
 ```r
-(back <- 16.235) # 268 페이지
+(back <- 9.525) # 150 페이지
 (width <- 3+100+148+back+148+100+3)
 (height <- 3+210+3)
 
@@ -104,3 +104,4 @@
 width/height
 # [1] 2.399236
 ```
+

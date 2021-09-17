@@ -2,7 +2,7 @@
                        Package version 0.4.4 (2021-07-16 KST)
                           R version 4.1.1 (2021-08-10)
 
-Date and Time: 2021-09-16 16:58:43 Asia/Seoul
+Date and Time: 2021-09-17 15:01:21 Asia/Seoul
 
 Calculation Setting
 -------------------
