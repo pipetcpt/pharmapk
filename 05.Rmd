@@ -13,7 +13,7 @@ opts_chunk$set(echo=TRUE)
 
 ## 서론
 
-약동학 구획분석을 한문장으로 표현하자면 시간 농도(time-concentration data) 자료에 대한 약동학 파라미터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다. \index{약동학}
+약동학 구획분석을 한 문장으로 표현하자면 시간 농도(time-concentration data) 자료에 대한 약동학 파라미터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다. \index{약동학}
 다시 말하자면, 인체의 여러 장기(organ) 또는 계(system)를 몇개의 구획으로 단순화하고 우리의 관심이 되는 특성을 파라미터화하여 각 구획들 간의 연관성을 파악하는 것이다. 
 약동학 파라미터의 추정을 위해서 비선형 회귀분석(nonlinear regression analysis)이 사용 되어 왔고 현재 이 방식은 약동학 분석에서 가장 필수적인 방법론으로 자리 잡은 상태이다. \index{약동학}
 추정에는 약동학 수식이 필요한데, 비선형 회귀분석 시 모델식(model formulation)으로 사용되며, 이 수식 안에 우리가 추정하고자 하는 약동학 파라미터가 모두 포함되어 있다. \index{약동학}

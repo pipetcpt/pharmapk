@@ -1,4 +1,4 @@
-# 비구획분석의 이론
+# 비구획분석의 이론 {#nca-principle}
 
 \Large\hfill
 한승훈
