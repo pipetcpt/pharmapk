@@ -6,6 +6,7 @@
 #pandoc --extract-media ./ -s "NCA-FDA.docx" -t markdown -o nca-fda.md 
 #pandoc --extract-media ./ -s "05-1.docx" -t markdown -o 05-1.md 
 
-pandoc --extract-media ./ -s chapter1-2021-10-11-added-yimds.docx -t markdown -o chapter1-2021-10-11-added-yimds.md
+#pandoc --extract-media ./ -s chapter1-2021-10-11-added-yimds.docx -t markdown -o chapter1-2021-10-11-added-yimds.md
+pandoc --extract-media ./ -s chapter1-2021-10-11-added-yimds-new.docx -t markdown -o chapter1-2021-10-11-added-yimds-new.md
 
 
