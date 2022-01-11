@@ -150,12 +150,13 @@ Pinocytosis는 혈관내피세포에 의해 일어나는 비교적 비특이적�
 
 메커니즘은 아래 그림과 같다.
 
-```{r fig5-2, fig.cap = "다양한 상용 소프트웨어의 사용 예. A. GUI 기반 Phoenix NLME, B. GUI 기반 Lixoft Monolix, C. NONMEM의 제어구문", echo = FALSE}
+```{r fig5-2, fig.cap = "(ref:FcRn_recycling)", echo = FALSE}
 knitr::include_graphics('media-05/fig5-2.png')
 ```
-
+(ref:FcRn_recycling) FcRn recycling process
 FcRN(neonatal Fc receptor)는 neonatal Fc receptor로 주로 세포막에 존재하는 당단백질이다. IgG의 Fc domain와의 결합친화성이 pH에 민감하기 때문에 생리적인(pH7.4)의 환경에서는 결합하지 않으나 endosome내의 산성화된 환경에서는 결합친화성이 강해지면서 FcRN-IgG complex를 이루게 된다. 따라서 위의 그림과 같이 IgG가 pinocytosis에 의해 uptake된 후(A) FcRn과 complex를 이루게 되고(B) 이러한 complex형태를 이룸으로써 lysosomal degradation의 영향을 피해(C) 다시 세포 표면으로 돌아오게 된다(D). 세포 표면으로 돌아온 이후에는 다시 pH의 상승으로 FcRN와는 해리되어 원래의 Ig형태를 가지게 되며(E) 이 과정을 FcRn recycling이라고 한다. 
-일반적으로 pinocytosis가 일어나는 IgG의 $\frac{2}{3}$정도가 FcRN recycling을 거치는 것으로 알려져 있으며 이는 IgG(18~21일)가 다른 항체(2~3일)에 비해서 긴 반감기를 가지는 주요한 원인이 된다. 참고로 IgG의 subtype 중에 FcRn과의 결합친화력이 낮은 IgG3의 경우 다른 IgG subtype들과는 다르게 7일의 반감기를 가지고 있다.
+일반적으로 pinocytosis가 일어나는 IgG의 $\frac{2}{3}$정도가 FcRN recycling을 거치는 것으로 알려져 있으며 이는 IgG(18~21일)가 다른 항체(2~3일)에 비해서 긴 반감기를 가지는 주요한 원인이 된다. 참고로 IgG의 subtype 중에 FcRn과의 결합친화력이 낮은 IgG3의 경우 다른 IgG subtype들과는 다르게 7일의 반감기를 가지고 있다. 
+FcRn과의 결합친화력은 IgG의 subtype 별로, 항체의약품 종류별로, 동물종 별로 다를 수 있고 이는 항체의약품의 제거 속도 및 반감기에 영향을 미칠 수 있다. 일반적으로 Cynomolgus monkey의 FcRn이 인간에서의 FcRn과 가장 비슷한 것으로 알려져 있기 때문에 인간에서의 항체의약품의 약동학 프로파일에 대한 예측을 위해서 Cynomolgus monkey를 가장 많이 사용한다. 
 
 #### B. Receptor와의 결합을 통한 제거
 
@@ -164,6 +165,9 @@ FcRN(neonatal Fc receptor)는 neonatal Fc receptor로 주로 세포막에 존재
 
 #### TMDD
 
+TMDD로 인해 항체의약품이 제거되는 속도는 타겟 receptor의 발현 정도, 항체의약품과의 결합친화력, 용량, 타겟 세포에서의 catabolism 속도 등에 의해서 결정된다. 
+TMDD로 인한 제거가 높은 항체의약품은 대부분 타겟과 높은 결합 특이성과 결합친화력을 가지기 때문에 TMDD는 제거의 주요 경로가 되고 이는 용량이 작거나 농도가 낮을 때 더 두드러진다. 
+항체의약품의 목적이 모든 타겟을 결합해서 작용을 막는 경우라면 타겟 장기에 
 
 #### Immunogenicity-mediated clearance
 
