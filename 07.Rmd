@@ -142,8 +142,8 @@ knitr::include_graphics('media-05/fig5-2.png')
 세포내에서의 제거는 uptake의 형태에 따라서 두가지 형태로 구분할 수 있는대 하나는 비교적 nonspecific한 fluid-phase endocytosis인 pinocytosis를 통해서 일어나서 제거되는 경우와 다른 하나는 Receptor와의 결합을 통해서 endocytosis가 일어나 제거되는 경우이다.
 
 #### A. Pinocytosis에 의한 제거
-Pinocytosis는 혈관내피세포에 의해 일어나는 비교적 비특이적인 endocytosis이다. 혈관벽의 인체 내의 표면적이 매우 넓기 때문에(1000m^2) 이 과정은 항체의약품을 빠르게 제거할 수 있다. 이 과정은 receptor binding으로 인한 endocytosis가 아닌 fluid-phase endocytosis 이기 때문에 모든 항체의약품에 대해 비특이적으로 특정 장기가 아닌 아닌 전신에서 나타날 수 있으며 특히 피부, 근육 및 소화 기관 등 모세혈관이 발달되어 혈관 내 세포가 많은 장기에서 두드러지게 나타난다.
-단, Fc domain을 가진 IgG의 경우 uptake이후에 catabolism이 되지 않도록 FcRN recycling이라는 보호기전을 가지기 때문에 혈중 농도를 비교적 오래 유지할 수 있다.
+Pinocytosis는 혈관내피세포에 의해 일어나는 비교적 비특이적인 endocytosis이다. 혈관벽의 인체 내의 표면적이 매우 넓기 때문에(1000m^2^) 이 과정은 항체의약품을 빠르게 제거할 수 있다. 이 과정은 receptor binding으로 인한 endocytosis가 아닌 fluid-phase endocytosis 이기 때문에 모든 항체의약품에 대해 비특이적으로 특정 장기가 아닌 아닌 전신에서 나타날 수 있으며 특히 피부, 근육 및 소화 기관 등 모세혈관이 발달되어 혈관 내 세포가 많은 장기에서 두드러지게 나타난다.
+단, Fc domain을 가진 IgG의 경우 uptake이후에 lysosomal degradation이 되지 않도록 FcRN recycling이라는 보호기전을 가지기 때문에 혈중 농도를 비교적 오래 유지할 수 있다.
 
 #### FcRN Recycling
 항체의약품 중 IgG가 pinocytosis에 의해 분해되지 않도록 하는 보호기전으로 신체 내에서 IgG의 노출을 유지 시키는 대 중요한 역할을 한다. 
@@ -159,7 +159,7 @@ FcRN(neonatal Fc receptor)는 neonatal Fc receptor로 주로 세포막에 존재
 
 #### B. Receptor와의 결합을 통한 제거
 
-세포막의 표면에 있는 Receptor와의 결합을 통해 endocytosis가 일어난 후 세포 내에서 lysosome에 의한 분해가 일어나는 경우이다. 타겟 항원의 epitope와 Fab가 결합해서 endocytosis가 일어나는 경우(TMDD, Target mediated drug disposition)와 면역 세포들에 주로 발현되어 있는 Fc-gamma-receptor와 Fc domain이 결합하여 endocytosis가 일어나는 경우(FcRs-mediated clearance)가 있다. Pinocytosis와 달리 특정 receptor와 결합해야 하기 때문에 특이적이며 특히 Fab와 epitope의 간의 affinity와 specificity, reactivity가 이러한 제거 속도와 양에 영향을 미칠 수 있다.
+세포막의 표면에 있는 Receptor와의 결합을 통해 endocytosis가 일어난 후 세포 내에서 lysosome에 의한 분해가 일어나는 경우이다. 타겟 항원의 epitope와 Fab가 결합해서 endocytosis가 일어나는 경우(TMDD, Target mediated drug disposition)와 면역 세포들에 주로 발현되어 있는 FcγR(Fc-gamma-receptor)와 Fc domain이 결합하여 endocytosis가 일어나는 경우(FcγRs-mediated clearance)가 있다. Pinocytosis와 달리 특정 receptor와 결합해야 하기 때문에 특이적이며 특히 Fab와 epitope의 간의 affinity와 specificity, reactivity가 이러한 제거 속도와 양에 영향을 미칠 수 있다.
 
 
 #### TMDD
@@ -167,7 +167,7 @@ FcRN(neonatal Fc receptor)는 neonatal Fc receptor로 주로 세포막에 존재
 
 #### Immunogenicity-mediated clearance
 
-#### Fc-gamma-receptor mediated clearance
+#### Fcγreceptor mediated clearance
 
 ## TMDD 이란?
 
