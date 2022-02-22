@@ -2,11 +2,12 @@ library(mrgsolve)
 library(tidyverse)
 library(ggpubr)
 library(rlang)
-mod <- mread_cache('tmdd', modlib())
+library(httpgd)
+mod <- mread_cache('simulation/TMDD.cpp')
 mod <- param(mod, list(KINT = 0.003,
                        KOFF = 0.001,
                        KEL = 0.0015,
-                       KPT = 0,ß
+                       KPT = 0,
                        KTP = 0,
                        KDEG = 0.0089,
                        R0 = 12.36,
@@ -16,12 +17,13 @@ mod <- param(mod, list(KINT = 0.003,
 
 #### Change of dose  ####
 
-amt_vec <- c(0.1, 0.4, 1, 4, 10)
+amt_vec <- c(1, 5, 10, 15, 20)
 
 dose_change_plot <- mod %>%
   data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:5, cmt = 2) %>% mutate(dose = amt))) %>%
   carry_out(dose) %>%
-  mrgsim(end = 1500) %>%
+  zero_re() %>%
+  mrgsim(end = 1800) %>%
   as.data.frame() %>%
   mutate(dose = as.factor(dose)) %>%
   filter(CP > 1E-8) %>%
@@ -77,3 +79,67 @@ param_change(KON, seq(0.00015, 0.01, length.out = 5), 300)
 ggsave('media-07/KON.png', width = 6, height = 4, unit = "in")
 param_change(KOFF, seq(0.00015, 0.01, length.out = 5), 300)
 ggsave("media-07/KOFF.png", width = 6, height = 4, unit = "in")
+
+
+
+
+
+amt_vec <- c(1, 5, 10, 15, 20)
+
+dose_change_plot <- mod %>%
+  data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:5, cmt = 2) %>% mutate(dose = amt))) %>%
+  carry_out(dose) %>%
+  mrgsim(end = 1800) %>%
+  as.data.frame() %>%
+  mutate(dose = as.factor(dose)) %>%
+  filter(CP > 1E-8) %>%
+  ggplot(aes(x = time, y = CP, col = dose)) +
+  geom_line() +
+  # scale_y_continuous(trans = 'log10') +
+  theme_bw() +
+  labs(
+    x = "Time (hr)",
+    y = "Concentration (nM/L)",
+    col = "Dose (nM)"
+  )
+
+
+mod %>%
+  ev(amt = 10, cmt = 2) %>%
+  mrgsim(nid = 5, end = 1800) %>%
+  as.data.frame() %>%
+  filter(CP > 1E-8) %>%
+  ggplot(aes(x = time, y = CP, col = as.factor(ID))) +
+  geom_line() +
+  scale_y_continuous(trans = 'log10') +
+  theme_bw() +
+  labs(
+    x = "Time (hr)",
+    y = "Concentration (nM/L)",
+    col = "Dose (nM)"
+  )
+init(mod)
+mod2 <- mread_cache('simulation/TMDD2.cpp')
+e1 <- ev(amt = 10, cmt = 2)
+e2 <- ev(amt = 200, time = 800, cmt = 4, tinf = 50)
+c(e1, e2)
+
+sample <- 24 * c(1, 2, 4, 10, 14, 21, 28, 35, 49, 63, 77)
+doseinfo1 <- expand.grid(ID = 1:8, amt = 10, cmt = 2, evid = 1, tinf = 0, time = 0)
+doseinfo2 <- as.data.frame(ID = 1:4, amt = rep(10000, 4), time = c(800, 830, 860, 890), cmt = rep(4, 4), tinf = rep(1000, 4), evid = rep(1, 4))
+mod %>%
+  data_set(rbind(doseinfo1, doseinfo2) %>% arrange(ID)) %>%
+  mrgsim(end = 2000) %>%
+  as.data.frame() %>%
+  filter(CP > 1E-8, time %in% sample) %>%
+  ggplot(aes(x = time, y = CP, col = as.factor(ID))) +
+  geom_point() +
+  geom_line() + 
+  scale_y_continuous(trans = "log10") +
+  theme_bw() +
+  labs(
+    x = "Time (hr)",
+    y = "Concentration (nM/L)",
+    col = "Dose (nM)"
+  )
+init(mod2)
