@@ -82,8 +82,6 @@ ggsave("media-07/KOFF.png", width = 6, height = 4, unit = "in")
 
 
 
-
-
 amt_vec <- c(1, 5, 10, 15, 20)
 
 dose_change_plot <- mod %>%
@@ -119,7 +117,7 @@ mod %>%
     col = "Dose (nM)"
   )
 init(mod)
-mod2 <- mread_cache('simulation/TMDD.cpp')
+mod2 <- mread_cache('simulation/TMDD2.cpp')
 
 mod2 <- param(mod2, list(
   KINT = 0.003,
@@ -130,29 +128,23 @@ mod2 <- param(mod2, list(
   KDEG = 0.0089,
   R0 = 12.36,
   VC = 0.04,
-  KON = 0.01
-))
-1000/24
+  KON = 0.01 
+))    
 
 sample <- 24 * c(1, 2, 4, 10, 14, 21, 28, 35, 42, 49, 56, 63, 77)
-doseinfo1 <- data.frame(ID = 1:8, amt = c(rep(5, 4), rep(10, 4)), cmt = rep(2, 4), evid = rep(1, 4), tinf = rep(0, 4), time = rep(0, 4))
-doseinfo2 <- data.frame(ID = 1:4, 
-                           amt = rep(200, 4),
-                           time = c(400, 410, 420, 430),
-                           cmt = rep(4, 4),
-                           tinf = rep(1000, 4),
-                           evid = rep(1, 4))
-init(sample)
+doseinfo1 <- data.frame(ID = 1:8, amt = rep(10, 4), cmt = rep(2, 4), evid = rep(1, 4), tinf = rep(0, 4), time = rep(0, 4))
 moddata <- mod2 %>%
-  data_set(rbind(doseinfo1, doseinfo2) %>% arrange(ID)) %>%
+  idata_set(data.frame(ID = 1:8, ADA = c(rep(1, 4), rep(0, 4))))%>%
+  data_set(doseinfo1) %>%
   mrgsim(end = 2000) %>%
   as.data.frame() 
 
 savedata2 <- moddata
 finaldata <- moddata
+
 moddata %>%
   filter(CP > 1E-8, time %in% sample) %>% 
-  filter(!(ID %in% 1:4 & time > 520)) %>%
+  filter(!(ID %in% 1:4 & time > 1000)) %>%
   ggplot(aes(x = time, y = CP, col = as.factor(ID))) +
   geom_point() +
   geom_line() + 
@@ -163,6 +155,8 @@ moddata %>%
     y = "Concentration",
     col = "ID"
   )
-init(mod2)
+
+ggsave('media-07/ADA.png', width = 6, height = 4, unit = "in")
 
 write.csv(finaldata, "simulation/adadata.csv", row.names= F)
+moddata <- read_csv('simulation/adadata.csv')

@@ -2,7 +2,8 @@ $PARAM
 KPT = 0.064, KTP = 0.123, VC=0.032, KA1 = 0.142, KA2 = 0.6
 KEL = 0.106
 R0 = 64.31, KDEG = 0.079, KINT = 2, KON=0.101, KOFF = 10.1
-R02 = 0.5
+EC50 = 100
+EMAX = 10
 KDEG2 = 0.1
 KINT2 = 20
 KON2 = 5
@@ -17,12 +18,11 @@ namespace tmdd {
   double TMDDR0 = 0;  
 }
 #define KSYN (R0*KDEG)
-#define KSYN2 (R02*KDEG2)
+#define KSYN2 (CP*EMAX/(EC50 + CP))
 #define CP (CENT/VC)
 
 $MAIN
 REC_0 = R0;
-REC2_0 = R02;
 tmdd::TMDDR0 = _R(3);
 double VCi = exp(log(VC) + EVC);
 double KDEGi =exp(log(KDEG) + EKDEG);
