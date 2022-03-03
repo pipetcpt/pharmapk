@@ -119,19 +119,40 @@ mod %>%
     col = "Dose (nM)"
   )
 init(mod)
-mod2 <- mread_cache('simulation/TMDD2.cpp')
-e1 <- ev(amt = 10, cmt = 2)
-e2 <- ev(amt = 200, time = 800, cmt = 4, tinf = 50)
-c(e1, e2)
+mod2 <- mread_cache('simulation/TMDD.cpp')
 
-sample <- 24 * c(1, 2, 4, 10, 14, 21, 28, 35, 49, 63, 77)
-doseinfo1 <- expand.grid(ID = 1:8, amt = 10, cmt = 2, evid = 1, tinf = 0, time = 0)
-doseinfo2 <- as.data.frame(ID = 1:4, amt = rep(10000, 4), time = c(800, 830, 860, 890), cmt = rep(4, 4), tinf = rep(1000, 4), evid = rep(1, 4))
-mod %>%
+mod2 <- param(mod2, list(
+  KINT = 0.003,
+  KOFF = 0.001,
+  KEL = 0.0015,
+  KPT = 0,
+  KTP = 0,
+  KDEG = 0.0089,
+  R0 = 12.36,
+  VC = 0.04,
+  KON = 0.01
+))
+1000/24
+
+sample <- 24 * c(1, 2, 4, 10, 14, 21, 28, 35, 42, 49, 56, 63, 77)
+doseinfo1 <- data.frame(ID = 1:8, amt = c(rep(5, 4), rep(10, 4)), cmt = rep(2, 4), evid = rep(1, 4), tinf = rep(0, 4), time = rep(0, 4))
+doseinfo2 <- data.frame(ID = 1:4, 
+                           amt = rep(200, 4),
+                           time = c(400, 410, 420, 430),
+                           cmt = rep(4, 4),
+                           tinf = rep(1000, 4),
+                           evid = rep(1, 4))
+init(sample)
+moddata <- mod2 %>%
   data_set(rbind(doseinfo1, doseinfo2) %>% arrange(ID)) %>%
   mrgsim(end = 2000) %>%
-  as.data.frame() %>%
-  filter(CP > 1E-8, time %in% sample) %>%
+  as.data.frame() 
+
+savedata2 <- moddata
+finaldata <- moddata
+moddata %>%
+  filter(CP > 1E-8, time %in% sample) %>% 
+  filter(!(ID %in% 1:4 & time > 520)) %>%
   ggplot(aes(x = time, y = CP, col = as.factor(ID))) +
   geom_point() +
   geom_line() + 
@@ -139,7 +160,9 @@ mod %>%
   theme_bw() +
   labs(
     x = "Time (hr)",
-    y = "Concentration (nM/L)",
-    col = "Dose (nM)"
+    y = "Concentration",
+    col = "ID"
   )
 init(mod2)
+
+write.csv(finaldata, "simulation/adadata.csv", row.names= F)
