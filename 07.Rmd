@@ -24,7 +24,7 @@ opts_chunk$set(echo=FALSE)
 
 ## 항체 및 항체의약품이란?
 
-```{r act_antibody, fig.cap = "(ref:act-antibody)", echo = FALSE}
+```{r act-antibody, fig.cap = "(ref:act-antibody)", echo = FALSE}
 knitr::include_graphics('media-07/Structure.png')
 ```
 (ref:act-antibody) 항체의 작용 
@@ -35,10 +35,10 @@ knitr::include_graphics('media-07/Structure.png')
 
 동물의 면역계가 생산하는 항체의 종류는 종마다 약간의 차이가 있으며 사람의 면역계는 Y unit의 개수와 heavy chain의 타입에 따라 5가지의 아형(Isotype)의 항체를 생산한다. 아형 별로 그림 \@ref(fig:antibody_isotype)과 같이 다양한 구조를 가지고 있고 이에 따라 체내 분포와 기능에 있어서 차이가 존재한다. 이 중 IgG는 인체에서 70~85%를 차지하는 가장 흔한 아형으로 150 kDa로 비교적 분자량이 작고 항원특이적이며 Fc 구조로 인해 아형 중에 반감기가 20~24일 정도로 가장 길기 때문에 항체의약품으로 가장 많이 사용되며 특히 IgG4를 가장 많이 사용한다.  \index{항체의약품}
 
-```{r antibody_isotype, fig.cap = "(ref:antibody_isotype)", echo = FALSE}
+```{r antibody-isotype, fig.cap = "(ref:antibody-isotype)", echo = FALSE}
 knitr::include_graphics('media-07/antibody_isotype.png')
 ```
-(ref:antibody_isotype) 5가지 항체 아형의 구조
+(ref:antibody-isotype) 5가지 항체 아형의 구조
 
 
 ## 항체의약품의 구조
@@ -151,10 +151,10 @@ knitr::include_graphics('media-07/DOSE.png')
 항체의약품 중 IgG가 음세포작용에 의해 분해되지 않도록 하는 보호기전으로 신체 내에서 항체의약품의 노출을 유지 시키는 대 중요한 역할을 한다. /index{음세포작용}
 메커니즘은 아래 그림 \@ref(fig:FcRn_recycling)과 같다.
 
-```{r FcRn_recycling, fig.cap = "(ref:FcRn_recycling)", echo = FALSE}
+```{r FcRn-recycling, fig.cap = "(ref:FcRn-recycling)", echo = FALSE}
 knitr::include_graphics('media-07/Fc_recycling.png')
 ```
-(ref:FcRn_recycling) FcRn recycling process
+(ref:FcRn-recycling) FcRn recycling process
 
 Fc 수용체(FcRn, neonatal Fc receptor)은 주로 세포막에 존재하는 당단백질로 Fc domain과 결합하는 수용체이다. 이 수용체와 IgG의 Fc domain와의 결합친화성은 pH에 민감하기 때문에 생리적인(pH7.4)의 환경에서는 결합하지 않으나 엔도솜(endosome)내의 산성화된 환경에서는 결합친화성이 강해지면서 FcRn-IgG 복합체를 형성한다. 따라서 위의 그림\@ref(fig:FcRn_recycling)과 같이 IgG는 음세포작용에 의해 섭취된 후(**A**)에 산성화된 환경인 엔도솜 내에서는 FcRn과 결합하게 되고(**B**) 이러한 복합체 형성을 통해 리소좀에 의한 분해작용(lysosomal degradation)의 영향을 피하여(**C**) 다시 혈관 세포 표면으로 돌아오게 된다(**D**). 세포 표면에서는 다시 pH가 7.4로 상승하므로 Fc 수용체와는 해리되고 Ig 형태로 혈액 혹은 조직으로 돌아가게 되는대(**E**) 이러한 과정을 FcRn recycling이라고 한다. 
 일반적으로 음세포작용이 일어나는 IgG의 $\frac{2}{3}$정도가 FcRN recycling을 거쳐 이로 인한 제거를 회피하는 것으로 알려져 있으며 IgG(18~21일)가 다른 형태의 항체(2~3일)들에 비해서 긴 반감기를 가지는 주요한 원인이 된다. Fc 수용체와의 결합친화력은 IgG의 아형별로 다르며 Fc 수용체와의 결합친화력이 낮은 IgG3의 경우 다른 IgG 아형들과는 다르게 7일의 반감기를 가지고 있다. 
@@ -205,10 +205,10 @@ knitr::include_graphics('media-07/DOSE.png')
 
 혈장에서 표적 수용체와 결합하는 1구획 모델은 가장 단순한 형태의 TMDD 모델로 기본적인 구조는 아래\@ref(fig:TMDDmodel_basic)와 같다. 모델의 구조를 간단히 살펴보면, 항체의약품(L)은 크게 두가지의 제거 메커니즘 및 그에 따른 청소율을 가진다. 한가지는 선형적인 제거 메커니즘으로 비특이적으로 음세포작용에 의해 제거되는 것(CL1)이며 다른 하나는 타겟 수용체(R)와의 특이적인 결합을 통해 제거(CL2)되는 것이다. 표적 수용체, 즉 타겟은 혈장 내에서 생성속도(k~syn~)와 제거속도상수(k~deg~)로 평행을 이룬 상태로 있다가(dR/dt = 0) 항체의약품 투여 시 항체의약품과 결합하게 되고 새로운 평형을 이루게 된다. 이때 항체의약품과 수용체간의 결합(k~on~) 및 해리(k~off~)상수 값을 통해서 동적 평행이 이루어지며 항체의약품과 수용체와의 결합복합체(LR)는 약리학적 효과를 일으킬 뿐만 아니라 내포작용으로 인한 분해(k~ec~)로 제거되게 된다. 타겟이 2구획모델 혹은 말초분획에 표적 수용체가 존재하는 경우에는 이와 비슷한 원리를 적용할 수 있다
 
-```{r TMDDmodel_basic, fig.cap = "(ref:TMDDmodel_basic)", echo = FALSE}
+```{r TMDDmodel-basic, fig.cap = "(ref:TMDDmodel-basic)", echo = FALSE}
 knitr::include_graphics('media-07/TMDDstructure.png')
 ```
-(ref:TMDDmodel_basic) TMDD 모델 구조
+(ref:TMDDmodel-basic) TMDD 모델 구조
 
 해당 모델에 대한 기본 미분 방정식은 다음과 같다. 
 
