@@ -24,10 +24,10 @@ opts_chunk$set(echo=FALSE)
 
 ## 항체 및 항체의약품이란?
 
-```{r act_antibody, fig.cap = "(ref:act_antibody)", echo = FALSE}
+```{r act_antibody, fig.cap = "(ref:act-antibody)", echo = FALSE}
 knitr::include_graphics('media-07/Structure.png')
 ```
-(ref:act_antibody) 항체의 작용 
+(ref:act-antibody) 항체의 작용 
 
 항체(Antibody, Ab)는 면역글로불린(Immunoglobulin, Ig)로도 지칭되며 특정 세포나 단백질과 같은 항원(Antigen)에 특이적으로 인지하여 면역반응을 유발한다. 대부분 당단백질로 구성되어 있으며 위의 그림 \@ref(fig:act_antibody)과 같이 주로 체액성 면역반응에서 B cell의 활성화를 통해 생산되어 항원을 중화(neutralization)하거나 제거하는 역할을 한다. \index{항체} \index{항원}
 
@@ -214,17 +214,17 @@ knitr::include_graphics('media-07/TMDDstructure.png')
 
 \begin{equation}
 \frac{dL}{dt} = -k_{el}L - k_{on}L \cdot R + k_{off}LR
-{\#eq:eq7-1}
+(\#eq:eq7-1)
 \end{equation}
 
 \begin{equation}
 \frac{dR}{dt} = k_{syn} - k_{deg}R - k_{on}L \cdot R + k_{off}LR
-{\#eq:eq7-2}
+(\#eq:eq7-2)
 \end{equation}
 
 \begin{equation}
 \frac{dLR}{dt} = k_{on}L \cdot R - k_{off}LR - k_{ec}LR
-{\#eq:eq7-3}
+(\#eq:eq7-3)
 \end{equation}
 
 
@@ -232,12 +232,12 @@ knitr::include_graphics('media-07/TMDDstructure.png')
 
 \begin{equation}
 \frac{dL_{tot}}{dt} = -k_{el}L - k_{ec}LR
-{\#eq:eq7-4}
+(\#eq:eq7-4)
 \end{equation}
 
 \begin{equation}
 \frac{dR_{tot}}{dt} = -k_{syn} - k_{deg}R - k_{ec}LR
-{\#eq:eq7-5}
+(\#eq:eq7-5)
 \end{equation}
 
 여기서 Time = 0 에서는 항체가 투여되기 전이기 때문에 $L_{0} = 0, LR_{0} = 0$ 이며, 체내에서 평형을 유지하는 표적 수용체의 경우 항체가 투여되기 전에는 생성속도(k~syn~)와 제거속도(k~deg~ * R)가 체내에서 동일하기 때문에 $R_{0} = \frac{k_{syn}}{k_{deg}}$ 이다.
@@ -257,17 +257,17 @@ Phase A는 투여 직후 빠르게 표적 수용체와의 결합을 통한 제�
 
 \begin{equation}
 \frac{dL}{dt} = \underline {-k_{el}L - k_{on}L \cdot R} + k_{off}LR
-{\#eq:eq7-6}
+(\#eq:eq7-6)
 \end{equation}
 
 \begin{equation}
 \frac{dR}{dt} = k_{syn} - k_{deg}R - \underline{k_{on}L \cdot R} + k_{off}LR
-{\#eq:eq7-7}
+(\#eq:eq7-7)
 \end{equation}
 
 \begin{equation}
 \frac{dLR}{dt} = \underline {k_{on}L \cdot R} - k_{off}LR - k_{ec}LR
-{\#eq:eq7-8}
+(\#eq:eq7-8)
 \end{equation}
 
 높은 용량의 항체가 투여 될수록 표적 수용체와의 결합은 빠르게 일어나기 때문에 A구간의 경사는 급해지며 비선형성을 보이게 된다. 그러나 표적 수용체의 양은 R~0~로 한정되어 있기 때문에 이 경우 수용체와의 결합은 더 빠르게 포화되게 되어 A구간의 길이는 짧아지게 되어 A구간 동안 감소된 항체의 농도는 투여 용량에 상관없이 비슷한 정도로 감소하게 된다. 
@@ -292,29 +292,29 @@ Phase B는 항체의약품과 표적수용체와의 결합이 포화되어 결�
 
 \begin{equation}
 \frac{dL_{tot}}{dt} = -k_{el}L - k_{ec}LR = -k_{el}L - k_{ec}R_{tot}
-{\#eq:eq7-9}
+(\#eq:eq7-9)
 \end{equation}
 
 \begin{equation}
 \frac{dR_{tot}}{dt} = -k_{syn} - k_{deg}R - k_{ec}LR = k_{syn} - k_{ec}R_{tot}
-{\#eq:eq7-10}
+(\#eq:eq7-10)
 \end{equation}
 
 \begin{equation}
 \frac{d(L+R_{tot})}{dt} = -k_{el}L - k_{ec}R_{tot}
-{\#eq:eq7-11}
+(\#eq:eq7-11)
 \end{equation}
 
 \begin{equation}
 \frac{dL}{dt} = -k_{el}L - k_{syn}
-{\#eq:eq7-12}
+(\#eq:eq7-12)
 \end{equation}
 
 로 간단히 정리될 수 있다. \@ref(eq:eq7-10)과 \@ref(eq:eq7-11)를 통해 도출된 \@ref(eq:eq7-12)를 보았을 때 표적수용체가 포화된 B 구간에는 항체의 시간에 따른 변화량(dL/dt)이 catabolism에 의한 제거속도 $k_{el}$와 항체 양에 비례하는 일차 선형 형태임을 확인할 수 있으며 이때 기울기는 대략 $k_{el}$정도를 보인다. IgG의 경우 FcRn recycling으로 인해 $k_{el}$가 대부분 작은 값을 보이기 때문에 다른 구간에 비해서 평평한 형태를 보이며 아래 그림과 같이 $k_{el}$값이 증가함에 따라서 이 구간의 기울기가 급해진다.
 
 \begin{equation}
 L(t) ≈ (L(T_{1}) + \frac{k_{syn}}{k_{el}})e^{-k_{el} \cdot t} - \frac{k_{syn}}{k_{el}}
-{\#eq:eq7-13}
+(\#eq:eq7-13)
 \end{equation}
 
 또한 아래 그림과 같이 해당 구간은 선형성을 가지고 제거 되기 때문에 용량이 증가하였을 때 구간의 경사는 변하지 않는다. 항체가 일정 농도(약 10K~d~) 아래로 도달하였을 때 결합이 다시 불포화되어 이러한 선형성이 없어지게 되는대 이때 해당 농도에 도달하는 시간(T~2~)은 용량이 증가할 수록 오래걸리게 된다. 따라서 아래 그림에서와 같이 용량이 증가할 수록 B구간의 길이는 길어지게 된다. 
