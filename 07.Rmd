@@ -33,12 +33,12 @@ knitr::include_graphics('media-07/Structure.png')
 
 항체의약품은 이와 같이 항원, 즉 타겟에 특이적으로 결합하는 항체의 특성을 이용한 의약품으로 항체의 이러한 특이적인 결합 덕분에 일반적으로 항체 의약품은 일반 의약품에 비해 타겟 외 결합에 의한 위험성이 떨어지고 적은량으로 비교적 큰 효과를 낼 수 있다. \index{항체의약품}
 
-동물의 면역계가 생산하는 항체의 종류는 종마다 약간의 차이가 있으며 사람의 면역계는 Y unit의 개수와 heavy chain의 타입에 따라 5가지의 아형(Isotype)의 항체를 생산한다. 아형 별로 그림 \@ref(fig:antibody-isotype)과 같이 다양한 구조를 가지고 있고 이에 따라 체내 분포와 기능에 있어서 차이가 존재한다. 이 중 IgG는 인체에서 70~85%를 차지하는 가장 흔한 아형으로 150 kDa로 비교적 분자량이 작고 항원특이적이며 Fc 구조로 인해 아형 중에 반감기가 20~24일 정도로 가장 길기 때문에 항체의약품으로 가장 많이 사용되며 특히 IgG4를 가장 많이 사용한다.  \index{항체의약품}
+동물의 면역계가 생산하는 항체의 종류는 종마다 약간의 차이가 있으며 사람의 면역계는 Y unit의 개수와 heavy chain의 타입에 따라 5가지의 아형(Isotype)의 항체를 생산한다. 아형 별로 그림 \@ref(fig:antibody-isotype)과 같이 다양한 구조를 가지고 있고 이에 따라 체내 분포와 기능에 있어서 차이가 존재한다. 이 중 IgG는 인체에서 70~85%를 차지하는 가장 흔한 아형으로 150 kDa로 비교적 분자량이 작고 항원특이적이며 Fc 구조로 인해 아형 중에 반감기가 20~24일 정도로 가장 길기 때문에 항체의약품으로 가장 많이 사용되며 특히 IgG4를 가장 많이 사용한다. \index{항체의약품}
 
 ```{r antibody-isotype, fig.cap = "(ref:antibody-isotype)", echo = FALSE}
-knitr::include_graphics('media-07/antibody_isotype.png')
+knitr::include_graphics('media-07/antibody_isotype_pic.png')
 ```
-(ref:antibody-isotype) 5가지 항체 아형의 구조
+(ref:antibody-isotype) 5가지 항체 아형의 구조 [@2012197]
 
 
 
@@ -52,15 +52,15 @@ knitr::include_graphics('media-07/Epitope.jpg')
 (ref:paratope) 항체의약품의 표적과의 결합의 specificity
 
 그림 \@ref(fig:paratope)과 같이 항원을 인지하는 부분, 즉 항체의 표적 결합부위를 항원결합부위(Paratope), 항원의 항체 결합부위를 항원결정기(Epitope)라고 지칭하는 대 이 둘은 흔히 좌물쇠와 키로 비유될 정도로 특이적으로 결합한다. \index{항원} \index{항체}
-항원은 대체로 단백질과 같은 큰 분자량의 입체 구조를 가지기 때문에 표면의 여러 부분을 항원결정기로 가질 수 있고 각각의 항원결정기에 따라 그에 해당하는 항원결합부위를 가진 항체가 결합할 수 있다. 따라서 하나의 항원은 생체 내에서 서로 다른 B cell lineage를 통한 다양한 항체의 생성을 유도할 수 있으며 이를 다클론항체(Polyclonal antibodies)라고 한다. \index{다클론항체}
-그러나 이러한 다클론항체는 일정한 품질로 생산하기가 매우 어렵고 교차반응(Cross-reactivity)이 나타날 가능성이 크다. \index{교차반응}
-따라서 항체의약품은 동일한 B cell lineage를 통해 한가지의 항원결정기에 대해서만 반응하는 항체를 주로 이용하며 이를 단일클론항체(monoclonal antibody)라고 한다.  \index{단일클론항체}
+항원은 대체로 단백질과 같은 큰 분자량의 입체 구조를 가지기 때문에 표면의 여러 부분을 항원결정기로 가질 수 있고 각각의 항원결정기에 따라 그에 해당하는 항원결합부위를 가진 항체가 결합할 수 있다. 따라서 하나의 항원은 생체 내에서 서로 다른 B cell lineage를 통한 다양한 항체의 생성을 유도하고 이러한 하나의 항원에 대한 다양한 항체의 혼합물을 다클론항체(Polyclonal antibodies)라고 한다. Hybridoma 기술이 발견되기 전(1975년)의 초기 항체의약품은 이러한 다클론항체 형태로 시작되었다.  \index{다클론항체}
+그러나 이러한 다클론항체는 다양한 항체가 혼합되어 있어 일정한 품질로 생산하기가 매우 어렵고 생체 내에서 교차반응(Cross-reactivity)이 나타날 가능성이 크다. [@monoandpoly] \index{교차반응}
+따라서 현재의 항체의약품은 hybridoma 기술을 이용하여 단일 B cell 에서만 생성된 단일클론항체(monoclonal antibody)를 주로 이용한다. [@kohler1975continuous] \index{단일클론항체}
 
 항체의약품 구조는 아래 그림\@ref(fig:structure)과 같이 화학적, 분자적 및 기능적 특성에 따라 다르게 나누어 표현할 수 있다. \index{항체의약품}
 특정 효소에 의해 분해되는 화학적 특성에 따라 Fab, Fc로 나누어 지칭할 수 있으며 연속되는 펩타이드 사슬을 기준으로 분자량에 따라 Light chain과 Heavy chain으로 나눌 수 있다. 또한 기능적 특성에 따라 항원에 의해 구조가 변경되는 Variable region, 구조가 변하지 않는 Constant region으로 정의할 수 있다.  
 
 ```{r structure, fig.cap = "(ref:structure)", echo = FALSE}
-knitr::include_graphics('media-07/Structure.png')
+knitr::include_graphics('media-07/antibody_structure.png')
 ```
 
 (ref:structure) 화학적, 분자적 및 기능적 특성에 따라 구분한 항체의 구조
@@ -111,10 +111,10 @@ knitr::include_graphics('media-07/Structure.png')
 ```{r bioavailability, fig.cap = "(ref:bioavailability)", echo = FALSE}
 knitr::include_graphics('media-07/Bioavailability.png')
 ```
-(ref:bioavailability) 항체 의약품의 피하 및 근육 투여 시의 생체이용률 감소 메커니즘 
+(ref:bioavailability) 항체 의약품의 피하 및 근육 투여 시의 생체이용률 감소 메커니즘 [@zhou2015adme]
 
-일반적으로 항체의약품의 피하 투여 시의 생체이용률은 20~95% 정도로 약물 마다 매우 다양하며 약물의 구조 및 림프관에서의 작용에 따라서 달라진다. \index{생체이용률}
-이러한 생체이용률의 감소에 대해 그림 \@ref(fig:bioavailability)과 같은 메커니즘이 제시되고 있으나 이를 정량적으로 예측하기 위한 구체적인 메커니즘은 아직 밝혀져 있지 않으며 비임상시험을 통해서 인간의 생체이용률을 예측하는 방법 역시 저분자의약품에 비해서 아직 잘 구축되어 있지 않다. 피하 및 근육 투여 시의 흡수 속도는 느린 편으로 대부분의 경우 1~8일 정도에 최고 농도에 도달한다. \index{항체의약품} \index{생체이용률}
+일반적으로 항체의약품의 피하 투여 시의 생체이용률은 20~95% 정도로 약물 마다 매우 다양하며 약물의 구조 및 림프관에서의 작용에 따라서 달라진다. [@zhao2013antibody] \index{생체이용률}
+이러한 생체이용률의 감소에 대해 그림 \@ref(fig:bioavailability)과 같은 메커니즘이 제시되고 있으나 이를 정량적으로 예측하기 위한 구체적인 메커니즘은 아직 밝혀져 있지 않으며 비임상시험을 통해서 인간의 생체이용률을 예측하는 방법 역시 저분자의약품에 비해서 아직 잘 구축되어 있지 않다. 피하 및 근육 투여 시의 흡수 속도는 느린 편으로 대부분의 경우 1~8일 정도에 최고 농도에 도달한다.[@zhao2013antibody] \index{항체의약품} \index{생체이용률}
 
 항체의약품의 또다른 특이한 점은 투여 경로에 따라 제제의 작용이 상이할 수 있는 점이다. 예를 들어, LHRH의 경우 정맥 내 투여의 경우 LH와 FSH의 분비를 촉진하지만 근육 투여 혹은 피하 투여의 경우 LH와 FSH의 분피를 억제하게 된다. 따라서 항체의약품 개발 시에는 제제의 개발 목적에 맞는 적절한 투여 경로를 고려해야 한다. \index{항체의약품}
 
