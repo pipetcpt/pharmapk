@@ -6,11 +6,10 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>Chapter 3 비구획분석의 자료해석 | pharmapk.knit</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.25 and GitBook 2.6.7" />
 
   <meta property="og:title" content="Chapter 3 비구획분석의 자료해석 | pharmapk.knit" />
   <meta property="og:type" content="book" />
-  <meta property="og:url" content="http://pipet.or.kr/books/pharmapk" />
   <meta property="og:image" content="http://pipet.or.kr/books/pharmapk/images/cover-pdf.jpg" />
   <meta property="og:description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
   <meta name="github-repo" content="pipetcpt/pharmapk" />
@@ -24,7 +23,7 @@
 <meta name="author" content="가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.1 (2021-10-12)" />
 
 
-<meta name="date" content="2021-10-12" />
+<meta name="date" content="2022-04-08" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -33,7 +32,6 @@
   
 <link rel="prev" href="nca-principle.html"/>
 <link rel="next" href="ca-principle.html"/>
-<script src="libs/header-attrs/header-attrs.js"></script>
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook/css/style.css" rel="stylesheet" />
@@ -52,6 +50,7 @@
 
 
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
 <script src="libs/kePrint/kePrint.js"></script>
 <link href="libs/lightable/lightable.css" rel="stylesheet" />
@@ -162,142 +161,166 @@ div.csl-indent {
 <li><a href="https://www.bookk.co.kr/shanmdphd" target="_blank">도서 구입</a></li>
 
 <li class="divider"></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
-<li class="chapter" data-level="1" data-path="principle.html"><a href="principle.html"><i class="fa fa-check"></i><b>1</b> 약동학 기초 이론</a>
+<li><a href="index.html#머리말">머리말<span></span></a></li>
+<li class="chapter" data-level="1" data-path="principle.html"><a href="principle.html"><i class="fa fa-check"></i><b>1</b> 약동학 기초 이론<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1" data-path="principle.html"><a href="principle.html#서론"><i class="fa fa-check"></i><b>1.1</b> 서론</a>
+<li class="chapter" data-level="1.1" data-path="principle.html"><a href="principle.html#서론"><i class="fa fa-check"></i><b>1.1</b> 서론<span></span></a>
 <ul>
-<li class="chapter" data-level="1.1.1" data-path="principle.html"><a href="principle.html#용어의-소개"><i class="fa fa-check"></i><b>1.1.1</b> 용어의 소개</a></li>
-<li class="chapter" data-level="1.1.2" data-path="principle.html"><a href="principle.html#약동학을-공부하는-목적"><i class="fa fa-check"></i><b>1.1.2</b> 약동학을 공부하는 목적</a></li>
+<li class="chapter" data-level="1.1.1" data-path="principle.html"><a href="principle.html#용어의-소개"><i class="fa fa-check"></i><b>1.1.1</b> 용어의 소개<span></span></a></li>
+<li class="chapter" data-level="1.1.2" data-path="principle.html"><a href="principle.html#약동학을-공부하는-목적"><i class="fa fa-check"></i><b>1.1.2</b> 약동학을 공부하는 목적<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.2" data-path="principle.html"><a href="principle.html#adme와-약동학"><i class="fa fa-check"></i><b>1.2</b> ADME와 약동학</a>
+<li class="chapter" data-level="1.2" data-path="principle.html"><a href="principle.html#adme와-약동학"><i class="fa fa-check"></i><b>1.2</b> ADME와 약동학<span></span></a>
 <ul>
-<li class="chapter" data-level="1.2.1" data-path="principle.html"><a href="principle.html#흡수absorption"><i class="fa fa-check"></i><b>1.2.1</b> 흡수(absorption)</a></li>
-<li class="chapter" data-level="1.2.2" data-path="principle.html"><a href="principle.html#분포distribution"><i class="fa fa-check"></i><b>1.2.2</b> 분포(distribution)</a></li>
-<li class="chapter" data-level="1.2.3" data-path="principle.html"><a href="principle.html#대사metabolism와-배설execretion"><i class="fa fa-check"></i><b>1.2.3</b> 대사(metabolism)와 배설(execretion)</a></li>
-<li class="chapter" data-level="1.2.4" data-path="principle.html"><a href="principle.html#일차약동학first-order-kinetics과-반감기half-life-t12"><i class="fa fa-check"></i><b>1.2.4</b> 일차약동학(first-order kinetics)과 반감기(half-life, t<sub>1/2</sub>)</a></li>
+<li class="chapter" data-level="1.2.1" data-path="principle.html"><a href="principle.html#흡수absorption"><i class="fa fa-check"></i><b>1.2.1</b> 흡수(absorption)<span></span></a></li>
+<li class="chapter" data-level="1.2.2" data-path="principle.html"><a href="principle.html#분포distribution"><i class="fa fa-check"></i><b>1.2.2</b> 분포(distribution)<span></span></a></li>
+<li class="chapter" data-level="1.2.3" data-path="principle.html"><a href="principle.html#대사metabolism와-배설execretion"><i class="fa fa-check"></i><b>1.2.3</b> 대사(metabolism)와 배설(execretion)<span></span></a></li>
+<li class="chapter" data-level="1.2.4" data-path="principle.html"><a href="principle.html#일차약동학first-order-kinetics과-반감기half-life-t12"><i class="fa fa-check"></i><b>1.2.4</b> 일차약동학(first-order kinetics)과 반감기(half-life, t<sub>1/2</sub>)<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.3" data-path="principle.html"><a href="principle.html#분포용적"><i class="fa fa-check"></i><b>1.3</b> 분포용적</a>
+<li class="chapter" data-level="1.3" data-path="principle.html"><a href="principle.html#분포용적"><i class="fa fa-check"></i><b>1.3</b> 분포용적<span></span></a>
 <ul>
-<li class="chapter" data-level="1.3.1" data-path="principle.html"><a href="principle.html#약물의-분포"><i class="fa fa-check"></i><b>1.3.1</b> 약물의 분포</a></li>
-<li class="chapter" data-level="1.3.2" data-path="principle.html"><a href="principle.html#분포용적vd의-개념과-계산방법"><i class="fa fa-check"></i><b>1.3.2</b> 분포용적(V<sub>d</sub>)의 개념과 계산방법</a></li>
-<li class="chapter" data-level="1.3.3" data-path="principle.html"><a href="principle.html#vd와-약의-물리화학적-특성의-관계"><i class="fa fa-check"></i><b>1.3.3</b> V<sub>d</sub>와 약의 물리화학적 특성의 관계</a></li>
-<li class="chapter" data-level="1.3.4" data-path="principle.html"><a href="principle.html#vd와-혈장단백결합률의-관계"><i class="fa fa-check"></i><b>1.3.4</b> V<sub>d</sub>와 혈장단백결합률의 관계</a></li>
-<li class="chapter" data-level="1.3.5" data-path="principle.html"><a href="principle.html#vd가-약동학에-미치는-영향"><i class="fa fa-check"></i><b>1.3.5</b> V<sub>d</sub>가 약동학에 미치는 영향</a></li>
+<li class="chapter" data-level="1.3.1" data-path="principle.html"><a href="principle.html#약물의-분포"><i class="fa fa-check"></i><b>1.3.1</b> 약물의 분포<span></span></a></li>
+<li class="chapter" data-level="1.3.2" data-path="principle.html"><a href="principle.html#분포용적vd의-개념과-계산방법"><i class="fa fa-check"></i><b>1.3.2</b> 분포용적(V<sub>d</sub>)의 개념과 계산방법<span></span></a></li>
+<li class="chapter" data-level="1.3.3" data-path="principle.html"><a href="principle.html#vd와-약의-물리화학적-특성의-관계"><i class="fa fa-check"></i><b>1.3.3</b> V<sub>d</sub>와 약의 물리화학적 특성의 관계<span></span></a></li>
+<li class="chapter" data-level="1.3.4" data-path="principle.html"><a href="principle.html#vd와-혈장단백결합률의-관계"><i class="fa fa-check"></i><b>1.3.4</b> V<sub>d</sub>와 혈장단백결합률의 관계<span></span></a></li>
+<li class="chapter" data-level="1.3.5" data-path="principle.html"><a href="principle.html#vd가-약동학에-미치는-영향"><i class="fa fa-check"></i><b>1.3.5</b> V<sub>d</sub>가 약동학에 미치는 영향<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.4" data-path="principle.html"><a href="principle.html#clearance-concept"><i class="fa fa-check"></i><b>1.4</b> 청소율(CL)의 개념과 적용</a>
+<li class="chapter" data-level="1.4" data-path="principle.html"><a href="principle.html#clearance-concept"><i class="fa fa-check"></i><b>1.4</b> 청소율(CL)의 개념과 적용<span></span></a>
 <ul>
-<li class="chapter" data-level="1.4.1" data-path="principle.html"><a href="principle.html#청소율의-이해"><i class="fa fa-check"></i><b>1.4.1</b> 청소율의 이해</a></li>
-<li class="chapter" data-level="1.4.2" data-path="principle.html"><a href="principle.html#청소율과-k-t12의-관계"><i class="fa fa-check"></i><b>1.4.2</b> 청소율과 k, t<sub>1/2</sub>의 관계</a></li>
-<li class="chapter" data-level="1.4.3" data-path="principle.html"><a href="principle.html#pk-파라미터들은-약마다-사람마다-다르다"><i class="fa fa-check"></i><b>1.4.3</b> PK 파라미터들은 약마다, 사람마다 다르다</a></li>
-<li class="chapter" data-level="1.4.4" data-path="principle.html"><a href="principle.html#cl와-vd의-관계에-관한-고찰"><i class="fa fa-check"></i><b>1.4.4</b> CL와 V<sub>d</sub>의 관계에 관한 고찰</a></li>
+<li class="chapter" data-level="1.4.1" data-path="principle.html"><a href="principle.html#청소율의-이해"><i class="fa fa-check"></i><b>1.4.1</b> 청소율의 이해<span></span></a></li>
+<li class="chapter" data-level="1.4.2" data-path="principle.html"><a href="principle.html#청소율과-k-t12의-관계"><i class="fa fa-check"></i><b>1.4.2</b> 청소율과 k, t<sub>1/2</sub>의 관계<span></span></a></li>
+<li class="chapter" data-level="1.4.3" data-path="principle.html"><a href="principle.html#pk-파라미터들은-약마다-사람마다-다르다"><i class="fa fa-check"></i><b>1.4.3</b> PK 파라미터들은 약마다, 사람마다 다르다<span></span></a></li>
+<li class="chapter" data-level="1.4.4" data-path="principle.html"><a href="principle.html#cl와-vd의-관계에-관한-고찰"><i class="fa fa-check"></i><b>1.4.4</b> CL와 V<sub>d</sub>의 관계에 관한 고찰<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.5" data-path="principle.html"><a href="principle.html#다회투여multiple-dose의-약동학"><i class="fa fa-check"></i><b>1.5</b> 다회투여(multiple dose)의 약동학</a></li>
-<li class="chapter" data-level="1.6" data-path="principle.html"><a href="principle.html#정맥주입continuous-infusion의-약동학"><i class="fa fa-check"></i><b>1.6</b> 정맥주입(continuous infusion)의 약동학</a></li>
-<li class="chapter" data-level="1.7" data-path="principle.html"><a href="principle.html#최종반감기의-개념과-주의점"><i class="fa fa-check"></i><b>1.7</b> 최종반감기의 개념과 주의점</a></li>
-<li class="chapter" data-level="1.8" data-path="principle.html"><a href="principle.html#경구투여의-약동학"><i class="fa fa-check"></i><b>1.8</b> 경구투여의 약동학</a></li>
-<li class="chapter" data-level="1.9" data-path="principle.html"><a href="principle.html#비선형-약동학"><i class="fa fa-check"></i><b>1.9</b> 비선형 약동학</a>
+<li class="chapter" data-level="1.5" data-path="principle.html"><a href="principle.html#다회투여multiple-dose의-약동학"><i class="fa fa-check"></i><b>1.5</b> 다회투여(multiple dose)의 약동학<span></span></a></li>
+<li class="chapter" data-level="1.6" data-path="principle.html"><a href="principle.html#정맥주입continuous-infusion의-약동학"><i class="fa fa-check"></i><b>1.6</b> 정맥주입(continuous infusion)의 약동학<span></span></a></li>
+<li class="chapter" data-level="1.7" data-path="principle.html"><a href="principle.html#최종반감기의-개념과-주의점"><i class="fa fa-check"></i><b>1.7</b> 최종반감기의 개념과 주의점<span></span></a></li>
+<li class="chapter" data-level="1.8" data-path="principle.html"><a href="principle.html#경구투여의-약동학"><i class="fa fa-check"></i><b>1.8</b> 경구투여의 약동학<span></span></a></li>
+<li class="chapter" data-level="1.9" data-path="principle.html"><a href="principle.html#비선형-약동학"><i class="fa fa-check"></i><b>1.9</b> 비선형 약동학<span></span></a>
 <ul>
-<li class="chapter" data-level="1.9.1" data-path="principle.html"><a href="principle.html#비선형약동학과-선형약동학의-차이"><i class="fa fa-check"></i><b>1.9.1</b> 비선형약동학과 선형약동학의 차이</a></li>
-<li class="chapter" data-level="1.9.2" data-path="principle.html"><a href="principle.html#비선형약동학과-용량의-관련성"><i class="fa fa-check"></i><b>1.9.2</b> 비선형약동학과 용량의 관련성</a></li>
+<li class="chapter" data-level="1.9.1" data-path="principle.html"><a href="principle.html#비선형약동학과-선형약동학의-차이"><i class="fa fa-check"></i><b>1.9.1</b> 비선형약동학과 선형약동학의 차이<span></span></a></li>
+<li class="chapter" data-level="1.9.2" data-path="principle.html"><a href="principle.html#비선형약동학과-용량의-관련성"><i class="fa fa-check"></i><b>1.9.2</b> 비선형약동학과 용량의 관련성<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="1.10" data-path="principle.html"><a href="principle.html#후보물질의-혈장단백결합율의-해석에-관한-주의할-점"><i class="fa fa-check"></i><b>1.10</b> 후보물질의 혈장단백결합율의 해석에 관한 주의할 점</a></li>
-<li class="chapter" data-level="1.11" data-path="principle.html"><a href="principle.html#맺음말"><i class="fa fa-check"></i><b>1.11</b> 맺음말</a></li>
+<li class="chapter" data-level="1.10" data-path="principle.html"><a href="principle.html#후보물질의-혈장단백결합율의-해석에-관한-주의할-점"><i class="fa fa-check"></i><b>1.10</b> 후보물질의 혈장단백결합율의 해석에 관한 주의할 점<span></span></a></li>
+<li class="chapter" data-level="1.11" data-path="principle.html"><a href="principle.html#맺음말"><i class="fa fa-check"></i><b>1.11</b> 맺음말<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="2" data-path="nca-principle.html"><a href="nca-principle.html"><i class="fa fa-check"></i><b>2</b> 비구획분석의 이론</a>
+<li class="chapter" data-level="2" data-path="nca-principle.html"><a href="nca-principle.html"><i class="fa fa-check"></i><b>2</b> 비구획분석의 이론<span></span></a>
 <ul>
-<li class="chapter" data-level="2.1" data-path="nca-principle.html"><a href="nca-principle.html#서론-1"><i class="fa fa-check"></i><b>2.1</b> 서론</a></li>
-<li class="chapter" data-level="2.2" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-기본-개념과-관심사"><i class="fa fa-check"></i><b>2.2</b> 비구획분석의 기본 개념과 관심사</a></li>
-<li class="chapter" data-level="2.3" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-파라미터의-산출"><i class="fa fa-check"></i><b>2.3</b> 비구획분석의 파라미터의 산출</a></li>
-<li class="chapter" data-level="2.4" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석에서-추정하는-파라미터"><i class="fa fa-check"></i><b>2.4</b> 비구획분석에서 추정하는 파라미터</a></li>
-<li class="chapter" data-level="2.5" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-개념-확장-항정상태에-대한-추정"><i class="fa fa-check"></i><b>2.5</b> 비구획분석의 개념 확장 – 항정상태에 대한 추정</a></li>
-<li class="chapter" data-level="2.6" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석-결과의-요약"><i class="fa fa-check"></i><b>2.6</b> 비구획분석 결과의 요약</a></li>
-<li class="chapter" data-level="2.7" data-path="nca-principle.html"><a href="nca-principle.html#맺음말-1"><i class="fa fa-check"></i><b>2.7</b> 맺음말</a></li>
+<li class="chapter" data-level="2.1" data-path="nca-principle.html"><a href="nca-principle.html#서론-1"><i class="fa fa-check"></i><b>2.1</b> 서론<span></span></a></li>
+<li class="chapter" data-level="2.2" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-기본-개념과-관심사"><i class="fa fa-check"></i><b>2.2</b> 비구획분석의 기본 개념과 관심사<span></span></a></li>
+<li class="chapter" data-level="2.3" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-파라미터의-산출"><i class="fa fa-check"></i><b>2.3</b> 비구획분석의 파라미터의 산출<span></span></a></li>
+<li class="chapter" data-level="2.4" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석에서-추정하는-파라미터"><i class="fa fa-check"></i><b>2.4</b> 비구획분석에서 추정하는 파라미터<span></span></a></li>
+<li class="chapter" data-level="2.5" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석의-개념-확장-항정상태에-대한-추정"><i class="fa fa-check"></i><b>2.5</b> 비구획분석의 개념 확장 – 항정상태에 대한 추정<span></span></a></li>
+<li class="chapter" data-level="2.6" data-path="nca-principle.html"><a href="nca-principle.html#비구획분석-결과의-요약"><i class="fa fa-check"></i><b>2.6</b> 비구획분석 결과의 요약<span></span></a></li>
+<li class="chapter" data-level="2.7" data-path="nca-principle.html"><a href="nca-principle.html#맺음말-1"><i class="fa fa-check"></i><b>2.7</b> 맺음말<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획분석의 자료해석</a>
+<li class="chapter" data-level="3" data-path="nca-analysis.html"><a href="nca-analysis.html"><i class="fa fa-check"></i><b>3</b> 비구획분석의 자료해석<span></span></a>
 <ul>
-<li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론</a></li>
-<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#data-prep"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리</a>
+<li class="chapter" data-level="3.1" data-path="nca-analysis.html"><a href="nca-analysis.html#서론-2"><i class="fa fa-check"></i><b>3.1</b> 서론<span></span></a></li>
+<li class="chapter" data-level="3.2" data-path="nca-analysis.html"><a href="nca-analysis.html#data-prep"><i class="fa fa-check"></i><b>3.2</b> NCA를 위한 자료의 처리<span></span></a>
 <ul>
-<li class="chapter" data-level="3.2.1" data-path="nca-analysis.html"><a href="nca-analysis.html#채혈-시간"><i class="fa fa-check"></i><b>3.2.1</b> 채혈 시간</a></li>
-<li class="chapter" data-level="3.2.2" data-path="nca-analysis.html"><a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리"><i class="fa fa-check"></i><b>3.2.2</b> 정량한계를 벗어나거나 누락된 자료의 처리</a></li>
-<li class="chapter" data-level="3.2.3" data-path="nca-analysis.html"><a href="nca-analysis.html#자료의-제외"><i class="fa fa-check"></i><b>3.2.3</b> 자료의 제외</a></li>
+<li class="chapter" data-level="3.2.1" data-path="nca-analysis.html"><a href="nca-analysis.html#채혈-시간"><i class="fa fa-check"></i><b>3.2.1</b> 채혈 시간<span></span></a></li>
+<li class="chapter" data-level="3.2.2" data-path="nca-analysis.html"><a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리"><i class="fa fa-check"></i><b>3.2.2</b> 정량한계를 벗어나거나 누락된 자료의 처리<span></span></a></li>
+<li class="chapter" data-level="3.2.3" data-path="nca-analysis.html"><a href="nca-analysis.html#자료의-제외"><i class="fa fa-check"></i><b>3.2.3</b> 자료의 제외<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.3" data-path="nca-analysis.html"><a href="nca-analysis.html#상용-소프트웨어를-이용한-nca"><i class="fa fa-check"></i><b>3.3</b> 상용 소프트웨어를 이용한 NCA</a></li>
-<li class="chapter" data-level="3.4" data-path="nca-analysis.html"><a href="nca-analysis.html#nca에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>3.4</b> NCA에 활용할 수 있는 R package 소개</a>
+<li class="chapter" data-level="3.3" data-path="nca-analysis.html"><a href="nca-analysis.html#상용-소프트웨어를-이용한-nca"><i class="fa fa-check"></i><b>3.3</b> 상용 소프트웨어를 이용한 NCA<span></span></a></li>
+<li class="chapter" data-level="3.4" data-path="nca-analysis.html"><a href="nca-analysis.html#nca에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>3.4</b> NCA에 활용할 수 있는 R package 소개<span></span></a>
 <ul>
-<li class="chapter" data-level="3.4.1" data-path="nca-analysis.html"><a href="nca-analysis.html#r-4.x.x의-설치-윈도우-환경"><i class="fa fa-check"></i><b>3.4.1</b> R 4.x.x의 설치 (윈도우 환경)</a></li>
-<li class="chapter" data-level="3.4.2" data-path="nca-analysis.html"><a href="nca-analysis.html#rstudio-설치-윈도우-환경"><i class="fa fa-check"></i><b>3.4.2</b> Rstudio 설치 (윈도우 환경)</a></li>
+<li class="chapter" data-level="3.4.1" data-path="nca-analysis.html"><a href="nca-analysis.html#r-4.x.x의-설치-윈도우-환경"><i class="fa fa-check"></i><b>3.4.1</b> R 4.x.x의 설치 (윈도우 환경)<span></span></a></li>
+<li class="chapter" data-level="3.4.2" data-path="nca-analysis.html"><a href="nca-analysis.html#rstudio-설치-윈도우-환경"><i class="fa fa-check"></i><b>3.4.2</b> Rstudio 설치 (윈도우 환경)<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.5" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>3.5</b> NCA를 위한 데이터셋의 작성</a></li>
-<li class="chapter" data-level="3.6" data-path="nca-analysis.html"><a href="nca-analysis.html#loading"><i class="fa fa-check"></i><b>3.6</b> 자료 불러오기</a></li>
-<li class="chapter" data-level="3.7" data-path="nca-analysis.html"><a href="nca-analysis.html#noncompart-r-패키지를-이용한-nca"><i class="fa fa-check"></i><b>3.7</b> NonCompart R 패키지를 이용한 NCA</a>
+<li class="chapter" data-level="3.5" data-path="nca-analysis.html"><a href="nca-analysis.html#nca를-위한-데이터셋의-작성"><i class="fa fa-check"></i><b>3.5</b> NCA를 위한 데이터셋의 작성<span></span></a></li>
+<li class="chapter" data-level="3.6" data-path="nca-analysis.html"><a href="nca-analysis.html#loading"><i class="fa fa-check"></i><b>3.6</b> 자료 불러오기<span></span></a></li>
+<li class="chapter" data-level="3.7" data-path="nca-analysis.html"><a href="nca-analysis.html#noncompart-r-패키지를-이용한-nca"><i class="fa fa-check"></i><b>3.7</b> NonCompart R 패키지를 이용한 NCA<span></span></a>
 <ul>
-<li class="chapter" data-level="3.7.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblNCA"><i class="fa fa-check"></i><b>3.7.1</b> tblNCA(): 전체 대상자 NCA</a></li>
-<li class="chapter" data-level="3.7.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.7.2</b> sNCA()</a></li>
+<li class="chapter" data-level="3.7.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblNCA"><i class="fa fa-check"></i><b>3.7.1</b> tblNCA(): 전체 대상자 NCA<span></span></a></li>
+<li class="chapter" data-level="3.7.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.7.2</b> sNCA()<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#nca-보고서"><i class="fa fa-check"></i><b>3.8</b> NCA 보고서</a>
+<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#nca-보고서"><i class="fa fa-check"></i><b>3.8</b> NCA 보고서<span></span></a>
 <ul>
-<li class="chapter" data-level="3.8.1" data-path="nca-analysis.html"><a href="nca-analysis.html#txtnca"><i class="fa fa-check"></i><b>3.8.1</b> txtNCA()</a></li>
-<li class="chapter" data-level="3.8.2" data-path="nca-analysis.html"><a href="nca-analysis.html#pdfnca"><i class="fa fa-check"></i><b>3.8.2</b> pdfNCA()</a></li>
-<li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
+<li class="chapter" data-level="3.8.1" data-path="nca-analysis.html"><a href="nca-analysis.html#txtnca"><i class="fa fa-check"></i><b>3.8.1</b> txtNCA()<span></span></a></li>
+<li class="chapter" data-level="3.8.2" data-path="nca-analysis.html"><a href="nca-analysis.html#pdfnca"><i class="fa fa-check"></i><b>3.8.2</b> pdfNCA()<span></span></a></li>
+<li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()</a></li>
-<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라미터의 의미</a></li>
-<li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)</a></li>
-<li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별</a>
+<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()<span></span></a></li>
+<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라미터의 의미<span></span></a></li>
+<li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)<span></span></a></li>
+<li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별<span></span></a>
 <ul>
-<li class="chapter" data-level="3.12.1" data-path="nca-analysis.html"><a href="nca-analysis.html#이론"><i class="fa fa-check"></i><b>3.12.1</b> 이론</a></li>
-<li class="chapter" data-level="3.12.2" data-path="nca-analysis.html"><a href="nca-analysis.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>3.12.2</b> BE R 패키지를 사용한 생물학적 동등성 판정</a></li>
+<li class="chapter" data-level="3.12.1" data-path="nca-analysis.html"><a href="nca-analysis.html#이론"><i class="fa fa-check"></i><b>3.12.1</b> 이론<span></span></a></li>
+<li class="chapter" data-level="3.12.2" data-path="nca-analysis.html"><a href="nca-analysis.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>3.12.2</b> BE R 패키지를 사용한 생물학적 동등성 판정<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="3.13" data-path="nca-analysis.html"><a href="nca-analysis.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>3.13</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</a></li>
-<li class="chapter" data-level="3.14" data-path="nca-analysis.html"><a href="nca-analysis.html#맺음말-2"><i class="fa fa-check"></i><b>3.14</b> 맺음말</a></li>
+<li class="chapter" data-level="3.13" data-path="nca-analysis.html"><a href="nca-analysis.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>3.13</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정<span></span></a></li>
+<li class="chapter" data-level="3.14" data-path="nca-analysis.html"><a href="nca-analysis.html#맺음말-2"><i class="fa fa-check"></i><b>3.14</b> 맺음말<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획분석의 이론</a>
+<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획분석의 이론<span></span></a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>4.1</b> 구획분석의 개념</a></li>
-<li class="chapter" data-level="4.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>4.2</b> 구획모델이 필요한 이유</a>
+<li class="chapter" data-level="4.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>4.1</b> 구획분석의 개념<span></span></a></li>
+<li class="chapter" data-level="4.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>4.2</b> 구획모델이 필요한 이유<span></span></a>
 <ul>
-<li class="chapter" data-level="4.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>4.2.1</b> 최종반감기와 관련한 이슈</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>4.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>4.2.3</b> PK/PD와 연관된 각종 의사결정</a></li>
+<li class="chapter" data-level="4.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>4.2.1</b> 최종반감기와 관련한 이슈<span></span></a></li>
+<li class="chapter" data-level="4.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>4.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정<span></span></a></li>
+<li class="chapter" data-level="4.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>4.2.3</b> PK/PD와 연관된 각종 의사결정<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ca-principle.html"><a href="ca-principle.html#diff-pk-param"><i class="fa fa-check"></i><b>4.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점</a>
+<li class="chapter" data-level="4.3" data-path="ca-principle.html"><a href="ca-principle.html#diff-pk-param"><i class="fa fa-check"></i><b>4.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점<span></span></a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>4.3.1</b> 분포용적 파라미터들의 차이</a></li>
-<li class="chapter" data-level="4.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>4.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이</a></li>
+<li class="chapter" data-level="4.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>4.3.1</b> 분포용적 파라미터들의 차이<span></span></a></li>
+<li class="chapter" data-level="4.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>4.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-3"><i class="fa fa-check"></i><b>4.4</b> 맺음말</a></li>
+<li class="chapter" data-level="4.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-3"><i class="fa fa-check"></i><b>4.4</b> 맺음말<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석</a>
+<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석<span></span></a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#서론-3"><i class="fa fa-check"></i><b>5.1</b> 서론</a></li>
-<li class="chapter" data-level="5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획분석-개론"><i class="fa fa-check"></i><b>5.2</b> 상용 소프트웨어를 이용한 구획분석 개론</a></li>
-<li class="chapter" data-level="5.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>5.3</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
-<li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
+<li class="chapter" data-level="5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#서론-3"><i class="fa fa-check"></i><b>5.1</b> 서론<span></span></a></li>
+<li class="chapter" data-level="5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획분석-개론"><i class="fa fa-check"></i><b>5.2</b> 상용 소프트웨어를 이용한 구획분석 개론<span></span></a></li>
+<li class="chapter" data-level="5.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>5.3</b> 구획분석에 활용할 수 있는 R package 소개<span></span></a></li>
+<li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석<span></span></a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>5.4.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
-<li class="chapter" data-level="5.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>5.4.3</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>5.4.1</b> Compartmental analysis without Tlag<span></span></a></li>
+<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with T<sub>lag</sub><span></span></a></li>
+<li class="chapter" data-level="5.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>5.4.3</b> 모델링 결과<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
+<li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석<span></span></a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis"><i class="fa fa-check"></i><b>5.5.1</b> Compartmental analysis</a></li>
-<li class="chapter" data-level="5.5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-1"><i class="fa fa-check"></i><b>5.5.2</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis"><i class="fa fa-check"></i><b>5.5.1</b> Compartmental analysis<span></span></a></li>
+<li class="chapter" data-level="5.5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-1"><i class="fa fa-check"></i><b>5.5.2</b> 모델링 결과<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
+<li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석<span></span></a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>5.6.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
-<li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>5.6.3</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>5.6.1</b> Compartmental analysis without Tlag<span></span></a></li>
+<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with T<sub>lag</sub><span></span></a></li>
+<li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>5.6.3</b> 모델링 결과<span></span></a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
-<li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
+<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석<span></span></a></li>
+<li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말<span></span></a></li>
 </ul></li>
-<li class="appendix"><span><b>별첨</b></span></li>
-<li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
-<li class="chapter" data-level="B" data-path="Theoph_nlr.html"><a href="Theoph_nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과</a></li>
-<li class="chapter" data-level="" data-path="참고문헌.html"><a href="참고문헌.html"><i class="fa fa-check"></i>참고문헌</a></li>
+<li class="chapter" data-level="6" data-path="antibody_drug.html"><a href="antibody_drug.html"><i class="fa fa-check"></i><b>6</b> 항체의약품<span></span></a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="antibody_drug.html"><a href="antibody_drug.html#서론-4"><i class="fa fa-check"></i><b>6.1</b> 서론<span></span></a></li>
+<li class="chapter" data-level="6.2" data-path="antibody_drug.html"><a href="antibody_drug.html#항체-및-항체의약품이란"><i class="fa fa-check"></i><b>6.2</b> 항체 및 항체의약품이란?<span></span></a></li>
+<li class="chapter" data-level="6.3" data-path="antibody_drug.html"><a href="antibody_drug.html#항체의약품의-구조-및-작용"><i class="fa fa-check"></i><b>6.3</b> 항체의약품의 구조 및 작용<span></span></a></li>
+<li class="chapter" data-level="6.4" data-path="antibody_drug.html"><a href="antibody_drug.html#항체-의약품과-저분자-의약품의-비교"><i class="fa fa-check"></i><b>6.4</b> 항체 의약품과 저분자 의약품의 비교<span></span></a></li>
+<li class="chapter" data-level="6.5" data-path="antibody_drug.html"><a href="antibody_drug.html#항체의약품의-adme"><i class="fa fa-check"></i><b>6.5</b> 항체의약품의 ADME<span></span></a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="antibody_drug.html"><a href="antibody_drug.html#흡수"><i class="fa fa-check"></i><b>6.5.1</b> 흡수<span></span></a></li>
+<li class="chapter" data-level="6.5.2" data-path="antibody_drug.html"><a href="antibody_drug.html#분포"><i class="fa fa-check"></i><b>6.5.2</b> 분포<span></span></a></li>
+<li class="chapter" data-level="6.5.3" data-path="antibody_drug.html"><a href="antibody_drug.html#제거"><i class="fa fa-check"></i><b>6.5.3</b> 제거<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="antibody_drug.html"><a href="antibody_drug.html#tmdd_model"><i class="fa fa-check"></i><b>6.6</b> TMDD 모델 분석<span></span></a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-a-0-t-t1"><i class="fa fa-check"></i><b>6.6.1</b> Phase A (0 ≤ t ≤ T<sub>1</sub>)<span></span></a></li>
+<li class="chapter" data-level="6.6.2" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-b-t1-t-t2"><i class="fa fa-check"></i><b>6.6.2</b> Phase B (T<sub>1</sub> ≤ t ≤ T<sub>2</sub>)<span></span></a></li>
+<li class="chapter" data-level="6.6.3" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-c-t2-t-t3"><i class="fa fa-check"></i><b>6.6.3</b> Phase C (T<sub>2</sub> ≤ t ≤ T<sub>3</sub>)<span></span></a></li>
+<li class="chapter" data-level="6.6.4" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-d-t3-t-t4"><i class="fa fa-check"></i><b>6.6.4</b> Phase D (T<sub>3</sub> ≤ t ≤ T<sub>4</sub>)<span></span></a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="antibody_drug.html"><a href="antibody_drug.html#m-m-modelmichaelis-menten-model의-사용"><i class="fa fa-check"></i><b>6.7</b> M-M model(Michaelis-menten model)의 사용<span></span></a></li>
+<li class="chapter" data-level="6.8" data-path="antibody_drug.html"><a href="antibody_drug.html#TMDD_ADA"><i class="fa fa-check"></i><b>6.8</b> TMDD와 ADA의 비교<span></span></a></li>
+<li class="chapter" data-level="6.9" data-path="antibody_drug.html"><a href="antibody_drug.html#allometric-scaling"><i class="fa fa-check"></i><b>6.9</b> Allometric scaling<span></span></a></li>
+<li class="chapter" data-level="6.10" data-path="antibody_drug.html"><a href="antibody_drug.html#맺음말-5"><i class="fa fa-check"></i><b>6.10</b> 맺음말<span></span></a></li>
+</ul></li>
+<li class="appendix"><span><b>별첨<span></span></b></span></li>
+<li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과<span></span></a></li>
+<li class="chapter" data-level="B" data-path="Theoph_nlr.html"><a href="Theoph_nlr.html"><i class="fa fa-check"></i><b>B</b> Theoph의 nlr의 전체 실행 결과<span></span></a></li>
+<li><a href="참고문헌.html#참고문헌">참고문헌<span></span></a></li>
 <li class="divider"></li>
 <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
 <li><a href="http://pipet.or.kr/books/" target="_blank">Published by PIPET</a></li>
@@ -325,12 +348,12 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="nca-analysis" class="section level1" number="3">
-<h1><span class="header-section-number">Chapter 3</span> 비구획분석의 자료해석</h1>
+<div id="nca-analysis" class="section level1 hasAnchor" number="3">
+<h1><span class="header-section-number">Chapter 3</span> 비구획분석의 자료해석<a href="nca-analysis.html#nca-analysis" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p>한성필<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
 </p>
-<div id="서론-2" class="section level2" number="3.1">
-<h2><span class="header-section-number">3.1</span> 서론</h2>
+<div id="서론-2" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> 서론<a href="nca-analysis.html#서론-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 NCA(비구획분석, Non-Compartmental analysis)이고 이는 약물의 임상개발에 매우 중요하다.
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.
 약물개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 준다.
@@ -338,27 +361,27 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. <span class="citation">(<a href="#ref-noe2020parameter" role="doc-biblioref">Noe 2020</a>)</span></p>
 <p>이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 사항은 별도의 교재를 통해 학습해야 할 것이다. <span class="citation">(<a href="#ref-ggplot22016" role="doc-biblioref">Wickham 2016</a>)</span></p>
 </div>
-<div id="data-prep" class="section level2" number="3.2">
-<h2><span class="header-section-number">3.2</span> NCA를 위한 자료의 처리</h2>
-<div id="채혈-시간" class="section level3" number="3.2.1">
-<h3><span class="header-section-number">3.2.1</span> 채혈 시간</h3>
+<div id="data-prep" class="section level2 hasAnchor" number="3.2">
+<h2><span class="header-section-number">3.2</span> NCA를 위한 자료의 처리<a href="nca-analysis.html#data-prep" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="채혈-시간" class="section level3 hasAnchor" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> 채혈 시간<a href="nca-analysis.html#채혈-시간" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라미터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 적은 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석을 하면 안된다.</p>
 <p>실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr <span class="citation">(<a href="#ref-R-dplyr" role="doc-biblioref">Wickham, Francois, et al. 2021</a>)</span>, 자료의 형태를 변형하는 tidyr <span class="citation">(<a href="#ref-R-tidyr" role="doc-biblioref">Wickham 2021</a>)</span>, 시간 자료를 쉽게 처리할 수 있는 lubridate <span class="citation">(<a href="#ref-R-lubridate" role="doc-biblioref">Spinu, Grolemund, and Wickham 2021</a>)</span> 등이 있다. </p>
 <p>계획된 채혈 시간은 기술통계량을 구하여 표를 만들거나 농도-시간 곡선 등의 그림을 그리는데 사용될 수 있으므로 실제 채혈시간과 병기하여 하나의 최종 자료에 포함되어 있어야 한다.</p>
 </div>
-<div id="정량한계를-벗어나거나-누락된-자료의-처리" class="section level3" number="3.2.2">
-<h3><span class="header-section-number">3.2.2</span> 정량한계를 벗어나거나 누락된 자료의 처리</h3>
+<div id="정량한계를-벗어나거나-누락된-자료의-처리" class="section level3 hasAnchor" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> 정량한계를 벗어나거나 누락된 자료의 처리<a href="nca-analysis.html#정량한계를-벗어나거나-누락된-자료의-처리" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>농도 분석 결과가 정량한계를 벗어나는 경우 실험실에서 “&lt;LLOQ” 또는 “&gt;ULOQ”라는 보고를 하게 되며 각각 정량하한과 정량상한을 벗어나 신뢰성 있는 농도를 제공하지 못한다는 의미이다. 기본적으로 “&gt;ULOQ” 자료는 희석을 통해 재분석을 해야 하며 “&lt;LLOQ” 자료는 재분석을 통해 얻어지기 힘든 경우가 많으므로 그대로 보고하게 된다. 다만 실험실에서 농도분석을 세팅할 때 LLOQ를 과도하게 높은 농도로 설정하는 경우 많은 “&lt;LLOQ” 값이 보고되는 상황이 발생할 수 있으므로 임상시험 또는 비임상연구에서 예측되는 LLOQ 값을 어느정도 반영할 수 있어야 하는 것이 바람직하다. 구체적으로 약물의 최종 반감기(<span class="math inline">\(t_{1/2\beta}\)</span>)를 계산하는데 필요한 소실기의 농도 관찰값보다 LLOQ는 1/3 이하라야 하고, 과거에는 이러한 민감도로 농도 측정이 불가능한 상황이 많았으나 현대 분석 기술에서는 많이 개선 되었다.</p>
 <p>정량한계 미만의 값은 문자로 보고되는 경우가 많으므로 R에서 <code>as.numeric()</code> 함수를 사용하면 숫자처럼 보이는 문자(<code>"10.1"</code>)는 숫자(<code>10.1</code>)로 변환되고, 문자(<code>"&lt;LLOQ"</code>)는 <code>NA</code>값으로 경고와 함께 변환된다. 이후 T<sub>max</sub> 값 이전의 NA값은 0으로 변환하고, 이후의 값은 dplyr의 <code>filter()</code> 함수를 사용하여 자료에서 제거(<code>filter(!is.na(DV))</code>와 같은 명령어를 사용)하는 것이 NCA용 자료를 구성하는 일반적인 방법이다.</p>
 <p>다양한 이유로 누락된 자료가 생길 수 있고, 누락된 자료는 NA로 간주하여 윗 문장과 같이 필터링 아웃 처리하여 제거되게 되나, 이러한 누락 자료가 NCA 파라미터에 어떤 영향을 미치는지 파악할 필요가 있다. 이를테면 C<sub>max</sub>(최고혈중농도)를 제공하는 채혈이 누락된 경우 AUC를 비롯한 이와 연관된 모든 파라미터에 큰 영향을 미치게 되나, 배설 단계 후반의 낮은 농도 값이 누락된 경우 미미한 영향을 미치게 된다.</p>
 </div>
-<div id="자료의-제외" class="section level3" number="3.2.3">
-<h3><span class="header-section-number">3.2.3</span> 자료의 제외</h3>
+<div id="자료의-제외" class="section level3 hasAnchor" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> 자료의 제외<a href="nca-analysis.html#자료의-제외" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>분석 오류 또는 시료 취급 중 오류 등으로 자료를 제외해야 하는 경우가 적지않은 빈도로 생길 수 있다. 약물의 배설 과정 중 예측되는 농도 범위를 크게 벗어나거나, 서로 다른 두 대상자(또는 동물 개체) 간의 농도가 뒤바뀌는 등의 상황이 있을 수 있다. 자료가 제외되는 예외적인 상황에서는 임상연구보고서의 약동학 분석 장에서 자료가 제외되는 이유에 대해 근거와 함께 상세히 기록해야 한다. 특히 생물학적 동등성 시험에서 이러한 이슈는 민감할 수 있어, NCA 수행자는 어떤 자료를 무슨 근거로 제외했는지, 그 때 사용한 코드를 처리 방법의 상세한 기술과 함께 보관하고 있어야 한다. </p>
 </div>
 </div>
-<div id="상용-소프트웨어를-이용한-nca" class="section level2" number="3.3">
-<h2><span class="header-section-number">3.3</span> 상용 소프트웨어를 이용한 NCA</h2>
+<div id="상용-소프트웨어를-이용한-nca" class="section level2 hasAnchor" number="3.3">
+<h2><span class="header-section-number">3.3</span> 상용 소프트웨어를 이용한 NCA<a href="nca-analysis.html#상용-소프트웨어를-이용한-nca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>상용 소프트웨어 중 가장 많이 사용되는 것이 Certara 사의 Phoenix WinNonLin이다. 오랜 시간 많은 연구자들이 사용하여 익숙한 GUI 인터페이스를 제공하고 있고, 혈액, 소변 자료의 NCA 등을 제공하고 간단한 설계의 생물학적 동등성 판정 등 통계 분석도 지원하여 비교적 진입장벽이 낮은 자료 분석 도구라 할 수 있다. </p>
 <p>그러나 소규모 제약사나 학교에서 사용하기에 비싼 사용료를 지불해야 한다. NCA를 빈번하게 사용하지 않는 제약사나 바이오텍에서는 이러한 유지비용이 부담으로 다가올 수 있다.
 분석 초보자의 경우 유료 강의를 통한 학습이 필요하며, CDISC(Clinical Data Interchange Standards Consortium)<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> 표준 용어로 파라미터를 제공하지 않아 그 의미를 따로 파악해야 하는 어려움이 있다.
@@ -366,8 +389,8 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 윈도우 환경에서만 실행 가능하다는 것도 특정 운영체제를 선호하는 사람에게 제한점이 될 수 있다.</p>
 <p>식약처, 미국 FDA(Food and Drug Administration), 유럽 EMA(European Medicines Agency)를 비롯한 대부분의 규제기관에서는 NCA에 쓰는 특정 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.</p>
 </div>
-<div id="nca에-활용할-수-있는-r-package-소개" class="section level2" number="3.4">
-<h2><span class="header-section-number">3.4</span> NCA에 활용할 수 있는 R package 소개</h2>
+<div id="nca에-활용할-수-있는-r-package-소개" class="section level2 hasAnchor" number="3.4">
+<h2><span class="header-section-number">3.4</span> NCA에 활용할 수 있는 R package 소개<a href="nca-analysis.html#nca에-활용할-수-있는-r-package-소개" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>무료로 누구나 사용할 수 있는 R 패키지를 사용하여 NCA를 통한 약동학적 주요 지표를 구할 수 있다. 비용을 떠나 NCA를 R로 수행하는 가장 중요한 이유는 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문이다. 더 나아가 계량약리학 분석 전후 과정 중에 NCA를 같은 작업환경에서 빠르게 수행할 수 있다는 장점도 있다.</p>
 <p>이 책에서 주로 다루게 될 NonCompart <span class="citation">(<a href="#ref-R-NonCompart" role="doc-biblioref">Bae 2021c</a>)</span>, ncar <span class="citation">(<a href="#ref-R-ncar" role="doc-biblioref">Bae 2021b</a>)</span>, pkr <span class="citation">(<a href="#ref-R-pkr" role="doc-biblioref">Bae and Lee 2018</a>)</span> 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.</p>
 <p>NonCompart의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Data,
@@ -384,8 +407,8 @@ Some features are
 * Reference: Gabrielsson J, Weiner D. Pharmacokinetic and Pharmacodynamic Data Analysis - Concepts and Applications. 5th ed. 2016. (<a href="ISBN:9198299107" class="uri">ISBN:9198299107</a>).</p>
 </blockquote>
 <p>이를 사용하기 위해 아래의 순서로 R과 Rstudio를 설치해야 한다.</p>
-<div id="r-4.x.x의-설치-윈도우-환경" class="section level3" number="3.4.1">
-<h3><span class="header-section-number">3.4.1</span> R 4.x.x의 설치 (윈도우 환경<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>)</h3>
+<div id="r-4.x.x의-설치-윈도우-환경" class="section level3 hasAnchor" number="3.4.1">
+<h3><span class="header-section-number">3.4.1</span> R 4.x.x의 설치 (윈도우 환경<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a>)<a href="nca-analysis.html#r-4.x.x의-설치-윈도우-환경" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><a href="https://cran.r-project.org" class="uri">https://cran.r-project.org</a> 사이트에 접속하여, <code>Download R for Windows</code> 링크를 선택한다.</li>
 <li><code>Subdirectories</code> 유형에서 <code>base - install R for the first time</code>을 선택한다.</li>
@@ -398,8 +421,8 @@ Some features are
 <li>스타트 옵션을 조정하는 화면이 나타나면, <code>No</code>를 선택하고 <code>다음</code> 버튼을 클릭한다.</li>
 </ol>
 </div>
-<div id="rstudio-설치-윈도우-환경" class="section level3" number="3.4.2">
-<h3><span class="header-section-number">3.4.2</span> Rstudio 설치 (윈도우 환경)</h3>
+<div id="rstudio-설치-윈도우-환경" class="section level3 hasAnchor" number="3.4.2">
+<h3><span class="header-section-number">3.4.2</span> Rstudio 설치 (윈도우 환경)<a href="nca-analysis.html#rstudio-설치-윈도우-환경" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <ol style="list-style-type: decimal">
 <li><a href="https://rstudio.com/products/rstudio/download/" class="uri">https://rstudio.com/products/rstudio/download/</a> 사이트에 접속하여 <code>Rstudio Desktop free download</code> 버튼을 클릭한다.</li>
 <li><code>2. Download Rstudio Desktop</code>의 <code>DOWNLOAD RSTUDIO FOR WINDOWS(64bit)</code> 파란색 버튼을 클릭하고, <code>Studio-1.x.x.exe</code> 파일을 다운받는다.</li>
@@ -422,8 +445,8 @@ Some features are
 <span id="cb3-2"><a href="nca-analysis.html#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">help</span>(tblNCA)</span></code></pre></div>
 </div>
 </div>
-<div id="nca를-위한-데이터셋의-작성" class="section level2" number="3.5">
-<h2><span class="header-section-number">3.5</span> NCA를 위한 데이터셋의 작성</h2>
+<div id="nca를-위한-데이터셋의-작성" class="section level2 hasAnchor" number="3.5">
+<h2><span class="header-section-number">3.5</span> NCA를 위한 데이터셋의 작성<a href="nca-analysis.html#nca를-위한-데이터셋의-작성" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>자료의 첫 10개 (표 <a href="nca-analysis.html#tab:head">3.1</a>) 또는 마지막 10개 관찰값만 보고 싶으면 다음을 입력한다.
 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있다.
 이러한 모습과 흡사하게 자료를 만들어야 하며 이는 앞선 <a href="nca-analysis.html#data-prep">3.2</a>절의 내용을 참고할 수 있다.</p>
@@ -639,23 +662,22 @@ conc
 </p>
 </div>
 </div>
-<div id="loading" class="section level2" number="3.6">
-<h2><span class="header-section-number">3.6</span> 자료 불러오기</h2>
+<div id="loading" class="section level2 hasAnchor" number="3.6">
+<h2><span class="header-section-number">3.6</span> 자료 불러오기<a href="nca-analysis.html#loading" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>가장 단순한 형태의 자료는 CSV파일로 쉼표로 구분된 문서로 메모장 등 텍스트 편집기로 파일을 열었을 때에도 자료를 확인 가능한 형태이다.
 이러한 파일은 <code>read.csv()</code> 또는 <code>readr</code>패키지<span class="citation">(<a href="#ref-R-readr" role="doc-biblioref">Wickham and Hester 2020</a>)</span>의 <code>read_csv()</code> 함수를 사용해서 자료를 불러 온다.
 엑셀 파일을 사용하는 경우 <code>readxl</code> 패키지<span class="citation">(<a href="#ref-R-readxl" role="doc-biblioref">Wickham and Bryan 2019</a>)</span>를 설치한 후에 <code>read_excel()</code> 함수를 사용해서 불러올 수 있다.</p>
 <p>다만 <code>read_csv(), read_excel()</code>을 사용하는 경우 <code>tibble</code> 형태로 자료가 변형되고 이러한 형태의 자료는 <code>tblNCA()</code> 사용시 오류를 일으키기 때문에 사전에 <code>as.data.frame()</code>을 사용해서 데이타프레임으로 변형해주어야 한다. <a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a></p>
 </div>
-<div id="noncompart-r-패키지를-이용한-nca" class="section level2" number="3.7">
-<h2><span class="header-section-number">3.7</span> NonCompart R 패키지를 이용한 NCA</h2>
-<div id="tblNCA" class="section level3" number="3.7.1">
-<h3><span class="header-section-number">3.7.1</span> tblNCA(): 전체 대상자 NCA</h3>
+<div id="noncompart-r-패키지를-이용한-nca" class="section level2 hasAnchor" number="3.7">
+<h2><span class="header-section-number">3.7</span> NonCompart R 패키지를 이용한 NCA<a href="nca-analysis.html#noncompart-r-패키지를-이용한-nca" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="tblNCA" class="section level3 hasAnchor" number="3.7.1">
+<h3><span class="header-section-number">3.7.1</span> tblNCA(): 전체 대상자 NCA<a href="nca-analysis.html#tblNCA" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>가장 많이 쓰는 함수이다.
 NonCompart 패키지의 핵심적인 기능이다.
 코드 <a href="nca-analysis.html#exm:tblnca-code">3.1</a>를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다.</p>
-
 <div class="example">
-<span id="exm:tblnca-code" class="example"><strong>코드 3.1  </strong></span>NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
+<p><span id="exm:tblnca-code" class="example"><strong>코드 3.1  </strong></span>NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드</p>
 </div>
 <div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="nca-analysis.html#cb6-1" aria-hidden="true" tabindex="-1"></a>Theoph_tblNCA <span class="ot">&lt;-</span> <span class="fu">tblNCA</span>(Theoph, <span class="st">&quot;Subject&quot;</span>, <span class="st">&quot;Time&quot;</span>, <span class="st">&quot;conc&quot;</span>, </span>
 <span id="cb6-2"><a href="nca-analysis.html#cb6-2" aria-hidden="true" tabindex="-1"></a>                        <span class="at">dose=</span><span class="dv">320</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
@@ -727,8 +749,8 @@ NonCompart 패키지의 핵심적인 기능이다.
 ## 5       5 2.05 0.25  1.954  2.742
 ## 6       6 2.31 0.25  2.873  1.961</code></pre>
 </div>
-<div id="snca" class="section level3" number="3.7.2">
-<h3><span class="header-section-number">3.7.2</span> sNCA()</h3>
+<div id="snca" class="section level3 hasAnchor" number="3.7.2">
+<h3><span class="header-section-number">3.7.2</span> sNCA()<a href="nca-analysis.html#snca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>많이 쓰이지 않는 기능이지만, 한명의 대상자(또는 개체)에 대해 NCA를 시행한다.</p>
 <div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="nca-analysis.html#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># For one subject</span></span>
 <span id="cb13-2"><a href="nca-analysis.html#cb13-2" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> Theoph[Theoph<span class="sc">$</span>Subject<span class="sc">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>]</span>
@@ -778,13 +800,13 @@ NonCompart 패키지의 핵심적인 기능이다.
 </div>
 </div>
 </div>
-<div id="nca-보고서" class="section level2" number="3.8">
-<h2><span class="header-section-number">3.8</span> NCA 보고서</h2>
+<div id="nca-보고서" class="section level2 hasAnchor" number="3.8">
+<h2><span class="header-section-number">3.8</span> NCA 보고서<a href="nca-analysis.html#nca-보고서" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NCA 후 완전한 형태의 자료의 전달을 위해 분석 환경을 상세히 기술한 보고서는 필수적이다.
 상용소프트웨어에서 이러한 보고서 작성 기능이 잘 갖추어져 있는데, 무료 NCA 소프트웨어에는 드물게 지원하는 기능이다.
 ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보고서를 만드는 R 패키지이다. 현재 설정된 작업 디렉토리(working directory) 또는 지정된 위치에 결과 파일이 생성된다.</p>
-<div id="txtnca" class="section level3" number="3.8.1">
-<h3><span class="header-section-number">3.8.1</span> txtNCA()</h3>
+<div id="txtnca" class="section level3 hasAnchor" number="3.8.1">
+<h3><span class="header-section-number">3.8.1</span> txtNCA()<a href="nca-analysis.html#txtnca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>txtNCA()를 통해서 다음 결과를 얻을 수 있다.</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="nca-analysis.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">txtNCA</span>(Theoph[Theoph<span class="sc">$</span>Subject<span class="sc">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;Time&quot;</span>],</span>
 <span id="cb16-2"><a href="nca-analysis.html#cb16-2" aria-hidden="true" tabindex="-1"></a>       Theoph[Theoph<span class="sc">$</span>Subject<span class="sc">==</span><span class="st">&quot;1&quot;</span>,<span class="st">&quot;conc&quot;</span>], </span>
@@ -796,10 +818,10 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb17-4"><a href="nca-analysis.html#cb17-4" aria-hidden="true" tabindex="-1"></a>                  <span class="at">timeUnit=</span><span class="st">&quot;h&quot;</span>), </span>
 <span id="cb17-5"><a href="nca-analysis.html#cb17-5" aria-hidden="true" tabindex="-1"></a>           <span class="st">&#39;Output-ncar/txtNCA-Theoph.txt&#39;</span>)</span></code></pre></div>
 <div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="nca-analysis.html#cb18-1" aria-hidden="true" tabindex="-1"></a>                        <span class="ex">NONCOMPARTMENTAL</span> ANALYSIS REPORT</span>
-<span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.4 <span class="er">(</span><span class="ex">2021-07-16</span> KST<span class="kw">)</span></span>
-<span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.1 <span class="er">(</span><span class="ex">2021-08-10</span><span class="kw">)</span></span>
+<span id="cb18-2"><a href="nca-analysis.html#cb18-2" aria-hidden="true" tabindex="-1"></a>                       <span class="ex">Package</span> version 0.4.5 <span class="er">(</span><span class="ex">2022-02-23</span><span class="kw">)</span></span>
+<span id="cb18-3"><a href="nca-analysis.html#cb18-3" aria-hidden="true" tabindex="-1"></a>                          <span class="ex">R</span> version 4.1.2 <span class="er">(</span><span class="ex">2021-11-01</span><span class="kw">)</span></span>
 <span id="cb18-4"><a href="nca-analysis.html#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2021-10-12 10:21:11 Asia/Seoul</span>
+<span id="cb18-5"><a href="nca-analysis.html#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="ex">Date</span> and Time: 2022-04-08 00:42:39 Asia/Seoul</span>
 <span id="cb18-6"><a href="nca-analysis.html#cb18-6" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb18-7"><a href="nca-analysis.html#cb18-7" aria-hidden="true" tabindex="-1"></a><span class="ex">Calculation</span> Setting</span>
 <span id="cb18-8"><a href="nca-analysis.html#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="ex">-------------------</span></span>
@@ -868,8 +890,8 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 <span id="cb18-71"><a href="nca-analysis.html#cb18-71" aria-hidden="true" tabindex="-1"></a><span class="ex">MRTEVIFO</span>   MRT Extravasc Infinity Obs                     20.8000 h</span>
 <span id="cb18-72"><a href="nca-analysis.html#cb18-72" aria-hidden="true" tabindex="-1"></a><span class="ex">MRTEVIFP</span>   MRT Extravasc Infinity Pred                    20.8004 h</span></code></pre></div>
 </div>
-<div id="pdfnca" class="section level3" number="3.8.2">
-<h3><span class="header-section-number">3.8.2</span> pdfNCA()</h3>
+<div id="pdfnca" class="section level3 hasAnchor" number="3.8.2">
+<h3><span class="header-section-number">3.8.2</span> pdfNCA()<a href="nca-analysis.html#pdfnca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 <a href="nca-analysis.html#fig:pdfncaoutput">3.3</a>) 이렇게 생성된 파일은 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.</p>
 <div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="nca-analysis.html#cb19-1" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span><span class="fu">pdfNCA</span>(<span class="st">&quot;Output-ncar/Theoph.pdf&quot;</span>, Theoph, <span class="at">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
 <span id="cb19-2"><a href="nca-analysis.html#cb19-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">colTime=</span><span class="st">&quot;Time&quot;</span>,  <span class="at">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="at">dose=</span><span class="dv">320</span>, <span class="at">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </span>
@@ -881,16 +903,16 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 </p>
 </div>
 </div>
-<div id="rtfnca" class="section level3" number="3.8.3">
-<h3><span class="header-section-number">3.8.3</span> rtfNCA()</h3>
+<div id="rtfnca" class="section level3 hasAnchor" number="3.8.3">
+<h3><span class="header-section-number">3.8.3</span> rtfNCA()<a href="nca-analysis.html#rtfnca" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>마이크로소프트 워드에서 편집가능한 rtf파일을 만들 수 있다. 이렇게 생성된 파일은 위 PDF파일과 마찬가지로 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="nca-analysis.html#cb20-1" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span><span class="fu">rtfNCA</span>(<span class="st">&quot;rtfNCA-Theoph.rtf&quot;</span>, Theoph, <span class="at">key=</span><span class="st">&quot;Subject&quot;</span>, </span>
 <span id="cb20-2"><a href="nca-analysis.html#cb20-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">colTime=</span><span class="st">&quot;Time&quot;</span>, <span class="at">colConc=</span><span class="st">&quot;conc&quot;</span>, <span class="at">dose=</span><span class="dv">320</span>, <span class="at">doseUnit=</span><span class="st">&quot;mg&quot;</span>, </span>
 <span id="cb20-3"><a href="nca-analysis.html#cb20-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">timeUnit=</span><span class="st">&quot;h&quot;</span>, <span class="at">concUnit=</span><span class="st">&quot;mg/L&quot;</span>)</span></code></pre></div>
 </div>
 </div>
-<div id="nca의-시각화-plotpk" class="section level2" number="3.9">
-<h2><span class="header-section-number">3.9</span> NCA의 시각화 plotPK()</h2>
+<div id="nca의-시각화-plotpk" class="section level2 hasAnchor" number="3.9">
+<h2><span class="header-section-number">3.9</span> NCA의 시각화 plotPK()<a href="nca-analysis.html#nca의-시각화-plotpk" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NCA에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줄 수 있으나, R로 분석을 시작하는 사람은 다소 어려움을 겪을 수 있다.
 이를 비교적 쉽게 가능하게 해 주는 <code>pkr</code> 패키지<span class="citation">(<a href="#ref-R-pkr" role="doc-biblioref">Bae and Lee 2018</a>)</span>가 있다.
 <code>Theoph</code> 자료의 시각화를 아래의 명령어를 통해 수행할 수 있다.</p>
@@ -918,8 +940,8 @@ ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보�
 </p>
 </div>
 </div>
-<div id="parameters" class="section level2" number="3.10">
-<h2><span class="header-section-number">3.10</span> 파라미터의 의미</h2>
+<div id="parameters" class="section level2 hasAnchor" number="3.10">
+<h2><span class="header-section-number">3.10</span> 파라미터의 의미<a href="nca-analysis.html#parameters" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>NCA 시 여러 파라미터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.</p>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="nca-analysis.html#cb22-1" aria-hidden="true" tabindex="-1"></a>?ncar<span class="sc">::</span><span class="fu">txtNCA</span>()</span>
 <span id="cb22-2"><a href="nca-analysis.html#cb22-2" aria-hidden="true" tabindex="-1"></a>ncar<span class="sc">::</span>RptCfg</span></code></pre></div>
@@ -1382,15 +1404,14 @@ Vol Dist Steady State Pred (Vss_pred)
 <p>예측된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 AUC.
 <span class="math display">\[AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}\]</span></p>
 </div>
-<div id="기술통계-descriptive-statistics" class="section level2" number="3.11">
-<h2><span class="header-section-number">3.11</span> 기술통계 (Descriptive statistics)</h2>
+<div id="기술통계-descriptive-statistics" class="section level2 hasAnchor" number="3.11">
+<h2><span class="header-section-number">3.11</span> 기술통계 (Descriptive statistics)<a href="nca-analysis.html#기술통계-descriptive-statistics" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p></p>
 <p>R에서는 필요에 따라서 자신만의 함수를 만들 수도 있다.
 코드 <a href="nca-analysis.html#exm:desctblnca">3.2</a>를 실행하면 <code>desc_tblNCA()</code> 함수를 사용하여 기술통계량을 쉽게 구할 수 있다. (표 <a href="nca-analysis.html#tab:theodesc">3.3</a> and <a href="nca-analysis.html#tab:indodesc">3.4</a>)
 psych 패키지의 <code>describe()</code> 함수를 사용하였으므로 이에 대한 설치를 해야 한다. (<code>install.packages('psych')</code>) <span class="citation">(<a href="#ref-R-psych" role="doc-biblioref">Revelle 2021</a>)</span></p>
-
 <div class="example">
-<span id="exm:desctblnca" class="example"><strong>코드 3.2  </strong></span>핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
+<p><span id="exm:desctblnca" class="example"><strong>코드 3.2  </strong></span>핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예</p>
 </div>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="nca-analysis.html#cb23-1" aria-hidden="true" tabindex="-1"></a>desc_tblNCA <span class="ot">&lt;-</span> <span class="cf">function</span>(tblNCA){</span>
 <span id="cb23-2"><a href="nca-analysis.html#cb23-2" aria-hidden="true" tabindex="-1"></a>  psych<span class="sc">::</span><span class="fu">describe</span>(tblNCA) <span class="sc">%&gt;%</span></span>
@@ -1691,10 +1712,10 @@ LAMZHL
 </tbody>
 </table>
 </div>
-<div id="bioequivalence" class="section level2" number="3.12">
-<h2><span class="header-section-number">3.12</span> NCA 후 생물학적 동등성 판별</h2>
-<div id="이론" class="section level3" number="3.12.1">
-<h3><span class="header-section-number">3.12.1</span> 이론</h3>
+<div id="bioequivalence" class="section level2 hasAnchor" number="3.12">
+<h2><span class="header-section-number">3.12</span> NCA 후 생물학적 동등성 판별<a href="nca-analysis.html#bioequivalence" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="이론" class="section level3 hasAnchor" number="3.12.1">
+<h3><span class="header-section-number">3.12.1</span> 이론<a href="nca-analysis.html#이론" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다.
 기존 오리지널 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 얻어진 혈장약물농도로부터 구한 C<sub>max</sub>와 AUC를 비교하여 평가하게 된다.</p>
 <p>2x2 cross-over design이 가장 기본적인 디자인(통상 RT / TR)으로 사용된다. 대상자를 무작위로 두 군으로 나누어 각 군별로 동일 성분의 대조약과 시험약을 각각 투여(제1기 투약)하고 대상자별로 투약 전후 정해진 시간마다 약동학 채혈을 실시한다. 이전에 투여한 약이 모두 배설될 정도로 충분한 기간 경과(보통 반감기의 5배 이상) 후 각 군별로 대조약과 시험약을 바꾸어 각각 투여하고(제2기 투약) 동일하게 약동학 채혈을 실시한다. </p>
@@ -1896,8 +1917,8 @@ ESTIMATE &#39;T VS R&#39; TRT -1 1 /CL ALPHA=0.1;
 ODS OUTPUT ESTIMATES=ESTIM COVPARMS=COVPAR;</code></pre>
 <p>그러나 SAS를 사용하는데 몇가지 어려움이 있다. SAS 설치하고 입력자료를 불러오는 작업이 다소 어렵고, 과정이 복잡하며 큰 유지 비용이 든다. 특히 약동학 분석 초보자나 통계학 비전공자가 사용하기 어려웠다. </p>
 </div>
-<div id="be-r-패키지를-사용한-생물학적-동등성-판정" class="section level3" number="3.12.2">
-<h3><span class="header-section-number">3.12.2</span> BE R 패키지를 사용한 생물학적 동등성 판정</h3>
+<div id="be-r-패키지를-사용한-생물학적-동등성-판정" class="section level3 hasAnchor" number="3.12.2">
+<h3><span class="header-section-number">3.12.2</span> BE R 패키지를 사용한 생물학적 동등성 판정<a href="nca-analysis.html#be-r-패키지를-사용한-생물학적-동등성-판정" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>2x2의 생물학적 동등성을 판정하기 위한 가장 간단하고 손쉬운 방법은 Chow와 Liu의 책의 내용<span class="citation">(<a href="#ref-chow2009design" role="doc-biblioref">Chow and Liu 2008</a>)</span>을 충실히 반영한 BE 패키지<span class="citation">(<a href="#ref-R-BE" role="doc-biblioref">Bae 2021a</a>)</span>를 사용하는 것이다. 위에서 NCA 관련 패키지를 설치하였듯 BE 패키지를 아래 명령어를 사용하여 설치 및 불러오기 할 수 있다. </p>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="nca-analysis.html#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">&quot;BE&quot;</span>)</span>
 <span id="cb25-2"><a href="nca-analysis.html#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(BE)</span></code></pre></div>
@@ -2221,8 +2242,8 @@ SAS: PROC MIXED
 </table>
 </div>
 </div>
-<div id="웹브라우저를-통한-nca-및-생물학적동등성-판정" class="section level2" number="3.13">
-<h2><span class="header-section-number">3.13</span> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</h2>
+<div id="웹브라우저를-통한-nca-및-생물학적동등성-판정" class="section level2 hasAnchor" number="3.13">
+<h2><span class="header-section-number">3.13</span> 웹브라우저를 통한 NCA 및 생물학적동등성 판정<a href="nca-analysis.html#웹브라우저를-통한-nca-및-생물학적동등성-판정" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. (그림 <a href="nca-analysis.html#fig:pkrshiny">3.10</a>) <a href="https://www.pipetapps.com/project/pkrshiny/" class="uri">https://www.pipetapps.com/project/pkrshiny/</a> <code>shiny-be</code>는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 <a href="https://www.pipetapps.com/project/shiny-be/" class="uri">https://www.pipetapps.com/project/shiny-be/</a>에서 서비스 하고 있다. (그림 <a href="nca-analysis.html#fig:shiny-be">3.11</a>)</p>
 <div class="figure" style="text-align: center"><span style="display:block;" id="fig:pkrshiny"></span>
 <img src="media-03/pkrshiny.png" alt="NCA용 앱, pkrshiny 접속 화면" width="100%" />
@@ -2239,15 +2260,15 @@ SAS: PROC MIXED
 </div>
 
 </div>
-<div id="맺음말-2" class="section level2" number="3.14">
-<h2><span class="header-section-number">3.14</span> 맺음말</h2>
+<div id="맺음말-2" class="section level2 hasAnchor" number="3.14">
+<h2><span class="header-section-number">3.14</span> 맺음말<a href="nca-analysis.html#맺음말-2" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>이상으로 비구획분석 자료해석을 위한 R 패키지에 대해 알아보았다.
 정확한 비구획분석은 모든 약동학 자료해석의 기본이 되며, R을 통한 자료의 처리와 분석은 오류를 줄이고, 시간과 비용을 을 단축하는 등 큰 잇점이 있다. 
 처음에는 R을 사용하는 방법이 다소 생소할 수 있으나 약동학을 공부하는 사람이라면 반드시 접하게 되는 소프트웨어 이고, 약동학 관련 R 패키지에 대해 지속적인 연구와 개발이 이뤄지고 있으므로 연구자들은 이에 대해 꾸준한 공부를 지속해야 할 것이다.</p>
 
 </div>
 </div>
-<h3>참고문헌</h3>
+<h3>참고문헌<a href="참고문헌.html#참고문헌" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-R-BE" class="csl-entry">
 ———. 2021a. <em>BE: Bioequivalence Study Data Analysis</em>. <a href="https://cran.r-project.org/package=BE">https://cran.r-project.org/package=BE</a>.

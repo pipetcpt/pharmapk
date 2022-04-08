@@ -10,23 +10,23 @@ mod <- param(mod, list(KINT = 0.003,
                        KPT = 0,
                        KTP = 0,
                        KDEG = 0.0089,
-                       R0 = 12.36,
+                       R0 = 20.36,
                        VC = 0.04,
-                       KON = 0.01
+                       KON = 0.002
 ))
 
 #### Change of dose  ####
 
-amt_vec <- c(1, 5, 10, 15, 20)
+amt_vec <- c(3, 6, 10, 15)
 
 dose_change_plot <- mod %>%
-  data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:5, cmt = 2) %>% mutate(dose = amt))) %>%
+  data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:4, cmt = 2) %>% mutate(dose = amt))) %>%
   carry_out(dose) %>%
   zero_re() %>%
   mrgsim(end = 1800) %>%
   as.data.frame() %>%
   mutate(dose = as.factor(dose)) %>%
-  filter(CP > 1E-8) %>%
+  filter(CP > 1E-8, time < 48) %>%
   ggplot(aes(x = time, y = CP, col = dose)) +
   geom_line() +
   #scale_y_continuous(trans = 'log10') +
@@ -34,11 +34,12 @@ dose_change_plot <- mod %>%
   labs(x = "Time (hr)",
        y = "Concentration (nM/L)",
        col = "Dose (nM)")
-
+dose_change_plot
 dose_change_plot_log <- dose_change_plot + scale_y_continuous(trans = 'log10')
 
-ggarrange(dose_change_plot, dose_change_plot_log, common.legend = TRUE, labels = c("A", "B"))
-ggsave("media-07/DOSE.png", width = 6, height = 4, unit = "in")
+dose_change_plot_log
+ggarrange(dose_change_plot_log, dose_change_plot, common.legend = TRUE, labels = c("A", "B"))
+ggsave("media-07/DOSEA.png", width = 6, height = 4, unit = "in")
 #### Change of parameter ####
 
 param_change <- function(PAR, SEQ, TIME = 800) {
@@ -160,3 +161,80 @@ ggsave('media-07/ADA.png', width = 6, height = 4, unit = "in")
 
 write.csv(finaldata, "simulation/adadata.csv", row.names= F)
 moddata <- read_csv('simulation/adadata.csv')
+
+
+#### MM model VS TMDD model ####
+mod <- mread_cache("simulation/TMDD.cpp")
+mod <- param(mod, list(
+  KINT = 0.003,
+  KOFF = 0.001,
+  KEL = 0.0015,
+  KPT = 0,
+  KTP = 0,
+  KDEG = 0.0089,
+  R0 = 12.36,
+  VC = 0.04,
+  KON = 0.01
+))
+
+amt_vec <- c(1, 5, 10, 15, 20)
+
+dose_change_plot <- mod %>%
+  data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:5, cmt = 2) %>% mutate(dose = amt))) %>%
+  carry_out(dose) %>%
+  zero_re() %>%
+  mrgsim(end = 1800) %>%
+  as.data.frame() %>%
+  mutate(dose = as.factor(dose)) %>%
+  filter(CP > 1E-2) %>%
+  ggplot(aes(x = time, y = CP, col = dose)) +
+  geom_line() +
+  # scale_y_continuous(trans = 'log10') +
+  theme_bw() +
+  labs(
+    x = "Time (hr)",
+    y = "Concentration (nM/L)",
+    col = "Dose (nM)"
+  )
+
+dose_change_plot_log <- dose_change_plot + scale_y_continuous(trans = "log10")
+
+dose_change_plot_log
+
+
+ggarrange(dose_change_plot, dose_change_plot_log, common.legend = TRUE, labels = c("A", "B"))
+ggsave("media-07/DOSE.png", width = 6, height = 4, unit = "in")
+mod_mm <- mread_cache('simulation/MMmodel.cpp')
+
+mod_mm %>%
+  ev(amt = 100) %>%
+  mrgsim() %>%
+  plot()
+
+param(mod_mm)
+mod_mm <- param(mod_mm, list(
+  VMAX = 100,
+  KM = 10
+))
+amt_vec <- c(10, 30, 50, 70, 100)
+
+mod_mm %>%
+   data_set(as_data_set(data.frame(amt = 100*amt_vec, ID = 1:5, cmt = 1) %>% mutate(dose = amt))) %>%
+   carry_out(dose) %>%
+   zero_re() %>%
+   mrgsim(end = 1000) %>%
+   as.data.frame() %>%
+   mutate(dose = as.factor(dose/100)) %>%
+   filter(CP > 1E-2) %>%
+   ggplot(aes(x = time, y = CP, col = dose)) +
+   geom_line() +
+   # scale_y_continuous(trans = 'log10') +
+   theme_bw() +
+   labs(
+     x = "Time (hr)",
+     y = "Concentration (ng/mL)",
+     col = "Dose (mg)"
+   ) +
+   scale_y_continuous(trans = 'log10')
+
+ggsave('media-07/MM.png', width = 6, height = 4, unit = "in")
