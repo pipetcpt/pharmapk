@@ -3,7 +3,7 @@ title: |
   <center> 신약개발을 위한 실전 약동학 I</center>\index{약동학}
   <center> (기본원리와 자료해석)  </center>
 #"신약개발을 위한 실전 약동학\newline(I-이론과 자료해석)"\index{약동학}
-author: "가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.1 (2021-10-12)"
+author: "가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필, 최수인 - v1.1.0 (2022-05-13)"
 #date: "Ver. `r gsub('-', '', Sys.Date())`"
 date: "`r Sys.Date()`"
 documentclass: krantz

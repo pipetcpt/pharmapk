@@ -93,7 +93,6 @@ fig:paratope
 fig:structure
 fig:bioavailability
 fig:distribution
-fig:Elimination
 fig:FcRn-recycling
 fig:TMDDmodel
 fig:TMDDmodel-basic
@@ -216,14 +215,14 @@ antibody_drug
 서론-4
 항체-및-항체의약품이란
 항체의약품의-구조-및-작용
-항체-의약품과-저분자-의약품의-비교
+항체-의약품과-저분자의약품의-비교
 항체의약품의-adme
 흡수
 분포
 제거
 음세포작용pinocytosis에-의한-제거
 FcRn
-receptor와의-결합을-통한-제거
+수용체와의-결합을-통한-제거
 target-mediated-clearance-tmdd-target-mediated-drug-disposition
 fcγ-receptor-mediated-clearance
 ADA

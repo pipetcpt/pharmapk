@@ -9,6 +9,9 @@
       stroke-linejoin: round;
       stroke-miterlimit: 10.00;
     }
+    .svglite text {
+      white-space: pre;
+    }
   ]]></style>
 </defs>
 <rect width='100%' height='100%' style='stroke: none; fill: #FFFFFF;'/>
@@ -48,12 +51,12 @@
 <line x1='262.13' y1='178.56' x2='262.13' y2='185.76' style='stroke-width: 0.75;' />
 <line x1='325.60' y1='178.56' x2='325.60' y2='185.76' style='stroke-width: 0.75;' />
 <line x1='389.07' y1='178.56' x2='389.07' y2='185.76' style='stroke-width: 0.75;' />
-<text x='71.73' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text x='135.20' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>5</text>
-<text x='198.67' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>10</text>
-<text x='262.13' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>15</text>
-<text x='325.60' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>20</text>
-<text x='389.07' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>25</text>
+<text x='71.73' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text x='135.20' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>5</text>
+<text x='198.67' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>10</text>
+<text x='262.13' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>15</text>
+<text x='325.60' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>20</text>
+<text x='389.07' y='204.48' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>25</text>
 <line x1='59.04' y1='174.13' x2='59.04' y2='63.47' style='stroke-width: 0.75;' />
 <line x1='59.04' y1='174.13' x2='51.84' y2='174.13' style='stroke-width: 0.75;' />
 <line x1='59.04' y1='152.00' x2='51.84' y2='152.00' style='stroke-width: 0.75;' />
@@ -61,12 +64,16 @@
 <line x1='59.04' y1='107.73' x2='51.84' y2='107.73' style='stroke-width: 0.75;' />
 <line x1='59.04' y1='85.60' x2='51.84' y2='85.60' style='stroke-width: 0.75;' />
 <line x1='59.04' y1='63.47' x2='51.84' y2='63.47' style='stroke-width: 0.75;' />
-<text transform='translate(41.76,174.13) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
-<text transform='translate(41.76,152.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>50</text>
-<text transform='translate(41.76,107.73) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>150</text>
-<text transform='translate(41.76,63.47) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>250</text>
-<polygon points='59.04,178.56 401.76,178.56 401.76,59.04 59.04,59.04 ' style='stroke-width: 0.75; fill: none;' />
-<text x='230.40' y='233.28' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='57.32px' lengthAdjust='spacingAndGlyphs'>Time (min)</text>
-<text transform='translate(12.96,118.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: Arial;' textLength='109.40px' lengthAdjust='spacingAndGlyphs'>Concentration (ug/L)</text>
+<text transform='translate(41.76,174.13) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='6.67px' lengthAdjust='spacingAndGlyphs'>0</text>
+<text transform='translate(41.76,152.00) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='13.35px' lengthAdjust='spacingAndGlyphs'>50</text>
+<text transform='translate(41.76,107.73) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>150</text>
+<text transform='translate(41.76,63.47) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='20.02px' lengthAdjust='spacingAndGlyphs'>250</text>
+<polygon points='59.04,178.56 401.76,178.56 401.76,59.04 59.04,59.04 ' style='stroke-width: 0.75;' />
+<text x='230.40' y='233.28' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='57.32px' lengthAdjust='spacingAndGlyphs'>Time (min)</text>
+<text transform='translate(12.96,118.80) rotate(-90)' text-anchor='middle' style='font-size: 12.00px; font-family: "Arial";' textLength='109.40px' lengthAdjust='spacingAndGlyphs'>Concentration (ug/L)</text>
+</g>
+<g clip-path='url(#cpNTkuMDR8NDAxLjc2fDU5LjA0fDE3OC41Ng==)'>
+<polyline points='72.79,135.93 73.85,110.10 74.91,93.98 78.08,79.67 84.43,104.36 90.77,130.70 97.12,146.31 109.81,159.71 122.51,165.07 147.89,170.10 173.28,172.31 224.05,173.76 376.37,174.13 389.07,174.13 ' style='stroke-width: 0.75; stroke-dasharray: 4.00,4.00;' />
+<polyline points='72.79,174.13 73.85,106.84 74.91,74.12 78.08,82.84 84.43,110.48 90.77,129.70 97.12,143.03 109.81,158.68 122.51,166.22 147.89,171.59 173.28,172.83 224.05,173.19 376.37,173.24 389.07,173.24 ' style='stroke-width: 0.75;' />
 </g>
 </svg>
