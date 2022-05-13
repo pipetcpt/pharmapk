@@ -39,7 +39,7 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{
-  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.1 (2021-10-12)},
+  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)},
   colorlinks=true,
   linkcolor={Maroon},
   filecolor={Maroon},
@@ -308,8 +308,8 @@
 \index{약동학}
 
 (기본원리와 자료해석)}
-\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - v1.0.1 (2021-10-12)}
-\date{2021-10-12}
+\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)}
+\date{2022-05-13}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -363,9 +363,7 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
-\listoffigures
-\listoftables
-\setstretch{1.30}
+\setstretch{1.3}
 \hypertarget{uxba38uxb9acuxb9d0}{%
 \chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
 
@@ -724,23 +722,18 @@ compartment)라 한다. 이외에 약물이 더 늦게 분포하는 나머지 �
 \subsection{\texorpdfstring{분포용적(V\textsubscript{d})의 개념과 계산방법\index{분포용적}}{분포용적(Vd)의 개념과 계산방법}}\label{uxbd84uxd3ecuxc6a9uxc801vduxc758-uxac1cuxb150uxacfc-uxacc4uxc0b0uxbc29uxbc95}}
 
 앞서 우리는 약물이 혈관 밖의 말초조직들로 분포하는 것을 살펴보았다.
-그런데, 그 분포의 정도는 약물의 물리화학적 성질에 따라 달라지며
-혈장약물농도의 변화에 큰 영향을 미친다. 그림 \ref{fig:vd-concept}의 개념도와 같이
-주사기에 검은 바둑알 모양으로 표시된 약물 12개를 담아서 bolus로 주입할
-때, 약의 물성에 따라 혈장과 조직으로 분포되는 정도가 달라진다. 조직까지
-분포되는데 시간이 걸리지만 개념 이해를 위해 순식간에 일어난다고
-가정하자. a), b), c)의 세 경우 혈장 약물 농도는 그림에서 육면체 모양의
-혈장 부피를 3L라 가정하면 a)는 1/3 개/L이고 c)는 1개/L로서 세 배의
-차이가 난다. 그러나 세 경우 모두 몸 안에 존재하는 약물의 양은 12개로
-동일하다. 오히려 약의 작용부위가 혈관 밖의 어떤 조직이라면 혈장농도가
-가장 낮은 b)에서 조직 농도는 가장 높다는 것에 주의해야 한다. 그러므로
-약물이 몸 속에서 혈장과 그 이외의 부위로 분포하는 비율을 아는 것은
-중요하며, 그것을 정량적으로 나타내기 위해 V\textsubscript{d}라는 개념을 쓰고 있다.
+그런데, 그 분포의 정도는 약물의 물리화학적 성질에 따라 달라지며 혈장약물농도의 변화에 큰 영향을 미친다.
+그림 \ref{fig:vd-concept}의 개념도와 같이 주사기에 검은 바둑알 모양으로 표시된 약물 12개를 담아서 bolus로 주사할 때, 약의 물성에 따라 혈장과 조직으로 분포되는 정도가 달라진다.
+조직까지 분포되는데 시간이 걸리지만 개념 이해를 위해 순식간에 일어난다고 가정하자.
+a), b), c)의 세 경우 혈장 약물 농도는 그림에서 육면체 모양의 혈장 부피를 3L라 가정하면 a)는 1/3 개/L이고 c)는 1개/L로서 세 배의 차이가 난다.
+그러나 세 경우 모두 몸 안에 존재하는 약물의 양은 12개로 동일하다.
+오히려 약의 작용부위가 혈관 밖의 어떤 조직이라면 혈장농도가 가장 낮은 b)에서 조직 농도는 가장 높다는 것에 주의해야 한다.
+그러므로 약물이 몸 속에서 혈장과 그 이외의 부위로 분포하는 비율을 아는 것은 중요하며, 그것을 정량적으로 나타내기 위해 V\textsubscript{d}라는 개념을 쓰고 있다.
 \index{분포용적}
 
 \begin{figure}
 
-{\centering \includegraphics[width=1\linewidth]{media-01/image8} 
+{\centering \includegraphics[width=1\linewidth]{media-01/image8-revised} 
 
 }
 
@@ -809,26 +802,17 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 \hypertarget{vduxc640-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxad00uxacc4}{%
 \subsection{\texorpdfstring{V\textsubscript{d}와 혈장단백결합률의 관계\index{혈장단백결합}}{Vd와 혈장단백결합률의 관계}}\label{vduxc640-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxad00uxacc4}}
 
-약물의 혈장단백결합률 역시 물리화학적 특성 중의 하나이지만, 혈장단백결합률과 약물의 분포의 관계에 관해서 많은 이들이\index{혈장단백결합}
-오해하고 있는 부분이 있어서 이 장에서는 별도의 섹션으로 다루었다. 약물의
-혈장단백 결합은 van der Waals 힘이나 수소결합 등에 의한 소수성 부위들의
-상호작용이나 정전기적 상호작용에 의한 미약한 결합이다. 여기서
-혈장단백질이란 주로 알부민이나 α\textsubscript{1}-acid glycoprotein이다. 혈장에서는
-단백결합약물과 비결합약물의 분율이 약물마다 고유한 값을 가지는데, 예컨데
-0에서 1사이의 f\textsubscript{u} (unbound fraction, 비결합분율) 값으로써 나타낸다. 즉
-f\textsubscript{u}가 1이면 전혀 혈장단백질에 약물이 결합하지 않는 것이고 0.1이면 90\%의
-약물이 혈장단백질에 결합되어 있고 10\%만이 비결합형으로 존재하는 것이다.
-이들 혈장단백질은 분자량이 커서 혈관 밖으로 쉽게 빠져나오지 못하므로
-혈장단백질에 결합한 약물들도 따라서 혈관 밖으로 빠져나오지 못하여,
-혈장단백 결합률이 높은 경우 V\textsubscript{d}가 작을 것이라고 추정할 수 있으나 실제
-관찰되는 현상은 그렇지 않다.
+\index{혈장단백결합}
+대부분의 약동학 교과서들에서 전혀 언급되지 않는 내용이지만, 혈장단백결합률과 약물의 분포의 관계에 관해서 많은 이들이 오해하고 있는 부분이 있어서 이 장에서는 별도의 섹션으로 다루었다.
+약물의 혈장단백 결합은 van der Waals 힘이나 수소결합 등에 의한 소수성 부위들의 상호작용이나 정전기적 상호작용에 의한 미약한 결합이다.
+여기서 혈장단백질이란 주로 알부민이나 α\textsubscript{1}-acid glycoprotein이다.
+혈장에서는 단백결합약물과 비결합약물의 분율이 약물마다 고유한 값을 가지는데, 예컨데 0에서 1사이의 f\textsubscript{u} (unbound fraction, 비결합분율) 값으로써 나타낸다.
+즉 f\textsubscript{u}가 1이면 전혀 혈장단백질에 약물이 결합하지 않는 것이고 0.1이면 90\%의 약물이 혈장단백질에 결합되어 있고 10\%만이 비결합형으로 존재하는 것이다.
+이들 혈장단백질은 분자량이 커서 혈관 밖으로 쉽게 빠져나오지 못하므로 혈장단백질에 결합한 약물들도 따라서 혈관 밖으로 빠져나오지 못하여, 혈장단백 결합률이 높은 경우 V\textsubscript{d}가 작을 것이라고 추정할 수 있으나 실제 관찰되는 현상은 그렇지 않다.
 
-혈장단백질에 결합하지 않은 약(unbound drug, free drug)은 분포의 평형이
-이루어졌을 때 혈장과 조직에서의 농도가 동일하다고 간주한다.(이는
-지나치게 단순화시킨 주장이며 이것이 성립하기 위해서는 여러가지 조건이
-붙지만 약동학을 처음 배우는 수준에서는 그냥 받아들이자.) 혈장단백질에\index{약동학}
-결합하지 않은 약물이 조직 내로 이동하면 그 조직내에 존재하는 단백질 등에
-혈장단백 결합과 마찬가지의 기전으로 결합하게 되고 조직마다 약물에 따라 고유한 조직결합율을 나타내게 된다. \index{조직결합}
+\index{약동학}
+혈장단백질에 결합하지 않은 약(unbound drug, free drug)은 분포의 평형이 이루어졌을 때 혈장과 조직에서의 농도가 동일하다고 간주한다.(이는 지나치게 단순화시킨 주장이며 이것이 성립하기 위해서는 여러가지 조건이 붙지만 약동학을 처음 배우는 수준에서는 그냥 받아들이자.)
+혈장단백질에 결합하지 않은 약물이 조직 내로 이동하면 그 조직내에 존재하는 단백질 등에 혈장단백 결합과 마찬가지의 기전으로 결합하게 되고 조직마다 약물에 따라 고유한 조직결합율을 나타내게 된다. \index{조직결합}
 조직결합율이 높거나, 조직 내에 약물의 용해도가 높은 경우에는 혈장에 있던 비결합 약물들이 대거\index{조직결합}
 조직 내로 확산되어 이동하게 된다. 그러면 혈장에서는 약물마다의 고유한 특성이라 할
 수 있는 본래의 f\textsubscript{u} 값을 유지하기 위해 단백결합약물들이 대거 떨어져
@@ -862,7 +846,7 @@ f\textsubscript{u}가 1이면 전혀 혈장단백질에 약물이 결합하지 �
 
 }
 
-\caption{알려진 670가지 소분자 의약품의 약동학 파라미터(\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008})를 이용하여 그려 본 V\textsubscript{d}(V\textsubscript{dss})와 f\textsubscript{u}의 산점도: 아무 관계도 없음을 알 수 있다.}\label{fig:chart}
+\caption{알려진 670가지 소분자 의약품의 약동학 파라미터(\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008})를 이용하여 그려 본 V\textsubscript{d}(V\textsubscript{dss})와 f\textsubscript{u}의 산점도: V\textsubscript{d}와 f\textsubscript{u}는 아무 관계도 없음을 알 수 있다.}\label{fig:chart}
 \end{figure}
 
 
@@ -1014,7 +998,7 @@ CL값이 커지면 V\textsubscript{d}가 비례해서 커진다는(V\textsubscri
 
 }
 
-\caption{670가지 약물에서 보고된 CL와 V\textsubscript{d}로써 그려 본 산점도 (\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008}): 아무 관계도 없음을 알 수 있다.}\label{fig:cl-vd}
+\caption{670가지 약물에서 보고된 CL와 V\textsubscript{d}로써 그려 본 산점도 (\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008}): CL과 V\textsubscript{d}는 아무 관계도 없음을 알 수 있다.}\label{fig:cl-vd}
 \end{figure}
 
 
@@ -1121,7 +1105,7 @@ t\textsubscript{1/2}를 측정하게 된다. 분포기의 기울기로도 t\text
 
 그러나 그림 \ref{fig:three-slope}와 같이 혈장농도 곡선에서 여러 개의 반감기를 찾아낼 수 있는 경우, 가장 긴 최종반감기는 별 의미없는 경우가 많다. \index{반감기}\index{최종반감기}
 예컨데 정맥주사로 투여하는 항암제에서 일주일 이상의 기간동안 PK 채혈을 할 경우 흔히 이런 현상이 관찰된다.
-농도가 매우 낮게 떨어진 후 일주일 이상의 최종반감기를 나타내며 길게 꼬리를 끄는 양상을 보이는 경우 약물이 몸에서 제거되는데 4주 이상(최종반감기의 4회 이상)이 걸린다고 판단하면 틀린다. \index{반감기}\index{최종반감기}
+농도가 매우 낮게 떨어진 후 일주일 이상의 최종반감기를 나타내며 길게 꼬리를 끄는 양상을 보이는 경우 약물이 몸에서 제거되는데 4주 이상(최종반감기의 4회 이상)이 걸린다고 판단하면 곤란하다. \index{반감기}\index{최종반감기}
 몸에 들어온 약은 가장 완만한 기울기를 나타내는 마지막 시기(γ-phase)보다 이전(β-phase)에 이미 대부분 제거되었기 때문이다.
 약동학 연구 결과를 분석하는 기본적인 방법인 비구획분석(non-compartmental analysis, NCA)의 결과표에는 이런 자세한 맥락을 담을 수 없고, 그림 \ref{fig:three-slope}와 같은 상황이라면 γ-phase의 반감기가 최종반감기로 기록되는데 그 표에 적힌 반감기 값만 읽으면 이렇게 오판하게 되는 경우가 드물지 않다. \index{약동학}\index{반감기}\index{최종반감기}
 따라서 약동학연구의 결과를 제대로 해석하기 위해서는, 특정한 파라미터 값만 보고 판단하지 말고 그 약물의 약동학적 프로파일을 종합적으로 파악할 수 있어야 한다.\index{약동학}
@@ -1997,8 +1981,9 @@ NonCompart 패키지의 핵심적인 기능이다.
 코드 \ref{exm:tblnca-code}를 R의 콘솔창에 넣어 테오필린 경구 투여시의 NCA를 빠르게 수행할 수 있다.
 
 \begin{example}
-\protect\hypertarget{exm:tblnca-code}{}{\label{exm:tblnca-code} }NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
+\protect\hypertarget{exm:tblnca-code}{}\label{exm:tblnca-code}NonCompart 패키지의 tblNCA() 함수를 사용한 비구획분석 R 코드
 \end{example}
+
 \vspace{-5ex}
 
 \begin{Shaded}
@@ -2237,10 +2222,10 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 \begin{Shaded}
 \begin{Highlighting}[]
                         \ExtensionTok{NONCOMPARTMENTAL}\NormalTok{ ANALYSIS REPORT}
-                       \ExtensionTok{Package}\NormalTok{ version 0.4.4 }\ErrorTok{(}\ExtensionTok{2021{-}07{-}16}\NormalTok{ KST}\KeywordTok{)}
-                          \ExtensionTok{R}\NormalTok{ version 4.1.1 }\ErrorTok{(}\ExtensionTok{2021{-}08{-}10}\KeywordTok{)}
+                       \ExtensionTok{Package}\NormalTok{ version 0.4.5 }\ErrorTok{(}\ExtensionTok{2022{-}02{-}23}\KeywordTok{)}
+                          \ExtensionTok{R}\NormalTok{ version 4.1.3 }\ErrorTok{(}\ExtensionTok{2022{-}03{-}10}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2021{-}10{-}12 10:17:38 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2022{-}05{-}13 16:53:54 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2593,8 +2578,9 @@ R에서는 필요에 따라서 자신만의 함수를 만들 수도 있다.
 psych 패키지의 \texttt{describe()} 함수를 사용하였으므로 이에 대한 설치를 해야 한다. (\texttt{install.packages(\textquotesingle{}psych\textquotesingle{})}) (\protect\hyperlink{ref-R-psych}{Revelle 2021})
 
 \begin{example}
-\protect\hypertarget{exm:desctblnca}{}{\label{exm:desctblnca} }핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
+\protect\hypertarget{exm:desctblnca}{}\label{exm:desctblnca}핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
 \end{example}
+
 \vspace{-5ex}
 
 \begin{Shaded}
@@ -3842,12 +3828,11 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 \hypertarget{uxb9fauxc74cuxb9d0-4}{%
 \section{맺음말}\label{uxb9fauxc74cuxb9d0-4}}
 
-이상으로 구획모델링(compartment modeling)에 대한 간략한 이론과 실제 자료해석을 R 코드를 사용해서 알아보았다. \index{모델링}
+이상으로 구획모델링(compartment modeling)에 대한 이론과 R코드를 사용한 자료해석을 알아보았다. \index{모델링}
 이는 단순하지만 여러 현상을 묘사할 수 있는 유용한 도구 중 하나이다.
 즉, 간단한 수식으로 구성된 모델을 통해 현상을 분석하고 여러 변수를 연관시킨 후, 시뮬레이션을 통해 여러 상황들을 예측할 수 있다. \index{시뮬레이션}
 여기에서는 가장 단순한 형태의 모델을 사용하여 공개 소프트웨어를 사용한 구획분석을 수행하였으나, 실제 자료 분석에는 보다 전문적인 소프트웨어를 사용하게 된다.
 그러나 본 교재에서 다룬 기초적인 내용이 전문적인 구획분석 도구를 이해하고 사용하는데 필요한 핵심 내용을 포함하고 있으므로 여전히 유용할 것이다.
-가톨릭대학교 계량약리학연구소(PIPET)\footnote{\url{http://pipet.or.kr}}에서는 관련한 다양한 교육을 제공하고 있으므로, 관심있는 독자는 홈페이지에 접속하여 정보를 얻을 수 있다.\index{계량약리학}
 
 \cleardoublepage
 
@@ -4055,7 +4040,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02425 secs
+## Time difference of 0.02327 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4120,7 +4105,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.00964 secs
+## Time difference of 0.005543 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4185,7 +4170,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01043 secs
+## Time difference of 0.009289 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4249,7 +4234,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006822 secs
+## Time difference of 0.005234 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4314,7 +4299,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005766 secs
+## Time difference of 0.005708 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4378,7 +4363,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007308 secs
+## Time difference of 0.005852 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4442,7 +4427,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009698 secs
+## Time difference of 0.006335 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4506,7 +4491,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005181 secs
+## Time difference of 0.005393 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4570,7 +4555,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007032 secs
+## Time difference of 0.007522 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4635,7 +4620,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007463 secs
+## Time difference of 0.00784 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4700,7 +4685,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007088 secs
+## Time difference of 0.007613 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4765,7 +4750,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005544 secs
+## Time difference of 0.006029 secs
 \end{verbatim}
 
 \normalsize
