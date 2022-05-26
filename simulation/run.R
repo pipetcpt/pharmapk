@@ -3,10 +3,11 @@ library(tidyverse)
 library(ggpubr)
 library(rlang)
 library(httpgd)
+library(ggthemes)
 mod <- mread_cache('simulation/TMDD.cpp')
 mod <- param(mod, list(KINT = 0.003,
                        KOFF = 0.001,
-                       KEL = 0.0015,
+                       KEL = 0.0005,
                        KPT = 0,
                        KTP = 0,
                        KDEG = 0.0089,
@@ -17,24 +18,25 @@ mod <- param(mod, list(KINT = 0.003,
 
 #### Change of dose  ####
 
-amt_vec <- c(3, 6, 10, 15)
+amt_vec <- c(10, 15, 20, 25)
 
 dose_change_plot <- mod %>%
   data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:4, cmt = 2) %>% mutate(dose = amt))) %>%
   carry_out(dose) %>%
   zero_re() %>%
-  mrgsim(end = 1800) %>%
+  mrgsim(end = 3500) %>%
   as.data.frame() %>%
   mutate(dose = as.factor(dose)) %>%
-  filter(CP > 1E-8, time < 48) %>%
+  filter(CP > 1E-8) %>%
   ggplot(aes(x = time, y = CP, col = dose)) +
   geom_line() +
-  #scale_y_continuous(trans = 'log10') +
-  theme_bw() +
   labs(x = "Time (hr)",
        y = "Concentration (nM/L)",
-       col = "Dose (nM)")
+       col = "Dose (nM)")+
+  theme_few() + 
+  scale_color_calc()
 dose_change_plot
+ggsave('media-07/TMDD_dose.png', width = 7.5, height = 6, unit = "in")
 dose_change_plot_log <- dose_change_plot + scale_y_continuous(trans = 'log10')
 
 dose_change_plot_log
@@ -47,7 +49,7 @@ param_change <- function(PAR, SEQ, TIME = 800) {
   idata <- data.frame(ID = 1:5) %>% mutate(!!PAR2 := SEQ)
   p1 <- mod %>%
     idata_set(idata) %>%
-    data_set(as_data_set(data.frame(amt = 1, ID = 1:5, cmt = 2) %>% mutate(dose = amt))) %>%
+    data_set(as_data_set(data.frame(amt = 5, ID = 1:5, cmt = 2) %>% mutate(dose = amt))) %>%
     mrgsim(end = TIME) %>%
     as.data.frame() %>%
     left_join(idata, by = "ID") %>%
@@ -55,21 +57,21 @@ param_change <- function(PAR, SEQ, TIME = 800) {
     filter(CP > 1E-5) %>%
     ggplot(aes(x = time, y = CP, col = {{PAR}})) +
     geom_line() +
-    theme_bw() +
     labs(x = "Time (hr)",
          y = "Concentration (nM/L)",
-         col = as_label(enquo(PAR))
-    )
-  p2 <- p1 + scale_y_continuous(trans = "log10")
-  ggarrange(p1, p2, common.legend = TRUE, labels = c("A", "B"))
+         col = paste0(as_label(enquo(PAR)), " (nM)")) +
+    theme_few() +
+    scale_color_calc() +
+    scale_y_continuous(breaks = c(0, 50, 100), limits = c(0, 130))
+  #p2 <- p1 + scale_y_continuous(trans = "log10")
+  #ggarrange(p1, p2, common.legend = TRUE, labels = c("A", "B"))
 }
 
-param_change_plot <- param_change(KINT, c(0.0001, 0.001, 0.1, 1, 10))
-param_change_plot_log <- param_change_plot + scale_y_continuous(trans = 'log10')
+param_change_plot <- param_change(R0, c(5, 10, 20, 50, 100), 50)
 
-
+param_change_plot
 param_change(R0, seq(1, 20, length.out = 5), 100)
-ggsave('media-07/R0.png', width = 6, height = 4, unit = "in")
+ggsave('media-07/R0.png', width = 7.5, height = 6, unit = "in")
 param_change(KEL, seq(0.00015, 0.01, length.out = 5), 300)
 ggsave('media-07/KEL.png', width = 6, height = 4, unit = "in")
 param_change(KDEG, seq(0.00015, 0.01, length.out = 5), 300)

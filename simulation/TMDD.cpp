@@ -21,8 +21,8 @@ double KDEGi =exp(log(KDEG) + EKDEG);
 
 $OMEGA  @annotated
 
-EVC : 0.1 : 
-EKDEG : 0.1 : 
+EVC : 0 : 
+EKDEG : 0 : 
 
 $ODE
 dxdt_EV1 = -KA1*EV1;
