@@ -15,7 +15,7 @@ mod <- param(mod, list(KINT = 0.003,
                        VC = 0.04,
                        KON = 0.002
 ))
-
+install.packages('bookdown')
 #### Change of dose  ####
 
 amt_vec <- c(10, 15, 20, 25)
