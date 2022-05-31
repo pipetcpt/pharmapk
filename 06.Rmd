@@ -42,7 +42,7 @@ knitr::include_graphics('media-07/antibody_isotype_pic.png')
 항체의약품은 항체 아형 중 주로 IgG의 구조를 가지며 그 구조를 자세히 보면 아래와 같이 Y자 형태를 이루고 있다. 항체의 Y의 위쪽 끝은 특정한 분자를 인지하는 부분이며 Y의 아래쪽 끝은 타 세포와 연계하여 면역반응을 유발하는 부분이다. \index{항체의약품}
 
 ```{r paratope, fig.cap = "(ref:paratope)", echo = FALSE}
-knitr::include_graphics('media-07/epitope.jpg')
+knitr::include_graphics('media-07/epitope.png')
 ```
 (ref:paratope) 항체의약품의 표적과의 결합의 specificity (Retrieved from https://app.biorender.com/biorender-templates)
 
@@ -157,7 +157,7 @@ knitr::include_graphics('media-07/Elimination_pathway.png')
 ```{r FcRn-recycling, fig.cap = "(ref:FcRn-recycling)", echo = FALSE}
 knitr::include_graphics('media-07/FcRn_recycling.png')
 ```
-(ref:FcRn-recycling) FcRn에 의한 recycling 과정[@Ryman_2017]
+(ref:FcRn-recycling) FcRn에 의한 recycling 과정[@ryman2017pharmacokinetics]
 
 Fc 수용체(FcRn, neonatal Fc receptor)는 주로 세포막에 존재하는 당단백질로 Fc domain과 결합하는 수용체이다. 이 수용체와 IgG의 Fc domain와의 결합친화성은 pH에 민감하기 때문에 생리적인(pH7.4)의 환경에서는 결합하지 않으나 엔도솜(endosome)내의 산성화된 환경에서는 결합친화성이 강해지면서 FcRn-IgG 복합체를 형성한다. 따라서 그림 \@ref(fig:FcRn-recycling)과 같이 IgG는 음세포작용에 의해 섭취된 후(**A**)에 산성화된 환경인 엔도솜 내에서는 FcRn과 결합하게 되고(**B**) 이러한 복합체 형성을 통해 리소좀에 의한 분해작용의 영향을 피하여(**C**) 다시 혈관 세포 표면으로 돌아오게 된다(**D**). 세포 표면에서는 다시 pH가 7.4로 상승하므로 Fc 수용체와는 해리되고 Ig 형태로 혈액 혹은 조직으로 돌아가게 되는데(**E**) 이러한 일련의 과정을 FcRn에 의한 recycling이라고 한다. 
 일반적으로 IgG의 $\frac{2}{3}$정도가 FcRn에 의한 recycling으로 인해 음세포작용으로 인한 제거를 회피하는 것으로 알려져 있으며 IgG(18~21일)가 다른 형태의 항체(2~3일)들에 비해서 긴 반감기를 가지는 주요한 원인이 된다. Fc 수용체와의 결합친화력은 IgG의 아형별로 다르며 Fc 수용체와의 결합친화력이 낮은 IgG3의 경우 다른 IgG 아형들과는 다르게 7일의 반감기를 가지고 있다. 
