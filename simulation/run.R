@@ -15,16 +15,16 @@ mod <- param(mod, list(KINT = 0.003,
                        VC = 0.04,
                        KON = 0.002
 ))
-install.packages('bookdown')
+
 #### Change of dose  ####
 
-amt_vec <- c(10, 15, 20, 25)
+amt_vec <- c(10, 13, 15, 18)
 
 dose_change_plot <- mod %>%
   data_set(as_data_set(data.frame(amt = amt_vec, ID = 1:4, cmt = 2) %>% mutate(dose = amt))) %>%
   carry_out(dose) %>%
   zero_re() %>%
-  mrgsim(end = 3500) %>%
+  mrgsim(end = 30) %>%
   as.data.frame() %>%
   mutate(dose = as.factor(dose)) %>%
   filter(CP > 1E-8) %>%
@@ -33,10 +33,11 @@ dose_change_plot <- mod %>%
   labs(x = "Time (hr)",
        y = "Concentration (nM/L)",
        col = "Dose (nM)")+
+  scale_y_continuous(breaks = c(0, 100, 200, 300, 400, 500), limits = c(0, 500)) +
   theme_few() + 
   scale_color_calc()
 dose_change_plot
-ggsave('media-07/TMDD_dose.png', width = 7.5, height = 6, unit = "in")
+ggsave('media-07/TMDD_R0_new.png', width = 7.5, height = 6, unit = "in")
 dose_change_plot_log <- dose_change_plot + scale_y_continuous(trans = 'log10')
 
 dose_change_plot_log
@@ -131,7 +132,7 @@ mod2 <- param(mod2, list(
   KDEG = 0.0089,
   R0 = 12.36,
   VC = 0.04,
-  KON = 0.01 
+  KON = 0.01
 ))    
 
 sample <- 24 * c(1, 2, 4, 10, 14, 21, 28, 35, 42, 49, 56, 63, 77)
@@ -146,12 +147,13 @@ savedata2 <- moddata
 finaldata <- moddata
 
 moddata %>%
-  filter(CP > 1E-8, time %in% sample) %>% 
-  filter(!(ID %in% 1:4 & time > 1000)) %>%
+  filter(CP > 1E-3) %>% 
+  # filter(!(ID %in% 1:4 & time > 1000)) %>%
   ggplot(aes(x = time, y = CP, col = as.factor(ID))) +
-  geom_point() +
+  # geom_point() +
   geom_line() + 
   scale_y_continuous(trans = "log10") +
+  # scale_x_continuous(limits = c(0, 500)) +
   theme_bw() +
   labs(
     x = "Time (hr)",

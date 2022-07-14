@@ -280,21 +280,16 @@ Phase A는 투여 직후 혈관이나 혈액 속에 있는 표적 수용체와�
 (\#eq:eq7-8)
 \end{equation}
 
-높은 용량의 항체가 투여 된 경우 그림 \@ref(fig:TMDDcurveA)과 같이 표적 수용체와의 결합 및 포화가 빠르게 일어나서 구간의 경사는 급해지나 A구간의 길이(T~1~)는 짧아진다. 따라서 A구간 동안 감소된 항체의약품의 농도는 투여 용량에 상관없이 비슷한 정도로 감소하게 된다. 
+높은 용량의 항체가 투여 된 경우 아래 그림 \@ref(fig:TMDDcurveA)의 A에서와 같이 표적 수용체와의 결합 및 포화가 빠르게 일어나서 구간의 경사는 급해지나 A구간의 길이(T~1~)는 짧아진다. 따라서 A구간 동안 감소된 항체의약품의 농도는 투여 용량에 상관없이 비슷한 정도로 감소하게 된다. 
 ```{r TMDDcurveA, fig.cap = "(ref:TMDDcurveA)", echo = FALSE}
 knitr::include_graphics('media-07/TMDD_phaseA.png')
 ```
 
-(ref:TMDDcurveA) 투여용량에 따른 A구간 농도 곡선의 변화 (A구간 : 투여 직후(t=0)와 각 용량의 곡선 별로 표기된 붉은색 바(|)사이의 구간)
+(ref:TMDDcurveA) 투여용량에 따른 A구간 농도 곡선의 변화(A)와 표적수용체의 양에 따른 A구간 농도 곡선의 변화(B)의 비교 (A구간 : 푸른색 음영 표기)
 
-그에 반해 그림 \@ref(fig:R0)와 같이 체내에 존재하는 표적수용체의 양(R~0~)이 포화될 수 있는 범위 내에서 많아지는 경우 결합은 빨라지지만 그만큼 포화되는 대에 시간이 더 걸리게 되기 때문에 A구간의 경사는 급해지고 길이(T~1~)도 길어져서 이 구간동안 항체의약품의 양은 더 크게 감소한다. 대부분의 경우 대사로 인한 제거는 결합에 의한 제거보다 매우 느리기 때문에 해당 구간동안 결합으로 인한 제거만 나타난다고 가정할 때 결합이 포화될 때까지(T~1~) 감소된 항체의약품의 양은 대략 타겟수용체의 양($R_{0}$)이라고 예측할 수 있다($R_{0} ≈ L_{0} - L(T_{1})$).
+그에 반해 체내에 존재하는 표적수용체의 양(R~0~)이 포화될 수 있는 범위 내에서 많아지는 경우 그림 \@ref(fig:TMDDcurveA)의 B와 같이 결합은 빨라지지만 그만큼 포화되는 대에 시간이 더 걸리게 되기 때문에 A구간의 경사는 급해지고 길이(T~1~)도 길어져서 이 구간동안 항체의약품의 양은 더 크게 감소한다. 대부분의 경우 대사로 인한 제거는 결합에 의한 제거보다 매우 느리기 때문에 해당 구간동안 결합으로 인한 제거만 나타난다고 가정할 때 결합이 포화될 때까지(T~1~) 감소된 항체의약품의 양은 대략 타겟수용체의 양($R_{0}$)이라고 예측할 수 있다($R_{0} ≈ L_{0} - L(T_{1})$).
 
 
-```{r R0, fig.cap = "(ref:R0)", echo = FALSE}
-knitr::include_graphics('media-07/R0.png')
-```
-
-(ref:R0) 표적수용체의 양(R~0~)에 따른 A구간 주위의 농도 곡선의 변화
 
 ### Phase B (T~1~ ≤ t ≤ T~2~)
 Phase B는 항체의약품과 표적수용체와의 결합이 포화되어 결합이 거의 일어나지 않는 구간이다. 따라서 이 구간 동안에는 표적수용체와의 결합으로 인한 제거가 거의 일어나지 않고 주로 비특이적인 대사에 의한 제거가 일어나게 된다. 
@@ -326,9 +321,9 @@ Phase B는 항체의약품과 표적수용체와의 결합이 포화되어 결�
 
 
 ```{r TMDDcurveB, fig.cap = "(ref:TMDDcurveB)", echo = FALSE}
-knitr::include_graphics('media-07/TMDD_phaseB.png')
+knitr::include_graphics('media-07/TMDD_phaseB_new.png')
 ```
-(ref:TMDDcurveB) 투여용량에 따른 B구간 곡선의 변화
+(ref:TMDDcurveB) 투여용량에 따른 B구간 곡선의 변화 (B구간 : 파란색 음영 표기)
 
 
 ### Phase C (T~2~ ≤ t ≤ T~3~)
@@ -338,10 +333,10 @@ knitr::include_graphics('media-07/TMDD_phaseB.png')
 C구간은 항체의약품의 K~d~값에 영향을 받기 때문에 투여용량에 상관없이 C구간에서의 항체의약품의 농도 범위는 비슷하다. 단, 용량이 증가함에 따라 농도가 $10K_{d}$에 도달하는 시간이 오래 걸리기 때문에 그림 \@ref(fig:TMDDcurveC)과 같이 구간 C의 시작점인 T~2~가 커져 오른쪽으로 그래프가 이동한 듯한 모습을 보인다.
 
 ```{r TMDDcurveC, fig.cap = "(ref:TMDDcurveC)", echo = FALSE}
-knitr::include_graphics('media-07/TMDD_phaseC.png')
+knitr::include_graphics('media-07/TMDD_phaseC_new.png')
 ```
 
-(ref:TMDDcurveC) 투여용량에 따른 C구간 곡선의 변화
+(ref:TMDDcurveC) 투여용량에 따른 C구간 곡선의 변화 (C구간: 파란색 음영 표기)
 
 
 ### Phase D (T~3~ ≤ t ≤ T~4~)
@@ -350,10 +345,10 @@ knitr::include_graphics('media-07/TMDD_phaseC.png')
 D구간은 항체의 농도가 매우 낮은 상황으로 대부분 타겟 수용체와 결합된 형태로 존재하게 된다. 이때 해당 구간에서 항체 농도의 기울기가 대략 k~ec~인 이유는 1) k~ec~ > k~el~ 인 경우, 결합된 형태가 제거됨에 따라 항체가 제거되는 속도보다 결합하는 속도가 더 커져서 k~ec~에 의해 항체의 농도 변화가 결정되기 때문이며 2) k~ec~ < k~el~인 경우, k~el~에 의해 항체가 빠르게 제거되어도 결합된 형태에서 해리되어 항체 농도가 유지 되기 때문에 결국 항체 농도 변화는 k~ec~에 의한 결합체의 농도 변화를 따르게 되기 때문이다. 
 
 ```{r KINT, fig.cap = "(ref:KINT)", echo = FALSE}
-knitr::include_graphics('media-07/KINT_new.png')
+knitr::include_graphics('media-07/TMDD_phaseD_new.png')
 ```
 
-(ref:KINT) 투여용량에 따른 D구간의 변화와 k~ec~에 따른 D구간의 변화의 비교
+(ref:KINT) 투여용량에 따른 D구간의 변화(A) 및 k~ec~에 따른 D구간의 변화(B)의 비교 (D구간: 파란색 음영 표기)
 
 따라서 그림 \@ref(fig:KINT)과 같이 k~ec~가 일정한 경우 투여 용량에 의해 D구간의 기울기가 변하지 않으나(**A**) k~ec~를 변화시킬 때는 D 구간의 기울기가 변화하며(**B**) 이때의 기울기는 대략 k~ec~으로 예측할 수 있다.  
 

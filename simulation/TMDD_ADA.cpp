@@ -2,13 +2,13 @@ $PARAM
 KPT = 0.064, KTP = 0.123, VC=0.032, KA1 = 0.142, KA2 = 0.6
 KEL = 0.106
 R0 = 64.31, KDEG = 0.079, KINT = 2, KON=0.101, KOFF = 10.1
-R02 = 0.5
-KDEG2 = 0.1
-KINT2 = 20
+R02 = 0
+KDEG2 = 0.00001
+KINT2 = 0.01
 KON2 = 5
-KOFF2 = 10
+KOFF2 = 0
 ADA = 0
-
+KSYN2 = 0.005
 $CMT EV1 CENT TISS REC2 RC2 REC RC EV2 
 
 $GLOBAL
@@ -17,7 +17,6 @@ namespace tmdd {
   double TMDDR0 = 0;  
 }
 #define KSYN (R0*KDEG)
-#define KSYN2 (R02*KDEG2)
 #define CP (CENT/VC)
 
 $MAIN
@@ -25,12 +24,12 @@ REC_0 = R0;
 REC2_0 = R02;
 tmdd::TMDDR0 = _R(3);
 double VCi = exp(log(VC) + EVC);
-double KDEGi =exp(log(KDEG) + EKDEG);
+double KDEGi = exp(log(KDEG) + EKDEG);
 
 
 $OMEGA  @annotated
 
-EVC : 0.04 : 
+EVC : 0.09 : 
 EKDEG : 0.1 : 
 
 $ODE
