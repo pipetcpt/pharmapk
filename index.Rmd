@@ -22,8 +22,8 @@ biblio-style: apalike
 fontsize: 11pt
 link-citations: yes
 colorlinks: yes
-lot: no
-lof: no
+lot: yes
+lof: yes
 header-includes:
   - \usepackage{kotex} 
   - \usepackage{chemarr}

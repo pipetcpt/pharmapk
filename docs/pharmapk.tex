@@ -36,17 +36,6 @@
   \KOMAoptions{parskip=half}}
 \makeatother
 \usepackage{xcolor}
-\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
-\hypersetup{
-  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)},
-  colorlinks=true,
-  linkcolor={Maroon},
-  filecolor={Maroon},
-  citecolor={Blue},
-  urlcolor={Blue},
-  pdfcreator={LaTeX via pandoc}}
-\urlstyle{same} % disable monospaced font for URLs
 \usepackage{color}
 \usepackage{fancyvrb}
 \newcommand{\VerbBar}{|}
@@ -188,6 +177,7 @@
 \renewcommand{\floatpagefraction}{0.75}
 
 \renewenvironment{quote}{\begin{VF}}{\end{VF}}
+\usepackage{hyperref}
 \let\oldhref\href
 \renewcommand{\href}[2]{#2\footnote{\url{#1}}}
 
@@ -302,6 +292,18 @@
 \ifLuaTeX
   \usepackage{selnolig}  % disable illegal ligatures
 \fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)},
+  colorlinks=true,
+  linkcolor={Maroon},
+  filecolor={Maroon},
+  citecolor={Blue},
+  urlcolor={Blue},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
 
 \title{신약개발을 위한 실전 약동학 I
 
@@ -309,7 +311,7 @@
 
 (기본원리와 자료해석)}
 \author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)}
-\date{2022-05-13}
+\date{2022-08-11}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -363,6 +365,8 @@
 \setcounter{tocdepth}{2}
 \tableofcontents
 }
+\listoffigures
+\listoftables
 \setstretch{1.3}
 \hypertarget{uxba38uxb9acuxb9d0}{%
 \chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
@@ -2223,9 +2227,9 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 \begin{Highlighting}[]
                         \ExtensionTok{NONCOMPARTMENTAL}\NormalTok{ ANALYSIS REPORT}
                        \ExtensionTok{Package}\NormalTok{ version 0.4.5 }\ErrorTok{(}\ExtensionTok{2022{-}02{-}23}\KeywordTok{)}
-                          \ExtensionTok{R}\NormalTok{ version 4.1.3 }\ErrorTok{(}\ExtensionTok{2022{-}03{-}10}\KeywordTok{)}
+                          \ExtensionTok{R}\NormalTok{ version 4.2.1 }\ErrorTok{(}\ExtensionTok{2022{-}06{-}23}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2022{-}05{-}13 16:53:54 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2022{-}08{-}11 17:37:31 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2642,9 +2646,9 @@ LAMZHL & 6 & 2.439 & 1.0406 & 2.127 & 1.615 & 4.378\\
 시뮬레이션된 농도들로부터 얻어진 C\textsubscript{max}와 AUC를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ(sequence, 순서군) 혹은 GRP(group), TRT(treatment, 치료), SUBJ(subject, 대상자 구분자), PRD(period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(\texttt{key=c(\textquotesingle{}SUBJ\textquotesingle{},\ \textquotesingle{}GRP\textquotesingle{},\ \textquotesingle{}PRD\textquotesingle{},\ \textquotesingle{}TRT\textquotesingle{})}) 유사한 형태로 자료를 만들어야 한다. \index{시뮬레이션}
 
 \begin{longtable}[]{@{}lllllll@{}}
-\toprule
+\toprule()
 SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC \\
-\midrule
+\midrule()
 \endhead
 1 & RT & 1 & R & 0 & 0 & 0 \\
 1 & RT & 1 & R & 0.25 & 0.26 & 511.3 \\
@@ -2663,7 +2667,7 @@ SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC \\
 5 & TR & 2 & R & 0.5 & 0.47 & 832.76 \\
 5 & TR & 2 & R & \ldots{} & \ldots{} & \ldots{} \\
 \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} \\
-\bottomrule
+\bottomrule()
 \end{longtable}
 
 비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUC\textsubscript{t}, C\textsubscript{max}, 반복투약 시 AUC\textsubscript{τ}, C\textsubscript{ss,max}를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다. 약동학 파라미터는 로그정규분포(log-normal distribution)을 따르고, 대조약과 시험약의 산출된 곡선하 면적(AUC)과 최대 농도 C\textsubscript{max}의 geometric mean ratio가 0.8 \textasciitilde{} 1.25 이내일 때, 약동학적으로 동등하다고 평가하게 된다.\index{약동학}
@@ -4040,7 +4044,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9]  6.353e-05  1.018e-01  2.654e-01
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.02327 secs
+## Time difference of 0.04059 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
@@ -4105,7 +4109,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.008457
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005543 secs
+## Time difference of 0.008453 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
@@ -4170,7 +4174,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.29760
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009289 secs
+## Time difference of 0.009721 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
@@ -4234,7 +4238,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005234 secs
+## Time difference of 0.008113 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
@@ -4299,7 +4303,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.102075
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005708 secs
+## Time difference of 0.009014 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
@@ -4363,7 +4367,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005852 secs
+## Time difference of 0.009371 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
@@ -4427,7 +4431,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006335 secs
+## Time difference of 0.03915 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
@@ -4491,7 +4495,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.005393 secs
+## Time difference of 0.008808 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
@@ -4555,7 +4559,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007522 secs
+## Time difference of 0.0115 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
@@ -4620,7 +4624,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.01104
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.00784 secs
+## Time difference of 0.0119 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
@@ -4685,7 +4689,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11]  0.04519
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007613 secs
+## Time difference of 0.01131 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
@@ -4750,7 +4754,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## [11] -0.02175
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006029 secs
+## Time difference of 0.008887 secs
 \end{verbatim}
 
 \normalsize
