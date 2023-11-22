@@ -17,7 +17,7 @@ description: "약동학은 신약의 발견부터 시판허가 이후의 관리�
 url: 'http\://pipet.or.kr/books/pharmapk'
 github-repo: pipetcpt/pharmapk
 cover-image: images/cover-pdf.jpg
-bibliography: ["bib/references.bib", "bib/packages.bib", "bib/pharmapk.bib"]
+bibliography: ["bib/references.bib", "bib/packages.bib", "bib/pharmapk.bib", "bib/antibody.bib"]
 biblio-style: apalike
 fontsize: 11pt
 link-citations: yes
