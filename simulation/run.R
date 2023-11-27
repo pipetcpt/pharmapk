@@ -63,6 +63,7 @@ param_change <- function(PAR, SEQ, TIME = 800) {
     theme_few() +
     scale_color_calc() +
     scale_y_continuous(breaks = c(0, 50, 100), limits = c(0, 130))
+  p1
   #p2 <- p1 + scale_y_continuous(trans = "log10")
   #ggarrange(p1, p2, common.legend = TRUE, labels = c("A", "B"))
 }
@@ -76,7 +77,7 @@ param_change(KEL, seq(0.00015, 0.01, length.out = 5), 300)
 ggsave('media-07/KEL.png', width = 6, height = 4, unit = "in")
 param_change(KDEG, seq(0.00015, 0.01, length.out = 5), 300)
 ggsave('media-07/KDEG.png', width = 6, height = 4, unit = "in")
-param_change(KINT, seq(0.00015, 0.01, length.out = 5), 1000)
+param_change(KINT, seq(0.00015, 0.01, length.out = 5), 1000) + scale_y_continuous(trans = 'log10') + labs(color = "Kec (nM)")
 ggsave('media-07/KINT.png', width = 6, height = 4, unit = "in")
 param_change(KON, seq(0.00015, 0.01, length.out = 5), 300)
 ggsave('media-07/KON.png', width = 6, height = 4, unit = "in")
