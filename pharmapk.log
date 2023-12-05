@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.23)  5 DEC 2023 18:14
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2023.11.23)  5 DEC 2023 18:45
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -779,7 +779,7 @@ Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
 \c@nlinenum=\count333
 \TeXr@lab=\toks40
 )
-Package hyperref Info: Option `colorlinks' set `true' on input line 318.
+Package hyperref Info: Option `colorlinks' set `true' on input line 319.
 \c@theorem=\count334
 \c@lemma=\count335
 \c@corollary=\count336
@@ -792,37 +792,37 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 318.
 (./pharmapk.aux)
 \openout1 = `pharmapk.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 345.
-LaTeX Font Info:    ... okay on input line 345.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 342.
+LaTeX Font Info:    ... okay on input line 342.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 345.
+(Font)              scaled to size 6.0pt on input line 342.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 345.
+(Font)                  OT1/lmss/m/n --> TU/lmss/m/n on input line 342.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 345.
+(Font)                  OT1/lmss/bx/n --> TU/lmss/b/n on input line 342.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 345.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/m/n on input line 342.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 345.
-LaTeX Font Info:    Calculating math sizes for size <11> on input line 345.
+(Font)                  OT1/lmtt/m/n --> TU/lmtt/b/n on input line 342.
+LaTeX Font Info:    Calculating math sizes for size <11> on input line 342.
 
 Package fontspec Info: latinmodern-math scale = 1.192573710923796.
 
@@ -848,7 +848,7 @@ Package fontspec Info: Font family 'latinmodern-math.otf(0)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(0)/m/n' will be
-(Font)              scaled to size 13.1184pt on input line 345.
+(Font)              scaled to size 13.1184pt on input line 342.
 
 Package fontspec Info: latinmodern-math scale = 1.192573710923796.
 
@@ -880,15 +880,15 @@ Package fontspec Info: Font family 'latinmodern-math.otf(1)' created for font
 (fontspec)             - 'bold small caps'  (b/sc) with NFSS spec.: 
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 13.1184pt on input line 345.
+(Font)              scaled to size 13.1184pt on input line 342.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 345.
+(Font)              `operators' in the math version `normal' on input line 342.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 345.
+(Font)                  OT1/lmr/m/n --> TU/latinmodern-math.otf(1)/m/n on input line 342.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 345.
+(Font)              `operators' in the math version `bold' on input line 342.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
-(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 345.
+(Font)                  OT1/lmr/bx/n --> TU/latinmodern-math.otf(1)/b/n on input line 342.
 
 Package fontspec Info: latinmodern-math scale = 1.192573710923796.
 
@@ -967,13 +967,13 @@ Package fontspec Info: Font family 'latinmodern-math.otf(2)' created for font
 (fontspec)             =0pt\relax \fontdimen 21\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `normal' on input line 345.
+(Font)              `symbols' in the math version `normal' on input line 342.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `normal'
-(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 345.
+(Font)                  OMS/lmsy/m/n --> TU/latinmodern-math.otf(2)/m/n on input line 342.
 LaTeX Font Info:    Encoding `OMS' has changed to `TU' for symbol font
-(Font)              `symbols' in the math version `bold' on input line 345.
+(Font)              `symbols' in the math version `bold' on input line 342.
 LaTeX Font Info:    Overwriting symbol font `symbols' in version `bold'
-(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 345.
+(Font)                  OMS/lmsy/b/n --> TU/latinmodern-math.otf(2)/b/n on input line 342.
 
 Package fontspec Info: latinmodern-math scale = 1.192573710923796.
 
@@ -1034,42 +1034,42 @@ Package fontspec Info: Font family 'latinmodern-math.otf(3)' created for font
 (fontspec)             =7.87103pt\relax \fontdimen 13\font =0pt\relax 
 
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `normal' on input line 345.
+(Font)              `largesymbols' in the math version `normal' on input line 342.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `normal'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 345.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/m/n on input line 342.
 LaTeX Font Info:    Encoding `OMX' has changed to `TU' for symbol font
-(Font)              `largesymbols' in the math version `bold' on input line 345.
+(Font)              `largesymbols' in the math version `bold' on input line 342.
 LaTeX Font Info:    Overwriting symbol font `largesymbols' in version `bold'
-(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 345.
+(Font)                  OMX/lmex/m/n --> TU/latinmodern-math.otf(3)/b/n on input line 342.
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: threeparttable package is loaded.
 Package caption Info: wrapfig package is loaded.
 Package caption Info: End \AtBeginDocument code.
-Package hyperref Info: Link coloring ON on input line 345.
+Package hyperref Info: Link coloring ON on input line 342.
 (./pharmapk.out) (./pharmapk.out)
 \@outlinefile=\write5
 \openout5 = `pharmapk.out'.
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/it' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/n' instead on input line 347.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/n' instead on input line 344.
 
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 347.
+(Font)              scaled to size 10.0pt on input line 344.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/it' will be
-(Font)              scaled to size 10.0pt on input line 347.
+(Font)              scaled to size 10.0pt on input line 344.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 347.
+(Font)              scaled to size 8.0pt on input line 344.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 347.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 344.
 
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/it' will be
-(Font)              scaled to size 24.0pt on input line 347.
+(Font)              scaled to size 24.0pt on input line 344.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/it' will be
-(Font)              scaled to size 24.0pt on input line 347.
+(Font)              scaled to size 24.0pt on input line 344.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -1194,54 +1194,54 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [4]
-Underfull \vbox (badness 10000) detected at line 378
+Underfull \vbox (badness 10000) detected at line 375
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 378
+Overfull \hbox (395.75pt too wide) detected at line 375
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 378
+Underfull \vbox (badness 10000) detected at line 375
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 378
+Overfull \hbox (395.75pt too wide) detected at line 375
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 378
+Underfull \vbox (badness 10000) detected at line 375
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 378
+Overfull \hbox (395.75pt too wide) detected at line 375
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 378
+Underfull \vbox (badness 10000) detected at line 375
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 378
+Overfull \hbox (395.75pt too wide) detected at line 375
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 378
+Underfull \hbox (badness 10000) detected at line 375
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 378.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 375.
 
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/it' will be
-(Font)              scaled to size 18.0pt on input line 378.
+(Font)              scaled to size 18.0pt on input line 375.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/it' will be
-(Font)              scaled to size 18.0pt on input line 378.
+(Font)              scaled to size 18.0pt on input line 375.
 (./pharmapk.toc
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
 (Font)              scaled to size 11.0pt on input line 2.
@@ -1328,49 +1328,49 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [10
 
 ]
-Underfull \vbox (badness 10000) detected at line 380
+Underfull \vbox (badness 10000) detected at line 377
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 380
+Overfull \hbox (395.75pt too wide) detected at line 377
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 380
+Underfull \vbox (badness 10000) detected at line 377
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 380
+Overfull \hbox (395.75pt too wide) detected at line 377
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 380
+Underfull \vbox (badness 10000) detected at line 377
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 380
+Overfull \hbox (395.75pt too wide) detected at line 377
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 380
+Underfull \vbox (badness 10000) detected at line 377
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 380
+Overfull \hbox (395.75pt too wide) detected at line 377
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 380
+Underfull \hbox (badness 10000) detected at line 377
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 380.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 377.
 
 
 Package hyperref Warning: bookmark level for unknown fm defaults to 0.
@@ -1395,49 +1395,49 @@ Underfull \hbox (badness 1014) in paragraph at lines 67--67
 \openout7 = `pharmapk.lof'.
 
 [14]
-Underfull \vbox (badness 10000) detected at line 381
+Underfull \vbox (badness 10000) detected at line 378
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 381
+Overfull \hbox (395.75pt too wide) detected at line 378
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 381
+Underfull \vbox (badness 10000) detected at line 378
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 381
+Overfull \hbox (395.75pt too wide) detected at line 378
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 381
+Underfull \vbox (badness 10000) detected at line 378
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 381
+Overfull \hbox (395.75pt too wide) detected at line 378
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 381
+Underfull \vbox (badness 10000) detected at line 378
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 381
+Overfull \hbox (395.75pt too wide) detected at line 378
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 381
+Underfull \hbox (badness 10000) detected at line 378
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 381.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 378.
 
 (./pharmapk.lot)
 \tf@lot=\write8
@@ -1491,70 +1491,70 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [16
 
 ]
-Underfull \vbox (badness 10000) detected at line 383
+Underfull \vbox (badness 10000) detected at line 380
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 383
+Overfull \hbox (395.75pt too wide) detected at line 380
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 383
+Underfull \vbox (badness 10000) detected at line 380
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 383
+Overfull \hbox (395.75pt too wide) detected at line 380
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 383
+Underfull \vbox (badness 10000) detected at line 380
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 383
+Overfull \hbox (395.75pt too wide) detected at line 380
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 383
+Underfull \vbox (badness 10000) detected at line 380
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 383
+Overfull \hbox (395.75pt too wide) detected at line 380
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 383
+Underfull \hbox (badness 10000) detected at line 380
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 383.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 380.
 
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 404.
+(Font)              scaled to size 9.0pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.73323pt on input line 404.
+(Font)              scaled to size 10.73323pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.15549pt on input line 404.
+(Font)              scaled to size 7.15549pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.9629pt on input line 404.
+(Font)              scaled to size 5.9629pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.73419pt on input line 404.
+(Font)              scaled to size 10.73419pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.15613pt on input line 404.
+(Font)              scaled to size 7.15613pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.96344pt on input line 404.
+(Font)              scaled to size 5.96344pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.73213pt on input line 404.
+(Font)              scaled to size 10.73213pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.15475pt on input line 404.
+(Font)              scaled to size 7.15475pt on input line 401.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.9623pt on input line 404.
+(Font)              scaled to size 5.9623pt on input line 401.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1563,54 +1563,54 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [17
 
 ] [18]
-Underfull \vbox (badness 10000) detected at line 433
+Underfull \vbox (badness 10000) detected at line 430
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 433
+Overfull \hbox (395.75pt too wide) detected at line 430
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 433
+Underfull \vbox (badness 10000) detected at line 430
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 433
+Overfull \hbox (395.75pt too wide) detected at line 430
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 433
+Underfull \vbox (badness 10000) detected at line 430
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 433
+Overfull \hbox (395.75pt too wide) detected at line 430
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 433
+Underfull \vbox (badness 10000) detected at line 430
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 433
+Overfull \hbox (395.75pt too wide) detected at line 430
 []
  []
 
 Chapter 1.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
-(Font)              scaled to size 24.0pt on input line 433.
+(Font)              scaled to size 24.0pt on input line 430.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 24.0pt on input line 433.
+(Font)              scaled to size 24.0pt on input line 430.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 433.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 430.
 
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 435.
+(Font)              scaled to size 14.4pt on input line 432.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
-(Font)              scaled to size 12.0pt on input line 440.
+(Font)              scaled to size 12.0pt on input line 437.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1631,7 +1631,7 @@ File: media-01/image3.png Graphic file (type bmp)
 <media-01/image3.png>
 [5]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
-(Font)              scaled to size 7.7pt on input line 631.
+(Font)              scaled to size 7.7pt on input line 628.
 [6]
 File: media-01/image4.png Graphic file (type bmp)
 <media-01/image4.png>
@@ -1670,34 +1670,34 @@ File: images/tip.png Graphic file (type bmp)
 File: images/tip.png Graphic file (type bmp)
 <images/tip.png>
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 11.0pt on input line 927.
+(Font)              scaled to size 11.0pt on input line 924.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 7.7pt on input line 927.
+(Font)              scaled to size 7.7pt on input line 924.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 927.
+(Font)              scaled to size 5.5pt on input line 924.
 [17] [18]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
-(Font)              scaled to size 10.0pt on input line 967.
+(Font)              scaled to size 10.0pt on input line 964.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 11.92581pt on input line 967.
+(Font)              scaled to size 11.92581pt on input line 964.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 8.34807pt on input line 967.
+(Font)              scaled to size 8.34807pt on input line 964.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 10.0pt on input line 967.
+(Font)              scaled to size 10.0pt on input line 964.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 967.
+(Font)              scaled to size 7.0pt on input line 964.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 967.
+(Font)              scaled to size 5.0pt on input line 964.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 11.92688pt on input line 967.
+(Font)              scaled to size 11.92688pt on input line 964.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 8.34882pt on input line 967.
+(Font)              scaled to size 8.34882pt on input line 964.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 11.92459pt on input line 967.
+(Font)              scaled to size 11.92459pt on input line 964.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 8.34721pt on input line 967.
+(Font)              scaled to size 8.34721pt on input line 964.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/n' will be
-(Font)              scaled to size 7.0pt on input line 967.
+(Font)              scaled to size 7.0pt on input line 964.
 File: media-01/chart2.png Graphic file (type bmp)
 <media-01/chart2.png>
 [19] [20]
@@ -1705,7 +1705,7 @@ File: media-01/image11.png Graphic file (type bmp)
 <media-01/image11.png>
 [21]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 5.5pt on input line 1046.
+(Font)              scaled to size 5.5pt on input line 1043.
 [22]
 File: media-01/image12.png Graphic file (type bmp)
 <media-01/image12.png>
@@ -1719,45 +1719,45 @@ File: media-01/image14.png Graphic file (type bmp)
 File: media-01/image15.png Graphic file (type bmp)
 <media-01/image15.png>
 [28] [29] [30]
-Underfull \vbox (badness 10000) detected at line 1251
+Underfull \vbox (badness 10000) detected at line 1248
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1251
+Overfull \hbox (395.75pt too wide) detected at line 1248
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1251
+Underfull \vbox (badness 10000) detected at line 1248
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1251
+Overfull \hbox (395.75pt too wide) detected at line 1248
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1251
+Underfull \vbox (badness 10000) detected at line 1248
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1251
+Overfull \hbox (395.75pt too wide) detected at line 1248
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1251
+Underfull \vbox (badness 10000) detected at line 1248
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1251
+Overfull \hbox (395.75pt too wide) detected at line 1248
 []
  []
 
 Chapter 2.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 1251.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 1248.
 
 File: media-02/image1.png Graphic file (type bmp)
 <media-02/image1.png>
@@ -1793,7 +1793,7 @@ File: media-02/terminal.jpg Graphic file (type bmp)
 File: media-02/chat.jpg Graphic file (type bmp)
 <media-02/chat.jpg>
 [41] [42]
-Overfull \hbox (3.48798pt too wide) detected at line 1541
+Overfull \hbox (3.48798pt too wide) detected at line 1538
 []
  []
 
@@ -1804,58 +1804,58 @@ File: media-02/image10.png Graphic file (type bmp)
 File: media-02/2comp-plot.png Graphic file (type bmp)
 <media-02/2comp-plot.png>
 [46] [47] [48] [49] [50]
-Underfull \vbox (badness 10000) detected at line 1722
+Underfull \vbox (badness 10000) detected at line 1719
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1722
+Overfull \hbox (395.75pt too wide) detected at line 1719
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1722
+Underfull \vbox (badness 10000) detected at line 1719
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1722
+Overfull \hbox (395.75pt too wide) detected at line 1719
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1722
+Underfull \vbox (badness 10000) detected at line 1719
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1722
+Overfull \hbox (395.75pt too wide) detected at line 1719
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 1722
+Underfull \vbox (badness 10000) detected at line 1719
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 1722
+Overfull \hbox (395.75pt too wide) detected at line 1719
 []
  []
 
 Chapter 3.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 1722.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 1719.
 
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 17.17316pt on input line 1726.
+(Font)              scaled to size 17.17316pt on input line 1723.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 14.4pt on input line 1726.
+(Font)              scaled to size 14.4pt on input line 1723.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 17.1747pt on input line 1726.
+(Font)              scaled to size 17.1747pt on input line 1723.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 17.1714pt on input line 1726.
+(Font)              scaled to size 17.1714pt on input line 1723.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 1726.
+(Font)              scaled to size 9.0pt on input line 1723.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 6.0pt on input line 1726.
+(Font)              scaled to size 6.0pt on input line 1723.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1865,276 +1865,276 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ] [52] [53]
-Underfull \hbox (badness 1675) in paragraph at lines 1770--1771
+Underfull \hbox (badness 1675) in paragraph at lines 1767--1768
 []\TU/NotoSerifCJKKR(0)/m/it/11 식 약 처, 미 국 FDA(Food and Drug Administration), 유 럽 EMA(European
  []
 
 [54]
-Overfull \hbox (30.0pt too wide) in paragraph at lines 1792--1792
+Overfull \hbox (30.0pt too wide) in paragraph at lines 1789--1789
 |  
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1802
+Underfull \hbox (badness 10000) detected at line 1799
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1802
+Underfull \hbox (badness 10000) detected at line 1799
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1802--1804
+Underfull \hbox (badness 10000) in paragraph at lines 1799--1801
 [][][]$[][][][][] [] [] [] [][][][] [] [] [][] [][][][][][][] [] [][][]$[][] \TU/NotoSerifCJKKR(0)/m/it/11 사 이 트 에 접 속 하 여, \TU/lmtt/m/n/11 Download R for
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1804
+Underfull \hbox (badness 10000) detected at line 1801
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1804
+Underfull \hbox (badness 10000) detected at line 1801
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1806
+Underfull \hbox (badness 10000) detected at line 1803
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1806
+Underfull \hbox (badness 10000) detected at line 1803
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1808
+Underfull \hbox (badness 10000) detected at line 1805
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1808
+Underfull \hbox (badness 10000) detected at line 1805
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1810
+Underfull \hbox (badness 10000) detected at line 1807
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1810
+Underfull \hbox (badness 10000) detected at line 1807
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1812
+Underfull \hbox (badness 10000) detected at line 1809
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1812
+Underfull \hbox (badness 10000) detected at line 1809
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1814
+Underfull \hbox (badness 10000) detected at line 1811
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1814
+Underfull \hbox (badness 10000) detected at line 1811
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1816
+Underfull \hbox (badness 10000) detected at line 1813
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1816
+Underfull \hbox (badness 10000) detected at line 1813
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1818
+Underfull \hbox (badness 10000) detected at line 1815
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1818
+Underfull \hbox (badness 10000) detected at line 1815
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1827
+Underfull \hbox (badness 10000) detected at line 1824
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1827
+Underfull \hbox (badness 10000) detected at line 1824
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1829
+Underfull \hbox (badness 10000) detected at line 1826
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1829
+Underfull \hbox (badness 10000) detected at line 1826
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 1829--1831
+Underfull \hbox (badness 10000) in paragraph at lines 1826--1828
 []\TU/lmtt/m/n/11 2. Download Rstudio Desktop \TU/NotoSerifCJKKR(0)/m/it/11 의 \TU/lmtt/m/n/11 DOWNLOAD RSTUDIO FOR
  []
 
 
-Underfull \hbox (badness 1215) in paragraph at lines 1829--1831
+Underfull \hbox (badness 1215) in paragraph at lines 1826--1828
 \TU/lmtt/m/n/11 WINDOWS(64bit) \TU/NotoSerifCJKKR(0)/m/it/11 파 란 색 버 튼 을 클 릭 하 고, \TU/lmtt/m/n/11 Studio-1.x.x.exe \TU/NotoSerifCJKKR(0)/m/it/11 파 일 을
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1831
+Underfull \hbox (badness 10000) detected at line 1828
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1831
+Underfull \hbox (badness 10000) detected at line 1828
 [][][]
  []
 
 [55]
-Underfull \hbox (badness 10000) detected at line 1833
+Underfull \hbox (badness 10000) detected at line 1830
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1833
+Underfull \hbox (badness 10000) detected at line 1830
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1835
+Underfull \hbox (badness 10000) detected at line 1832
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1835
+Underfull \hbox (badness 10000) detected at line 1832
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1837
+Underfull \hbox (badness 10000) detected at line 1834
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1837
+Underfull \hbox (badness 10000) detected at line 1834
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1839
+Underfull \hbox (badness 10000) detected at line 1836
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 1839
+Underfull \hbox (badness 10000) detected at line 1836
 [][][]
  []
 
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <11> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1846.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 1843.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/n' in size <11> not available
-(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on input line 1846.
+(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on input line 1843.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/n' will be
-(Font)              scaled to size 12.23099pt on input line 1846.
+(Font)              scaled to size 12.23099pt on input line 1843.
 [56]
 File: pharmapk_files/figure-latex/ggtheoph-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/ggtheoph-1.pdf>
 [57] [58] [59]
-Underfull \hbox (badness 10000) detected at line 2006
+Underfull \hbox (badness 10000) detected at line 2003
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2006
+Underfull \hbox (badness 10000) detected at line 2003
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2016
+Underfull \hbox (badness 10000) detected at line 2013
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2016
+Underfull \hbox (badness 10000) detected at line 2013
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2024
+Underfull \hbox (badness 10000) detected at line 2021
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2024
+Underfull \hbox (badness 10000) detected at line 2021
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2034
+Underfull \hbox (badness 10000) detected at line 2031
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2034
+Underfull \hbox (badness 10000) detected at line 2031
 [][][]
  []
 
 [60]
-Underfull \hbox (badness 10000) detected at line 2042
+Underfull \hbox (badness 10000) detected at line 2039
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 2042
+Underfull \hbox (badness 10000) detected at line 2039
 [][][]
  []
 
 [61]
 
 LaTeX Font Warning: Font shape `TU/NanumGothicCoding(0)/m/it' undefined
-(Font)              using `TU/NanumGothicCoding(0)/m/n' instead on input line 2088.
+(Font)              using `TU/NanumGothicCoding(0)/m/n' instead on input line 2085.
 
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/it' will be
-(Font)              scaled to size 12.39128pt on input line 2088.
+(Font)              scaled to size 12.39128pt on input line 2085.
 [62]
 File: pharmapk_files/figure-latex/ggtheophindi-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/ggtheophindi-1.pdf>
 [63]
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/n' will be
-(Font)              scaled to size 10.13832pt on input line 2182.
+(Font)              scaled to size 10.13832pt on input line 2179.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <9> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2184.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 2181.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/n' in size <9> not available
-(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on input line 2184.
+(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on input line 2181.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/n' will be
-(Font)              scaled to size 10.00717pt on input line 2184.
+(Font)              scaled to size 10.00717pt on input line 2181.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/it' will be
-(Font)              scaled to size 10.13832pt on input line 2211.
+(Font)              scaled to size 10.13832pt on input line 2208.
 [64]
-Underfull \vbox (badness 10000) detected at line 2256
+Underfull \vbox (badness 10000) detected at line 2253
  []
 
 
-Overfull \vbox (1.37842pt too high) detected at line 2256
+Overfull \vbox (1.37842pt too high) detected at line 2253
  []
 
 [65]
@@ -2161,45 +2161,45 @@ File: media-03/pkrshiny.png Graphic file (type bmp)
 File: media-03/figure-shiny-be.png Graphic file (type bmp)
 <media-03/figure-shiny-be.png>
 [82] [83] [84]
-Underfull \vbox (badness 10000) detected at line 2784
+Underfull \vbox (badness 10000) detected at line 2781
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2784
+Overfull \hbox (395.75pt too wide) detected at line 2781
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2784
+Underfull \vbox (badness 10000) detected at line 2781
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2784
+Overfull \hbox (395.75pt too wide) detected at line 2781
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2784
+Underfull \vbox (badness 10000) detected at line 2781
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2784
+Overfull \hbox (395.75pt too wide) detected at line 2781
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 2784
+Underfull \vbox (badness 10000) detected at line 2781
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 2784
+Overfull \hbox (395.75pt too wide) detected at line 2781
 []
  []
 
 Chapter 4.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 2784.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 2781.
 
 File: media-04/image1rev.png Graphic file (type bmp)
 <media-04/image1rev.png>
@@ -2225,9 +2225,9 @@ File: media-04/image5.jpg Graphic file (type bmp)
 <media-04/image5.jpg>
 [90]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 2996.
+(Font)              scaled to size 7.0pt on input line 2993.
 
-Overfull \hbox (13.8858pt too wide) in paragraph at lines 2992--3002
+Overfull \hbox (13.8858pt too wide) in paragraph at lines 2989--2999
  [][] 
  []
 
@@ -2274,45 +2274,45 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [96
 
 ]
-Underfull \vbox (badness 10000) detected at line 3102
+Underfull \vbox (badness 10000) detected at line 3099
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3102
+Overfull \hbox (395.75pt too wide) detected at line 3099
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3102
+Underfull \vbox (badness 10000) detected at line 3099
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3102
+Overfull \hbox (395.75pt too wide) detected at line 3099
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3102
+Underfull \vbox (badness 10000) detected at line 3099
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3102
+Overfull \hbox (395.75pt too wide) detected at line 3099
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3102
+Underfull \vbox (badness 10000) detected at line 3099
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3102
+Overfull \hbox (395.75pt too wide) detected at line 3099
 []
  []
 
 Chapter 5.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 3102.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 3099.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2332,15 +2332,15 @@ File: pharmapk_files/figure-latex/unnamed-chunk-27-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/unnamed-chunk-27-1.pdf>
 [102] [103] [104]
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/n' will be
-(Font)              scaled to size 11.2648pt on input line 3330.
+(Font)              scaled to size 11.2648pt on input line 3327.
 LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <10> not available
-(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3331.
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 3328.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/n' in size <10> not available
-(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on input line 3331.
+(Font)              Font shape `TU/NanumGothicCoding(0)/b/n' tried instead on input line 3328.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/n' will be
-(Font)              scaled to size 11.11908pt on input line 3331.
+(Font)              scaled to size 11.11908pt on input line 3328.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/it' will be
-(Font)              scaled to size 11.2648pt on input line 3331.
+(Font)              scaled to size 11.2648pt on input line 3328.
 [105]
 File: pharmapk_files/figure-latex/onecomp-lag-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/onecomp-lag-1.pdf>
@@ -2348,12 +2348,12 @@ File: pharmapk_files/figure-latex/onecomp-lag-1.pdf Graphic file (type pdf)
 File: pharmapk_files/figure-latex/ggonecomp-iv-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/ggonecomp-iv-1.pdf>
 
-Underfull \hbox (badness 10000) in paragraph at lines 3427--3429
+Underfull \hbox (badness 10000) in paragraph at lines 3424--3426
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 3429--3432
+Underfull \hbox (badness 10000) in paragraph at lines 3426--3429
 
  []
 
@@ -2363,55 +2363,55 @@ File: pharmapk_files/figure-latex/onecomp-iv-1.pdf Graphic file (type pdf)
 [111] [112]
 
 LaTeX Font Warning: Font shape `TU/lmtt/bx/it' in size <11> not available
-(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3631.
+(Font)              Font shape `TU/lmtt/b/sl' tried instead on input line 3628.
 
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/bx/it' in size <11> not available
-(Font)              Font shape `TU/NanumGothicCoding(0)/b/it' tried instead on input line 3631.
+(Font)              Font shape `TU/NanumGothicCoding(0)/b/it' tried instead on input line 3628.
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/b/it' will be
-(Font)              scaled to size 12.23099pt on input line 3631.
+(Font)              scaled to size 12.23099pt on input line 3628.
 [113] [114] [115]
 File: pharmapk_files/figure-latex/twocomp-lag-1.pdf Graphic file (type pdf)
 <use pharmapk_files/figure-latex/twocomp-lag-1.pdf>
 [116] [117] [118]
-Underfull \vbox (badness 10000) detected at line 3790
+Underfull \vbox (badness 10000) detected at line 3787
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3790
+Overfull \hbox (395.75pt too wide) detected at line 3787
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3790
+Underfull \vbox (badness 10000) detected at line 3787
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3790
+Overfull \hbox (395.75pt too wide) detected at line 3787
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3790
+Underfull \vbox (badness 10000) detected at line 3787
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3790
+Overfull \hbox (395.75pt too wide) detected at line 3787
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 3790
+Underfull \vbox (badness 10000) detected at line 3787
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 3790
+Overfull \hbox (395.75pt too wide) detected at line 3787
 []
  []
 
 Chapter 6.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 3790.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 3787.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2441,48 +2441,48 @@ File: media-07/Elimination_pathway.png Graphic file (type bmp)
 <media-07/Elimination_pathway.png>
 [127]
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/b/it' will be
-(Font)              scaled to size 10.0pt on input line 3979.
+(Font)              scaled to size 10.0pt on input line 3976.
 File: media-07/FcRn_recycling.png Graphic file (type bmp)
 <media-07/FcRn_recycling.png>
 [128] [129] [130]
-Underfull \hbox (badness 10000) detected at line 4022
+Underfull \hbox (badness 10000) detected at line 4019
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4022
+Underfull \hbox (badness 10000) detected at line 4019
 [][][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4035
+Underfull \hbox (badness 10000) detected at line 4032
  [][]
  []
 
 
-Underfull \hbox (badness 10000) detected at line 4035
+Underfull \hbox (badness 10000) detected at line 4032
 [][][]
  []
 
 [131]
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 14.31097pt on input line 4054.
+(Font)              scaled to size 14.31097pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 9.54065pt on input line 4054.
+(Font)              scaled to size 9.54065pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4054.
+(Font)              scaled to size 12.0pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(1)/m/n' will be
-(Font)              scaled to size 8.0pt on input line 4054.
+(Font)              scaled to size 8.0pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 14.31226pt on input line 4054.
+(Font)              scaled to size 14.31226pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 9.5415pt on input line 4054.
+(Font)              scaled to size 9.5415pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 14.30951pt on input line 4054.
+(Font)              scaled to size 14.30951pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.53967pt on input line 4054.
+(Font)              scaled to size 9.53967pt on input line 4051.
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 12.0pt on input line 4054.
+(Font)              scaled to size 12.0pt on input line 4051.
 File: media-07/TMDDmodels.png Graphic file (type bmp)
 <media-07/TMDDmodels.png>
 File: media-07/TMDD_structure.png Graphic file (type bmp)
@@ -2510,48 +2510,48 @@ File: media-07/MM.png Graphic file (type bmp)
 File: media-07/ADA.png Graphic file (type bmp)
 <media-07/ADA.png>
 [142] [143] [144]
-Underfull \vbox (badness 10000) detected at line 4311
+Underfull \vbox (badness 10000) detected at line 4308
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4311
+Overfull \hbox (395.75pt too wide) detected at line 4308
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4311
+Underfull \vbox (badness 10000) detected at line 4308
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4311
+Overfull \hbox (395.75pt too wide) detected at line 4308
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4311
+Underfull \vbox (badness 10000) detected at line 4308
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4311
+Overfull \hbox (395.75pt too wide) detected at line 4308
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4311
+Underfull \vbox (badness 10000) detected at line 4308
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4311
+Overfull \hbox (395.75pt too wide) detected at line 4308
 []
  []
 
 별첨 A.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 4311.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 4308.
 
 LaTeX Font Info:    Font shape `TU/NanumGothicCoding(0)/m/n' will be
-(Font)              scaled to size 6.75888pt on input line 4317.
+(Font)              scaled to size 6.75888pt on input line 4314.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -2562,45 +2562,45 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ] [146]
-Underfull \vbox (badness 10000) detected at line 4400
+Underfull \vbox (badness 10000) detected at line 4397
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4400
+Overfull \hbox (395.75pt too wide) detected at line 4397
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4400
+Underfull \vbox (badness 10000) detected at line 4397
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4400
+Overfull \hbox (395.75pt too wide) detected at line 4397
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4400
+Underfull \vbox (badness 10000) detected at line 4397
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4400
+Overfull \hbox (395.75pt too wide) detected at line 4397
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 4400
+Underfull \vbox (badness 10000) detected at line 4397
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 4400
+Overfull \hbox (395.75pt too wide) detected at line 4397
 []
  []
 
 별첨 B.
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 4400.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 4397.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -2650,62 +2650,62 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 [162
 
 ]
-Underfull \vbox (badness 10000) detected at line 5360
+Underfull \vbox (badness 10000) detected at line 5357
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 5360
+Overfull \hbox (395.75pt too wide) detected at line 5357
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5360
+Underfull \vbox (badness 10000) detected at line 5357
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 5360
+Overfull \hbox (395.75pt too wide) detected at line 5357
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5360
+Underfull \vbox (badness 10000) detected at line 5357
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 5360
+Overfull \hbox (395.75pt too wide) detected at line 5357
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 5360
+Underfull \vbox (badness 10000) detected at line 5357
  []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 5360
+Overfull \hbox (395.75pt too wide) detected at line 5357
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 5360
+Underfull \hbox (badness 10000) detected at line 5357
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 5360.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 5357.
 
 
-Underfull \hbox (badness 4391) in paragraph at lines 5366--5367
+Underfull \hbox (badness 4391) in paragraph at lines 5363--5364
 []\TU/NotoSerifCJKKR(0)/m/it/11 Bae, Kyun-Seop. 2020. Wnl: Minimization Tool for Pharmacokinetic-
  []
 
 
-Underfull \hbox (badness 1394) in paragraph at lines 5366--5367
+Underfull \hbox (badness 1394) in paragraph at lines 5363--5364
 \TU/NotoSerifCJKKR(0)/m/it/11 Pharmacodynamic Data Analysis. [][]$[][][][][] [] [] [] [][][][] [] [] [][] [][][][][][][] [] [][][] [] [][][][][][][] []
  []
 
 
-Underfull \hbox (badness 4805) in paragraph at lines 5369--5370
+Underfull \hbox (badness 4805) in paragraph at lines 5366--5367
 []\TU/NotoSerifCJKKR(0)/m/it/11 ———. 2021a. BE: Bioequivalence Study Data Analysis. [][]$[][][][][] [] [] [] [][][][] [] [] [][]
  []
 
@@ -2718,7 +2718,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 
 ] [164]
-Underfull \hbox (badness 2073) in paragraph at lines 5444--5445
+Underfull \hbox (badness 2073) in paragraph at lines 5441--5442
 []\TU/NotoSerifCJKKR(0)/m/it/11 Wickham, Hadley. 2016. Ggplot2: Elegant Graphics for Data Analysis.
  []
 
