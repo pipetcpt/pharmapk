@@ -7,7 +7,6 @@
   11pt,
   krantz2, a4paper, twoside]{krantz}
 \usepackage{amsmath,amssymb}
-\usepackage{lmodern}
 \usepackage{setspace}
 \usepackage{iftex}
 \ifPDFTeX
@@ -15,9 +14,13 @@
   \usepackage[utf8]{inputenc}
   \usepackage{textcomp} % provide euro and other symbols
 \else % if luatex or xetex
-  \usepackage{unicode-math}
+  \usepackage{unicode-math} % this also loads fontspec
   \defaultfontfeatures{Scale=MatchLowercase}
   \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
 \fi
 % Use upquote if available, for straight quotes in verbatim environments
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
@@ -47,13 +50,13 @@
 \newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
 \newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
 \newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
 \newcommand{\BuiltInTok}[1]{#1}
 \newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
-\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
 \newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
@@ -61,7 +64,7 @@
 \newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
 \newcommand{\ExtensionTok}[1]{#1}
 \newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
-\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
 \newcommand{\ImportTok}[1]{#1}
 \newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
@@ -70,7 +73,7 @@
 \newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
 \newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
 \newcommand{\RegionMarkerTok}[1]{#1}
-\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
 \newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
 \newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
@@ -90,28 +93,38 @@
 \providecommand{\tightlist}{%
   \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
 \setcounter{secnumdepth}{5}
+% definitions for citeproc citations
+\NewDocumentCommand\citeproctext{}{}
+\NewDocumentCommand\citeproc{mm}{%
+  \begingroup\def\citeproctext{#2}\cite{#1}\endgroup}
+\makeatletter
+ % allow citations to break across lines
+ \let\@cite@ofmt\@firstofone
+ % avoid brackets around text for \cite:
+ \def\@biblabel#1{}
+ \def\@cite#1#2{{#1\if@tempswa , #2\fi}}
+\makeatother
 \newlength{\cslhangindent}
 \setlength{\cslhangindent}{1.5em}
 \newlength{\csllabelwidth}
 \setlength{\csllabelwidth}{3em}
-\newlength{\cslentryspacingunit} % times entry-spacing
-\setlength{\cslentryspacingunit}{\parskip}
-\newenvironment{CSLReferences}[2] % #1 hanging-ident, #2 entry spacing
- {% don't indent paragraphs
-  \setlength{\parindent}{0pt}
+\newenvironment{CSLReferences}[2] % #1 hanging-indent, #2 entry-spacing
+ {\begin{list}{}{%
+  \setlength{\itemindent}{0pt}
+  \setlength{\leftmargin}{0pt}
+  \setlength{\parsep}{0pt}
   % turn on hanging indent if param 1 is 1
   \ifodd #1
-  \let\oldpar\par
-  \def\par{\hangindent=\cslhangindent\oldpar}
+   \setlength{\leftmargin}{\cslhangindent}
+   \setlength{\itemindent}{-1\cslhangindent}
   \fi
   % set entry spacing
-  \setlength{\parskip}{#2\cslentryspacingunit}
- }%
- {}
+  \setlength{\itemsep}{#2\baselineskip}}}
+ {\end{list}}
 \usepackage{calc}
-\newcommand{\CSLBlock}[1]{#1\hfill\break}
-\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{#1}}
-\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{#1}\break}
+\newcommand{\CSLBlock}[1]{\hfill\break\parbox[t]{\linewidth}{\strut\ignorespaces#1\strut}}
+\newcommand{\CSLLeftMargin}[1]{\parbox[t]{\csllabelwidth}{\strut#1\strut}}
+\newcommand{\CSLRightInline}[1]{\parbox[t]{\linewidth - \csllabelwidth}{\strut#1\strut}}
 \newcommand{\CSLIndent}[1]{\hspace{\cslhangindent}#1}
 %\usepackage{tikz-cd} % \xleftrightarrow
 %\usepackage{amsmath} 
@@ -294,15 +307,14 @@
 \fi
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
-\urlstyle{same} % disable monospaced font for URLs
+\urlstyle{same}
 \hypersetup{
-  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)},
+  pdfauthor={가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필, 최수인 - Ver 2.0.0 (2023-12-05)},
   colorlinks=true,
   linkcolor={Maroon},
   filecolor={Maroon},
   citecolor={Blue},
   urlcolor={Blue},
-  hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
 \title{신약개발을 위한 실전 약동학 I
@@ -310,8 +322,8 @@
 \index{약동학}
 
 (기본원리와 자료해석)}
-\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필 - Ver 1.0.2 (2022-05-13)}
-\date{2022-08-11}
+\author{가톨릭대학교 계량약리학연구소(PIPET) 임동석, 한승훈, 한성필, 최수인 - Ver 2.0.0 (2023-12-05)}
+\date{2023-12-05}
 
 \usepackage{amsthm}
 \newtheorem{theorem}{Theorem}[chapter]
@@ -368,8 +380,7 @@
 \listoffigures
 \listoftables
 \setstretch{1.3}
-\hypertarget{uxba38uxb9acuxb9d0}{%
-\chapter*{머리말}\label{uxba38uxb9acuxb9d0}}
+\chapter*{머리말}\label{uxba38uxb9acuxb9d0}
 
 
 \normalsize
@@ -419,19 +430,16 @@
 
 \mainmatter
 
-\hypertarget{principle}{%
-\chapter{약동학 기초 이론}\label{principle}}
+\chapter{약동학 기초 이론}\label{principle}
 
 \Large\hfill
 
 임동석
 \normalsize
 
-\hypertarget{uxc11cuxb860}{%
-\section{서론}\label{uxc11cuxb860}}
+\section{서론}\label{uxc11cuxb860}
 
-\hypertarget{uxc6a9uxc5b4uxc758-uxc18cuxac1c}{%
-\subsection{용어의 소개}\label{uxc6a9uxc5b4uxc758-uxc18cuxac1c}}
+\subsection{용어의 소개}\label{uxc6a9uxc5b4uxc758-uxc18cuxac1c}
 
 \index{약동학}\index{약동학}
 \index{말초조직}
@@ -460,8 +468,7 @@
 
 \index{약동학}\index{약력학}
 
-\hypertarget{uxc57duxb3d9uxd559uxc744-uxacf5uxbd80uxd558uxb294-uxbaa9uxc801}{%
-\subsection{약동학을 공부하는 목적}\label{uxc57duxb3d9uxd559uxc744-uxacf5uxbd80uxd558uxb294-uxbaa9uxc801}}
+\subsection{약동학을 공부하는 목적}\label{uxc57duxb3d9uxd559uxc744-uxacf5uxbd80uxd558uxb294-uxbaa9uxc801}
 
 \index{약동학}
 \index{신약개발}
@@ -504,7 +511,7 @@
 
 }
 
-\caption{약동학과 약력학을 이용한 적절한 용량용법의 추정 원리 (\protect\hyperlink{ref-derendorf1999modeling}{Derendorf and Meibohm 1999})\index{약동학}\index{약력학}\index{용량용법(dosage regimen)}}\label{fig:pkpd-concept}
+\caption{약동학과 약력학을 이용한 적절한 용량용법의 추정 원리 (\citeproc{ref-derendorf1999modeling}{Derendorf and Meibohm 1999})\index{약동학}\index{약력학}\index{용량용법(dosage regimen)}}\label{fig:pkpd-concept}
 \end{figure}
 
 
@@ -517,8 +524,7 @@
 경우에만 그 두 가지를 결합하여 개발과 인허가의 의사결정에 적극 활용할 수\index{의사결정}
 있게 된다는 것이다.
 
-\hypertarget{admeuxc640-uxc57duxb3d9uxd559}{%
-\section{\texorpdfstring{ADME와 약동학\index{약동학}}{ADME와 약동학}}\label{admeuxc640-uxc57duxb3d9uxd559}}
+\section{\texorpdfstring{ADME와 약동학\index{약동학}}{ADME와 약동학}}\label{admeuxc640-uxc57duxb3d9uxd559}
 
 \index{흡수속도상수}\index{생체이용률}\index{분포용적}\index{청소율}\index{분포용적}\index{청소율}\index{흡수속도상수}
 
@@ -533,8 +539,7 @@ f(Dose, time, k\textsubscript{a}, F, V\textsubscript{d}, CL) 괄호 안의 독�
 수 있는 것이므로 약동학 파라미터라고 하지는 않는다. 이 절에서 각 PK\index{약동학}
 파라미터들의 의미와 흡수, 분포, 대사, 배설의 관련성을 간략히 살펴보기로 한다.
 
-\hypertarget{uxd761uxc218absorption}{%
-\subsection{흡수(absorption)}\label{uxd761uxc218absorption}}
+\subsection{흡수(absorption)}\label{uxd761uxc218absorption}
 
 \index{흡수속도상수}
 \index{약동학}
@@ -603,8 +608,7 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 
 
 
-\hypertarget{uxbd84uxd3ecdistribution}{%
-\subsection{분포(distribution)}\label{uxbd84uxd3ecdistribution}}
+\subsection{분포(distribution)}\label{uxbd84uxd3ecdistribution}
 
 흡수과정을 거쳐 전신순환혈에 도달한 약은 혈류를 타고 전신으로 분포하게
 되는데, 이는 혈관 밖의 조직으로 약물이 확산되어 나감을 의미한다.
@@ -615,8 +619,7 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 일어나지만 그 이외의 장기들로는 시간차를 두고 분포하게 된다. 이 분포의
 정도를 나타내는 파라미터가 V\textsubscript{d}(분포용적, volume of distribution)이다.\index{분포용적}
 
-\hypertarget{uxb300uxc0acmetabolismuxc640-uxbc30uxc124execretion}{%
-\subsection{대사(metabolism)와 배설(execretion)}\label{uxb300uxc0acmetabolismuxc640-uxbc30uxc124execretion}}
+\subsection{대사(metabolism)와 배설(execretion)}\label{uxb300uxc0acmetabolismuxc640-uxbc30uxc124execretion}
 
 약이란 체외에서 들어온 이물질이므로 흡수 시 초회통과를 거치면서
 소장 상피세포와 간에서 대사될 뿐 아니라, 흡수가 끝난 후에도 혈류를 따라
@@ -625,8 +628,7 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 책에서 얻을 수 있으므로 여기서는 다루지 않는다. 몸에서 제거되는 속도에
 관여하는 파라미터가 CL(청소율, clearance)이다.\index{청소율}
 
-\hypertarget{uxc77cuxcc28uxc57duxb3d9uxd559first-order-kineticsuxacfc-uxbc18uxac10uxae30half-life-t12}{%
-\subsection{\texorpdfstring{일차약동학(first-order kinetics)과 반감기(half-life, t\textsubscript{1/2})}{일차약동학(first-order kinetics)과 반감기(half-life, t1/2)}}\label{uxc77cuxcc28uxc57duxb3d9uxd559first-order-kineticsuxacfc-uxbc18uxac10uxae30half-life-t12}}
+\subsection{\texorpdfstring{일차약동학(first-order kinetics)과 반감기(half-life, t\textsubscript{1/2})}{일차약동학(first-order kinetics)과 반감기(half-life, t1/2)}}\label{uxc77cuxcc28uxc57duxb3d9uxd559first-order-kineticsuxacfc-uxbc18uxac10uxae30half-life-t12}
 
 \index{반감기}\index{약동학}\index{반감기}
 
@@ -658,11 +660,9 @@ F는 분율(fraction)을 의미하며 F\textsubscript{a}는 소화관 내에서 
 보통 네 번의 반감기가 지나면 몸 안에 있는 약물이 대부분(90\% 이상)이 제거되었다고 추정하고, 일정한 간격으로 연속적으로 투약할 때에도 네 번(또는 다섯 번)의 반감기가 지나면 혈장약물농도가 더 이상 높이 올라가지 않고 일정한 범위 내에서만 오르내리는 항정상태(steady state)에 도달했다고 추정한다. \index{항정상태}\index{항정상태}\index{반감기}\index{반감기}\index{항정상태}
 반감기는 약물의 약동학적 특징을 나타내는, 쉽게 이해할 수 있는 값이지만 앞서 언급된 두 가지 주된 파라미터인 V\textsubscript{d}와 CL의 비에 의해 결정되는 결과값이며 그 자체가 독립적인 약동학 파라미터는 아니다.\index{반감기}\index{약동학}\index{반감기}
 
-\hypertarget{uxbd84uxd3ecuxc6a9uxc801}{%
-\section{\texorpdfstring{분포용적\index{분포용적}}{분포용적}}\label{uxbd84uxd3ecuxc6a9uxc801}}
+\section{\texorpdfstring{분포용적\index{분포용적}}{분포용적}}\label{uxbd84uxd3ecuxc6a9uxc801}
 
-\hypertarget{uxc57duxbb3cuxc758-uxbd84uxd3ec}{%
-\subsection{약물의 분포}\label{uxc57duxbb3cuxc758-uxbd84uxd3ec}}
+\subsection{약물의 분포}\label{uxc57duxbb3cuxc758-uxbd84uxd3ec}
 
 약물농도를 측정하던 초기에는 앞의 그림 \ref{fig:first-order-elim}와 같이 로그 약물농도가 하나의 기울기를 가지는 직선으로 나타난다고 생각했으나, 주사기를 이용하여 정맥 내로 한꺼번에 약물을 주입하는(i.v. bolus injection) 경우 대부분 그림 \ref{fig:two-slope}와 같이 주사 직후에는 급경사의 직선이, 일정 시간 경과 후 상대적으로 완만한 경사의 직선이 교차하는 형태로 나타난다는 것이 알려지게 되었다.
 
@@ -722,8 +722,7 @@ compartment)라 한다. 이외에 약물이 더 늦게 분포하는 나머지 �
 
 
 
-\hypertarget{uxbd84uxd3ecuxc6a9uxc801vduxc758-uxac1cuxb150uxacfc-uxacc4uxc0b0uxbc29uxbc95}{%
-\subsection{\texorpdfstring{분포용적(V\textsubscript{d})의 개념과 계산방법\index{분포용적}}{분포용적(Vd)의 개념과 계산방법}}\label{uxbd84uxd3ecuxc6a9uxc801vduxc758-uxac1cuxb150uxacfc-uxacc4uxc0b0uxbc29uxbc95}}
+\subsection{\texorpdfstring{분포용적(V\textsubscript{d})의 개념과 계산방법\index{분포용적}}{분포용적(Vd)의 개념과 계산방법}}\label{uxbd84uxd3ecuxc6a9uxc801vduxc758-uxac1cuxb150uxacfc-uxacc4uxc0b0uxbc29uxbc95}
 
 앞서 우리는 약물이 혈관 밖의 말초조직들로 분포하는 것을 살펴보았다.
 그런데, 그 분포의 정도는 약물의 물리화학적 성질에 따라 달라지며 혈장약물농도의 변화에 큰 영향을 미친다.
@@ -764,8 +763,7 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 그치는 약은 드물며, 조직 표면에 결합하거나 세포막을 투과할 수 있는
 많은 약들이 이보다 더 큰 V\textsubscript{d}를 나타낸다.
 
-\hypertarget{vduxc640-uxc57duxc758-uxbb3cuxb9acuxd654uxd559uxc801-uxd2b9uxc131uxc758-uxad00uxacc4}{%
-\subsection{\texorpdfstring{V\textsubscript{d}와 약의 물리화학적 특성의 관계}{Vd와 약의 물리화학적 특성의 관계}}\label{vduxc640-uxc57duxc758-uxbb3cuxb9acuxd654uxd559uxc801-uxd2b9uxc131uxc758-uxad00uxacc4}}
+\subsection{\texorpdfstring{V\textsubscript{d}와 약의 물리화학적 특성의 관계}{Vd와 약의 물리화학적 특성의 관계}}\label{vduxc640-uxc57duxc758-uxbb3cuxb9acuxd654uxd559uxc801-uxd2b9uxc131uxc758-uxad00uxacc4}
 
 혈관 밖의 조직으로 약이 분포하는 경향이 클수록 V\textsubscript{d}가 커지므로 분자량이
 작은 경우 혈관 외부로의 이동은 물론 세포막 통과도 쉬우므로 V\textsubscript{d}가 클
@@ -803,8 +801,7 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 실제 환자에서 약물의 V\textsubscript{d}는 혈장의 용적, 조직의 용적이 큰 사람일수록 커지므로(즉 체중이 클수록 커지므로) 보통 L/kg의 단위로 표기하게 된다.
 \index{체중}
 
-\hypertarget{vduxc640-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxad00uxacc4}{%
-\subsection{\texorpdfstring{V\textsubscript{d}와 혈장단백결합률의 관계\index{혈장단백결합}}{Vd와 혈장단백결합률의 관계}}\label{vduxc640-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxad00uxacc4}}
+\subsection{\texorpdfstring{V\textsubscript{d}와 혈장단백결합률의 관계\index{혈장단백결합}}{Vd와 혈장단백결합률의 관계}}\label{vduxc640-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxb960uxc758-uxad00uxacc4}
 
 \index{혈장단백결합}
 대부분의 약동학 교과서들에서 전혀 언급되지 않는 내용이지만, 혈장단백결합률과 약물의 분포의 관계에 관해서 많은 이들이 오해하고 있는 부분이 있어서 이 장에서는 별도의 섹션으로 다루었다.
@@ -837,7 +834,7 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 조직에 대한 용해도가 높은 경우(지용성이 높은 약 등)에는 혈관 밖의
 조직들로 약물이 퍼져 나가는 것을 막을 수가 없어서 혈장단백결합율만\index{혈장단백결합}
 가지고 V\textsubscript{d}가 크거나 작을 것이라고 미리 단정하는 것은 무리이다. 그림 \ref{fig:chart}은
-알려진 670가지 소분자 의약품의 약동학 파라미터들을 정리한 표(\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008})를\index{약동학}
+알려진 670가지 소분자 의약품의 약동학 파라미터들을 정리한 표(\citeproc{ref-obach2008trend}{Obach, Lombardo, and Waters 2008})를\index{약동학}
 바탕으로 그려본 f\textsubscript{u}와 V\textsubscript{d}의 관계로서 어떤 경향성을 찾을 수 없다는 것을
 알 수 있다. 다만 동일한 약에서, 질병 등으로 인해 혈장단백질
 결합율이 감소하는 경우(간기능 이상 등으로 혈장단백질 자체가 감소하거나
@@ -850,24 +847,21 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 
 }
 
-\caption{알려진 670가지 소분자 의약품의 약동학 파라미터(\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008})를 이용하여 그려 본 V\textsubscript{d}(V\textsubscript{dss})와 f\textsubscript{u}의 산점도: V\textsubscript{d}와 f\textsubscript{u}는 아무 관계도 없음을 알 수 있다.}\label{fig:chart}
+\caption{알려진 670가지 소분자 의약품의 약동학 파라미터(\citeproc{ref-obach2008trend}{Obach, Lombardo, and Waters 2008})를 이용하여 그려 본 V\textsubscript{d}(V\textsubscript{dss})와 f\textsubscript{u}의 산점도: V\textsubscript{d}와 f\textsubscript{u}는 아무 관계도 없음을 알 수 있다.}\label{fig:chart}
 \end{figure}
 
 
 
-\hypertarget{vduxac00-uxc57duxb3d9uxd559uxc5d0-uxbbf8uxce58uxb294-uxc601uxd5a5}{%
-\subsection{\texorpdfstring{V\textsubscript{d}가 약동학에 미치는 영향\index{약동학}}{Vd가 약동학에 미치는 영향}}\label{vduxac00-uxc57duxb3d9uxd559uxc5d0-uxbbf8uxce58uxb294-uxc601uxd5a5}}
+\subsection{\texorpdfstring{V\textsubscript{d}가 약동학에 미치는 영향\index{약동학}}{Vd가 약동학에 미치는 영향}}\label{vduxac00-uxc57duxb3d9uxd559uxc5d0-uxbbf8uxce58uxb294-uxc601uxd5a5}
 
 V\textsubscript{d}가 클수록 같은 양을 투여해도 약물의 최고 혈장농도 (C\textsubscript{max})는 낮을 것이다.
 또 V\textsubscript{d}는 \ref{clearance-concept}절에서 설명할 CL와 함께 약의 반감기를 결정하는 두가지\index{반감기} 파라미터 중 하나이다. \index{반감기}
 같은 CL를 가진 약물들이라 해도 V\textsubscript{d}가 다르면, V\textsubscript{d}가 더 큰 약일수록 반감기도 늘어난다. \index{반감기}
 약물의 흡수를 나타내는 것은\index{반감기} k\textsubscript{a}와 F지만, 일단 소화관내의 약이 모두 전신순환혈로 들어온 이후에 약의 혈장농도를 결정하는 것은 V\textsubscript{d}와 CL 뿐이다.\index{반감기}
 
-\hypertarget{clearance-concept}{%
-\section{청소율(CL)의 개념과 적용}\label{clearance-concept}}
+\section{청소율(CL)의 개념과 적용}\label{clearance-concept}
 
-\hypertarget{uxccaduxc18cuxc728uxc758-uxc774uxd574}{%
-\subsection{\texorpdfstring{청소율의 이해\index{청소율}}{청소율의 이해}}\label{uxccaduxc18cuxc728uxc758-uxc774uxd574}}
+\subsection{\texorpdfstring{청소율의 이해\index{청소율}}{청소율의 이해}}\label{uxccaduxc18cuxc728uxc758-uxc774uxd574}
 
 몸이 약을 제거하는 능력을 시간당 제거하는 약물의 양(mg/h 와 같은 단위)으로 나타내는 대신, 시간당 그 약이 녹아 있던 혈장이나 혈액을 얼마나 청소해 주었는지(혈액이나 혈장의 부피)로 나타내는 것(L/h 등의 단위)이 청소율(CL)이다. \index{청소율}
 즉 용매(혈장)에 녹아 있는 용질(약)을 제거하는 몸의 능력을 용질보다는 용매를 중심으로 표현하는 것이다.
@@ -875,7 +869,7 @@ V\textsubscript{d}가 클수록 같은 양을 투여해도 약물의 최고 혈�
 그것은 시간당 제거되는 약의 양이라는 단위로 표현하면 약의 혈장 농도가 높을 때는 제거 능력이 상대적으로 크다가 농도가 떨어지면 줄어든 값이 되어 일정한 값으로 표현하는 것이 불가능한 반면, 시간당 청소되는 혈액이나 혈장의 부피는 같은 사람에서 약물별로 그 약물의 혈장농도와 무관하게 고정불변의 값을 나타내기 때문이다.
 이러한 고정불변의 CL가 있기 때문에 약물이 1차식에 의해 제거되고 일정한 반감기를 나타내지만, 처음 배우는 사람은 이 개념을 이해하는 것이 어렵다. \index{반감기}\index{청소율}\index{반감기}
 이해를 돕기 위해 약을 제거하는 장기(간이나 콩팥)를 진공청소기로, 혈장을 공기로, 약물을 먼지로 비유하여 설명하고자 한다.
-이 비유적 사례를 통해 왜 CL를 장기의 약물제거 능력을 나타내는 파라미터로 쓰는지 이해할 수 있을 것이다. (\protect\hyperlink{ref-yim2017tutorial}{Dong-Seok Yim 2017})
+이 비유적 사례를 통해 왜 CL를 장기의 약물제거 능력을 나타내는 파라미터로 쓰는지 이해할 수 있을 것이다. (\citeproc{ref-yim2017tutorial}{Dong-Seok Yim 2017})
 
 \begin{center}\rule{0.5\linewidth}{0.5pt}\end{center}
 
@@ -937,8 +931,7 @@ Dose = \lim_{\Delta t \rightarrow 0}{\sum_{}^{}{CL \cdot C\left( t \right) \cdot
 AUC는 적분계산을 하지 않더라도, 채혈시간과 측정된 혈장약물농도 값으로 그린 곡선의 면적을 사다리꼴의 공식 등으로 계산하여 근사적으로 구할 수 있는데 그 방법은 NCA(non-compartmental analysis, 비구획분석)장에서 다룬다.
 \end{rmdtip}
 
-\hypertarget{uxccaduxc18cuxc728uxacfc-k-t12uxc758-uxad00uxacc4}{%
-\subsection{\texorpdfstring{청소율과 k, t\textsubscript{1/2}의 관계\index{청소율}}{청소율과 k, t1/2의 관계}}\label{uxccaduxc18cuxc728uxacfc-k-t12uxc758-uxad00uxacc4}}
+\subsection{\texorpdfstring{청소율과 k, t\textsubscript{1/2}의 관계\index{청소율}}{청소율과 k, t1/2의 관계}}\label{uxccaduxc18cuxc728uxacfc-k-t12uxc758-uxad00uxacc4}
 
 앞서 약의 분포를 나타내는 파라미터가 V\textsubscript{d}이고 제거능력을 나타내는 파라미터는 CL임을 배웠다.
 그러면 그림 \ref{fig:first-order-elim}에 나타난 것과 같은 직선의 경사에 해당하는 약물의 제거속도상수(k 또는 k\textsubscript{e}로 표기: e는 elimination을 의미함)는 k = CL/V\textsubscript{d}의 관계를 따른다.
@@ -954,8 +947,7 @@ AUC는 적분계산을 하지 않더라도, 채혈시간과 측정된 혈장약�
 즉, B의 V\textsubscript{d}가 A보다 2배 크다면, 혈장이 청소되어 약물농도가 낮아지려 할 때, B는 A에 비해 조직에서 혈장으로 약이 그만큼 더 많이 이동하여 혈장에서 사라진 약물 분자들의 빈 자리를 더 빨리 채울 것이다.
 따라서 V\textsubscript{d}가 크면 클수록 혈장약물농도를 빨리 떨어뜨리는 것이 힘들다(반감기가 길다)는 것을 알 수 있다.\index{분포용적}\index{반감기}\index{반감기}
 
-\hypertarget{pk-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc740-uxc57duxb9c8uxb2e4-uxc0acuxb78cuxb9c8uxb2e4-uxb2e4uxb974uxb2e4}{%
-\subsection{PK 파라미터들은 약마다, 사람마다 다르다}\label{pk-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc740-uxc57duxb9c8uxb2e4-uxc0acuxb78cuxb9c8uxb2e4-uxb2e4uxb974uxb2e4}}
+\subsection{PK 파라미터들은 약마다, 사람마다 다르다}\label{pk-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc740-uxc57duxb9c8uxb2e4-uxc0acuxb78cuxb9c8uxb2e4-uxb2e4uxb974uxb2e4}
 
 지금까지 열거된 PK 파라미터들인 k\textsubscript{a}, F, CL, V\textsubscript{d}는 모두 각 약물마다 제각기 다른 값들을 가지고 있다.
 이들 파라미터 값들이 약물분자들의 물리화학적 특징에 따라 일정한 경향성을 나타내기 때문에 그러하다.
@@ -970,11 +962,9 @@ AUC는 적분계산을 하지 않더라도, 채혈시간과 측정된 혈장약�
 즉 개개인의 PK 파라미터는 약의 물리화학적 특성과 개인의 신체적 특성(체중, BMI, 장기 기능, 질병상태 등)이 상호작용하여 정해지는 것이라 할 수 있다.
 \index{체중}
 
-\hypertarget{cluxc640-vduxc758-uxad00uxacc4uxc5d0-uxad00uxd55c-uxace0uxcc30}{%
-\subsection{\texorpdfstring{CL와 V\textsubscript{d}의 관계에 관한 고찰}{CL와 Vd의 관계에 관한 고찰}}\label{cluxc640-vduxc758-uxad00uxacc4uxc5d0-uxad00uxd55c-uxace0uxcc30}}
+\subsection{\texorpdfstring{CL와 V\textsubscript{d}의 관계에 관한 고찰}{CL와 Vd의 관계에 관한 고찰}}\label{cluxc640-vduxc758-uxad00uxacc4uxc5d0-uxad00uxd55c-uxace0uxcc30}
 
-\hypertarget{cluxc640-vduxc758-uxb3c5uxb9bduxc131}{%
-\subsubsection{\texorpdfstring{CL와 V\textsubscript{d}의 독립성}{CL와 Vd의 독립성}}\label{cluxc640-vduxc758-uxb3c5uxb9bduxc131}}
+\subsubsection{\texorpdfstring{CL와 V\textsubscript{d}의 독립성}{CL와 Vd의 독립성}}\label{cluxc640-vduxc758-uxb3c5uxb9bduxc131}
 
 우리는 앞에서 CL와 V\textsubscript{d}의 관계가 k =CL/V\textsubscript{d}라는 수식으로 나타낼 수
 있음을 보았다. 이 식은 제거속도상수 k가 CL와 V\textsubscript{d}에 의해 결정된다는 것을
@@ -1002,13 +992,12 @@ CL값이 커지면 V\textsubscript{d}가 비례해서 커진다는(V\textsubscri
 
 }
 
-\caption{670가지 약물에서 보고된 CL와 V\textsubscript{d}로써 그려 본 산점도 (\protect\hyperlink{ref-obach2008trend}{Obach, Lombardo, and Waters 2008}): CL과 V\textsubscript{d}는 아무 관계도 없음을 알 수 있다.}\label{fig:cl-vd}
+\caption{670가지 약물에서 보고된 CL와 V\textsubscript{d}로써 그려 본 산점도 (\citeproc{ref-obach2008trend}{Obach, Lombardo, and Waters 2008}): CL과 V\textsubscript{d}는 아무 관계도 없음을 알 수 있다.}\label{fig:cl-vd}
 \end{figure}
 
 
 
-\hypertarget{uxac1cuxc778uxbcc4-cluxc640-vduxc758-uxc0c1uxad00uxc131}{%
-\subsubsection{\texorpdfstring{개인별 CL와 V\textsubscript{d}의 상관성}{개인별 CL와 Vd의 상관성}}\label{uxac1cuxc778uxbcc4-cluxc640-vduxc758-uxc0c1uxad00uxc131}}
+\subsubsection{\texorpdfstring{개인별 CL와 V\textsubscript{d}의 상관성}{개인별 CL와 Vd의 상관성}}\label{uxac1cuxc778uxbcc4-cluxc640-vduxc758-uxc0c1uxad00uxc131}
 
 다만, 약의 물리화학적 특성에 무관하게, 한 가지 성분의 약을 골라서 사람들에게 투여하여 얻은 각자의 CL와 V\textsubscript{d}를 비교해 본다면, V\textsubscript{d}가 작은 사람이라면 그 사람의 CL도 작은 경향이 있고, V\textsubscript{d}가 큰 사람에서는 그 사람의 CL도 큰 경향이 있다.
 모든 약의 V\textsubscript{d}는 체중이 클수록 커지는 경향이 있다. \index{체중}
@@ -1018,8 +1007,7 @@ CL의 경우는 콩팥과 간에 의한 대사속도를 반영하는데 콩팥�
 어떤 약이건 환자 각자에서 얻어진 CL와 V\textsubscript{d}는 양의 상관관계가 있다.
 이런 체중과 CL의 상관성을 무시하고 집단약동학(population PK) 모델을 만들면 시뮬레이션을 수행할 때 현실과 동떨어진 가상데이터(예컨데 어떤 약에 대한 V\textsubscript{d}가 아주 크면서 CL는 아주 작은 가상환자)를 만들어낼 위험이 있다.\index{약동학}\index{체중}\index{시뮬레이션}
 
-\hypertarget{uxb2e4uxd68cuxd22cuxc5ecmultiple-doseuxc758-uxc57duxb3d9uxd559}{%
-\section{\texorpdfstring{다회투여(multiple dose)의 약동학\index{약동학}}{다회투여(multiple dose)의 약동학}}\label{uxb2e4uxd68cuxd22cuxc5ecmultiple-doseuxc758-uxc57duxb3d9uxd559}}
+\section{\texorpdfstring{다회투여(multiple dose)의 약동학\index{약동학}}{다회투여(multiple dose)의 약동학}}\label{uxb2e4uxd68cuxd22cuxc5ecmultiple-doseuxc758-uxc57duxb3d9uxd559}
 
 첫 번 투약하고 24 시간이 지난 후 약이 몸 안에서 완전히 제거되지 않았는데도 다음 번 투약을 하고, 이것을 일정한 시간 간격으로 반복하면, 혈장약물농도가 한없이 올라갈 것 같지만, 1차식에 의해 제거되는 약의 농도는 그렇지 않고 일정한 범위 안에서 머물게 되어 있다.
 대부분의 약들의 용량용법은 일정 간격(24 시간 등)으로 여러 번 투여하여 약물농도가 일정 범위 안에서 올라가고 내려감을 반복할 때 약효가 가장 잘 나타나도록 설계되어 있다.\index{용량용법(dosage regimen)}
@@ -1069,8 +1057,7 @@ e\textsuperscript{-knτ} 식에서 지수부분(-knτ)은 제거속도상수 k�
 마찬가지로 투여간격 τ를 늘여도 항정상태 도달시간은 변치 않으며, 1-e\textsuperscript{-kτ} 값이 커지므로 얻어지는 C\textsubscript{max\_ss}가 작아지게 된다. \index{항정상태}\index{항정상태}\index{항정상태}
 또 t\textsubscript{1/2}가 τ에 비해 훨씬 짧을 경우 축적 자체가 일어나지 않게 되므로 항정상태라는 개념도 의미가 없게 되는데 수식으로 표현하면 t\textsubscript{1/2} × 4\textasciitilde5 \textless{} τ 와 같은 상황이 되어 두번째 용량을 투여하기 이전에 이미 항정상태에 도달해 버렸다고도 생각할 수 있다.\index{항정상태}\index{항정상태}\index{항정상태}
 
-\hypertarget{uxc815uxb9e5uxc8fcuxc785continuous-infusionuxc758-uxc57duxb3d9uxd559}{%
-\section{\texorpdfstring{정맥주입(continuous infusion)의 약동학\index{약동학}}{정맥주입(continuous infusion)의 약동학}}\label{uxc815uxb9e5uxc8fcuxc785continuous-infusionuxc758-uxc57duxb3d9uxd559}}
+\section{\texorpdfstring{정맥주입(continuous infusion)의 약동학\index{약동학}}{정맥주입(continuous infusion)의 약동학}}\label{uxc815uxb9e5uxc8fcuxc785continuous-infusionuxc758-uxc57duxb3d9uxd559}
 
 혈관을 통해 투여하되 한꺼번에 주사(bolus)하지 않고 지속적으로 주입하는
 경우, 혈장약물농도는 부드러운 곡선 모양으로 상승하게된다. 이는, 그림 \ref{fig:iv-6}과 같은 다회투여의 약동학을, 용량을 작게 나누어서 매우 짧은\index{약동학}
@@ -1081,8 +1068,7 @@ e\textsuperscript{-knτ} 식에서 지수부분(-knτ)은 제거속도상수 k�
 항정상태에 도달하는 시간, 주입을 중단하면 1차식을 따라 감소하는 양상\index{항정상태}\index{항정상태}\index{항정상태}
 등이 모두 동일하다.
 
-\hypertarget{uxcd5cuxc885uxbc18uxac10uxae30uxc758-uxac1cuxb150uxacfc-uxc8fcuxc758uxc810}{%
-\section{\texorpdfstring{최종반감기의 개념과 주의점\index{반감기}\index{반감기}\index{최종반감기}}{최종반감기의 개념과 주의점}}\label{uxcd5cuxc885uxbc18uxac10uxae30uxc758-uxac1cuxb150uxacfc-uxc8fcuxc758uxc810}}
+\section{\texorpdfstring{최종반감기의 개념과 주의점\index{반감기}\index{반감기}\index{최종반감기}}{최종반감기의 개념과 주의점}}\label{uxcd5cuxc885uxbc18uxac10uxae30uxc758-uxac1cuxb150uxacfc-uxc8fcuxc758uxc810}
 
 앞에서는 간결한 설명을 위해 정맥주사 후 말초구획으로 약이 확산되어\index{말초구획}\index{말초구획}
 급격히 농도가 떨어지는 분포기(그림 \ref{fig:two-slope})를 가정하지 않았다. 그러나 실제
@@ -1114,8 +1100,7 @@ t\textsubscript{1/2}를 측정하게 된다. 분포기의 기울기로도 t\text
 약동학 연구 결과를 분석하는 기본적인 방법인 비구획분석(non-compartmental analysis, NCA)의 결과표에는 이런 자세한 맥락을 담을 수 없고, 그림 \ref{fig:three-slope}와 같은 상황이라면 γ-phase의 반감기가 최종반감기로 기록되는데 그 표에 적힌 반감기 값만 읽으면 이렇게 오판하게 되는 경우가 드물지 않다. \index{약동학}\index{반감기}\index{최종반감기}
 따라서 약동학연구의 결과를 제대로 해석하기 위해서는, 특정한 파라미터 값만 보고 판단하지 말고 그 약물의 약동학적 프로파일을 종합적으로 파악할 수 있어야 한다.\index{약동학}
 
-\hypertarget{uxacbduxad6cuxd22cuxc5ecuxc758-uxc57duxb3d9uxd559}{%
-\section{\texorpdfstring{경구투여의 약동학\index{약동학}}{경구투여의 약동학}}\label{uxacbduxad6cuxd22cuxc5ecuxc758-uxc57duxb3d9uxd559}}
+\section{\texorpdfstring{경구투여의 약동학\index{약동학}}{경구투여의 약동학}}\label{uxacbduxad6cuxd22cuxc5ecuxc758-uxc57duxb3d9uxd559}
 
 지금까지 쉬운 이해를 위해 정맥 bolus injection 상황을 예시하여 설명하였지만, 우리가 아는 약의 99\% 이상은 먹는 약이다.
 먹는 약이 전신순환혈로 흡수되는데 관련된 약동학 파라미터는 이 장의 처음에 나온대로 k\textsubscript{a}와 F이다. \index{약동학}
@@ -1175,11 +1160,9 @@ k\textsubscript{a}가 바뀌었다고 해서 t\textsubscript{1/2}가 바뀌어�
 
 
 
-\hypertarget{uxbe44uxc120uxd615-uxc57duxb3d9uxd559}{%
-\section{\texorpdfstring{비선형 약동학\index{약동학}}{비선형 약동학}}\label{uxbe44uxc120uxd615-uxc57duxb3d9uxd559}}
+\section{\texorpdfstring{비선형 약동학\index{약동학}}{비선형 약동학}}\label{uxbe44uxc120uxd615-uxc57duxb3d9uxd559}
 
-\hypertarget{uxbe44uxc120uxd615uxc57duxb3d9uxd559uxacfc-uxc120uxd615uxc57duxb3d9uxd559uxc758-uxcc28uxc774}{%
-\subsection{\texorpdfstring{비선형약동학과 선형약동학의 차이\index{약동학}\index{비선형약동학}}{비선형약동학과 선형약동학의 차이}}\label{uxbe44uxc120uxd615uxc57duxb3d9uxd559uxacfc-uxc120uxd615uxc57duxb3d9uxd559uxc758-uxcc28uxc774}}
+\subsection{\texorpdfstring{비선형약동학과 선형약동학의 차이\index{약동학}\index{비선형약동학}}{비선형약동학과 선형약동학의 차이}}\label{uxbe44uxc120uxd615uxc57duxb3d9uxd559uxacfc-uxc120uxd615uxc57duxb3d9uxd559uxc758-uxcc28uxc774}
 
 이 장에서 지금까지 다룬 약동학은 CL이 일정하고 반감기가 일정한 선형(linear)약동학에 관한 내용이었다. \index{반감기}\index{약동학}\index{반감기}
 시판 중인 의약품의 거의 전부가 선형약동학을 따르지만 예외적인 경우가 있는데 phenytoin, salicylate, ethanol 등이 사람 몸에서 비선형(non-linear)약동학을 보이는 물질들이다.\index{약동학}
@@ -1217,7 +1200,7 @@ k\textsubscript{a}가 바뀌었다고 해서 t\textsubscript{1/2}가 바뀌어�
 CL = V\textsubscript{max}/(K\textsubscript{m}+C)이므로 농도가 높아질수록 떨어지고, 반감기 역시 농도가\index{반감기}\index{반감기}
 높아질수록 길어지게 된다. 따라서 매일 투여하는 phenytoin 과 같은 약의
 경우, 일일투여용량을 2배로 늘리면 항정상태 혈장농도는 2배보다 훨씬 높게\index{항정상태}\index{항정상태}
-올라가는 경우가 흔히 발생함이(그림 \ref{fig:phenytoin}) 오래전부터 알려져 있다 (\protect\hyperlink{ref-richens1975serum}{Richens and Dunlop 1975}).
+올라가는 경우가 흔히 발생함이(그림 \ref{fig:phenytoin}) 오래전부터 알려져 있다 (\citeproc{ref-richens1975serum}{Richens and Dunlop 1975}).
 안전역이 좁은 약들의 경우 비선형약동학을 따르는 경우 용량조절을 위해 혈장농도를 측정하면서 개인별 약동학 파라미터를 추정하는 등 주의를 기울여야 한다. \index{약동학}\index{비선형약동학}
 보통의 선형약동학을 따르는 약물의 경우는 투여량의 증감에 농도도 정비례한다.\index{약동학}
 
@@ -1227,34 +1210,31 @@ CL = V\textsubscript{max}/(K\textsubscript{m}+C)이므로 농도가 높아질수
 
 }
 
-\caption{phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. (\protect\hyperlink{ref-richens1975serum}{Richens and Dunlop 1975})\index{약동학}\index{비선형약동학}}\label{fig:phenytoin}
+\caption{phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. (\citeproc{ref-richens1975serum}{Richens and Dunlop 1975})\index{약동학}\index{비선형약동학}}\label{fig:phenytoin}
 \end{figure}
 
 
 
 혈장약물농도가 시간에 따라 감소하는 경향을 그려보면 로그농도는 볼록한 곡선, 농도는 직선으로 떨어지는 양상을 보이다가 농도가 K\textsubscript{m} 값보다 훨씬 낮은 수준으로 떨어지면 선형약동학과 같이 로그농도가 직선, 농도가 오목한 곡선모양으로 떨어지게 된다.\index{약동학}
 
-\hypertarget{uxbe44uxc120uxd615uxc57duxb3d9uxd559uxacfc-uxc6a9uxb7c9uxc758-uxad00uxb828uxc131}{%
-\subsection{\texorpdfstring{비선형약동학과 용량의 관련성\index{약동학}\index{비선형약동학}}{비선형약동학과 용량의 관련성}}\label{uxbe44uxc120uxd615uxc57duxb3d9uxd559uxacfc-uxc6a9uxb7c9uxc758-uxad00uxb828uxc131}}
+\subsection{\texorpdfstring{비선형약동학과 용량의 관련성\index{약동학}\index{비선형약동학}}{비선형약동학과 용량의 관련성}}\label{uxbe44uxc120uxd615uxc57duxb3d9uxd559uxacfc-uxc6a9uxb7c9uxc758-uxad00uxb828uxc131}
 
 앞서 언급된 바와 같이 선형약동학을 보이는 어떤 약이라 해도, 극단적으로 높은 용량을 투여하면 대사능이 포화상태에 근접하면서 비선형약동학을 나타낼 수 있다. \index{약동학}\index{비선형약동학}
 유사한 상황은 매우 높은 용량까지도 투여하는 비임상 독성시험의 독성약동학(toxicokinetics)자료들에서도 나타날 수 있다.\index{약동학}\index{독성약동학}
 
 신약후보물질들의 스크리닝 시 유효농도 부근에서 비선형 약동학을 보이는 물질이라면 가능한 구조변경 등을 통해 선형적인 약동학을 보이는 물질로 대체하는 것이 이후 비선형에 따르는 개발의 숱한 이슈들을 벗어나는 방법이다.\index{약동학}
 
-\hypertarget{uxd6c4uxbcf4uxbb3cuxc9c8uxc758-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxc728uxc758-uxd574uxc11duxc5d0-uxad00uxd55c-uxc8fcuxc758uxd560-uxc810}{%
-\section{후보물질의 혈장단백결합율의 해석에 관한 주의할 점}\label{uxd6c4uxbcf4uxbb3cuxc9c8uxc758-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxc728uxc758-uxd574uxc11duxc5d0-uxad00uxd55c-uxc8fcuxc758uxd560-uxc810}}
+\section{후보물질의 혈장단백결합율의 해석에 관한 주의할 점}\label{uxd6c4uxbcf4uxbb3cuxc9c8uxc758-uxd608uxc7a5uxb2e8uxbc31uxacb0uxd569uxc728uxc758-uxd574uxc11duxc5d0-uxad00uxd55c-uxc8fcuxc758uxd560-uxc810}
 
 혈장단백질에 결합하지 않은 약물분자들만 타겟에 결합할 수 있다는 것이 이른바 free drug hypothesis이다.
 어떤 용량용법으로 사람에게 투여된 약이 효과를 나타내기 위해서는 그 용량용법으로 연속 투여한 후 얻어지는 항정상태에서의 혈장 비결합약물농도(C\textsubscript{ss,u} = f\textsubscript{u} · C\textsubscript{tot})가 IC\textsubscript{50}, EC\textsubscript{50}, K\textsubscript{m} 등의 약력학 파라미터의 값보다 투여간격 동안 더 높게 유지되어야 한다고 볼 수 있다.
 충분히 높은 혈장에서의 비결합농도(free concentration)를 확보한다는 측면에서 후보물질의 물리화학적 특성 중 혈장단백결합율이 낮은, 즉 f\textsubscript{u}가 높은 물질일수록 유리할 것이라고 흔히 짐작함으로 인해, 후보물질의 초기 스크리닝에 있어 f\textsubscript{u}가 낮은 물질을 제외시키려는 생각을 하기도 한다.
 그러나 실제 시판 중인 약 성분들의 30\% 가량이 혈장단백결합율이 95\%이상(즉 f\textsubscript{u} \textless{} 0.05)임을 감안하면, 단순히 f\textsubscript{u}가 낮다고 좋은 후보물질이 아니라는 우려는 지나친 것이다.
 중요한 것은 치료용량에서 확보되는 C\textsubscript{ss,u}인데 이는 f\textsubscript{u} 뿐만 아니라 다른 여러 PK 파라미터들에 의해 결정되기 때문이다. 또한, in vitro에서 구한 IC\textsubscript{50}, EC\textsubscript{50}, K\textsubscript{m} 등은 임상시험에서 효과를 나타내는 혈장약물농도보다 훨씬 높은 경우도 약물 군별로 보고된 바 있다.
-(즉, in vitro IC\textsubscript{50}, EC\textsubscript{50}, K\textsubscript{m} 보다 훨씬 낮은 C\textsubscript{ss,u}에서도 사람에서 충분한 약효가 나타나는 경우들: (\protect\hyperlink{ref-yim2019potency}{Dong-Seok Yim 2019}))
+(즉, in vitro IC\textsubscript{50}, EC\textsubscript{50}, K\textsubscript{m} 보다 훨씬 낮은 C\textsubscript{ss,u}에서도 사람에서 충분한 약효가 나타나는 경우들: (\citeproc{ref-yim2019potency}{Dong-Seok Yim 2019}))
 그러므로 비임상 개발 단계에서는 in vitro 약효실험 데이터와 f\textsubscript{u} 만으로 유효농도를 추정할 수도 있지만, 질병모델동물에서 in vivo 약효실험을 수행한 후 얻어진 약효와 혈장농도의 관계로부터 사람에서의 유효용량이나 유효혈장농도를 추정하는 것이 좀 더 신뢰할 수 있는 접근법이다.
 
-\hypertarget{uxb9fauxc74cuxb9d0}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0}
 
 일정한 CL와 t\textsubscript{1/2}를 나타내는 약물에서의 약동학인 선형약동학은 의약품의 체내 거동을 이해하기 위한 가장 중요하고 기본적인 도구이다. \index{약동학}
 V\textsubscript{d}와 CL에 의해 k와 반감기가 결정되고, 흡수는 k\textsubscript{a}와 F에 의해 결정된다. \index{반감기}\index{반감기}
@@ -1266,18 +1246,16 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 단클론항체는 타겟이 되는 항원이 혈액 내에 존재하는지, 세포표면에 존재하는지, 결합 후 항원세포내로 이동하는지 등에 따라 훨씬 다양하고 복잡한 양상을 나타낸다. \index{단클론항체}
 이는 이후 출간될 책에서 다루고자 한다.
 
-\protect\hyperlink{principle}{1장}의 내용은 이 책의 뒷부분에 이어지는 내용들을 이해하는데 필수적인 내용이므로 약동학을 처음 접하는 독자들은 동영상 교재와 함께 반복적으로 학습하는 것이 좋다.
+\hyperref[principle]{1장}의 내용은 이 책의 뒷부분에 이어지는 내용들을 이해하는데 필수적인 내용이므로 약동학을 처음 접하는 독자들은 동영상 교재와 함께 반복적으로 학습하는 것이 좋다.
 
-\hypertarget{nca-principle}{%
-\chapter{비구획분석의 이론}\label{nca-principle}}
+\chapter{비구획분석의 이론}\label{nca-principle}
 
 \Large\hfill
 
 한승훈
 \normalsize
 
-\hypertarget{uxc11cuxb860-1}{%
-\section{서론}\label{uxc11cuxb860-1}}
+\section{서론}\label{uxc11cuxb860-1}
 
 비구획분석(Non-Compartmental Analysis)은 약동학 자료를 요약하고, 활용 가능한 정보로 만들어내는 가장 기초적인 방법이다. \index{약동학}
 매우 직관적인 방법이며 분석 과정에서 최소한의 가정만을 허용하기 때문에, 누가 분석을 수행했는가와 관계 없이 결과의 변동성이 적으며 이에 따라 규제적 측면에서 가장 선호되는 방법이기도 하다.
@@ -1285,8 +1263,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 따라서, 비구획분석만으로는 해당 의약품의 약동학에 대한 충분한 지식을 얻을 수 없다는 한계 역시 존재한다. \index{약동학}
 비구획분석의 방법론을 이해하고 그로부터 산출 또는 추정되는 약동학 파라미터의 의미를 정확히 파악하여, 비구획분석 결과의 올바르게 해석하고 활용할 수 있어야 하겠다.\index{약동학}
 
-\hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxae30uxbcf8-uxac1cuxb150uxacfc-uxad00uxc2ecuxc0ac}{%
-\section{비구획분석의 기본 개념과 관심사}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxae30uxbcf8-uxac1cuxb150uxacfc-uxad00uxc2ecuxc0ac}}
+\section{비구획분석의 기본 개념과 관심사}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxae30uxbcf8-uxac1cuxb150uxacfc-uxad00uxc2ecuxc0ac}
 
 \begin{figure}
 
@@ -1393,8 +1370,7 @@ NCA 방법은 비교적 단순하고, 쉽게 약동학적 프로파일을 알 �
 이러한 문제를 보완하기 위해 대부분의 비구획분석에서 AUC\textsubscript{last}와 함께 산출하는 값이 AUC\textsubscript{inf}이다.
 이에 대해서는 AUC\textsubscript{last}의 산출 방법에 이어 설명하도록 하겠다.\index{반감기}\index{반감기}
 
-\hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxd30cuxb77cuxbbf8uxd130uxc758-uxc0b0uxcd9c}{%
-\section{비구획분석의 파라미터의 산출}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxd30cuxb77cuxbbf8uxd130uxc758-uxc0b0uxcd9c}}
+\section{비구획분석의 파라미터의 산출}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxd30cuxb77cuxbbf8uxd130uxc758-uxc0b0uxcd9c}
 
 지금부터는 각 파라미터 값을 어떻게 얻는 지에 대해 구체적으로 설명하고자 한다.
 우선, C\textsubscript{max}와 T\textsubscript{max}는 앞서 설명했듯이 실측값을 그대로 쓰기 때문에 별도의 산출 과정이 필요하지 않다. AUC와 관련된 파라미터들은 사다리꼴 공식을 기반으로 산출한다. 가장 많이 활용되는 사다리꼴 공식은 선형사다리꼴공식(linear trapezoidal rule)로, 그림 \ref{fig:image4}에 보는 바와 같이 인접한 두 개의 측정값을 직선으로 연결하고 각 관찰값으로부터 x축에 수선을 그어 얻어지는 사다리꼴의 면적을 합산하는 방식이다.
@@ -1511,8 +1487,7 @@ C\textsubscript{last} 값은 알고 있으므로 알아내야 하는 값은 λ\t
 
 일반적으로 비구획분석 결과는 전임상에서 종간 비교나 생물학적동등성시험 시 한 개체 내에서 교차시험의 결과를 비교하는 용도로 많이 활용되는데, 위의 사항에 대한 고려를 간과하고 결과값만을 비교하여 잘못된 결론을 도출하는 경우가 빈번하다. 따라서, 숙련된 약동학 전문가라면 이러한 사항들을 충분히 사전에 파악하여 결과 해석에 반영하여야 할 것이다.\index{약동학}
 
-\hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc5d0uxc11c-uxcd94uxc815uxd558uxb294-uxd30cuxb77cuxbbf8uxd130}{%
-\section{비구획분석에서 추정하는 파라미터}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc5d0uxc11c-uxcd94uxc815uxd558uxb294-uxd30cuxb77cuxbbf8uxd130}}
+\section{비구획분석에서 추정하는 파라미터}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc5d0uxc11c-uxcd94uxc815uxd558uxb294-uxd30cuxb77cuxbbf8uxd130}
 
 앞서 비구획분석은 인체 반응의 크기와 관련 지을 수 있는, 반응의 원인으로서 약물 노출에 대한 지표값을 구하고자 하는 것이 1차적인 관심사라 언급한 바 있다.
 이에 따라, 지금까지는 이러한 지표로써 사용할 수 있는 C\textsubscript{max}, AUC\textsubscript{last}, AUC\textsubscript{inf} 등의 파라미터를 산출하고 요약하는 방법에 대해 살펴 보았다.
@@ -1620,8 +1595,7 @@ t_{1/2} = \frac{ln 2}{\lambda_{z}}
 즉, 비구획분석에서 추정하는 것이 원인이 되는 생리학적 작용이며, 형성된 농도 및 그에 따른 산출 파라미터 값이 결과이다.
 우리는 결과를 통해 원인을 들여다 보고자 하는 것이다.
 
-\hypertarget{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxac1cuxb150-uxd655uxc7a5-uxd56duxc815uxc0c1uxd0dcuxc5d0-uxb300uxd55c-uxcd94uxc815}{%
-\section{비구획분석의 개념 확장 -- 항정상태에 대한 추정}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxac1cuxb150-uxd655uxc7a5-uxd56duxc815uxc0c1uxd0dcuxc5d0-uxb300uxd55c-uxcd94uxc815}}
+\section{비구획분석의 개념 확장 -- 항정상태에 대한 추정}\label{uxbe44uxad6cuxd68duxbd84uxc11duxc758-uxac1cuxb150-uxd655uxc7a5-uxd56duxc815uxc0c1uxd0dcuxc5d0-uxb300uxd55c-uxcd94uxc815}
 
 \index{항정상태}\index{항정상태}\index{항정상태} \index{약동학}
 
@@ -1697,7 +1671,7 @@ MRT는 약물의 분포 양상을 설명하기 위해 도입되는 산술적인 
 만일, 어떤 약물이 그림 \ref{fig:image11}의 B와 같이 단순한 하나의 기울기를 가지는 제거 곡선을 가지는 약물이라면 둘의 관계는 `반감기 = MRT · ln(2)' 라는 단순한 식으로 나타낼 수 있다.
 그러나 MRT는 그림 \ref{fig:image11}의 A와 같이 제거 곡선이 두 개 이상의 기울기를 가지는 경우에 그 의미를 가지는 파라미터이며, 각각의 기울기가 나타나는 양상에 따라 MRT가 다른 값으로 산출될 것임을 예상해 볼 수 있다.
 이 경우, MRT와 반감기의 관계는 약동학적 양상에 따라 다르게 나타나게 된다.
-보다 자세한 사항은 참고문헌(\protect\hyperlink{ref-sobol2004relationships}{Sobol and Bialer 2004})을 참고할 수 있다.
+보다 자세한 사항은 참고문헌(\citeproc{ref-sobol2004relationships}{Sobol and Bialer 2004})을 참고할 수 있다.
 
 MRT를 구했다면, 이를 이용하여 V\textsubscript{ss}를 구할 수 있다. 다시 항정상태의 특성을 상기해 보면투여 간격 중 투여량과 제거량은 같아야 하며, 이는 식 \eqref{eq:mrtvss}의 유도 과정을 거친다.\index{항정상태}
 \index{항정상태}\index{항정상태}
@@ -1729,8 +1703,7 @@ AUC\textsubscript{τ}는 1회의 투여 간격 동안의 시간-농도 곡선하
 
 따라서, 이 역시 산출된 파라미터의 정확성에 좌우된다는 한계를 가진다.
 
-\hypertarget{uxbe44uxad6cuxd68duxbd84uxc11d-uxacb0uxacfcuxc758-uxc694uxc57d}{%
-\section{비구획분석 결과의 요약}\label{uxbe44uxad6cuxd68duxbd84uxc11d-uxacb0uxacfcuxc758-uxc694uxc57d}}
+\section{비구획분석 결과의 요약}\label{uxbe44uxad6cuxd68duxbd84uxc11d-uxacb0uxacfcuxc758-uxc694uxc57d}
 
 비구획분석은 기본적으로 각 개인에서 관찰된 농도값으로부터 파라미터를 확보하고, 그러한 파라미터를 집단 수준에서 요약 정리하여 결과를 제시한다.
 이 때, 기술통계학(descriptive statistics)적 분석 방법이 사용되는데 C\textsubscript{max}, AUC\textsubscript{last}, AUC\textsubscript{inf} 및 그로부터 추정되는 파라미터들은 연속변수이므로 평균 ± 표준편차(mean ± standard deviation)를 제시한다.
@@ -1740,46 +1713,40 @@ T\textsubscript{max}는 정해진 측정 시각들 중 최대 관찰값을 보�
 오히려 이는 명목시각(nominal time)에 가까운 개념이며, 단지 수치적인 형태를 띄고 있을 뿐이다.
 그러기에 요약 시에는 다른 파라미터와 달리 중앙값(median)을 사용하고, 범위(range)를 제시한다.
 
-\hypertarget{uxb9fauxc74cuxb9d0-1}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-1}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-1}
 
 이상으로 비구획분석의 이론적 부분에 대해 알아보았다.
 비구획분석은 약동학 자료를 분석하는 가장 기본적이고 간단한 방법이라는 장점이 있지만, 앞서 언급한 바와 같이 다양한 한계를 지니는 방법이다. \index{약동학}
 따라서, 이 방법을 사용하거나 해당 방법으로 분석된 자료를 해석할 때에 이 장에 설명된 각 파라미터의 특성과 산출/추정 방식 등이 무엇인지를 충분히 숙지하여야 불필요한 오류의 발생을 최소화할 수 있을 것이다.
 
-\hypertarget{nca-analysis}{%
-\chapter{비구획분석의 자료해석}\label{nca-analysis}}
+\chapter{비구획분석의 자료해석}\label{nca-analysis}
 
 \Large\hfill
 
 한성필\footnote{약동학 데이터를 분석하여 PK 파라미터를 찾는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다.}
 \normalsize
 
-\hypertarget{uxc11cuxb860-2}{%
-\section{서론}\label{uxc11cuxb860-2}}
+\section{서론}\label{uxc11cuxb860-2}
 
 약동학(PK) 데이터에 대한 자료해석 시 가장 간단하고도 객관적이며 널리 쓰이는 방법은 NCA(비구획분석, Non-Compartmental analysis)이고 이는 약물의 임상개발에 매우 중요하다.\index{약동학}\index{임상개발}
 NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : 음식 효과, 약물상호작용 및 생물학적 동등성 연구 등)에 대해 중요한 평가기준이 되는 변수를 제공하게 된다.\index{생물학적 동등성}
 약물개발 과정에서 개발된 구획 PK 모델을 평가하거나 결정하는데에도 도움을 준다.
 이러한 중요성 때문에 약동학을 공부하고 이를 신약개발에 활용하고자 하는 사람들은 NCA가 제공하게 되는 파라미터의 의미와 그 방법론적 한계에 대해 높은 수준의 이해가 필요하다. \index{약동학}
-따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. (\protect\hyperlink{ref-noe2020parameter}{Noe 2020})
+따라서 NCA는 능숙하고 정확하게 수행되어야 하며 이에 대한 해석을 통해 약물에 대한 지식과 통찰력을 올바르게 축적해 나갈 수 있다. (\citeproc{ref-noe2020parameter}{Noe 2020})
 
-이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 사항은 별도의 교재를 통해 학습해야 할 것이다. (\protect\hyperlink{ref-ggplot22016}{Wickham 2016})
+이 장에서는 PK 자료에 대해 NCA를 수행하는 방법에 대해 자세히 기술하여 능숙하고 정확한 분석을 돕고자 한다. R 소프트웨어를 사용한 프로그래밍이 필요한 부분이 있어 NCA를 수행하기 위해 꼭 알아야 하는 이론은 기술하였으나, 자세한 사항은 별도의 교재를 통해 학습해야 할 것이다. (\citeproc{ref-ggplot22016}{Wickham 2016})
 
-\hypertarget{data-prep}{%
-\section{NCA를 위한 자료의 처리}\label{data-prep}}
+\section{NCA를 위한 자료의 처리}\label{data-prep}
 
-\hypertarget{uxcc44uxd608-uxc2dcuxac04}{%
-\subsection{채혈 시간}\label{uxcc44uxd608-uxc2dcuxac04}}
+\subsection{채혈 시간}\label{uxcc44uxd608-uxc2dcuxac04}
 
 예정된 채혈시간을 사용할 경우 농도 자료를 빠르게 분석할 수 있다는 장점이 있으나, 최종 NCA 파라미터의 산출에는 실제 샘플링 시간을 사용해야 한다. 간혹 예정된 채혈시간과 실제 채혈시간의 차이가 극히 적은 경우, 이를 생략하기도 하지만 규제기관에 제출되는 자료에는 이러한 방식의 분석을 하면 안된다.
 
-실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr (\protect\hyperlink{ref-R-dplyr}{Wickham, Francois, et al. 2021}), 자료의 형태를 변형하는 tidyr (\protect\hyperlink{ref-R-tidyr}{Wickham 2021}), 시간 자료를 쉽게 처리할 수 있는 lubridate (\protect\hyperlink{ref-R-lubridate}{Spinu, Grolemund, and Wickham 2021}) 등이 있다. \index{약동학}
+실제 채혈시간으로 구성된 자료를 만들기 위해 약동학자는 R 소프트웨어를 주로 사용하게 된다. 방대한 채혈 데이터를 마이크로소프트 엑셀 등을 사용해 다루는 경우 오류의 개입이 될 확률이 커지기 때문이다. 이러한 작업을 도와주는 R 패키지 중 자료를 몇가지 간단한 함수로 빠르게 추출하고 재생성하는 작업에 특화된 dplyr (\citeproc{ref-R-dplyr}{Wickham, Francois, et al. 2021}), 자료의 형태를 변형하는 tidyr (\citeproc{ref-R-tidyr}{Wickham 2021}), 시간 자료를 쉽게 처리할 수 있는 lubridate (\citeproc{ref-R-lubridate}{Spinu, Grolemund, and Wickham 2021}) 등이 있다. \index{약동학}
 
 계획된 채혈 시간은 기술통계량을 구하여 표를 만들거나 농도-시간 곡선 등의 그림을 그리는데 사용될 수 있으므로 실제 채혈시간과 병기하여 하나의 최종 자료에 포함되어 있어야 한다.
 
-\hypertarget{uxc815uxb7c9uxd55cuxacc4uxb97c-uxbc97uxc5b4uxb098uxac70uxb098-uxb204uxb77duxb41c-uxc790uxb8ccuxc758-uxcc98uxb9ac}{%
-\subsection{정량한계를 벗어나거나 누락된 자료의 처리}\label{uxc815uxb7c9uxd55cuxacc4uxb97c-uxbc97uxc5b4uxb098uxac70uxb098-uxb204uxb77duxb41c-uxc790uxb8ccuxc758-uxcc98uxb9ac}}
+\subsection{정량한계를 벗어나거나 누락된 자료의 처리}\label{uxc815uxb7c9uxd55cuxacc4uxb97c-uxbc97uxc5b4uxb098uxac70uxb098-uxb204uxb77duxb41c-uxc790uxb8ccuxc758-uxcc98uxb9ac}
 
 농도 분석 결과가 정량한계를 벗어나는 경우 실험실에서 ``\textless LLOQ'' 또는 ``\textgreater ULOQ''라는 보고를 하게 되며 각각 정량하한과 정량상한을 벗어나 신뢰성 있는 농도를 제공하지 못한다는 의미이다. 기본적으로 ``\textgreater ULOQ'' 자료는 희석을 통해 재분석을 해야 하며 ``\textless LLOQ'' 자료는 재분석을 통해 얻어지기 힘든 경우가 많으므로 그대로 보고하게 된다. 다만 실험실에서 농도분석을 세팅할 때 LLOQ를 과도하게 높은 농도로 설정하는 경우 많은 ``\textless LLOQ'' 값이 보고되는 상황이 발생할 수 있으므로 임상시험 또는 비임상연구에서 예측되는 LLOQ 값을 어느정도 반영할 수 있어야 하는 것이 바람직하다. 구체적으로 약물의 최종 반감기(\(t_{1/2\beta}\))를 계산하는데 필요한 소실기의 농도 관찰값보다 LLOQ는 1/3 이하라야 하고, 과거에는 이러한 민감도로 농도 측정이 불가능한 상황이 많았으나 현대 분석 기술에서는 많이 개선 되었다.\index{반감기}\index{반감기}
 
@@ -1787,13 +1754,11 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 다양한 이유로 누락된 자료가 생길 수 있고, 누락된 자료는 NA로 간주하여 윗 문장과 같이 필터링 아웃 처리하여 제거되게 되나, 이러한 누락 자료가 NCA 파라미터에 어떤 영향을 미치는지 파악할 필요가 있다. 이를테면 C\textsubscript{max}(최고혈중농도)를 제공하는 채혈이 누락된 경우 AUC를 비롯한 이와 연관된 모든 파라미터에 큰 영향을 미치게 되나, 배설 단계 후반의 낮은 농도 값이 누락된 경우 미미한 영향을 미치게 된다.
 
-\hypertarget{uxc790uxb8ccuxc758-uxc81cuxc678}{%
-\subsection{자료의 제외}\label{uxc790uxb8ccuxc758-uxc81cuxc678}}
+\subsection{자료의 제외}\label{uxc790uxb8ccuxc758-uxc81cuxc678}
 
 분석 오류 또는 시료 취급 중 오류 등으로 자료를 제외해야 하는 경우가 적지않은 빈도로 생길 수 있다. 약물의 배설 과정 중 예측되는 농도 범위를 크게 벗어나거나, 서로 다른 두 대상자(또는 동물 개체) 간의 농도가 뒤바뀌는 등의 상황이 있을 수 있다. 자료가 제외되는 예외적인 상황에서는 임상연구보고서의 약동학 분석 장에서 자료가 제외되는 이유에 대해 근거와 함께 상세히 기록해야 한다. 특히 생물학적 동등성 시험에서 이러한 이슈는 민감할 수 있어, NCA 수행자는 어떤 자료를 무슨 근거로 제외했는지, 그 때 사용한 코드를 처리 방법의 상세한 기술과 함께 보관하고 있어야 한다. \index{생물학적 동등성}\index{약동학}
 
-\hypertarget{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-nca}{%
-\section{상용 소프트웨어를 이용한 NCA}\label{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-nca}}
+\section{상용 소프트웨어를 이용한 NCA}\label{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-nca}
 
 상용 소프트웨어 중 가장 많이 사용되는 것이 Certara 사의 Phoenix WinNonLin이다. 오랜 시간 많은 연구자들이 사용하여 익숙한 GUI 인터페이스를 제공하고 있고, 혈액, 소변 자료의 NCA 등을 제공하고 간단한 설계의 생물학적 동등성 판정 등 통계 분석도 지원하여 비교적 진입장벽이 낮은 자료 분석 도구라 할 수 있다. \index{생물학적 동등성}
 
@@ -1804,12 +1769,11 @@ NCA 결과는 약물개발 중 수행 된 많은 임상약리학 연구(예 : �
 
 식약처, 미국 FDA(Food and Drug Administration), 유럽 EMA(European Medicines Agency)를 비롯한 대부분의 규제기관에서는 NCA에 쓰는 특정 소프트웨어를 규정하고 있지 않아, 상용 소프트웨어를 사용하지 않고 약동학적 지표를 구하는 것을 허용하고 있다.\index{약동학}
 
-\hypertarget{ncauxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}{%
-\section{NCA에 활용할 수 있는 R package 소개}\label{ncauxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}}
+\section{NCA에 활용할 수 있는 R package 소개}\label{ncauxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}
 
 무료로 누구나 사용할 수 있는 R 패키지를 사용하여 NCA를 통한 약동학적 주요 지표를 구할 수 있다. 비용을 떠나 NCA를 R로 수행하는 가장 중요한 이유는 오류를 줄일 수 있고, 한번 설정한 것을 반복해서 적용하는 것이 쉽기 때문이다. 더 나아가 계량약리학 분석 전후 과정 중에 NCA를 같은 작업환경에서 빠르게 수행할 수 있다는 장점도 있다.\index{약동학}\index{계량약리학}
 
-이 책에서 주로 다루게 될 NonCompart (\protect\hyperlink{ref-R-NonCompart}{Bae 2021c}), ncar (\protect\hyperlink{ref-R-ncar}{Bae 2021b}), pkr (\protect\hyperlink{ref-R-pkr}{Bae and Lee 2018}) 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
+이 책에서 주로 다루게 될 NonCompart (\citeproc{ref-R-NonCompart}{Bae 2021c}), ncar (\citeproc{ref-R-ncar}{Bae 2021b}), pkr (\citeproc{ref-R-pkr}{Bae and Lee 2018}) 은 NCA를 R을 통해 쉽고 빠르게 행할 수 있는 R 패키지이다.
 
 NonCompart의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Data,
 ncar의 패키지 이름은 Noncompartmental Analysis for Pharmacokinetic Report,
@@ -1829,8 +1793,7 @@ Some features are
 
 이를 사용하기 위해 아래의 순서로 R과 Rstudio를 설치해야 한다.
 
-\hypertarget{r-4.x.xuxc758-uxc124uxce58-uxc708uxb3c4uxc6b0-uxd658uxacbd}{%
-\subsection[R 4.x.x의 설치 (윈도우 환경)]{\texorpdfstring{R 4.x.x의 설치 (윈도우 환경\footnote{윈도의 외의 환경에 대한 것은 별도의 공간 \url{https://github.com/pipetcpt/pharmapk/discussions} 에 정리되어 있다.})}{R 4.x.x의 설치 (윈도우 환경)}}\label{r-4.x.xuxc758-uxc124uxce58-uxc708uxb3c4uxc6b0-uxd658uxacbd}}
+\subsection[R 4.x.x의 설치 (윈도우 환경)]{\texorpdfstring{R 4.x.x의 설치 (윈도우 환경\footnote{윈도의 외의 환경에 대한 것은 별도의 공간 \url{https://github.com/pipetcpt/pharmapk/discussions} 에 정리되어 있다.})}{R 4.x.x의 설치 (윈도우 환경)}}\label{r-4.x.xuxc758-uxc124uxce58-uxc708uxb3c4uxc6b0-uxd658uxacbd}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1855,8 +1818,7 @@ Some features are
   스타트 옵션을 조정하는 화면이 나타나면, \texttt{No}를 선택하고 \texttt{다음} 버튼을 클릭한다.
 \end{enumerate}
 
-\hypertarget{rstudio-uxc124uxce58-uxc708uxb3c4uxc6b0-uxd658uxacbd}{%
-\subsection{Rstudio 설치 (윈도우 환경)}\label{rstudio-uxc124uxce58-uxc708uxb3c4uxc6b0-uxd658uxacbd}}
+\subsection{Rstudio 설치 (윈도우 환경)}\label{rstudio-uxc124uxce58-uxc708uxb3c4uxc6b0-uxd658uxacbd}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}
@@ -1906,8 +1868,7 @@ R을 사용하다가 도움이 필요할때는 맨 앞에 물음표를 붙여서
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ncauxb97c-uxc704uxd55c-uxb370uxc774uxd130uxc14buxc758-uxc791uxc131}{%
-\section{NCA를 위한 데이터셋의 작성}\label{ncauxb97c-uxc704uxd55c-uxb370uxc774uxd130uxc14buxc758-uxc791uxc131}}
+\section{NCA를 위한 데이터셋의 작성}\label{ncauxb97c-uxc704uxd55c-uxb370uxc774uxd130uxc14buxc758-uxc791uxc131}
 
 자료의 첫 10개 (표 \ref{tab:head}) 또는 마지막 10개 관찰값만 보고 싶으면 다음을 입력한다.
 대상자 번호가 첫 열에 나와있고 시간 순서대로 혈장에서 측정한 테오필린의 농도가 나와있다.
@@ -1943,7 +1904,7 @@ Subject & Wt & Dose & Time & conc\\
 \end{tabular}
 \end{table}
 
-\texttt{ggplot2} 패키지(\protect\hyperlink{ref-R-ggplot2}{Wickham, Chang, et al. 2021})로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \ref{fig:ggtheoph}) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다. (\protect\hyperlink{ref-ggplot22016}{Wickham 2016})
+\texttt{ggplot2} 패키지(\citeproc{ref-R-ggplot2}{Wickham, Chang, et al. 2021})로 그림을 그려서 대략적인 자료의 모습을 파악할 수 있다. (그림 \ref{fig:ggtheoph}) ggplot2에 대한 설명은 본서의 범위를 벗어나므로 별도의 교재를 통해 학습할 수 있다. (\citeproc{ref-ggplot22016}{Wickham 2016})
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -1965,20 +1926,17 @@ Subject & Wt & Dose & Time & conc\\
 \caption{Theoph의 경구 투여 후 농도-시간 곡선 (N = 12)}\label{fig:ggtheoph}
 \end{figure}
 
-\hypertarget{loading}{%
-\section{자료 불러오기}\label{loading}}
+\section{자료 불러오기}\label{loading}
 
 가장 단순한 형태의 자료는 CSV파일로 쉼표로 구분된 문서로 메모장 등 텍스트 편집기로 파일을 열었을 때에도 자료를 확인 가능한 형태이다.
-이러한 파일은 \texttt{read.csv()} 또는 \texttt{readr}패키지(\protect\hyperlink{ref-R-readr}{Wickham and Hester 2020})의 \texttt{read\_csv()} 함수를 사용해서 자료를 불러 온다.
-엑셀 파일을 사용하는 경우 \texttt{readxl} 패키지(\protect\hyperlink{ref-R-readxl}{Wickham and Bryan 2019})를 설치한 후에 \texttt{read\_excel()} 함수를 사용해서 불러올 수 있다.
+이러한 파일은 \texttt{read.csv()} 또는 \texttt{readr}패키지(\citeproc{ref-R-readr}{Wickham and Hester 2020})의 \texttt{read\_csv()} 함수를 사용해서 자료를 불러 온다.
+엑셀 파일을 사용하는 경우 \texttt{readxl} 패키지(\citeproc{ref-R-readxl}{Wickham and Bryan 2019})를 설치한 후에 \texttt{read\_excel()} 함수를 사용해서 불러올 수 있다.
 
 다만 \texttt{read\_csv(),\ read\_excel()}을 사용하는 경우 \texttt{tibble} 형태로 자료가 변형되고 이러한 형태의 자료는 \texttt{tblNCA()} 사용시 오류를 일으키기 때문에 사전에 \texttt{as.data.frame()}을 사용해서 데이타프레임으로 변형해주어야 한다. \footnote{\url{https://groups.google.com/a/pagk.or.kr/g/list/c/VGy3lhWig7o}}
 
-\hypertarget{noncompart-r-uxd328uxd0a4uxc9c0uxb97c-uxc774uxc6a9uxd55c-nca}{%
-\section{NonCompart R 패키지를 이용한 NCA}\label{noncompart-r-uxd328uxd0a4uxc9c0uxb97c-uxc774uxc6a9uxd55c-nca}}
+\section{NonCompart R 패키지를 이용한 NCA}\label{noncompart-r-uxd328uxd0a4uxc9c0uxb97c-uxc774uxc6a9uxd55c-nca}
 
-\hypertarget{tblNCA}{%
-\subsection{tblNCA(): 전체 대상자 NCA}\label{tblNCA}}
+\subsection{tblNCA(): 전체 대상자 NCA}\label{tblNCA}
 
 가장 많이 쓰는 함수이다.
 NonCompart 패키지의 핵심적인 기능이다.
@@ -2000,7 +1958,7 @@ NonCompart 패키지의 핵심적인 기능이다.
 코드 \ref{exm:tblnca-code}에서 \texttt{dose=320}으로 되었다는 것은 아미노필린 400mg 투여시 테오필린 320mg이 경구로 투여되었음을 의미한다.
 
 결과는 문자(character)로 구성된 matrix로 구성된 결과물과 단위 정보가 담긴 attribute를 포함하고 있다.
-본문에 결과를 싣기에 지면이 부족하여 \protect\hyperlink{Theoph_tblNCA}{별첨 A}에 수록하였고, 여기에서는 dplyr의 \texttt{select()} 함수를 사용하여 핵심적인 일부 파라미터 (C\textsubscript{max}, T\textsubscript{max}, AUC\textsubscript{last}, \(t_{1/2\beta}\))만 표시하였다.
+본문에 결과를 싣기에 지면이 부족하여 \hyperref[Theoph_tblNCA]{별첨 A}에 수록하였고, 여기에서는 dplyr의 \texttt{select()} 함수를 사용하여 핵심적인 일부 파라미터 (C\textsubscript{max}, T\textsubscript{max}, AUC\textsubscript{last}, \(t_{1/2\beta}\))만 표시하였다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2121,8 +2079,7 @@ R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인�
 ## 6       6 2.31 0.25  2.873  1.961
 \end{verbatim}
 
-\hypertarget{snca}{%
-\subsection{sNCA()}\label{snca}}
+\subsection{sNCA()}\label{snca}
 
 많이 쓰이지 않는 기능이지만, 한명의 대상자(또는 개체)에 대해 NCA를 시행한다.
 
@@ -2189,15 +2146,13 @@ R에서는 함수이름(tblNCA) 뒤의 괄호 안에 쉼표로 구별되는 인�
 \caption{테오필린의 경구 투여 후 개별 대상자의 농도-시간 곡선 (Subject 1)}\label{fig:ggtheophindi}
 \end{figure}
 
-\hypertarget{nca-uxbcf4uxace0uxc11c}{%
-\section{NCA 보고서}\label{nca-uxbcf4uxace0uxc11c}}
+\section{NCA 보고서}\label{nca-uxbcf4uxace0uxc11c}
 
 NCA 후 완전한 형태의 자료의 전달을 위해 분석 환경을 상세히 기술한 보고서는 필수적이다.
 상용소프트웨어에서 이러한 보고서 작성 기능이 잘 갖추어져 있는데, 무료 NCA 소프트웨어에는 드물게 지원하는 기능이다.
 ncar은 상용소프트웨어의 보고서의 모든 정보를 포함하는 보고서를 만드는 R 패키지이다. 현재 설정된 작업 디렉토리(working directory) 또는 지정된 위치에 결과 파일이 생성된다.
 
-\hypertarget{txtnca}{%
-\subsection{txtNCA()}\label{txtnca}}
+\subsection{txtNCA()}\label{txtnca}
 
 txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 
@@ -2227,9 +2182,9 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 \begin{Highlighting}[]
                         \ExtensionTok{NONCOMPARTMENTAL}\NormalTok{ ANALYSIS REPORT}
                        \ExtensionTok{Package}\NormalTok{ version 0.4.5 }\ErrorTok{(}\ExtensionTok{2022{-}02{-}23}\KeywordTok{)}
-                          \ExtensionTok{R}\NormalTok{ version 4.2.1 }\ErrorTok{(}\ExtensionTok{2022{-}06{-}23}\KeywordTok{)}
+                          \ExtensionTok{R}\NormalTok{ version 4.3.2 }\ErrorTok{(}\ExtensionTok{2023{-}10{-}31}\KeywordTok{)}
 
-\ExtensionTok{Date}\NormalTok{ and Time: 2022{-}08{-}11 17:37:31 Asia/Seoul}
+\ExtensionTok{Date}\NormalTok{ and Time: 2023{-}12{-}05 18:10:40.632217 Asia/Seoul}
 
 \ExtensionTok{Calculation}\NormalTok{ Setting}
 \ExtensionTok{{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}{-}}
@@ -2251,7 +2206,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
      \ExtensionTok{1.1200}\NormalTok{      10.5000                           6.6474     5.0654}
      \ExtensionTok{2.0200}\NormalTok{       9.6600                          15.7194    19.1383}
      \ExtensionTok{3.8200}\NormalTok{       8.5800                          32.1354    66.1982}
-     \ExtensionTok{5.1000}\NormalTok{       8.3600                          42.9769   114.4617}
+     \ExtensionTok{5.1000}\NormalTok{       8.3600                          42.9770   114.4617}
      \ExtensionTok{7.0300}\NormalTok{       7.4700                          58.2529   206.2815}
      \ExtensionTok{9.0500} \PreprocessorTok{*}\NormalTok{     6.8900     6.8912 }\AttributeTok{{-}1.228e{-}03}\NormalTok{    72.7565   322.2988}
     \ExtensionTok{12.1200} \PreprocessorTok{*}\NormalTok{     5.9400     5.9387 +1.324e{-}03    92.4505   528.5219}
@@ -2302,8 +2257,7 @@ txtNCA()를 통해서 다음 결과를 얻을 수 있다.
 
 \normalsize
 
-\hypertarget{pdfnca}{%
-\subsection{pdfNCA()}\label{pdfnca}}
+\subsection{pdfNCA()}\label{pdfnca}
 
 pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 \ref{fig:pdfncaoutput}) 이렇게 생성된 파일은 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.
 
@@ -2324,8 +2278,7 @@ pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 \ref{fig:pdfncaoutput}) 이
 \caption{pdfNCA() 출력 결과}\label{fig:pdfncaoutput}
 \end{figure}
 
-\hypertarget{rtfnca}{%
-\subsection{rtfNCA()}\label{rtfnca}}
+\subsection{rtfNCA()}\label{rtfnca}
 
 마이크로소프트 워드에서 편집가능한 rtf파일을 만들 수 있다. 이렇게 생성된 파일은 위 PDF파일과 마찬가지로 임상시험보고서(CSR)의 별첨으로 첨부하게 된다.
 
@@ -2337,11 +2290,10 @@ pdfNCA()로 pdf로 결과를 볼 수 있다. (그림 \ref{fig:pdfncaoutput}) 이
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{ncauxc758-uxc2dcuxac01uxd654-plotpk}{%
-\section{NCA의 시각화 plotPK()}\label{ncauxc758-uxc2dcuxac01uxd654-plotpk}}
+\section{NCA의 시각화 plotPK()}\label{ncauxc758-uxc2dcuxac01uxd654-plotpk}
 
 NCA에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줄 수 있으나, R로 분석을 시작하는 사람은 다소 어려움을 겪을 수 있다.
-이를 비교적 쉽게 가능하게 해 주는 \texttt{pkr} 패키지(\protect\hyperlink{ref-R-pkr}{Bae and Lee 2018})가 있다.
+이를 비교적 쉽게 가능하게 해 주는 \texttt{pkr} 패키지(\citeproc{ref-R-pkr}{Bae and Lee 2018})가 있다.
 \texttt{Theoph} 자료의 시각화를 아래의 명령어를 통해 수행할 수 있다.
 
 \begin{Shaded}
@@ -2382,8 +2334,7 @@ NCA에 대한 다양한 시각화는 여러 유용한 정보를 제공해 줄 �
 \caption{평균 약동학 파라미터와 그룹 평균 농도-시간 그림 (로그)}\label{fig:pkr3}
 \end{figure}
 
-\hypertarget{parameters}{%
-\section{파라미터의 의미}\label{parameters}}
+\section{파라미터의 의미}\label{parameters}
 
 NCA 시 여러 파라미터가 나오며 약어로 표현하는 경우가 많다. 또한 소프트웨어마다 약어가 상이하기 때문에 자주 그 의미를 찾아볼 필요가 있다. 콘솔창에 다음을 입력하여 의미를 파악할 수 있다.
 
@@ -2572,14 +2523,13 @@ Tlast에서 무한대로 외삽된 AUC의 백분율이다. AUCIFO에서 외삽�
 예측된 마지막 농도를 기반으로 투여 시간에서 무한대로 외삽된 AUC.
 \[AUC_{inf,pred} = AUC_{last} + \frac{C_{last,pred}}{\lambda_{z}}\]
 
-\hypertarget{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}{%
-\section{기술통계 (Descriptive statistics)}\label{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}}
+\section{기술통계 (Descriptive statistics)}\label{uxae30uxc220uxd1b5uxacc4-descriptive-statistics}
 
 \index{기술통계}
 
 R에서는 필요에 따라서 자신만의 함수를 만들 수도 있다.
 코드 \ref{exm:desctblnca}를 실행하면 \texttt{desc\_tblNCA()} 함수를 사용하여 기술통계량을 쉽게 구할 수 있다. (표 \ref{tab:theodesc} and \ref{tab:indodesc})
-psych 패키지의 \texttt{describe()} 함수를 사용하였으므로 이에 대한 설치를 해야 한다. (\texttt{install.packages(\textquotesingle{}psych\textquotesingle{})}) (\protect\hyperlink{ref-R-psych}{Revelle 2021})
+psych 패키지의 \texttt{describe()} 함수를 사용하였으므로 이에 대한 설치를 해야 한다. (\texttt{install.packages(\textquotesingle{}psych\textquotesingle{})}) (\citeproc{ref-R-psych}{Revelle 2021})
 
 \begin{example}
 \protect\hypertarget{exm:desctblnca}{}\label{exm:desctblnca}핵심 기술통계량(자료개수, 평균, 표준편차, 중앙값, 최소값, 최대값)을 수월하게 구하기 위한 사용자 생성 함수의 예
@@ -2632,11 +2582,9 @@ LAMZHL & 6 & 2.439 & 1.0406 & 2.127 & 1.615 & 4.378\\
 \end{tabular}
 \end{table}
 
-\hypertarget{bioequivalence}{%
-\section{NCA 후 생물학적 동등성 판별}\label{bioequivalence}}
+\section{NCA 후 생물학적 동등성 판별}\label{bioequivalence}
 
-\hypertarget{uxc774uxb860}{%
-\subsection{이론}\label{uxc774uxb860}}
+\subsection{이론}\label{uxc774uxb860}
 
 생물학적동등성시험(bioequivalence test)는 기존 의약품의 특허가 만료된 후, 해당 의약품을 동일하게 개발하여 판매하고자 할 때 수행하는 임상시험이다.
 기존 오리지널 의약품(Reference)과 새로 개발한 의약품 즉 시험약(Test)을 교차연구(crossover study)의 형태로 투여한 뒤, 얻어진 혈장약물농도로부터 구한 C\textsubscript{max}와 AUC를 비교하여 평가하게 된다.
@@ -2646,10 +2594,12 @@ LAMZHL & 6 & 2.439 & 1.0406 & 2.127 & 1.615 & 4.378\\
 시뮬레이션된 농도들로부터 얻어진 C\textsubscript{max}와 AUC를 사용해 자료가 구성되고, NCA에 사용될 자료의 형태는 아래의 표와 같다. SEQ(sequence, 순서군) 혹은 GRP(group), TRT(treatment, 치료), SUBJ(subject, 대상자 구분자), PRD(period, 기)의 자료가 열 형태로 제시되어야 하며 이는 NonCompart에서 key로 사용되기 때문에(\texttt{key=c(\textquotesingle{}SUBJ\textquotesingle{},\ \textquotesingle{}GRP\textquotesingle{},\ \textquotesingle{}PRD\textquotesingle{},\ \textquotesingle{}TRT\textquotesingle{})}) 유사한 형태로 자료를 만들어야 한다. \index{시뮬레이션}
 
 \begin{longtable}[]{@{}lllllll@{}}
-\toprule()
+\toprule\noalign{}
 SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC \\
-\midrule()
+\midrule\noalign{}
 \endhead
+\bottomrule\noalign{}
+\endlastfoot
 1 & RT & 1 & R & 0 & 0 & 0 \\
 1 & RT & 1 & R & 0.25 & 0.26 & 511.3 \\
 1 & RT & 1 & R & 0.5 & 0.46 & 678.79 \\
@@ -2667,7 +2617,6 @@ SUBJ & GRP & PRD & TRT & nTIME & TIME & CONC \\
 5 & TR & 2 & R & 0.5 & 0.47 & 832.76 \\
 5 & TR & 2 & R & \ldots{} & \ldots{} & \ldots{} \\
 \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} & \ldots{} \\
-\bottomrule()
 \end{longtable}
 
 비교평가항목은 검체가 혈액인 경우, 1회 투약 시 AUC\textsubscript{t}, C\textsubscript{max}, 반복투약 시 AUC\textsubscript{τ}, C\textsubscript{ss,max}를 주로 사용한다. 다만, 니트로글리세린 설하정과 같이 빠른 약효를 나타내는 제제 등은 Tmax를 비교평가항목으로 추가하기도 한다. 약동학 파라미터는 로그정규분포(log-normal distribution)을 따르고, 대조약과 시험약의 산출된 곡선하 면적(AUC)과 최대 농도 C\textsubscript{max}의 geometric mean ratio가 0.8 \textasciitilde{} 1.25 이내일 때, 약동학적으로 동등하다고 평가하게 된다.\index{약동학}
@@ -2709,10 +2658,9 @@ Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
 
 그러나 SAS를 사용하는데 몇가지 어려움이 있다. SAS 설치하고 입력자료를 불러오는 작업이 다소 어렵고, 과정이 복잡하며 큰 유지 비용이 든다. 특히 약동학 분석 초보자나 통계학 비전공자가 사용하기 어려웠다. \index{약동학}
 
-\hypertarget{be-r-uxd328uxd0a4uxc9c0uxb97c-uxc0acuxc6a9uxd55c-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxc815}{%
-\subsection{\texorpdfstring{BE R 패키지를 사용한 생물학적 동등성 판정\index{생물학적 동등성}}{BE R 패키지를 사용한 생물학적 동등성 판정}}\label{be-r-uxd328uxd0a4uxc9c0uxb97c-uxc0acuxc6a9uxd55c-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxc815}}
+\subsection{\texorpdfstring{BE R 패키지를 사용한 생물학적 동등성 판정\index{생물학적 동등성}}{BE R 패키지를 사용한 생물학적 동등성 판정}}\label{be-r-uxd328uxd0a4uxc9c0uxb97c-uxc0acuxc6a9uxd55c-uxc0dduxbb3cuxd559uxc801-uxb3d9uxb4f1uxc131-uxd310uxc815}
 
-2x2의 생물학적 동등성을 판정하기 위한 가장 간단하고 손쉬운 방법은 Chow와 Liu의 책의 내용(\protect\hyperlink{ref-chow2009design}{Chow and Liu 2008})을 충실히 반영한 BE 패키지(\protect\hyperlink{ref-R-BE}{Bae 2021a})를 사용하는 것이다. 위에서 NCA 관련 패키지를 설치하였듯 BE 패키지를 아래 명령어를 사용하여 설치 및 불러오기 할 수 있다. \index{생물학적 동등성}
+2x2의 생물학적 동등성을 판정하기 위한 가장 간단하고 손쉬운 방법은 Chow와 Liu의 책의 내용(\citeproc{ref-chow2009design}{Chow and Liu 2008})을 충실히 반영한 BE 패키지(\citeproc{ref-R-BE}{Bae 2021a})를 사용하는 것이다. 위에서 NCA 관련 패키지를 설치하였듯 BE 패키지를 아래 명령어를 사용하여 설치 및 불러오기 할 수 있다. \index{생물학적 동등성}
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -2721,7 +2669,7 @@ Y_{ijk} = \mu + S_{ik} + P_{j} + F_{j,k} + C_{(j-1,k)} + \varepsilon_{ijk}
 \end{Highlighting}
 \end{Shaded}
 
-BE 패키지 중 핵심이 되는 함수는 \texttt{be2x2()} 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 (그림 \ref{fig:twobytwo}) 이외의 디자인은 sasLM 패키지(\protect\hyperlink{ref-R-sasLM}{Bae 2021d})를 사용하여 분석해야 한다.
+BE 패키지 중 핵심이 되는 함수는 \texttt{be2x2()} 이다. 현재로서는 2x2 디자인의 간단한 임상시험 디자인만을 지원하고 있으며 (그림 \ref{fig:twobytwo}) 이외의 디자인은 sasLM 패키지(\citeproc{ref-R-sasLM}{Bae 2021d})를 사용하여 분석해야 한다.
 
 \begin{figure}
 
@@ -2801,8 +2749,7 @@ C\textsubscript{max} & R BE 패키지 & 0.90136 & 0.97984 & 1.06515\\
 \end{tabular}
 \end{table}
 
-\hypertarget{uxc6f9uxbe0cuxb77cuxc6b0uxc800uxb97c-uxd1b5uxd55c-nca-uxbc0f-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxc815}{%
-\section{웹브라우저를 통한 NCA 및 생물학적동등성 판정}\label{uxc6f9uxbe0cuxb77cuxc6b0uxc800uxb97c-uxd1b5uxd55c-nca-uxbc0f-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxc815}}
+\section{웹브라우저를 통한 NCA 및 생물학적동등성 판정}\label{uxc6f9uxbe0cuxb77cuxc6b0uxc800uxb97c-uxd1b5uxd55c-nca-uxbc0f-uxc0dduxbb3cuxd559uxc801uxb3d9uxb4f1uxc131-uxd310uxc815}
 
 웹브라우저를 통해 간단히 NCA를 할 수 있는 앱이 웹 기반으로 개발되어 R을 설치할 필요없이 사용할 수 있다. (그림 \ref{fig:pkrshiny}) \url{https://www.pipetapps.com/project/pkrshiny/} \texttt{shiny-be}는 NCA 및 생물학적동등성 분석을 웹브라우저에서 할 수 있는 응용 소프트웨어로 \url{https://www.pipetapps.com/project/shiny-be/}에서 서비스 하고 있다. (그림 \ref{fig:shiny-be})
 
@@ -2828,23 +2775,20 @@ C\textsubscript{max} & R BE 패키지 & 0.90136 & 0.97984 & 1.06515\\
 
 
 
-\hypertarget{uxb9fauxc74cuxb9d0-2}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-2}
 
 이상으로 비구획분석 자료해석을 위한 R 패키지에 대해 알아보았다.
 정확한 비구획분석은 모든 약동학 자료해석의 기본이 되며, R을 통한 자료의 처리와 분석은 오류를 줄이고, 시간과 비용을 을 단축하는 등 큰 잇점이 있다. \index{약동학}
 처음에는 R을 사용하는 방법이 다소 생소할 수 있으나 약동학을 공부하는 사람이라면 반드시 접하게 되는 소프트웨어 이고, 약동학 관련 R 패키지에 대해 지속적인 연구와 개발이 이뤄지고 있으므로 연구자들은 이에 대해 꾸준한 공부를 지속해야 할 것이다.\index{약동학}
 
-\hypertarget{ca-principle}{%
-\chapter{구획분석의 이론}\label{ca-principle}}
+\chapter{구획분석의 이론}\label{ca-principle}
 
 \Large\hfill
 
 임동석
 \normalsize
 
-\hypertarget{uxad6cuxd68duxbd84uxc11duxc758-uxac1cuxb150}{%
-\section{구획분석의 개념}\label{uxad6cuxd68duxbd84uxc11duxc758-uxac1cuxb150}}
+\section{구획분석의 개념}\label{uxad6cuxd68duxbd84uxc11duxc758-uxac1cuxb150}
 
 앞에서 소개된 NCA는 간단하게 약동학적 프로파일을 파악할 수 있는 방법이지만, 약동학적 파라미터들을 이용한 다양한 예측(시뮬레이션)에는 비구획분석만으로는 많은 한계가 있다. 그래서 쓰이게 된 것이 구획분석이다.\index{약동학}\index{시뮬레이션}
 
@@ -2946,16 +2890,14 @@ k\textsubscript{e2}라는 제거속도상수를 가진 모델)을 생각해 볼 
 그로므로 단클론 항체의 약동학을 적절히 모델링하기 위해서는\index{약동학}\index{모델링} 단순히 혈장약물농도 이외에 그항체의 타겟이 되는 물질의 생성, 제거속도, 타겟이 어디에 존재하는지 등의 다양한 정보를 사전에 파악하여 모델에 반영해야만 하며, 경험적인 구획모델의 수준을 넘어서는 작업이 된다.
 본 장에서 제시된 몇 가지 약물분포와 제거 모델은 가장 기본적인 예이며, 개별 약물군의 약동학적 특성에 따라 다양한 모델들이 쓰이고 있다.\index{약동학}
 
-\hypertarget{uxad6cuxd68duxbaa8uxb378uxc774-uxd544uxc694uxd55c-uxc774uxc720}{%
-\section{구획모델이 필요한 이유}\label{uxad6cuxd68duxbaa8uxb378uxc774-uxd544uxc694uxd55c-uxc774uxc720}}
+\section{구획모델이 필요한 이유}\label{uxad6cuxd68duxbaa8uxb378uxc774-uxd544uxc694uxd55c-uxc774uxc720}
 
 비교적 단순한 NCA만으로 PK 파라미터들을 다 구할 수 있는데 왜 굳이 어려운 구획모델을 써야 하는가? 라는 의문을 품을 수 있다.
 이에 대해 다음과 같은 답들을 제시할 수 있다.
 
-\hypertarget{uxcd5cuxc885uxbc18uxac10uxae30uxc640-uxad00uxb828uxd55c-uxc774uxc288}{%
-\subsection{\texorpdfstring{최종반감기와 관련한 이슈\index{반감기}\index{반감기}\index{최종반감기}}{최종반감기와 관련한 이슈}}\label{uxcd5cuxc885uxbc18uxac10uxae30uxc640-uxad00uxb828uxd55c-uxc774uxc288}}
+\subsection{\texorpdfstring{최종반감기와 관련한 이슈\index{반감기}\index{반감기}\index{최종반감기}}{최종반감기와 관련한 이슈}}\label{uxcd5cuxc885uxbc18uxac10uxae30uxc640-uxad00uxb828uxd55c-uxc774uxc288}
 
-\protect\hyperlink{principle}{1장}에서 이미 나온 것처럼 최종반감기가 반드시 의미있는 것은 아니다. \index{반감기}\index{최종반감기}
+\hyperref[principle]{1장}에서 이미 나온 것처럼 최종반감기가 반드시 의미있는 것은 아니다. \index{반감기}\index{최종반감기}
 
 그림 \ref{fig:fig4-3}과 같이 붉은 선은 최종반감기가 훨씬 긴 약임에도 불구하고 항정상태에 도달하는 시간은 검은 선에 비해 훨씬 빠름을 알 수 있다.
 이유는 최종반감기를 보여주는 완만한 경사가 나타나기 전에 이미 몸 안의 약이 대부분 제거되었기 때문인데, 단순한 NCA로 얻어지는 PK 파라미터들만으로 이를 알아내기는 어렵다.
@@ -2997,8 +2939,7 @@ V\textsubscript{ss}와 CL이 동일함에도 불구하고 최종반감기가 현
 
 
 
-\hypertarget{uxc815uxd655uxd55c-cmax-tmax-uxac12uxc758-uxcd94uxc815}{%
-\subsection{\texorpdfstring{정확한 C\textsubscript{max}, T\textsubscript{max} 값의 추정}{정확한 Cmax, Tmax 값의 추정}}\label{uxc815uxd655uxd55c-cmax-tmax-uxac12uxc758-uxcd94uxc815}}
+\subsection{\texorpdfstring{정확한 C\textsubscript{max}, T\textsubscript{max} 값의 추정}{정확한 Cmax, Tmax 값의 추정}}\label{uxc815uxd655uxd55c-cmax-tmax-uxac12uxc758-uxcd94uxc815}
 
 NCA에서는 그림 \ref{fig:fig4-5}에서 볼 수 있듯이 약동학적 채혈로 얻어진 농도(파란색 점)들 중에서 가장 높은 관찰값을 골라서 C\textsubscript{max}라 하고 그 채혈시간을 T\textsubscript{max}라 한다.
 그러나 이것은 채혈 후 관찰된 값들 중에서 가장 큰 값일 뿐이고 실제 환자의 혈장 속에서 가장 높은 농도를 나타내는 시간과 농도값은 그림 \ref{fig:fig4-5}의 경우 네모로 둘러싼 두 점 사이의 어떤 시간과 농도일 것으로 추론할 수 있다.
@@ -3017,8 +2958,7 @@ NCA에서는 그림 \ref{fig:fig4-5}에서 볼 수 있듯이 약동학적 채혈
 
 
 
-\hypertarget{pkpduxc640-uxc5f0uxad00uxb41c-uxac01uxc885-uxc758uxc0acuxacb0uxc815}{%
-\subsection{\texorpdfstring{PK/PD와 연관된 각종 의사결정\index{의사결정}}{PK/PD와 연관된 각종 의사결정}}\label{pkpduxc640-uxc5f0uxad00uxb41c-uxac01uxc885-uxc758uxc0acuxacb0uxc815}}
+\subsection{\texorpdfstring{PK/PD와 연관된 각종 의사결정\index{의사결정}}{PK/PD와 연관된 각종 의사결정}}\label{pkpduxc640-uxc5f0uxad00uxb41c-uxac01uxc885-uxc758uxc0acuxacb0uxc815}
 
 신약의 임상개발을 진행하면서 약효의 유무와 유효용량을 따지는 단계 뿐\index{임상개발}\index{유효용량}
 아니라 이후 인종, 연령, 질병, 장기기능 등에 따라 PK가 어떻게 변하는지,
@@ -3029,8 +2969,7 @@ NCA에서는 그림 \ref{fig:fig4-5}에서 볼 수 있듯이 약동학적 채혈
 시나리오들에 대해 수행한 시뮬레이션을 통해서만 예측이 가능하다. 이러한\index{시뮬레이션}
 작업들의 출발점이 구획모델 분석이라 할 것이다.
 
-\hypertarget{diff-pk-param}{%
-\section{구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점}\label{diff-pk-param}}
+\section{구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점}\label{diff-pk-param}
 
 \ref{diff-pk-param}절은 약동학을 처음 공부하는 독자는 이해하기 어려우므로 읽지않고\index{약동학}
 넘어가도 좋다.
@@ -3064,13 +3003,12 @@ NCA로부터 PK파라미터를 구하는 시초는 혈장약물농도로부터 A
 
 \normalsize
 
-\hypertarget{uxbd84uxd3ecuxc6a9uxc801-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc758-uxcc28uxc774}{%
-\subsection{분포용적 파라미터들의 차이}\label{uxbd84uxd3ecuxc6a9uxc801-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc758-uxcc28uxc774}}
+\subsection{분포용적 파라미터들의 차이}\label{uxbd84uxd3ecuxc6a9uxc801-uxd30cuxb77cuxbbf8uxd130uxb4e4uxc758-uxcc28uxc774}
 
 \index{분포용적}
 
 분포용적의 경우 NCA에서는 최종소실기의 기울기인 β를 써서 구한 V\textsubscript{z}를\index{분포용적}
-얻을 수 있는데 (NCA에 관한 \protect\hyperlink{nca-principle}{2장}에서 설명) 말초구획으로 분포가 완료되고 난\index{말초구획}\index{말초구획}
+얻을 수 있는데 (NCA에 관한 \hyperref[nca-principle]{2장}에서 설명) 말초구획으로 분포가 완료되고 난\index{말초구획}\index{말초구획}
 후, 중심구획에서 약물의 제거가 지속되므로 말초구획의 농도가 중심구획보다\index{중심구획}\index{말초구획}\index{중심구획}\index{말초구획}
 높아서 혈장약물농도(중심구획의 농도)로 몸 안에 있는 약물의 총량을 나누어\index{중심구획}\index{중심구획}
 준 값(이것은 분포용적의 정의와 같다)을 시간에 따라 비교해보면 이 때\index{분포용적}
@@ -3090,8 +3028,7 @@ V\textsubscript{ss}는 NCA에서는 V\textsubscript{ss} = F·Dose/AUC·MRT 로 �
 V\textsubscript{ss} = V\textsubscript{c}+V\textsubscript{p}로 정의된다. 두 값은 정의가 다르므로 어느 값을 쓰는 게
 더 바람직한지 등으로 비교하는 것은 무의미하다.
 
-\hypertarget{ux3b2uxc640-kek10uxc758-uxcc28uxc774}{%
-\subsection{\texorpdfstring{β와 k\textsubscript{e}(k\textsubscript{10})의 차이}{β와 ke(k10)의 차이}}\label{ux3b2uxc640-kek10uxc758-uxcc28uxc774}}
+\subsection{\texorpdfstring{β와 k\textsubscript{e}(k\textsubscript{10})의 차이}{β와 ke(k10)의 차이}}\label{ux3b2uxc640-kek10uxc758-uxcc28uxc774}
 
 NCA 분석에서 마지막 최소 3개의 농도를 직선으로 연결하여 구하는 최종 기울기를 β라 한다.
 이는 흔히 정맥주사 후 두 개의 기울기를 관찰할 수 있어서 처음 것은 α, 두번째 것을 β라 하기 때문이다.
@@ -3147,8 +3084,7 @@ k\textsubscript{e} = CL/V\textsubscript{c}로서, 약을 제거하는 능력(CL)
 분포용적(V\textsubscript{z})이 반영되어 있고 V\textsubscript{c} ≪ V\textsubscript{z}이므로, 비록 분수식의 분자에\index{분포용적}
 있는 CL도 두 방법간에 다르게 구해진 것임을 감안하더라도, β \textless{} k\textsubscript{e}의 단서를 찾을 수 있다.
 
-\hypertarget{uxb9fauxc74cuxb9d0-3}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-3}
 
 비교적 간단한 NCA 방법이 있음에도 불구하고 구획모델을 사용하여
 약동학자료를 분석하는 이유는 이 장에서 열거한 바와 같이 NCA 결과에서 누락되는 약동학적 정보를 놓치지 않기 위해서이다.
@@ -3163,8 +3099,7 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
 복잡성으로 인해 NCA와는 달리 반드시 전문적인 소프트웨어를 이용해야 한다.
 또한 NCA와 구획모델의 두 방법으로 얻어지는 결과인 PK 파라미터들은 명칭과 사용하는 수식이 조금씩 다르므로 결과를 해석할 때 혼동하지 않도록 주의해야 한다.
 
-\hypertarget{ca-analysis}{%
-\chapter{구획분석의 자료해석}\label{ca-analysis}}
+\chapter{구획분석의 자료해석}\label{ca-analysis}
 
 \Large\hfill
 
@@ -3172,8 +3107,7 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
 
 \normalsize
 
-\hypertarget{uxc11cuxb860-3}{%
-\section{서론}\label{uxc11cuxb860-3}}
+\section{서론}\label{uxc11cuxb860-3}
 
 약동학 구획분석을 한 문장으로 표현하자면 시간 농도(time-concentration data) 자료에 대한 약동학 파라미터 추정값(pharmacokinetic parameter estimates)을 구하는 과정이다. \index{약동학}
 다시 말하자면, 인체의 여러 장기(organ) 또는 계(system)를 몇개의 구획으로 단순화하고 우리의 관심이 되는 특성을 파라미터화하여 각 구획들 간의 연관성을 파악하는 것이다.
@@ -3196,7 +3130,7 @@ NCA는 분포기와 제거기 중 어느 시기가 더 약물제거에 많이 �
 
 }
 
-\caption{3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도 (\protect\hyperlink{ref-han2014pharmacokinetic}{Han 2014})}\label{fig:fig5-1}
+\caption{3구획 약동학 모델에서 시간에 따른 농도 변화의 양상에 대한 모식도 (\citeproc{ref-han2014pharmacokinetic}{Han 2014})}\label{fig:fig5-1}
 \end{figure}
 
 
@@ -3211,8 +3145,7 @@ V\textsubscript{1}, V\textsubscript{2}, V\textsubscript{3} 원통의 부피는 �
 
 이렇게 약물의 이동에 대한 정량적인 표현을 위해서는 약동학 수식에 대해 익숙해 져야 할 필요가 있고, 수식을 잘 아는 것 만큼이나 자료를 해석하고 추정값을 실제로 구하는 작업을 충분히 경험할 필요가 있다. \index{약동학}
 
-\hypertarget{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxad6cuxd68duxbd84uxc11d-uxac1cuxb860}{%
-\section{상용 소프트웨어를 이용한 구획분석 개론}\label{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxad6cuxd68duxbd84uxc11d-uxac1cuxb860}}
+\section{상용 소프트웨어를 이용한 구획분석 개론}\label{uxc0c1uxc6a9-uxc18cuxd504uxd2b8uxc6e8uxc5b4uxb97c-uxc774uxc6a9uxd55c-uxad6cuxd68duxbd84uxc11d-uxac1cuxb860}
 
 \begin{figure}
 
@@ -3223,20 +3156,19 @@ V\textsubscript{1}, V\textsubscript{2}, V\textsubscript{3} 원통의 부피는 �
 \caption{다양한 상용 소프트웨어의 사용 예. A. GUI 기반 Phoenix NLME, B. GUI 기반 Lixoft Monolix, C. NONMEM의 제어구문}\label{fig:fig5-2}
 \end{figure}
 
-약동학 자료의 분석은 복잡하고 시간이 많이 걸리는 일이다. 모든 생물학 자료가 그러하듯 높은 변동성과 많은 노이즈가 PK 자료에 포함되어 있다. (\protect\hyperlink{ref-gabrielsson}{Gabrielsson 2006})\index{약동학}
+약동학 자료의 분석은 복잡하고 시간이 많이 걸리는 일이다. 모든 생물학 자료가 그러하듯 높은 변동성과 많은 노이즈가 PK 자료에 포함되어 있다. (\citeproc{ref-gabrielsson}{Gabrielsson 2006})\index{약동학}
 따라서 비선형 회귀분석(Nonlinear regression analysis)이 필요한 구획분석을 위해서는 컴퓨터 소프트웨어의 사용이 필수적이다.
 이 때 Certara Phoenix NLME\footnote{\url{https://www.certara.com/software/phoenix-nlme/}}, Monolix\footnote{\url{https://lixoft.com/products/monolix/}}와 같은 여러가지 소프트웨어들이 사용되고 있지만, 가장 널리쓰이는 도구는 ICON사의 NONMEM\footnote{\url{https://www.iconplc.com/innovation/nonmem/}}이라고 하는 소프트웨어이다. (그림 \ref{fig:fig5-2})
 이것은 FORTRAN 코드로 프로그램 되어 있으며 2021년 현재 버전 7.5.0까지 지속적으로 업데이트 되고 있는 소프트웨어로, 구획분석 및 계량약리학 분야에서 가장 표준적인 도구로 쓰이고 있다. \index{계량약리학}
-이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다. (\protect\hyperlink{ref-nonmem}{Bauer 2020}; \protect\hyperlink{ref-gabrielsson}{Gabrielsson 2006}; \protect\hyperlink{ref-basic}{D. S. Yim 2020})
+이에 대한 각종 자료를 이곳에서 다루기는 지면의 제약과 이론의 어려움 때문에 별도의 참고서적을 활용하는 것이 바람직할 것이다. (\citeproc{ref-nonmem}{Bauer 2020}; \citeproc{ref-gabrielsson}{Gabrielsson 2006}; \citeproc{ref-basic}{D. S. Yim 2020})
 
 상용 소프트웨어를 통한 구획분석 방법은 GUI 기반이고 많은 사용자가 확보되어 있다는 장점이 있으나, 상당한 비용을 매년 지불하여야 하며, 접근이 다소 쉽지 않다는 단점을 가지고 있다.
 
-\hypertarget{uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}{%
-\section{구획분석에 활용할 수 있는 R package 소개}\label{uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}}
+\section{구획분석에 활용할 수 있는 R package 소개}\label{uxad6cuxd68duxbd84uxc11duxc5d0-uxd65cuxc6a9uxd560-uxc218-uxc788uxb294-r-package-uxc18cuxac1c}
 
 이를 극복하기 위해 통계 및 수학적 계산에 적합한 R 언어 기반의 오픈소스 소프트웨어가 활발히 개발되고 있다.
-즉, 비구획분석을 위한 R 패키지를 \protect\hyperlink{nca-analysis}{3장}에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
-본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\protect\hyperlink{ref-R-wnl}{Bae 2020})
+즉, 비구획분석을 위한 R 패키지를 \hyperref[nca-analysis]{3장}에서 소개한 것과 마찬가지로 구획분석용 R 패키지에 대한 다양한 시도가 일어나고 있는 것이다.
+본 서에서는 무료 R 패키지 ``wnl''를 사용한 자료해석과 예제에 대해 다루고자 한다. (\citeproc{ref-R-wnl}{Bae 2020})
 
 NONMEM에서는 비선형 회귀분석을 위해서 최대 가능도 추정법(maximum likelihood estimation)을 사용한다. \index{가능도}
 최대 가능도 추정법에서 얻어진 sample 데이터에서 Y가 현재 측정된 값, E(Y)는 모델에 의해 각각의 관측 지점에서의 예상되는 값, 그리고 V(Y)를 그 모델의 분산으로 표현한다. \index{가능도}
@@ -3284,8 +3216,7 @@ AIC, AICc, SBC는 Akaike information criterion, Akaike information
 criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모델에서
 구조가 적합한지를 확인할수 있도록 도와주는 지표이다.
 
-\hypertarget{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxacbduxad6cuxd22cuxc5ec-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
-\section{\texorpdfstring{1구획모델을 이용한 경구투여 후 약동학 자료 분석\index{약동학}}{1구획모델을 이용한 경구투여 후 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxacbduxad6cuxd22cuxc5ec-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
+\section{\texorpdfstring{1구획모델을 이용한 경구투여 후 약동학 자료 분석\index{약동학}}{1구획모델을 이용한 경구투여 후 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxacbduxad6cuxd22cuxc5ec-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}
 
 아래의 코드로 wnl 라이브러리를 불러오고 hands-on1.csv\footnote{\url{https://github.com/pipetcpt/pharmapk/blob/master/data.zip}} 파일을 읽어올 수 있다.
 
@@ -3348,8 +3279,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 이 경우에는 wnl 패키지 내부에 기본적 equation이 정의되어 있으므로 추가적인 equation을 입력하지 않고 각각의 파라미터의 값에 해당하는 THETA에 대해서만 입력하였다.
 필요한 THETA는 k(제거속도상수), k\textsubscript{a}(흡수속도상수), V(부피), t\textsubscript{lag}(흡수가 지연되는 시간)이다.
 
-\hypertarget{compartmental-analysis-without-tlag}{%
-\subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag}}
+\subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag}
 
 아래는 경구 투여 1구획, 지연 시간이 없는 모델이다. \index{지연 시간}
 모델의 R 스크립트에서 THETA{[}1{]}, THETA{[}2{]}, THETA{[}3{]}는 각각 파라미터 중 k(제거속도상수), k\textsubscript{a}(흡수속도상수), V(부피)를 의미한다.
@@ -3383,13 +3313,14 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 
 \begin{verbatim}
 ##            ka      V         k AddErrVar AddErrSD
-## PE   0.013202 21.018  0.013202   0.08701  0.29498
-## SE   0.005442  8.623  0.005442   0.03413  0.05785
-## RSE 41.220676 41.029 41.220716  39.22314 19.61157
+## PE  1.320e-02 21.018 1.320e-02  0.087014  0.29498
+## SE  5.442e-03  8.623 5.442e-03  0.034130  0.05785
+## RSE 4.122e+01 41.029 4.122e+01 39.223143 19.61157
+## LL  8.915e-04  1.510 8.914e-04  0.009807  0.16411
+## UL  2.551e-02 40.525 2.551e-02  0.164221  0.42585
 \end{verbatim}
 
-\hypertarget{compartmental-analysis-with-tlag}{%
-\subsection{\texorpdfstring{Compartmental analysis with T\textsubscript{lag}}{Compartmental analysis with Tlag}}\label{compartmental-analysis-with-tlag}}
+\subsection{\texorpdfstring{Compartmental analysis with T\textsubscript{lag}}{Compartmental analysis with Tlag}}\label{compartmental-analysis-with-tlag}
 
 경구 투여 1구획분석, 지연 시간이 있는 모델이다. k\textsubscript{a}, V, k에 T\textsubscript{lag}가 추가되어 농도를 나타낼 수 있다.\index{지연 시간}
 
@@ -3425,16 +3356,19 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 ## PE   0.02747 27.354  0.010511 11.3754  0.015494
 ## SE   0.00606  4.149  0.001938  0.8676  0.006077
 ## RSE 22.06025 15.167 18.432707  7.6269 39.223384
+## LL   0.01350 17.787  0.006043  9.3748  0.001480
+## UL   0.04144 36.921  0.014979 13.3761  0.029509
 ##     AddErrSD
 ## PE   0.12448
 ## SE   0.02441
 ## RSE 19.61169
+## LL   0.06818
+## UL   0.18077
 \end{verbatim}
 
 \normalsize
 
-\hypertarget{uxbaa8uxb378uxb9c1-uxacb0uxacfc}{%
-\subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc}}
+\subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc}
 
 위 두개의 모델을 비교할 때 지연 시간이 있는 모델의 적합이 더 좋은 것을 알 수 있다. (그림 \ref{fig:onecomp-lag}) C\textsubscript{max} 부분을 주의깊게 살펴야 한다. \index{지연 시간}
 
@@ -3459,8 +3393,7 @@ criterion corrected, Schwarz criterion을 의미하며 각각의 통계적 모�
 
 
 
-\hypertarget{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
-\section{\texorpdfstring{1구획모델을 이용한 정맥주사 후 약동학 자료 분석\index{약동학}}{1구획모델을 이용한 정맥주사 후 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
+\section{\texorpdfstring{1구획모델을 이용한 정맥주사 후 약동학 자료 분석\index{약동학}}{1구획모델을 이용한 정맥주사 후 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378uxc744-uxc774uxc6a9uxd55c-uxc815uxb9e5uxc8fcuxc0ac-uxd6c4-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}
 
 wnl 라이브러리를 불러오고 자료를 읽어온다.
 이전 예제에서는 1명의 경구투약 후 농도 자료였고, 이번 예제는 4명의 i.v.투약 후 농도 자료이다. (그림 \ref{fig:ggonecomp-iv})
@@ -3500,7 +3433,7 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
   해당하는 농도가 높은 쪽이 분포용적이 더 작을 것이라 예상할 수 있다.
 \end{itemize}
 
-이러한 탐색을 수치적인 해석으로 확장하기 위해 4명 자료의 NCA 분석을 수행한다. \protect\hyperlink{nca-analysis}{3장}에서 다루었던 \texttt{tblNCA()} 함수를 사용해 계산할 수 있다.
+이러한 탐색을 수치적인 해석으로 확장하기 위해 4명 자료의 NCA 분석을 수행한다. \hyperref[nca-analysis]{3장}에서 다루었던 \texttt{tblNCA()} 함수를 사용해 계산할 수 있다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3542,8 +3475,7 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 ## 4 0.1928    56.59   103.76   102.92 19.899 19.848
 \end{verbatim}
 
-\hypertarget{compartmental-analysis}{%
-\subsection{Compartmental analysis}\label{compartmental-analysis}}
+\subsection{Compartmental analysis}\label{compartmental-analysis}
 
 V, K만 있으면 단항 지수함수적 농도 감소를 보이는 i.v.dosing의 농도를 나타낼 수 있으므로 아래와 같이 간단한 함수를 만들 수 있다.
 
@@ -3582,35 +3514,50 @@ Subject가 여러 명일 경우 각 대상자의 값을 구하기 위해서 \tex
 
 \begin{verbatim}
 ##     ID       V         k AddErrVar AddErrSD       CL
-## PE   1  9.9784 0.0102561    432.74   20.802 0.102340
-## SE   1  0.1834 0.0003874    193.53    4.652 0.002597
-## RSE  1  1.8382 3.7771994     44.72   22.361 2.537782
-## PE   2  9.8162 0.0206613    753.97   27.459 0.202816
-## SE   2  0.3308 0.0010188    337.19    6.140 0.005970
-## RSE  2  3.3700 4.9308074     44.72   22.361 2.943762
-## PE   3 10.2230 0.0190412     77.05    8.778 0.194658
-## SE   3  0.1087 0.0003052     34.46    1.963 0.001891
-## RSE  3  1.0630 1.6029349     44.72   22.361 0.971497
-## PE   4 19.9472 0.0098140     72.19    8.497 0.195761
-## SE   4  0.2954 0.0003071     32.29    1.900 0.004148
-## RSE  4  1.4811 3.1291755     44.72   22.361 2.119026
+## PE   1  9.9784 0.0102561   432.738   20.802 0.102340
+## SE   1  0.1834 0.0003874   193.526    4.652 0.002597
+## RSE  1  1.8382 3.7771994    44.721   22.361 2.537782
+## LL   1  9.5447 0.0093400   -24.879    9.803 0.096198
+## UL   1 10.4122 0.0111721   890.354   31.802 0.108481
+## PE   2  9.8162 0.0206613   753.970   27.459 0.202816
+## SE   2  0.3308 0.0010188   337.185    6.140 0.005970
+## RSE  2  3.3700 4.9308074    44.721   22.361 2.943762
+## LL   2  9.0340 0.0182523   -43.346   12.940 0.188698
+## UL   2 10.5985 0.0230703  1551.287   41.977 0.216934
+## PE   3 10.2230 0.0190412    77.051    8.778 0.194658
+## SE   3  0.1087 0.0003052    34.458    1.963 0.001891
+## RSE  3  1.0630 1.6029349    44.721   22.361 0.971497
+## LL   3  9.9660 0.0183195    -4.430    4.137 0.190187
+## UL   3 10.4800 0.0197629   158.532   13.419 0.199130
+## PE   4 19.9472 0.0098140    72.194    8.497 0.195761
+## SE   4  0.2954 0.0003071    32.287    1.900 0.004148
+## RSE  4  1.4811 3.1291755    44.722   22.361 2.119026
+## LL   4 19.2486 0.0090878    -4.151    4.004 0.185952
+## UL   4 20.6457 0.0105401   148.540   12.989 0.205570
 ##           AUC      AUMC   Thalf      MRT
 ## PE  9.771e+04 9.527e+06 67.5840  97.5031
 ## SE  2.480e+03 5.876e+05  2.5528   3.6829
 ## RSE 2.538e+00 6.167e+00  3.7772   3.7772
+## LL  9.185e+04 8.138e+06 61.5476  88.7945
+## UL  1.036e+05 1.092e+07 73.6204 106.2118
 ## PE  4.931e+04 2.386e+06 33.5481  48.3997
 ## SE  1.451e+03 1.763e+05  1.6542   2.3865
 ## RSE 2.944e+00 7.389e+00  4.9308   4.9308
+## LL  4.587e+04 1.969e+06 29.6366  42.7565
+## UL  5.274e+04 2.803e+06 37.4597  54.0429
 ## PE  5.137e+04 2.698e+06 36.4025  52.5177
 ## SE  4.991e+02 6.551e+04  0.5835   0.8418
 ## RSE 9.715e-01 2.428e+00  1.6029   1.6029
+## LL  5.019e+04 2.543e+06 35.0227  50.5271
+## UL  5.255e+04 2.853e+06 37.7822  54.5083
 ## PE  5.108e+04 5.205e+06 70.6287 101.8957
 ## SE  1.082e+03 2.673e+05  2.2101   3.1885
 ## RSE 2.119e+00 5.135e+00  3.1292   3.1292
+## LL  4.852e+04 4.573e+06 65.4027  94.3561
+## UL  5.364e+04 5.837e+06 75.8548 109.4353
 \end{verbatim}
 
-\hypertarget{uxbaa8uxb378uxb9c1-uxacb0uxacfc-1}{%
-\subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc-1}}
+\subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc-1}
 
 정맥주사 후 약동학 자료에 대해 1구획모델로 구획분석을 수행하였고, 이때 구해진 PK 파라미터를 사용하여 150분까지 시뮬레이션 한 결과를 그림으로 나타내었다 (그림 \ref{fig:onecomp-iv}). \index{약동학}\index{시뮬레이션}
 
@@ -3641,8 +3588,7 @@ Subject가 여러 명일 경우 각 대상자의 값을 구하기 위해서 \tex
 
 \normalsize
 
-\hypertarget{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}{%
-\section{\texorpdfstring{2구획모델 경구 흡수 이용한 약동학 자료 분석\index{약동학}}{2구획모델 경구 흡수 이용한 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}}
+\section{\texorpdfstring{2구획모델 경구 흡수 이용한 약동학 자료 분석\index{약동학}}{2구획모델 경구 흡수 이용한 약동학 자료 분석}}\label{uxad6cuxd68duxbaa8uxb378-uxacbduxad6c-uxd761uxc218-uxc774uxc6a9uxd55c-uxc57duxb3d9uxd559-uxc790uxb8cc-uxbd84uxc11d}
 
 wnl 라이브러리를 불러오고 자료를 읽어온다.
 \texttt{hands-on3.csv}\footnote{\url{https://github.com/pipetcpt/pharmapk/blob/master/data.zip}}를 읽어 들인 후 모델링을 수행한다.\index{모델링}
@@ -3673,8 +3619,7 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 ## 14 25.000   0.90
 \end{verbatim}
 
-\hypertarget{compartmental-analysis-without-tlag-1}{%
-\subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag-1}}
+\subsection{Compartmental analysis without Tlag}\label{compartmental-analysis-without-tlag-1}
 
 아래의 코드는 경구 투여 2구획, 지연 시간이 없는 모델이다. \index{지연 시간}
 2차 지수로 감소하는 약물에서의 약동학 모델이며, 이때의 농도 값(Cp)을 구하기 위한 공식을 사용하였으며, K\textsubscript{a}(\texttt{Ka}), V\textsubscript{c}(\texttt{Vc}), k\textsubscript{21}(\texttt{k21}), alpha(\texttt{a}), beta(\texttt{b})로 농도를 나타낼 수 있다.\index{약동학}
@@ -3709,18 +3654,21 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 \end{Shaded}
 
 \begin{verbatim}
-##      Vc/F     Ka      k21  alpha     beta AddErrVar
-## PE  43.59  2.347   0.6955  2.347   0.3960    537.13
-## SE  40.96  2.240   0.9594  2.241   0.4919    202.99
-## RSE 93.98 95.439 137.9449 95.482 124.2005     37.79
+##       Vc/F     Ka      k21  alpha     beta AddErrVar
+## PE   43.75  2.356   0.6945  2.338   0.3953    537.46
+## SE   40.54  2.220   0.9619  2.218   0.4927    203.24
+## RSE  92.67 94.253 138.4974 94.879 124.6313     37.82
+## LL  -49.74 -2.765  -1.5236 -2.777  -0.7409     68.79
+## UL  137.23  7.476   2.9126  7.452   1.5316   1006.14
 ##     AddErrSD
-## PE    23.176
-## SE     4.379
-## RSE   18.896
+## PE    23.183
+## SE     4.383
+## RSE   18.908
+## LL    13.075
+## UL    33.291
 \end{verbatim}
 
-\hypertarget{compartmental-analysis-with-tlag-1}{%
-\subsection{\texorpdfstring{Compartmental analysis with T\textsubscript{lag}}{Compartmental analysis with Tlag}}\label{compartmental-analysis-with-tlag-1}}
+\subsection{\texorpdfstring{Compartmental analysis with T\textsubscript{lag}}{Compartmental analysis with Tlag}}\label{compartmental-analysis-with-tlag-1}
 
 경구 투여 2구획, 지연 시간이 있는 모델이다. Ka, V, k21, alpha, beta 에 Tlag가 추가되어 농도를 나타낼 수 있다.\index{지연 시간}
 
@@ -3753,18 +3701,21 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 \end{Shaded}
 
 \begin{verbatim}
-##       Vc/F     Ka       k21   alpha      beta    Tlag
-## PE  88.528 19.767 7.902e-03 0.73176 1.976e-03 0.12163
-## SE   2.315  3.763 1.243e-01 0.04575 1.129e-01 0.00812
-## RSE  2.615 19.036 1.573e+03 6.25139 5.713e+03 6.67610
-##     AddErrVar AddErrSD
-## PE     17.894   4.2301
-## SE      6.851   0.8098
-## RSE    38.288  19.1441
+##       Vc/F    Ka        k21   alpha       beta
+## PE  88.526 19.76  8.026e-03 0.73180    0.00209
+## SE   2.314  3.76  1.241e-01 0.04571    0.11273
+## RSE  2.613 19.02  1.546e+03 6.24606 5393.09489
+## LL  83.056 10.87 -2.854e-01 0.62371   -0.26448
+## UL  93.997 28.65  3.015e-01 0.83988    0.26866
+##         Tlag AddErrVar AddErrSD
+## PE  0.121620    17.891   4.2298
+## SE  0.008117     6.849   0.8096
+## RSE 6.674037    38.281  19.1404
+## LL  0.102426     1.696   2.3154
+## UL  0.140813    34.086   6.1441
 \end{verbatim}
 
-\hypertarget{uxbaa8uxb378uxb9c1-uxacb0uxacfc-2}{%
-\subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc-2}}
+\subsection{모델링 결과}\label{uxbaa8uxb378uxb9c1-uxacb0uxacfc-2}
 
 1구획모델에서와 같이 지연 시간이 있는 모델의 적합이 더 좋은 것을 알 수 있다. 특히 C\textsubscript{max} 부분에서의 적합 차이를 주의해서 살펴 볼 필요가 있다.\index{지연 시간}
 
@@ -3789,12 +3740,11 @@ wnl 라이브러리를 불러오고 자료를 읽어온다.
 
 
 
-\hypertarget{theoph-wnl}{%
-\section{Theoph 약동학 자료의 구획분석}\label{theoph-wnl}}
+\section{Theoph 약동학 자료의 구획분석}\label{theoph-wnl}
 
 R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 사용하여 수행한다. Minimization이 된 후 1구획 약동학 모델에서 언급된 파라미터 이외에 다른 파라미터에 대해서도 값을 구하기 위해서 다음과 같이 CL(제거 속도), t\textsubscript{1/2}(반감기), MRT(평균잔류시간)를 추가한 후, 입력한 파라미터값들을 구하기 위한 수식을 뒤쪽 부분 `SecForms' 인자에 입력하게 된다. 이런 방법을 통하여 우리가 원하는 파라미터들의 점추정치와(point estimate), 그리고 표준 오차(standard error of estimates)를 모두 구할 수 있다.\index{약동학}\index{반감기}
 
-본문에 결과를 싣기에 지면이 부족하여 \protect\hyperlink{Theoph_nlr}{별첨 B}에 수록하였다.
+본문에 결과를 싣기에 지면이 부족하여 \hyperref[Theoph_nlr]{별첨 B}에 수록하였다.
 
 \begin{Shaded}
 \begin{Highlighting}[]
@@ -3829,8 +3779,7 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 \end{Highlighting}
 \end{Shaded}
 
-\hypertarget{uxb9fauxc74cuxb9d0-4}{%
-\section{맺음말}\label{uxb9fauxc74cuxb9d0-4}}
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-4}
 
 이상으로 구획모델링(compartment modeling)에 대한 이론과 R코드를 사용한 자료해석을 알아보았다. \index{모델링}
 이는 단순하지만 여러 현상을 묘사할 수 있는 유용한 도구 중 하나이다.
@@ -3838,24 +3787,532 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 여기에서는 가장 단순한 형태의 모델을 사용하여 공개 소프트웨어를 사용한 구획분석을 수행하였으나, 실제 자료 분석에는 보다 전문적인 소프트웨어를 사용하게 된다.
 그러나 본 교재에서 다룬 기초적인 내용이 전문적인 구획분석 도구를 이해하고 사용하는데 필요한 핵심 내용을 포함하고 있으므로 여전히 유용할 것이다.
 
+\chapter{항체의약품}\label{antibody_drug}
+
+\Large\hfill
+
+최수인
+
+\normalsize
+
+\section{서론}\label{uxc11cuxb860-4}
+
+지난 20년간 항체 의약품은 다양한 방면에서 활용가능성을 보여주고 있으며 특히 암 부분과 염증 질환, 혈액 질환 치료에 중요한 역할을 하고 있다. \index{항체의약품}
+지난 5년간(2016\textasciitilde2020년 기준) FDA에 허가된 총 228개의 의약품 중 항체의약품는 총 59개로 이는 전체의약품의 약 26\%에 해당하는대 이는 10년 전(2006\textasciitilde2010년 기준, 18\%)에 비해 50\% 가까이 증가한 수치이며 계속해서 증가하는 추세이다.(\citeproc{ref-fdaapproval}{Mullard 2022}) \index{항체의약품}
+또한 전체 의약품 중에서도 가장 높은 매출을 가지는 약물의 대부분이 항체의약품에 속한다. 따라서 제약회사의 항체의약품 개발에 대한 관심은 나날이 높아지고 있으며 그에 발맞추어 항체의약품의 약동학의 중요성 또한 대두되고 있다. \index{항체의약품}
+항체의약품은 일반의약품에 비해서 특이성이 높아 타겟 외 결합으로 인한 부작용(Off-target effect)이 적기 때문에 일반적으로 기존 치료에 비해 부작용 대비 효과가 크다는 장점을 가지고 있다. \index{항체의약품}
+특히 약물의 결합이 특이적인 만큼 해당하는 타겟을 가지고 있는 집단에 대해서는 매우 효과적이기 때문에 최근에는 정밀의학의 발전과 함께 더욱 발전하고 있다.
+항체의약품은 큰 분자량과 Fc구조, 타겟수용체와의 높은 결합 친화성과 같이 일반의약품과는 다른 구조와 성질을 가지기 때문에 약리학적 기전 뿐만 아니라 약동학 측면에서도 일반적인 의약품과는 다른 모습을 보이고 이러한 차이로 인해 투여 용량, 용법, 경로에서도 일반의약품과 큰 차이를 가지게 된다. \index{항체의약품}
+따라서 항체의약품의 기본적인 약동학적 특징을 일반의약품과 비교하여 이해하고 특징적으로 나타나는 약동학 프로파일을 표현한 Target-mediated drug disposision(TMDD) 모델을 이해하는 것은 항체의약품의 개발과정에 있어서 매우 중요하다. \index{항체의약품}
+
+\section{항체 및 항체의약품이란?}\label{uxd56duxccb4-uxbc0f-uxd56duxccb4uxc758uxc57duxd488uxc774uxb780}
+
+항체(Antibody, Ab)는 면역글로불린(Immunoglobulin, Ig)로도 지칭되며 특정 세포나 단백질과 같은 항원(Antigen)을 특이적으로 인지하여 면역반응을 유발한다. 대부분 당단백질로 구성되어 있으며 주로 체액성 면역반응에서 B 세포의 활성화를 통해 생산되어 항원을 중화(neutralization)하거나 옵소닌화(opsonization)를 통해 제거를 유도하는 역할을 한다. \index{항체} \index{항원}
+
+항체의약품은 이와 같이 항원, 즉 타겟수용체에 특이적으로 결합하는 항체의 특성을 이용한 의약품으로 일반 의약품에 비해 타겟 외 결합에 의한 위험성이 떨어지고 적은량으로 비교적 큰 효과를 낼 수 있다. \index{항체의약품}
+
+동물의 면역계가 생산하는 항체의 종류는 종마다 약간의 차이가 있으며 사람의 면역계는 Y unit의 개수와 heavy chain의 타입에 따라 5가지의 아형(Isotype)의 항체를 생산한다. 아형 별로 그림 \ref{fig:antibody-isotype}과 같이 다양한 구조를 가지고 있고 이에 따라 체내 분포와 기능에 있어서 차이가 존재한다. 이 중 IgG는 인체에서 70\textasciitilde85\%를 차지하는 가장 흔한 아형으로 150 kDa로 비교적 분자량이 작고 항원특이적이며 Fc 구조로 인해 아형 중에 반감기가 20\textasciitilde24일 정도로 가장 길기 때문에 항체의약품으로 가장 많이 사용되며 특히 IgG4를 가장 많이 사용한다. \index{항체의약품}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/antibody_isotype_pic} 
+
+}
+
+\caption{5가지 항체 아형의 구조 (\citeproc{ref-2012197}{Strohl and Strohl 2012})}\label{fig:antibody-isotype}
+\end{figure}
+
+
+
+\section{항체의약품의 구조 및 작용}\label{uxd56duxccb4uxc758uxc57duxd488uxc758-uxad6cuxc870-uxbc0f-uxc791uxc6a9}
+
+항체의약품은 항체 아형 중 주로 IgG의 구조를 가지며 그 구조를 자세히 보면 아래와 같이 Y자 형태를 이루고 있다. 항체의 Y의 위쪽 끝은 특정한 분자를 인지하는 부분이며 Y의 아래쪽 끝은 타 세포와 연계하여 면역반응을 유발하는 부분이다. \index{항체의약품}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/epitope} 
+
+}
+
+\caption{항체의약품의 표적과의 결합의 specificity (Retrieved from \url{https://app.biorender.com/biorender-templates})}\label{fig:paratope}
+\end{figure}
+
+
+
+그림 \ref{fig:paratope}과 같이 항원을 인지하는 부분, 즉 항체의 표적 결합부위를 항원결합부위(Paratope), 항원의 항체 결합부위를 항원결정기(Epitope)라고 지칭하는 대 이 둘은 흔히 좌물쇠와 키로 비유될 정도로 특이적으로 결합한다. \index{항원} \index{항체}
+항원은 대체로 단백질과 같은 큰 분자량의 입체 구조를 가지기 때문에 표면의 여러 부분을 항원결정기로 가질 수 있고 각각의 항원결정기에 따라 그에 해당하는 항원결합부위를 가진 항체가 결합할 수 있다. 따라서 하나의 항원은 생체 내에서 서로 다른 B cell lineage를 통한 다양한 항체의 생성을 유도하고 이러한 하나의 항원에 대한 다양한 항체의 혼합물을 다클론항체(Polyclonal antibodies)라고 한다. Hybridoma 기술이 발견되기 전(1975년)의 초기 항체의약품은 이러한 다클론항체 형태로 시작되었다. \index{다클론항체}
+그러나 이러한 다클론항체는 다양한 항체가 혼합되어 있어 일정한 품질로 생산하기가 매우 어렵고 생체 내에서 교차반응(Cross-reactivity)이 나타날 가능성이 크다. (\citeproc{ref-monoandpoly}{Lipman et al. 2005}) \index{교차반응}
+따라서 현재의 항체의약품은 hybridoma 기술을 이용하여 단일 B cell 에서만 생성된 단일클론항체(monoclonal antibody)를 주로 이용한다. (\citeproc{ref-kohler1975continuous}{Köhler and Milstein 1975}) \index{단일클론항체}
+
+항체의약품 구조는 그림 \ref{fig:structure}과 같이 화학적, 분자적 및 기능적 특성에 따라 다르게 나누어 표현할 수 있다. \index{항체의약품}
+특정 효소에 의해 분해되는 화학적 특성에 따라 Fab, Fc로 나누어 지칭할 수 있으며 연속되는 펩타이드 사슬을 기준으로 분자량에 따라 Light chain과 Heavy chain으로 나눌 수 있다. 또한 기능적 특성에 따라 항원에 의해 구조가 변경되는 Variable region, 구조가 변하지 않는 Constant region으로 정의할 수 있다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/Antibody_structure} 
+
+}
+
+\caption{화학적, 분자적 및 기능적 특성에 따라 구분한 항체의 구조 (\citeproc{ref-mould2007pharmacokinetics}{Mould and Sweeney 2007})}\label{fig:structure}
+\end{figure}
+
+
+
+\section{항체 의약품과 저분자의약품의 비교}\label{uxd56duxccb4-uxc758uxc57duxd488uxacfc-uxc800uxbd84uxc790uxc758uxc57duxd488uxc758-uxbe44uxad50}
+
+항체의약품의 분자량은 대략 150kDa으로 저분자의약품의 분자량의 약 500배 정도로 매우 크고 무거우며 유기화합물로 구성된 저분자의약품과는 달리 4개의 단백질 chain으로 복잡하게 구성되어 있다. \index{항체의약품}
+따라서 일반적으로 사용되는 저분자의약품과는 분자적, 생리학적으로 다른 특성을 보이고 이로 인하여 신체 내에서의 약동학적 특성도 달라지게 된다. \index{항체의약품}
+항체의약품과 저분자의약품을 비교해보면 다음과 같다.
+
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3143}}
+  >{\raggedright\arraybackslash}p{(\columnwidth - 4\tabcolsep) * \real{0.3714}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+항목
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+저분자의약품
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+항체의약품
+\end{minipage} \\
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+분자적 특성 & & \\
+분자량 & \textasciitilde{} 200-500 & ≒ 150kDa \\
+분자적 특성 & 유기화합물 & 단백질 \\
+물리화학적 특성 & 규명이 쉬움 & 복잡한 특성 \\
+정량적 측정 방법 & 잘 확립되어 있음 (LC-MS/MS) & 정량 분석 품질 낮음 (ELISA, LC-MS/MS) \\
+생리학적 특성 & & \\
+흡수 & 세포막 투과 쉽고 위장관 흡수 좋음 & 세포막 투과 어렵고 위장관 투여 불가능 \\
+분포 & 혈관 외 조직으로의 분포가 크게 나타날 수 있음, 혈장 및 조직에서의 단백 결합에 영향을 받음. 장기 분포 ∝ 조직 친화성 & 혈관 외 분포가 적고 단백 결합은 고려하지 않음. 장기 분포 ∝ 혈관 투과도와 수용체 분포정도 \\
+대사 & Phase I/II 대사로 인한 다른 물질로 변환 & 펩타이드/아미노산으로 분해 \\
+배설 & 담즙 또는 소변 배설. 궁극적인 제거 경로 & 거의 배설되지 않음 \\
+면역유발 & 흔치 않음. 과민반응 형태의 독성 작용 & 비교적 흔함. 항약물항체(ADA)에 의해 약물 제거될 수 있음 \\
+약동학적 특성 & & \\
+투여경로 & 경구 투여 선호됨 & 정맥, 피하 또는 근육 투여 \\
+제형 & 복잡하고 다양함 & 단순함 (용액) \\
+반감기 & 대부분 1일 미만 & 수 일 \textasciitilde{} 수 주 \\
+투여 간격 & 1일 미만 & 2주 \textasciitilde{} 1달 \\
+분포 용적 & 매우 다양 & 혈장 / ECF 부피와 유사 \\
+제거속도론 & 대부분 선형약동학 & 저용량에서 비선형성을 보일 수 있음(TMDD) \\
+약동학적 관심사 & 모약물 및 대사체 & 항체 및 항약물항체 \\
+약동학과 약력학 & 서로 뚜렷이 구분됨 & 약력학이 약동학에 영향 가능 \\
+개발 시 규제적 고려사항 & & \\
+약물상호작용 & CYP 효소와 Transporter에 의해 나타날 수 있음 & 거의 나타나지 않음 \\
+독성 평가 범위 & On-target/Off-target & 주로 약리학적 작용의 과다 \\
+타겟 & 세포내 및 표면 물질 & 세포막 단백질 또는 체내 순환하는 수용성 단백질 \\
+부정맥 유발 가능성 & 평가 필요 & 평가 불필요 \\
+정량평가 방법 품질 & 주요 이슈 아님 & 매우 중요한 이슈 \\
+\end{longtable}
+
+\section{항체의약품의 ADME}\label{uxd56duxccb4uxc758uxc57duxd488uxc758-adme}
+
+\subsection{흡수}\label{uxd761uxc218}
+
+항체 의약품은 단백질로 구성되어 있어 위장관의 산성 환경과 peptidase와 protease의 높은 활성도에 의해서 분해되기 쉽다. 또한 수용성의 거대 분자이기 때문에 세포막 투과가 어려워 위장관 점막의 흡수 장벽을 통과하기 어렵다. 따라서 경구 투여에 의해 치료적 목적을 달성하기 어려워 정맥내 투여, 피하 투여, 근육 투여 등이 선호된다. \index{항체의약품}
+피하 투여와 근육 투여의 경우 정맥 내 투여 보다 투여가 용이하지만 이 경우 림프관을 통해 주로 전신순환에 도달하기 때문에 림프관과 세포외액을 통과하는 과정에서 단백질 가수분해(Proteolysis)가 일어난다. 따라서 모세혈관을 통해 빠르게 흡수되는 저분자 의약품에 비해 대체로 낮은 생체이용률을 가진다. \index{가수분해}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/Bioavailability} 
+
+}
+
+\caption{항체 의약품의 피하 및 근육 투여 시의 생체이용률 감소 메커니즘 (\citeproc{ref-zhou2015adme}{Zhou and Theil 2015})}\label{fig:bioavailability}
+\end{figure}
+
+
+
+일반적으로 항체의약품의 피하 투여 시의 생체이용률은 20\textasciitilde95\% 정도로 약물 마다 매우 다양하며 약물의 구조 및 림프관에서의 작용, 투여 부위에 따라 달라진다. (\citeproc{ref-zhao2013antibody}{Zhao et al. 2013}) \index{생체이용률}
+이러한 생체이용률의 감소에 대해 그림 \ref{fig:bioavailability}과 같은 메커니즘이 제시되고 있으나 이를 정량적으로 예측하기 위한 구체적인 메커니즘은 아직 밝혀져 있지 않으며 비임상시험을 통해서 인간의 생체이용률을 예측하는 방법 역시 저분자의약품에 비해서 아직 잘 구축되어 있지 않다. 피하 및 근육 투여 시의 흡수 속도는 느린 편으로 대부분의 경우 1\textasciitilde8일 정도에 최고 농도에 도달한다.(\citeproc{ref-zhao2013antibody}{Zhao et al. 2013}) \index{항체의약품} \index{생체이용률}
+또한 투여 경로에 따라서 항체의약품에 대한 면역원성에 차이가 날 수 있으며 이로 인해서 약동-약력학에 영향을 줄 수 있다. 따라서 항체의약품 개발 시에는 제제의 개발 목적에 맞는 적절한 투여 경로를 고려해야 한다. \index{항체의약품}
+
+\subsection{분포}\label{uxbd84uxd3ec}
+
+항체의약품은 분자량이 크고 수용성이기 때문에 세포막 투과가 어려워 체내의 분포는 주로 혈관 내 및 세포외액에 한정되어 있다. \index{항체의약품} 따라서 분포용적은 그다지 크지 않은 편으로 이론적으로 0.1L/kg 정도의 알부민과 비슷한 정도, 혹은 혈장 부피(0.04L/kg)에서 세포외액 부피(0.23L/kg) 사이 정도의 분포용적을 가진다. \index{분포용적} 단, 항체의약품의 경우 중심구획으로부터의 1차 소실 뿐 아니라 말초구획에서 타겟과의 결합을 통해 상당량이 제거될 수 있기 때문에 비구획분석으로 구한 평형상태 분포용적(V\textsubscript{ss})을 통한 실제 분포용적으로의 예측은 부정확할 수 있다. 또한, 대부분의 경우 타겟수용체의 갯수가 제한되어 있어 결합이 포화될 수 있기 때문에 항체의 농도 증가에 따라 분포 용적이 감소하는 비선형성이 나타날 수 있다. \index{중심구획} \index{분포용적} \index{비구획분석} \index{말초구획}
+
+항체의약품은 혈관에서부터 조직의 간질액으로 확산(diffusion)과 대류(convection)를 통해 이동하며 특히 혈액의 대류에 의한 이동이 큰 비중을 차지한다. IgG의 경우 FcRN과의 결합으로 인한 통과세포외배출(FcRn-mediated transcytosis) 또한 혈관에서 조직의 간질액으로의 이동에 영향을 미칠 수 있다. \index{확산} \index{대류} \index{통과세포외배출}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/convection} 
+
+}
+
+\caption{항체의약품의 혈관에서 조직으로의 이동 (\citeproc{ref-ryman2017pharmacokinetics}{Ryman and Meibohm 2017a})}\label{fig:distribution}
+\end{figure}
+
+
+
+항체의약품은 혈관으로부터 조직으로의 이동 후 조직의 간질액에서 확산, 대류, 타겟수용체와의 결합 등의 다양한 경로를 통해 제거 및 림프관으로의 이동이 이루어 진다. 따라서 항체의약품의 조직으로의 분포 정도는 이러한 다양한 요소에 의해 결정되고 조직에 따라 다르게 나타난다. 특히 조직에서 타겟수용체와의 결합이 기대되는 경우 해당 조직에서 더 큰 분포용적이 나타날 수 있다. \index{분포용적} \index{대류} \index{확산}
+혈관에서 조직 내로 들어간 항체의약품은 림프관을 통해 다시 전신 순환에 도달하게 되며 이러한 조직에서 림프관으로의 이동은 혈관에서 조직으로의 이동과 마찬가지로 주로 대류에 의해서 일어난다. 그러나 이 경우에는 림프관의 구멍(pore)의 지름이 혈관보다 더 넓어 대류에 의한 이동이 더 크게 나타나기 때문에 혈관에서보다 간질액에서 항체의약품의 농도가 더 낮다. 이러한 현상은 혈관내피세포의 밀착연접(tight junction)이 발달된 경우와 같이 혈관에서의 대류의 이동이 작아지는 경우에 더 두드러지게 나타난다. \index{대류}
+
+따라서 항체의약품의 조직-혈장에 대한 분배계수(tissue-to-plasma partition coefficient, Kp)는 대체로 0.1\textasciitilde0.5 정도로 낮은 값을 가지며 뇌와 같이 혈관벽의 밀착연접(tight junction)이 더 발달된 경우 0.01 이하로 더 낮게 나타난다. (\citeproc{ref-ryman2017pharmacokinetics}{Ryman and Meibohm 2017a}) 단, 항체의약품의 분포는 타겟수용체와의 결합이 영향을 미칠 수 있기 때문에 타겟수용체가 분포된 조직의 경우 분포 정도에 따라서 더 큰 값이 나타날 수도 있다. 예를 들어 일반 조직보다 타겟수용체가 과발현된 암 조직의 경우 분포 용적이 더 커질 수 있다. \index{분배계수} \index{항체의약품}
+
+\subsection{제거}\label{uxc81cuxac70}
+
+항체의약품은 분자량이 매우 커서 사구체를 통한 여과가 거의 불가능하기 때문에 질병이 있는 경우를 제외하고는 소변으로 제거되지 않는다. 또한 대부분의 경우 담즙 배설에 의한 제거도 매우 미미한 것으로 밝혀져 있다. 따라서 항체의약품 제거는 대부분 세포 내 리소좀(lysosome)의 분해 작용을 통한 단백질 이화작용(Proteolytic catabolism) 에 의해서 나타나며 이 과정을 통해 단백질인 항체의약품은 작은 펩타이드와 아미노산으로 분해되어 제거되거나 다른 단백질 생산에 재사용 된다. \index{항체의약품}
+세포내에서의 제거는 아래 그림 \ref{fig:Elimination}과 같이 세포로의 섭취(uptake)의 형태에 따라서 세가지 형태로 구분할 수 있는대
+1) 수용체와의 결합 없이 액상내포작용(fluid-phase endocytosis)인 음세포작용(pinocytosis)를 통해서 제거되는 경우와
+2) 수용체와의 결합으로 인한 내포작용(endocytosis)을 통해서 제거되는 경우와
+3) 면역작용으로 생성된 항-약물항체와의 결합으로 인해 제거되는 경우이다. \index{음세포작용} \index{내포작용}
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/Elimination_pathway} 
+
+}
+
+\caption{항체의약품의 다양한 제거 경로}\label{fig:Elimination}
+\end{figure}
+
+
+
+\subsubsection{음세포작용(Pinocytosis)에 의한 제거}\label{uxc74cuxc138uxd3ecuxc791uxc6a9pinocytosisuxc5d0-uxc758uxd55c-uxc81cuxac70}
+
+음세포작용(pinocytosis)은 혈관벽에 있는 혈관내피세포에 의해 일어나는 비특이적인 내포작용이다. 이 과정은 타겟수용체와의 결합으로 인한 내포작용이 아닌 액상내포작용이기 때문에 전신에서 비특이적으로 나타날 수 있으며 특히 피부, 근육 및 소화 기관 등 모세혈관이 발달되어 혈관 내피 세포가 많은 장기에서 두드러지게 나타난다. 이러한 비특이적인 제거는 내인성 IgG를 포함한 모든 IgG에서 일어나기 때문에 큰 수용력(capacity)을 가지고 있어 내인성 IgG의 농도(\textasciitilde10g/mL)에 비해 낮은 일반적인 항체의약품의 농도에서 포화되지 않는다. 따라서 해당 메커니즘으로 인한 청소율은 항체의약품의 용량과 무관하게 일정한 값을 갖는다. \index{음세포작용}
+인체의 혈관벽은 표면적이 매우 넓기 때문에(1000m\textsuperscript{2}) 해당 기전으로 항체의약품이 빠르게 제거될 수 있으나, IgG와 같이 Fc domain을 가진 경우 음세포작용으로 인한 섭취이후에 리소좀에 의한 분해가 일어나지 않도록 하는 보호기전(\hyperref[FcRn]{FcRn recycling})을 가지기 때문에 해당 작용으로 인한 제거를 많은 부분 회피할 수 있다. \index{항체의약품}
+
+\paragraph{\texorpdfstring{\textbf{FcRn에 의한 Recycling}}{FcRn에 의한 Recycling}}\label{FcRn}
+
+항체의약품 중 IgG가 음세포작용에 의해 분해되지 않도록 하는 보호기전으로 신체 내에서 항체의약품의 노출을 유지 시키는 대 중요한 역할을 한다. \index{음세포작용}
+메커니즘은 그림 \ref{fig:FcRn-recycling}과 같다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/FcRn_recycling} 
+
+}
+
+\caption{FcRn에 의한 recycling 과정(\citeproc{ref-Ryman_2017}{Ryman and Meibohm 2017b})}\label{fig:FcRn-recycling}
+\end{figure}
+
+
+
+Fc 수용체(FcRn, neonatal Fc receptor)는 주로 세포막에 존재하는 당단백질로 Fc domain과 결합하는 수용체이다. 이 수용체와 IgG의 Fc domain와의 결합친화성은 pH에 민감하기 때문에 생리적인(pH7.4)의 환경에서는 결합하지 않으나 엔도솜(endosome)내의 산성화된 환경에서는 결합친화성이 강해지면서 FcRn-IgG 복합체를 형성한다. 따라서 그림 \ref{fig:FcRn-recycling}과 같이 IgG는 음세포작용에 의해 섭취된 후(\textbf{A})에 산성화된 환경인 엔도솜 내에서는 FcRn과 결합하게 되고(\textbf{B}) 이러한 복합체 형성을 통해 리소좀에 의한 분해작용의 영향을 피하여(\textbf{C}) 다시 혈관 세포 표면으로 돌아오게 된다(\textbf{D}). 세포 표면에서는 다시 pH가 7.4로 상승하므로 Fc 수용체와는 해리되고 Ig 형태로 혈액 혹은 조직으로 돌아가게 되는데(\textbf{E}) 이러한 일련의 과정을 FcRn에 의한 recycling이라고 한다.
+일반적으로 IgG의 \(\frac{2}{3}\)정도가 FcRn에 의한 recycling으로 인해 음세포작용으로 인한 제거를 회피하는 것으로 알려져 있으며 IgG(18\textasciitilde21일)가 다른 형태의 항체(2\textasciitilde3일)들에 비해서 긴 반감기를 가지는 주요한 원인이 된다. Fc 수용체와의 결합친화력은 IgG의 아형별로 다르며 Fc 수용체와의 결합친화력이 낮은 IgG3의 경우 다른 IgG 아형들과는 다르게 7일의 반감기를 가지고 있다.
+FcRn과의 결합친화력은 IgG의 아형 뿐 아니라, 항체의약품 종류나 동물종에 따라 다르며 이는 항체의약품의 제거 속도 및 반감기에 큰 영향을 미칠 수 있다. 동물종 중에서 Cynomolgus monkey의 Fc 수용체는 인간의 Fc 수용체와 가장 비슷한 구조를 가졌기 때문에 인간에서의 항체의약품의 약동학 프로파일에 대한 예측을 위해서 Cynomolgus monkey의 약동학 결과를 가장 많이 사용한다.
+
+\subsubsection{수용체와의 결합을 통한 제거}\label{uxc218uxc6a9uxccb4uxc640uxc758-uxacb0uxd569uxc744-uxd1b5uxd55c-uxc81cuxac70}
+
+항체의약품은 세포막의 표면에 있는 수용체와의 결합을 통해 내포작용이 일어난 후 리소좀에 의한 분해가 일어나 제거 될 수 있다. 이러한 제거는 크게 두가지의 경우가 있는대 1) 타겟 수용체의 항원결정기와 항체의 항원결합부위가 특이적으로 결합해서 내포작용이 일어나는 경우(TMDD)와 2) 면역 세포들에 주로 발현되어 있는 FcγR(Fc-gamma-receptor)와 항체의 Fc domain 이 결합하여 내포작용이 일어나는 경우(FcγR-mediated clearance)이다. 음세포작용과는 달리 수용체와의 결합을 통해 제거가 일어나기 때문에 전신보다는 특정 장기에서 주로 나타나며 특히 TMDD의 경우 타겟수용체의 발현정도와 항원결정기와 항원결합부위간의 결합친화도가 이러한 반응에 크게 영향을 미친다.
+
+\paragraph{Target-mediated clearance (TMDD, Target-mediated drug disposition)}\label{target-mediated-clearance-tmdd-target-mediated-drug-disposition}
+
+타겟수용체의 항원결정기(epitope)와 항체의 항원결합부위(paratope)가 결합하여 내포작용이 일어나 제거되는 것을 의미하며 항체의약품이 비선형약동학을 보이는 가장 큰 이유이다. 항체의약품은 대부분 타겟과 높은 결합특이성과 결합친화력을 가지기 때문에 타겟과의 결합은 이러한 약물이 제거되는 주요 경로 중 하나이다. 이 작용은 항체의약품의 제거 뿐 아니라 조직에서의 분포에도 영향을 미치기 때문에 TMDD(Target-mediated drug disposition)라고 불린다. \index{항체의약품} \index{항원결정기} \index{항원결합부위} \index{TMDD}
+대부분의 경우에서 항체의약품에 비해 타겟수용체의 양은 한정되어 있어 이와 같은 결합이 포화될 수 있기 때문에 용량이 증가함에 따라 청소율이 감소하는 특징적인 비선형 약동학 특성을 보인다. 단, 투여되는 용량이 포화가 이루어지는 용량보다 큰 경우나 항체의약품이 모든 타겟에 지속적으로 결합하여 작용을 막는 경우라면 수용체가 포화된 상태로 유지되어 해당 결합으로 인한 제거의 영향이 작아져 전체적으로는 비특이적인 제거가 우세해지고 이러한 비선형 약동학 특성이 나타나지 않을 수 있다. \index{항체의약품}
+TMDD로 인해 항체의약품이 제거되는 것은 타겟 수용체의 발현 정도, 타겟 수용체와의 결합친화력, 투여 용량, 타겟-항원 결합체의 제거 속도 등에 영향 받을 수 있어 선형약동학을 보이는 일반적인 구획분석과는 다른 특징을 보이기 때문에 이것을 표현하기 위해 항체의약품의 작용메커니즘을 반영한 모델(TMDD model)을 사용하고 있다. 이 모델에 대한 자세한 부분은 아래에 제시된 \hyperref[tmdd_model]{TMDD 약동학 모델 분석} 부분을 참고하길 바란다.
+
+\paragraph{Fcγ-receptor mediated clearance}\label{fcux3b3-receptor-mediated-clearance}
+
+항체의약품의 Fc domain이 세포막에 있는 Fcγ 수용체와 결합하여 내포작용이 일어나면서 리소좀에 의한 분해로 항체의약품이 제거되는 현상이다. Fcγ 수용체는 대부분 면역 세포들에서 발현이 되어 있으며 항체의 Fc domain과 결합해서 면역 세포들의 식세포작용(phagocytosis)을 유도한다. 따라서 Fc domain과 Fcγ 수용체와의 결합은 면역 반응의 주요한 기전 중 하나이다.
+이 수용체는 주로 간의 쿠퍼세포(Kupffer cell)나 그물결합조직(reticular connective tissue)의 단핵구(monocyte)나 대식세포(macrophage)에 수용체가 발현되어 있다. 이 제거 경로는 모든 IgG의 Fc domain에 결합하기 때문에 비교적 비특이적이며 수용력이 커서 포화되지 않아 선형적인 약동학을 보인다. 해당 제거경로의 자세한 메커니즘과 전체 제거에서의 영향 정도는 아직 제대로 밝혀지지 않았으나 실제로 항체의약품의 제거에서 이러한 결합으로 인한 부분이 미치는 영향은 비교적 미미할 것으로 보인다. 다만, methotrexate로 인한 Fcγ 수용체의 발현 감소로 adalimumab의 청소율이 감소된 사례와 같이 Fcγ 수용체의 발현은 다양한 약물에 의해서 증가, 감소될 수 있고 이를 통해 항체의약품의 청소율에 영향을 미칠 수 있다.
+
+\subsubsection{Immune-mediated clearance}\label{ADA}
+
+모든 항체의약품은 잠재적으로 인체 내에서 면역원성(Immunegenicity)을 가지고 있으며 이는 항체의약품 개발에 있어서 주요한 고려 요소이다. \index{면역원성} 면역원성이란 항체의약품과 같은 외부 물질이 신체로 들어왔을 때 면역 반응을 유발하는 성질을 의미하며 약물의 구조, 용량-용법, 타겟 인구 집단 특성 등 여러가지 요소에 의해서 좌우 받는다. \index{면역원성} 면역원성은 면역 자극(Immunostimulation) 및 과민반응(hypersensitivity), 항-약물항체(anti-drug antibodies, ADA)의 유도와 같은 다양한 형태로 나타날 수 있는대, 특히 ADA가 발현하는 경우, 항체의약품의 청소율을 증가시켜 노출의 차이를 일으키고 이로인해 약물의 임상적 효능에 영향을 미칠 수 있다. \index{면역원성} \index{청소율} 면역원성의 메커니즘은 정확히 밝혀져 있지 않으나 다음과 같은 요소가 일반적으로 면역원성에 영향을 미치는 것으로 알려져 있다. \index{면역원성}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi})}
+\tightlist
+\item
+  약품의 특성에 의한 경우
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii})}
+  \tightlist
+  \item
+    인간 유래 부분의 비율 : 항체 의약품은 인간 유래 부분의 비율에 따라 Human(100\%) \textgreater{} Humanized (90\%)\textgreater{} Chimeric(66\%) \textgreater{} Murine(0\%) 순으로 분류하고 있으며 이 비율이 낮을 수록 외부 물질로 인식할 가능성이 크기 때문에 면역원성이 커질 수 있다.
+  \item
+    응집인자(Aggregate)나 보조제(Adjuvant)와 같은 첨가제(Excipient)에 의해 면역원성이 커지거나 작아질 수 있다.
+  \item
+    항체의약품의 분자구조(Glycosylation 여부)에 따라 면역원성이 달라진다.
+  \end{enumerate}
+\item
+  투여 대상 집단 및 약물의 용법에 의한 경우
+
+  \begin{enumerate}
+  \def\labelenumii{\arabic{enumii})}
+  \tightlist
+  \item
+    환자 유전 정보 및 질병 상태 : 면역에 과민한 유전 정보를 가지고 있거나 자가면역 질환과 같은 경우에 주로 면역원성이 더 크게 나타나며 면역저하자나 면역 억제제를 복용하는 대상의 경우 건강인에 비해 면역원성이 더 작게 나타날 수 있다.
+  \item
+    투여 경로 : 면역원성은 피하투여 \textgreater{} 근육투여 \textgreater{} 비강투여 \textgreater{} 정맥투여 순으로 높은 것으로 알려져 있다.
+  \item
+    저용량, 오랜 기간, 지속 요법으로 투여 되는 경우에 면역원성이 높을 수 있다.
+  \end{enumerate}
+\end{enumerate}
+
+ADA는 일반적인 항체의 작용과 비슷한 방식으로 대부분의 경우 항체의약품을 중화시키며 포식작용을 유도하여 제거를 증가시킨다. \index{항체의약품}
+면역원성은 종 별로 다르게 나타나기 때문에 동물 실험으로는 예측이 어렵다. 특히 인간을 대상으로 한 약물에서는 인간에서보다 동물실험에서 ADA 현상이 더 흔히 나타날 수 있기 때문에 항체의약품의 약동학적 특성을 파악하기 위해 동물에서의 약동학 결과를 해석할 때 이를 주의해서 해석해야 한다. \index{면역원성}
+일정 시기 이후에 제거속도가 갑자기 증가하여 혈중 농도가 급격하게 떨어지는 경우 ADA의 발현을 의심 할 수 있으며 ADA의 발현 여부에 대한 검사 결과를 통해서 혹은 검사 결과가 없는 경우 약동학의 양상을 통해서 ADA의 발현을 예측하여 이러한 경우 ADA 검사 상 양성인 동물을 제외하거나 ADA로 인해 약동학에 영향을 주기 전까지의 데이터를 사용한다.
+ADA가 발현된 경우와 TMDD가 나타난 경우의 약동학 곡선이 비슷한 양상을 보이는 경향이 있기 때문에 이를 주의하서 판단해야 하며 이에 대한 약동학 곡선 양상에 대한 비교는 아래 \hyperref[TMDDADA]{TMDD와 ADA 비교} 부분을 참고한다.
+
+\section[TMDD 모델 분석]{\texorpdfstring{TMDD 모델 분석\footnote{약동학 데이터를 분석하는 업무를 하지 않는 독자들은 이 장을 읽지 않고 넘어가도 좋습니다. 그림에 제시된 약물-농도 곡선은 모두 아래 미분방정식을 이용한 시뮬레이션 결과입니다.}}{TMDD 모델 분석}}\label{tmdd_model}
+
+TMDD 모델이란 항체가 표적 수용체와의 결합을 통해서 제거되는 과정이 반영된 모델로 항체의약품의 약동학을 정량적으로 표현한 모델이다. 항체의약품 뿐만 아니라 항체의약품과 비슷하게 결합 친화력이 매우 높은 약물의 경우에도 (예)Warfarin) TMDD 모델을 따르기도 한다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/TMDDmodels} 
+
+}
+
+\caption{다양한 TMDD 모델 (\citeproc{ref-dua2015tutorial}{Dua, Hawkins, and Van Der Graaf 2015})}\label{fig:TMDDmodel}
+\end{figure}
+
+
+
+다양한 항체의약품과 표적 수용체와의 결합 상황이 나타날 수 있기 때문에 그림 \ref{fig:TMDDmodel}과 같이 다양한 TMDD 모델이 사용되고 있다. 본 교재에서는 이 중 혈장에서 표적 수용체와 결합되는 1구획 모델을 분석하고 이러한 모델의 특징을 알아보고자 한다.
+
+혈장에서 표적 수용체와 결합하는 1구획 모델은 가장 단순한 형태의 TMDD 모델로 기본적인 구조는 그림 \ref{fig:TMDDmodel-basic}과 같다. 모델의 구조를 간단히 살펴보면, 항체의약품(L)은 크게 두가지의 제거 메커니즘 및 그에 따른 청소율을 가진다. 한가지는 선형적인 제거 메커니즘으로 비특이적으로 음세포작용에 의해 제거되는 것(CL\textsubscript{1})이며 다른 하나는 표적 수용체(R)와의 특이적인 결합을 통해 제거(CL\textsubscript{2})되는 것이다. 표적 수용체는 혈장 내에서 생성속도(k\textsubscript{syn})와 제거속도상수(k\textsubscript{deg})로 평형을 이룬 상태로 있다가(dR/dt = 0) 항체의약품이 투여되면 결합(k\textsubscript{on}) 및 해리(k\textsubscript{off})상수 값에 따른 새로운 평형이 이루어지게 된다. 항체의약품과 수용체와의 결합복합체(LR)는 약리학적 효과를 일으키며 내포작용으로 인한 분해(k\textsubscript{ec})로 제거된다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/TMDD_structure} 
+
+}
+
+\caption{TMDD 모델 구조}\label{fig:TMDDmodel-basic}
+\end{figure}
+
+
+
+해당 모델에 대한 기본 미분 방정식은 다음과 같다.
+
+\begin{equation}
+\frac{dL}{dt} = -k_{el}L - k_{on}L \cdot R + k_{off}LR
+\label{eq:eq7-1}
+\end{equation}
+
+\begin{equation}
+\frac{dR}{dt} = k_{syn} - k_{deg}R - k_{on}L \cdot R + k_{off}LR
+\label{eq:eq7-2}
+\end{equation}
+
+\begin{equation}
+\frac{dLR}{dt} = k_{on}L \cdot R - k_{off}LR - k_{ec}LR
+\label{eq:eq7-3}
+\end{equation}
+
+여기서 표적에 결합하지 않은 항체의약품(L)과 표적수용체에 결합한 형태(LR)의 합은 \(L_{tot} = L + LR\) 이고 표적수용체의 경우 \(R_{tot} = R + LR\) 이기 때문에 이를 위의 식에 대입하여 아래와 같이 전체 항체의약품과 전체 표적수용체에 대한 미분방정식은 아래와 같이 정의할 수 있다.
+
+\begin{equation}
+\frac{dL_{tot}}{dt} = -k_{el}L - k_{ec}LR
+\label{eq:eq7-4}
+\end{equation}
+
+\begin{equation}
+\frac{dR_{tot}}{dt} = -k_{syn} - k_{deg}R - k_{ec}LR
+\label{eq:eq7-5}
+\end{equation}
+
+여기서 Time = 0 에서는 항체가 투여되기 전이기 때문에 \(L_{0} = 0, LR_{0} = 0\) 이며, 체내에서 평형을 유지하는 표적 수용체의 경우 항체가 투여되기 전에는 생성속도(k\textsubscript{syn})와 제거속도(k\textsubscript{deg} * R)가 체내에서 동일하기 때문에 \(R_{0} = \frac{k_{syn}}{k_{deg}}\) 이다.
+
+따라서 혈장에 존재하는 타겟수용체에 대한 1구획 TMDD의 모델의 경우 위의 식을 이용하여 그림 \ref{fig:TMDDcurve0}과 같이 시간-농도 곡선을 그릴 수 있다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/TMDD_phase} 
+
+}
+
+\caption{TMDD 모델의 농도 곡선(semi-log)(\citeproc{ref-peletier2012dynamics}{Peletier and Gabrielsson 2012})}\label{fig:TMDDcurve0}
+\end{figure}
+
+
+
+용량에 따라서 선형성이 더 크게 나타날 수 있지만(저용량 혹은 고용량의 경우) 전형적인 TMDD 모델의 형태가 나타나는 경우 시간-농도에 대한 semi-log 곡선은 위 그림\ref{fig:TMDDcurve0}와 같이 곡선의 양상에 따라 4가지의 Phase로 구분할 수 있다. 해당 phase에서는 우세한 반응이 서로 다르게 나타나며 이를 이해하면 TMDD 모델의 시간-농도 곡선의 특징을 이해할 수 있다.
+
+\subsection{\texorpdfstring{Phase A (0 ≤ t ≤ T\textsubscript{1})}{Phase A (0 ≤ t ≤ T1)}}\label{phase-a-0-t-t1}
+
+Phase A는 투여 직후 빠르게 표적 수용체와의 결합을 통한 제거와 비특이적인 대사에 의한 제거가 동시에 나타나 빠른 농도 감소를 보이는 구간이다. 수용체가 포화되기 전까지의 구간(T\textsubscript{1})으로 대부분의 경우 표적 수용체의 양은 대부분 약물에 비해 매우 제한적이기 때문에 빠르게 포화가 일어나게 되어 구간의 길이는 매우 짧고 관찰하기 어렵다. 또한 이로인해 이 구간에서는 결합한 수용체의 수에 비해 결합하지 않은 항체의 양이 많기 때문에(\([L] > [L*R]\)) 위의 \eqref{eq:eq7-1}\textasciitilde\eqref{eq:eq7-3}식에서 아래와 같이 밑줄 친 부분이 우세한 형태를 나타낸다.
+
+\begin{equation}
+\frac{dL}{dt} = \underline {-k_{el}L - k_{on}L \cdot R} + k_{off}LR
+\label{eq:eq7-6}
+\end{equation}
+
+\begin{equation}
+\frac{dR}{dt} = k_{syn} - k_{deg}R - \underline{k_{on}L \cdot R} + k_{off}LR
+\label{eq:eq7-7}
+\end{equation}
+
+\begin{equation}
+\frac{dLR}{dt} = \underline {k_{on}L \cdot R} - k_{off}LR - k_{ec}LR
+\label{eq:eq7-8}
+\end{equation}
+
+높은 용량의 항체가 투여 된 경우 그림 \ref{fig:TMDDcurveA}과 같이 표적 수용체와의 결합 및 포화가 빠르게 일어나서 구간의 경사는 급해지나 A구간의 길이(T\textsubscript{1})는 짧아진다. 따라서 A구간 동안 감소된 항체의약품의 농도는 투여 용량에 상관없이 비슷한 정도로 감소하게 된다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/TMDD_phaseA} 
+
+}
+
+\caption{투여용량에 따른 A구간 농도 곡선의 변화}\label{fig:TMDDcurveA}
+\end{figure}
+
+
+
+그에 반해 그림 \ref{fig:R0}와 같이 체내에 존재하는 표적수용체의 양(R\textsubscript{0})이 포화될 수 있는 범위 내에서 많아지는 경우 결합은 빨라지지만 그만큼 포화되는 대에 시간이 더 걸리게 되기 때문에 A구간의 경사는 급해지고 길이(T\textsubscript{1})도 길어져서 이 구간동안 항체의약품의 양은 더 크게 감소한다. 대부분의 경우 대사로 인한 제거는 결합에 의한 제거보다 매우 느리기 때문에 해당 구간동안 결합으로 인한 제거만 나타난다고 가정할 때 결합이 포화될 때까지(T\textsubscript{1}) 감소된 항체의약품의 양은 대략 타겟수용체의 양(\(R_{0}\))이라고 예측할 수 있다(\(R_{0} ≈ L_{0} - L(T_{1})\)).
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/R0} 
+
+}
+
+\caption{표적수용체의 양(R\textsubscript{0})에 따른 A구간 주위의 농도 곡선의 변화}\label{fig:R0}
+\end{figure}
+
+
+
+\subsection{\texorpdfstring{Phase B (T\textsubscript{1} ≤ t ≤ T\textsubscript{2})}{Phase B (T1 ≤ t ≤ T2)}}\label{phase-b-t1-t-t2}
+
+Phase B는 항체의약품과 표적수용체와의 결합이 포화되어 결합이 거의 일어나지 않는 구간이다. 따라서 이 구간 동안에는 표적수용체와의 결합으로 인한 제거가 거의 일어나지 않고 주로 비특이적인 대사에 의한 제거가 일어나게 된다.
+항체의약품과 표적수용체와의 결합이 포화된 경우 \(LR ≒ R_{tot}, R ≒ 0, L(t) ≫ K_{d}\) 가 만족되기 때문에 이를 \eqref{eq:eq7-1}\textasciitilde\eqref{eq:eq7-3}식에 대입하면 다음과 같이
+
+\begin{equation}
+\frac{dL_{tot}}{dt} = -k_{el}L - k_{ec}LR = -k_{el}L - k_{ec}R_{tot}
+\label{eq:eq7-9}
+\end{equation}
+
+\begin{equation}
+\frac{dR_{tot}}{dt} = -k_{syn} - k_{deg}R - k_{ec}LR = k_{syn} - k_{ec}R_{tot}
+\label{eq:eq7-10}
+\end{equation}
+
+\begin{equation}
+\frac{d(L+R_{tot})}{dt} = -k_{el}L - k_{ec}R_{tot}
+\label{eq:eq7-11}
+\end{equation}
+
+\begin{equation}
+\frac{dL}{dt} = -k_{el}L - k_{syn}
+\label{eq:eq7-12}
+\end{equation}
+
+로 정리될 수 있다. 식 \eqref{eq:eq7-10}과 식 \eqref{eq:eq7-11}를 통해 도출된 식 \eqref{eq:eq7-12}를 보았을 때 표적수용체가 포화된 B 구간에서는 항체의 시간에 따른 변화량(dL/dt)이 대사에 의한 제거속도 \(k_{el}\)와 항체 양에 비례하는 선형 형태임을 확인할 수 있다. 따라서 semi-log 그래프에서 B구간의 기울기는 대략 \(k_{el}\)정도로 예측할 수 있다. IgG의 경우 FcRn에 의한 recycling으로 인해 \(k_{el}\)가 대부분 작은 값을 보이기 때문에 다른 구간에 비해서 비교적 평평한 형태를 보이며 \(k_{el}\)값이 증가함에 따라 이 구간의 기울기가 급해진다.
+
+해당 구간은 선형성을 가지기 때문에 그림 \ref{fig:TMDDcurveB}과 같이 구간의 경사는 투여 용량에 상관없이 일정하나 표적수용체와의 결합이 불포화되는 농도(약 10K\textasciitilde d)까지 도달하는 대에 걸리는 시간은 투여 용량이 증가할 수록 길어지기 때문에 B구간의 길이는 길어진다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/TMDD_phaseB} 
+
+}
+
+\caption{투여용량에 따른 B구간 곡선의 변화}\label{fig:TMDDcurveB}
+\end{figure}
+
+
+
+\subsection{\texorpdfstring{Phase C (T\textsubscript{2} ≤ t ≤ T\textsubscript{3})}{Phase C (T2 ≤ t ≤ T3)}}\label{phase-c-t2-t-t3}
+
+항체의약품의 농도의 감소 및 타겟수용체의 생성으로 인해 타겟수용체와의 결합이 포화되지 않고 일부만 결합된 상태로 존재하는 구간이다. 항체의약품의 농도가 \(K_{d}\) 값에 가까워지는 시기로 (대략 \(0.1K_{d}\)에서 \(10K_{d}\) 정도) 항체의약품이나 타겟수용체 둘 다 적당량 존재하기 때문에 대사에 의한 선형 제거와 타겟 수용체와의 결합을 통한 제거(TMDD) 두 가지가 모두 나타나 비선형성을 보이는 구간이다. 두가지의 제거 모두 나타나기 때문에 해당 구간의 기울기는 B구간에서보다 커지지만 대부분의 항체의약품은 K\textsubscript{d}값이 매우 낮아 해당 구간의 시작 농도가 작기 때문에 해당 구간 동안의 농도 감소 정도는 B구간에 비해 매우 작다.
+
+C구간은 항체의약품의 K\textsubscript{d}값에 영향을 받기 때문에 투여용량에 상관없이 C구간에서의 항체의약품의 농도 범위는 비슷하다. 단, 용량이 증가함에 따라 농도가 \(10K_{d}\)에 도달하는 시간이 오래 걸리기 때문에 그림 \ref{fig:TMDDcurveC}과 같이 구간 C의 시작점인 T\textsubscript{2}가 커져 오른쪽으로 그래프가 이동한 듯한 모습을 보인다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/TMDD_phaseC} 
+
+}
+
+\caption{투여용량에 따른 C구간 곡선의 변화}\label{fig:TMDDcurveC}
+\end{figure}
+
+
+
+\subsection{\texorpdfstring{Phase D (T\textsubscript{3} ≤ t ≤ T\textsubscript{4})}{Phase D (T3 ≤ t ≤ T4)}}\label{phase-d-t3-t-t4}
+
+항체의 농도가 타겟 수용체와의 해리 상수보다 매우 낮아 타겟 수용체와의 결합을 통한 제거가 우세하고 대사에 의한 제거는 무시할 수 있는 구간이다. (\(L(t) ≪ K_{d}\)) 두가지의 제거 메커니즘이 모두 나타나는 C구간에 비해서 급격히 기울기가 완만해지며 다시 선형성을 가지게 되는대 이때 경사의 기울기는 대략 k\textsubscript{ec}정도의 일정한 값을 갖는다.
+
+D구간은 항체의 농도가 매우 낮은 상황으로 대부분 타겟 수용체와 결합된 형태로 존재하게 된다. 이때 해당 구간에서 항체 농도의 기울기가 대략 k\textsubscript{ec}인 이유는 1) k\textsubscript{ec} \textgreater{} k\textsubscript{el} 인 경우, 결합된 형태가 제거됨에 따라 항체가 제거되는 속도보다 결합하는 속도가 더 커져서 k\textsubscript{ec}에 의해 항체의 농도 변화가 결정되기 때문이며 2) k\textsubscript{ec} \textless{} k\textsubscript{el}인 경우, k\textsubscript{el}에 의해 항체가 빠르게 제거되어도 결합된 형태에서 해리되어 항체 농도가 유지 되기 때문에 결국 항체 농도 변화는 k\textsubscript{ec}에 의한 결합체의 농도 변화를 따르게 되기 때문이다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/KINT} 
+
+}
+
+\caption{k\textsubscript{ec}의 변화에 따른 D구간의 변화}\label{fig:KINT}
+\end{figure}
+
+
+
+그림 \ref{fig:KINT}과 같이 k\textsubscript{ec}를 변화시킬 때 마지막 구간에서 기울기가 변화한다.
+
+\section{M-M model(Michaelis-menten model)의 사용}\label{m-m-modelmichaelis-menten-modeluxc758-uxc0acuxc6a9}
+
+TMDD 모델은 실제 항체의약품의 메커니즘을 반영하여 표현한 모델이지만 해당 모델의 파라미터를 정확하게 예측하기 위해서는 항체의약품 뿐만 아니라 수용체의 농도 정보가 필요하다. 그러나 실제 실험에서는 수용체의 농도 정보는 얻기 어렵기 때문에 항체의약품의 농도 정보 만으로 약동학 모델을 구축해야 하는 경우가 많다. 이러한 경우에 항체의약품의 비선형성을 표현하기 위해 M-M 모델이 사용될 수 있으며 실제로 항체의약품의 많은 약동학 모델의 구축 사례에서 이를 확인할 수 있다. M-M 모델은 생화학에서 가장 잘 알려진 효소반응속도론에 관한 모델로 아래 식 \eqref{eq:eq7-14}과 같이 기질 농도에 따른 효소의 초기 반응속도를 표현한다. 약동학에서는 이와 비슷하게 약물 농도에 따른 약물 제거속도를 표현한 식을 모델에 사용한다.
+
+\begin{equation}
+v = \frac{V_{max} \cdot C}{[S]}
+\label{eq:eq7-14}
+\end{equation}
+
+그림 \ref{fig:MMmodel}에서와 같이 M-M 모델에서는 수용체의 농도가 결합하지 않은 항체의약품의 농도보다 항상 작다고 가정하기 때문에 TMDD 모델에서 수용체의 농도보다 항체의약품이 낮은 D구간이 M-M 모델에서는 표현되지 않는다. 따라서 해당 모델은 투여 용량에서 약물의 농도가 수용체의 농도보다 높아 상대적으로 수용체의 농도가 일정하다고 가정할 수 있을 때 사용하기에 더 적합하며 TMDD 모델의 파라미터 중 k\textsubscript{ec}가 큰 경우에도 사용하기에 적절하다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/MM} 
+
+}
+
+\caption{M-M 모델과 TMDD 모델의 비교}\label{fig:MMmodel}
+\end{figure}
+
+
+
+\section{TMDD와 ADA로 인한 제거의 비교}\label{TMDDADA}
+
+동물 종에서의 데이터를 분석할 때 TMDD와 ADA에 의한 제거의 구분이 어려울 때가 있기 때문에 이 부분을 유의해서 해석해야 한다. 두가지의 경우 모두 Semi-log 곡선에서 어느 시점에서 기울기가 급격히 커지는 형태를 보인다는 점에서 유사하기 때문이다. 그러나 위 \hyperref[ADA]{Immune-mediated clearance} 부분에서 설명한 대로 TMDD와 ADA에 의한 제거는 기본적인 발생 메커니즘이 다르다. TMDD는 타겟수용체와의 결합에 의해서 나타나는 반면 ADA에 의한 제거는 항체의약품에 대한 면역반응으로 생성된 ADA와의 결합으로 인해 나타난다. 따라서 ADA의 검사 결과가 있는 경우 가장 정확하지만 ADA 검사 결과가 없는 경우라도 약동학 결과를 자세히 살펴보면 두 모델의 차이점을 확인하고 구분할 수 있다. TMDD로 인한 경우 그 기울기의 변화 시점이 항체의약품의 농도가 \(K_d\)값에 가까워지는 시점(C구간의 시작)인 대에 반해 ADA에 의한 제거의 경우 항체의약품의 농도와 \(K_d\)값에 상관 없이 면역반응에 필요한 일정 시간이 소요된 후에 나타난다. 따라서 아래 그림 \ref{fig:ADAmodel}과 같이 기울기가 급격히 떨어지는 부근을 관찰하여 시간에 상관없이 비슷한 약물 농도에서 급격히 떨어지는 현상이 나타날 경우 TMDD에 의한 것으로, 약물 농도와 상관없이 비슷한 시간에 급격히 떨어지는 현상이 나타나는 경우 ADA로 인한 제거로 인한 것으로 예측하여 구분할 수 있다.
+
+\begin{figure}
+
+{\centering \includegraphics[width=1\linewidth]{media-07/ADA} 
+
+}
+
+\caption{ADA를 보이는 경우(\textbf{1,2,3,4})와 TMDD를 보이는 경우(\textbf{5,6,7,8})의 비교}\label{fig:ADAmodel}
+\end{figure}
+
+
+
+\section{Allometric scaling}\label{allometric-scaling}
+
+비임상데이터의 결과를 이용하여 인간에서의 노출 정도를 예측하기 위해서는 동물 종의 무게를 이용하여 외삽하는 allometric scaling이 주로 사용된다. Allometric scaling은 청소율과 분포용적과 같은 약동학 파라미터에 대해 아래의 식과 같이
+
+\begin{equation}
+CL(V) = a \cdot BW^b
+\label{eq:eq7-15}
+\end{equation}
+
+로 표현하여 a, b를 구함으로써 인간에서의 약동학 파라미터를 예측하는 방법이다. 항체의약품은 인간과 가장 비슷하다고 알려진 cynomologus monkey의 약동학 파라미터를 주로 이용하며, 청소율의 경우 일반적으로 b를 0.75로, 분포용적의 경우 b를 1로 고정하여 예측한다. 청소율의 b값의 경우 연구자에 따라 0.8 혹은 0.9가 더 낫다는 주장도 있기 때문에 적절한 근거와 수집된 데이터 혹은 비슷한 약물에서의 결과를 참고하여 b의 값을 결정할 수 있다.
+항체의약품의 경우 FcRn에 대한 결합친화력이나 제거 메커니즘이 원숭이와 사람에서 비교적 유사하여 allometric scaling이 기존의 저분자 의약품에 비해 더 정확하다고 알려져 있다. 특히 VEGF에 대한 재조합 인간화 단클론 항체의 경우 원숭이와 인간 간의 체중 의존성 allometric scacling을 통해 청소율이나 분포용적의 계산이 효과적으로 이루어 질 수 있는 것으로 보고되어 있다.
+
+\section{맺음말}\label{uxb9fauxc74cuxb9d0-5}
+
+이상으로 항체의약품의 기본적인 구조와 ADME 및 TMDD 모델에 대해서 살펴보았다. \index{TMDD}
+항체의약품은 고전적인 저분자 의약품과는 약동학에서 많은 차이를 보이기 때문에 이에 대한 차이를 이해하고 적용하는 것이 매우 중요하다. 모든 항체 의약품에서 TMDD 모델을 관찰 할 수 있는 것은 아니며 특히 용량이 너무 높거나 낮은 경우 구획모델과 같은 형태를 띄기도 하기 때문에 가지고 있는 데이터를 가장 잘 설명할 수 있는 모델을 사용하는 것이 적합할 것이다.
+가톨릭대학교 계량약리학연구소(PIPET)\footnote{\url{http://pipet.or.kr}}에서는 관련한 다양한 교육을 제공하고 있으므로, 관심있는 독자는 홈페이지에 접속하여 정보를 얻을 수 있다.\index{계량약리학}
+
 \cleardoublepage
 
-\hypertarget{appendix-uxbcc4uxcca8}{%
-\appendix \addcontentsline{toc}{chapter}{\appendixname}}
+\appendix \addcontentsline{toc}{chapter}{\appendixname}
 
 
-\hypertarget{Theoph_tblNCA}{%
-\chapter{Theoph의 tblNCA의 전체 실행 결과}\label{Theoph_tblNCA}}
+\chapter{Theoph의 tblNCA의 전체 실행 결과}\label{Theoph_tblNCA}
 
-\protect\hyperlink{nca-analysis}{3장 비구획분석의 자료해석}의 \ref{tblNCA}절에서 언급된 \texttt{NonCompart::tblNCA()} 실행결과를 별첨으로 수록하였다.
+\hyperref[nca-analysis]{3장 비구획분석의 자료해석}의 \ref{tblNCA}절에서 언급된 \texttt{NonCompart::tblNCA()} 실행결과를 별첨으로 수록하였다.
 
 \tiny
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\NormalTok{Theoph\_tblNCA}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ##    Subject    b0  CMAX   CMAXD TMAX TLAG CLST  CLSTP
@@ -3940,57 +4397,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 
 \normalsize
 
-\hypertarget{Theoph_nlr}{%
-\chapter{Theoph의 nlr의 전체 실행 결과}\label{Theoph_nlr}}
+\chapter{Theoph의 nlr의 전체 실행 결과}\label{Theoph_nlr}
 
-\protect\hyperlink{ca-analysis}{5장 구획분석의 자료해석}의 \ref{theoph-wnl}절에서 언급된 \texttt{wnl::nlr()} 실행결과를 별첨으로 수록하였다.
+\hyperref[ca-analysis]{5장 구획분석의 자료해석}의 \ref{theoph-wnl}절에서 언급된 \texttt{wnl::nlr()} 실행결과를 별첨으로 수록하였다.
 
 \tiny
-
-\begin{Shaded}
-\begin{Highlighting}[]
-\FunctionTok{library}\NormalTok{(wnl)}
-\NormalTok{tData }\OtherTok{=}\NormalTok{ Theoph}
-\FunctionTok{colnames}\NormalTok{(tData) }\OtherTok{=} \FunctionTok{c}\NormalTok{(}\StringTok{"ID"}\NormalTok{, }\StringTok{"BWT"}\NormalTok{, }\StringTok{"DOSE"}\NormalTok{, }\StringTok{"TIME"}\NormalTok{, }\StringTok{"DV"}\NormalTok{)}
-
-\NormalTok{fPK }\OtherTok{=} \ControlFlowTok{function}\NormalTok{(THETA)     }\CommentTok{\# Prediction function}
-\NormalTok{\{}
-\NormalTok{  DOSE }\OtherTok{=} \DecValTok{320000}           \CommentTok{\# in microgram}
-\NormalTok{  TIME }\OtherTok{=}\NormalTok{ e}\SpecialCharTok{$}\NormalTok{DATA[,}\StringTok{"TIME"}\NormalTok{]  }\CommentTok{\# use data in e$DATA}
-
-\NormalTok{  K    }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{1}\NormalTok{]}
-\NormalTok{  Ka   }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{2}\NormalTok{]}
-\NormalTok{  V    }\OtherTok{=}\NormalTok{ THETA[}\DecValTok{3}\NormalTok{]}
-
-\NormalTok{  Cp   }\OtherTok{=}\NormalTok{ DOSE}\SpecialCharTok{/}\NormalTok{V}\SpecialCharTok{*}\NormalTok{Ka}\SpecialCharTok{/}\NormalTok{(Ka }\SpecialCharTok{{-}}\NormalTok{ K)}\SpecialCharTok{*}\NormalTok{(}\FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{K}\SpecialCharTok{*}\NormalTok{TIME) }\SpecialCharTok{{-}} \FunctionTok{exp}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{Ka}\SpecialCharTok{*}\NormalTok{TIME))}
-  \FunctionTok{return}\NormalTok{(Cp)}
-\NormalTok{\}}
-
-\NormalTok{IDs }\OtherTok{=} \FunctionTok{unique}\NormalTok{(tData[,}\StringTok{"ID"}\NormalTok{])}
-\NormalTok{nID }\OtherTok{=} \FunctionTok{length}\NormalTok{(IDs)}
-\ControlFlowTok{for}\NormalTok{ (i }\ControlFlowTok{in} \DecValTok{1}\SpecialCharTok{:}\NormalTok{nID) \{}
-\NormalTok{  Data }\OtherTok{=}\NormalTok{ tData[tData}\SpecialCharTok{$}\NormalTok{ID }\SpecialCharTok{==}\NormalTok{ IDs[i],]}
-\NormalTok{  Theoph\_nlr }\OtherTok{=} \FunctionTok{nlr}\NormalTok{(fPK, Data, }
-                   \AttributeTok{pNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"k"}\NormalTok{, }\StringTok{"ka"}\NormalTok{, }\StringTok{"V"}\NormalTok{), }\AttributeTok{IE=}\FunctionTok{c}\NormalTok{(}\FloatTok{0.1}\NormalTok{, }\DecValTok{3}\NormalTok{, }\DecValTok{500}\NormalTok{), }
-                   \AttributeTok{SecNames=}\FunctionTok{c}\NormalTok{(}\StringTok{"CL"}\NormalTok{, }\StringTok{"Thalf"}\NormalTok{, }\StringTok{"MRT"}\NormalTok{), }
-                   \AttributeTok{SecForms=}\FunctionTok{c}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{V}\SpecialCharTok{*}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\FunctionTok{log}\NormalTok{(}\DecValTok{2}\NormalTok{)}\SpecialCharTok{/}\NormalTok{k, }\SpecialCharTok{\textasciitilde{}}\DecValTok{1}\SpecialCharTok{/}\NormalTok{k))}
-  \FunctionTok{print}\NormalTok{(}\FunctionTok{paste}\NormalTok{(}\StringTok{"\#\# ID ="}\NormalTok{, i, }\StringTok{"\#\#"}\NormalTok{))}
-  \FunctionTok{print}\NormalTok{(Theoph\_nlr)}
-\NormalTok{\}}
-\end{Highlighting}
-\end{Shaded}
 
 \begin{verbatim}
 ## [1] "## ID = 1 ##"
 ## $Est
 ##             k     ka         V AddErrVar AddErrSD
-## PE   0.053954  1.777 29394.222    0.3896   0.6242
-## SE   0.007784  0.230  1449.530    0.1661   0.1331
-## RSE 14.427031 12.940     4.931   42.6401  21.3201
+## PE   0.053954  1.777 29394.222  0.389637   0.6242
+## SE   0.007784  0.230  1449.530  0.166142   0.1331
+## RSE 14.427031 12.940     4.931 42.640142  21.3201
+## LL   0.035548  1.234 25966.628 -0.003226   0.3095
+## UL   0.072361  2.321 32821.816  0.782500   0.9389
 ##         CL  Thalf    MRT
 ## PE  1585.9 12.847 18.534
 ## SE   172.9  1.853  2.674
 ## RSE   10.9 14.427 14.427
+## LL  1177.2  8.464 12.211
+## UL  1994.7 17.230 24.857
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.04471 1.443 27826    0.1784
+## UL 0.06448 2.200 31150    1.1189
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.2770 0.5231 0.0884
 ## 
 ## $Cov
 ##                    k        ka          V  AddErrVar
@@ -4001,16 +4438,16 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## 
 ## $run
 ## $run$m
-## [1] 5
+## [1] 4
 ## 
 ## $run$n
-## [1] 6
+## [1] 7
 ## 
 ## $run$run
 ## [1] 5
 ## 
 ## $run$p.value
-## [1] 0.2619
+## [1] 0.3333
 ## 
 ## 
 ## $`Objective Function Value`
@@ -4039,23 +4476,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 6.890 5.838 3.015
 ## 
 ## $Residual
-##  [1]  7.400e-01 -1.038e+00 -2.409e-01  1.465e+00
-##  [5] -9.825e-02 -5.436e-01 -1.652e-01 -2.133e-01
-##  [9]  6.353e-05  1.018e-01  2.654e-01
+##  [1]  0.74000 -1.08659 -0.32707  1.35032 -0.22177
+##  [6] -0.65904 -0.27314 -0.31052 -0.08715  0.02790
+## [11]  0.22720
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.04059 secs
+## Time difference of 0.01948 secs
 ## 
 ## [1] "## ID = 2 ##"
 ## $Est
-##           k      ka        V AddErrVar AddErrSD
-## PE   0.1017  1.9427 32024.77    0.8135   0.9019
-## SE   0.0208  0.4307  3064.68    0.3469   0.1923
-## RSE 20.4566 22.1727     9.57   42.6400  21.3200
+##            k      ka        V AddErrVar AddErrSD
+## PE   0.10166  1.9427 32024.77  0.813479   0.9019
+## SE   0.02080  0.4307  3064.68  0.346868   0.1923
+## RSE 20.45662 22.1727     9.57 42.639999  21.3200
+## LL   0.05249  0.9241 24777.97 -0.006732   0.4472
+## UL   0.15084  2.9612 39271.58  1.633691   1.3566
 ##          CL  Thalf    MRT
 ## PE  3255.67  6.818  9.837
 ## SE   451.31  1.395  2.012
 ## RSE   13.86 20.457 20.457
+## LL  2188.50  3.520  5.078
+## UL  4322.84 10.116 14.595
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.07872 1.394 29029    0.3724
+## UL 0.13044 2.724 35710    2.3360
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.5245 0.8626 0.1441
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4066,16 +4517,16 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## 
 ## $run
 ## $run$m
-## [1] 5
+## [1] 4
 ## 
 ## $run$n
-## [1] 5
-## 
-## $run$run
 ## [1] 6
 ## 
+## $run$run
+## [1] 5
+## 
 ## $run$p.value
-## [1] 0.6429
+## [1] 0.4048
 ## 
 ## 
 ## $`Objective Function Value`
@@ -4104,23 +4555,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [8] 5.1597 4.2233 3.1131 0.8915
 ## 
 ## $Residual
-##  [1]  0.000000 -2.298176  1.748507  0.296379 -0.091360
-##  [6] -0.525439 -0.248896  0.240283  0.326721 -0.103131
-## [11]  0.008457
+##  [1]  0.000000 -2.349039  1.670514  0.194941 -0.197959
+##  [6] -0.618799 -0.329009  0.174970  0.273261 -0.142538
+## [11] -0.002829
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008453 secs
+## Time difference of 0.006364 secs
 ## 
 ## [1] "## ID = 3 ##"
 ## $Est
-##           k     ka         V AddErrVar AddErrSD
-## PE  0.08142 2.4536 34319.365   0.03966  0.19915
-## SE  0.00381 0.1437   684.952   0.01691  0.04246
-## RSE 4.67902 5.8575     1.996  42.64006 21.32003
+##           k     ka         V  AddErrVar AddErrSD
+## PE  0.08142 2.4536 34319.365  0.0396612  0.19915
+## SE  0.00381 0.1437   684.952  0.0169116  0.04246
+## RSE 4.67902 5.8575     1.996 42.6400576 21.32003
+## LL  0.07242 2.1137 32699.712 -0.0003283  0.09875
+## UL  0.09043 2.7934 35939.019  0.0796507  0.29955
 ##           CL  Thalf     MRT
 ## PE  2794.442 8.5127 12.2813
 ## SE    92.853 0.3983  0.5746
 ## RSE    3.323 4.6790  4.6790
+## LL  2574.881 7.5709 10.9225
+## UL  3014.004 9.4546 13.6401
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.07666 2.248 33573   0.01815
+## UL 0.08643 2.684 35099   0.11389
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.10515 0.22728 0.03572
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4131,16 +4596,16 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## 
 ## $run
 ## $run$m
-## [1] 5
+## [1] 4
 ## 
 ## $run$n
-## [1] 5
+## [1] 6
 ## 
 ## $run$run
 ## [1] 7
 ## 
 ## $run$p.value
-## [1] 0.3571
+## [1] 0.3095
 ## 
 ## 
 ## $`Objective Function Value`
@@ -4169,23 +4634,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 4.635 3.586 1.348
 ## 
 ## $Residual
-##  [1]  0.00000 -0.06216  0.02463  0.11394 -0.31367
-##  [6]  0.31916 -0.17713 -0.12321  0.26545  0.11395
-## [11] -0.29760
+##  [1]  0.00000 -0.11865 -0.06240  0.01159 -0.41637
+##  [6]  0.22826 -0.25785 -0.19186  0.20679  0.06856
+## [11] -0.31466
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009721 secs
+## Time difference of 0.009027 secs
 ## 
 ## [1] "## ID = 4 ##"
 ## $Est
 ##            k      ka         V AddErrVar AddErrSD
-## PE   0.08747  1.1715 31097.470    0.5211   0.7219
-## SE   0.01605  0.2036  2607.291    0.2222   0.1539
-## RSE 18.35204 17.3777     8.384   42.6402  21.3201
+## PE   0.08747  1.1715 31097.470  0.521087   0.7219
+## SE   0.01605  0.2036  2607.291  0.222192   0.1539
+## RSE 18.35204 17.3777     8.384 42.640172  21.3201
+## LL   0.04951  0.6901 24932.207 -0.004315   0.3579
+## UL   0.12542  1.6529 37262.733  1.046488   1.0858
 ##          CL  Thalf    MRT
 ## PE  2719.99  7.925 11.433
 ## SE   328.29  1.454  2.098
 ## RSE   12.07 18.352 18.352
+## LL  1943.70  4.486  6.472
+## UL  3496.28 11.364 16.394
+## 
+## $LI
+##          k     ka     V AddErrVar
+## LL 0.07108 0.9143 28755    0.2385
+## UL 0.10698 1.4968 33856    1.4963
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.53716 0.56163 0.03693
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4196,16 +4675,16 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## 
 ## $run
 ## $run$m
-## [1] 4
+## [1] 3
 ## 
 ## $run$n
-## [1] 6
+## [1] 7
 ## 
 ## $run$run
 ## [1] 5
 ## 
 ## $run$p.value
-## [1] 0.4048
+## [1] 0.7167
 ## 
 ## 
 ## $`Objective Function Value`
@@ -4234,22 +4713,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 5.052 3.900 1.288
 ## 
 ## $Residual
-##  [1]  0.0000 -1.5152 -0.4456  1.6480  0.0669 -0.4637
-##  [7] -0.2575 -0.2352  0.2780  0.2901 -0.1376
+##  [1]  0.00000 -1.55835 -0.50948  1.56002 -0.03833
+##  [6] -0.56496 -0.34789 -0.31129  0.21403  0.24077
+## [11] -0.15385
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008113 secs
+## Time difference of 0.006231 secs
 ## 
 ## [1] "## ID = 5 ##"
 ## $Est
 ##            k      ka        V AddErrVar AddErrSD
-## PE   0.08844  1.4715 26925.05    1.2240   1.1063
-## SE   0.02009  0.3193  2739.87    0.5219   0.2359
-## RSE 22.72216 21.6962    10.18   42.6401  21.3201
+## PE   0.08844  1.4715 26925.05   1.22395   1.1063
+## SE   0.02009  0.3193  2739.87   0.52189   0.2359
+## RSE 22.72216 21.6962    10.18  42.64015  21.3201
+## LL   0.04092  0.7166 20446.29  -0.01013   0.5486
+## UL   0.13595  2.2264 33403.82   2.45804   1.6641
 ##          CL  Thalf    MRT
 ## PE  2381.12  7.838 11.308
 ## SE   366.26  1.781  2.569
 ## RSE   15.38 22.722 22.722
+## LL  1515.04  3.627  5.232
+## UL  3247.20 12.049 17.383
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.06723 1.057 24336    0.5603
+## UL 0.11513 2.036 30131    3.5147
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.5985 0.7966 0.1248
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4298,23 +4792,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 5.655 4.376 1.468
 ## 
 ## $Residual
-##  [1]  0.000000 -2.161820 -0.563476  2.728442 -0.599046
-##  [6] -0.465385 -0.543808  0.293763  0.245332 -0.005509
-## [11]  0.102075
+##  [1]  0.00000 -2.21475 -0.64187  2.61868 -0.72473
+##  [6] -0.58191 -0.64639  0.20774  0.17375 -0.06090
+## [11]  0.08349
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009014 secs
+## Time difference of 0.006756 secs
 ## 
 ## [1] "## ID = 6 ##"
 ## $Est
 ##            k      ka         V AddErrVar AddErrSD
-## PE   0.09953  1.1637 41104.664   0.22220   0.4714
-## SE   0.01618  0.1851  3235.607   0.09475   0.1005
-## RSE 16.25687 15.9042     7.872  42.64040  21.3202
+## PE   0.09953  1.1637 41104.664  0.222205   0.4714
+## SE   0.01618  0.1851  3235.607  0.094749   0.1005
+## RSE 16.25687 15.9042     7.872 42.640400  21.3202
+## LL   0.06127  0.7261 33453.669 -0.001841   0.2337
+## UL   0.13778  1.6014 48755.658  0.446251   0.7090
 ##          CL  Thalf    MRT
 ## PE  4090.96  6.965 10.048
 ## SE   420.73  1.132  1.633
 ## RSE   10.28 16.257 16.257
+## LL  3096.10  4.287  6.185
+## UL  5085.82  9.642 13.910
+## 
+## $LI
+##          k     ka     V AddErrVar
+## LL 0.08349 0.9343 38286    0.1017
+## UL 0.11828 1.4495 44371    0.6381
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.50175 0.52432 0.01456
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4363,22 +4871,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [8] 4.2391 3.4005 2.5532 0.7929
 ## 
 ## $Residual
-##  [1]  0.0000 -0.7797 -0.6209  1.0805  0.1662 -0.3037
-##  [7] -0.2104 -0.2191  0.0595  0.2268  0.1271
+##  [1]  0.00000 -0.80589 -0.66778  1.01267  0.08827
+##  [6] -0.37755 -0.27560 -0.27272  0.01646  0.19450
+## [11]  0.11708
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009371 secs
+## Time difference of 0.006714 secs
 ## 
 ## [1] "## ID = 7 ##"
 ## $Est
-##            k       ka        V AddErrVar AddErrSD
-## PE   0.10225  0.67974 32621.58   0.09060  0.30099
-## SE   0.01161  0.07256  1986.49   0.03863  0.06417
-## RSE 11.35959 10.67513     6.09  42.64020 21.32010
+##            k       ka        V  AddErrVar AddErrSD
+## PE   0.10225  0.67974 32621.58  0.0905962  0.30099
+## SE   0.01161  0.07256  1986.49  0.0386304  0.06417
+## RSE 11.35959 10.67513     6.09 42.6402000 21.32010
+## LL   0.07478  0.50816 27924.27 -0.0007502  0.14925
+## UL   0.12971  0.85133 37318.88  0.1819426  0.45273
 ##           CL   Thalf    MRT
 ## PE  3335.404  6.7793  9.780
 ## SE   207.011  0.7701  1.111
 ## RSE    6.206 11.3596 11.360
+## LL  2845.901  4.9583  7.153
+## UL  3824.907  8.6002 12.408
+## 
+## $LI
+##          k     ka     V AddErrVar
+## LL 0.09314 0.6051 31310   0.04149
+## UL 0.11212 0.7633 34048   0.26016
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1]  0.4748  0.1809 -0.1357
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4389,16 +4912,16 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## 
 ## $run
 ## $run$m
-## [1] 4
-## 
-## $run$n
-## [1] 7
-## 
-## $run$run
 ## [1] 5
 ## 
+## $run$n
+## [1] 6
+## 
+## $run$run
+## [1] 7
+## 
 ## $run$p.value
-## [1] 0.3333
+## [1] 0.4784
 ## 
 ## 
 ## $`Objective Function Value`
@@ -4427,22 +4950,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [8] 5.5554 4.5750 3.3647 0.9704
 ## 
 ## $Residual
-##  [1]  0.1500 -0.6631 -0.4015  0.3893  0.1133  0.0849
-##  [7]  0.1209 -0.3054 -0.1850  0.1653  0.1796
+##  [1]  0.150000 -0.682208 -0.436293  0.330672  0.031435
+##  [6] -0.003773  0.038107 -0.375707 -0.242897  0.122669
+## [11]  0.167295
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.03915 secs
+## Time difference of 0.007282 secs
 ## 
 ## [1] "## ID = 8 ##"
 ## $Est
 ##            k      ka         V AddErrVar AddErrSD
-## PE   0.09196  1.3755 35692.014    0.3348   0.5787
-## SE   0.01529  0.2316  2770.810    0.1428   0.1234
-## RSE 16.62733 16.8378     7.763   42.6401  21.3200
+## PE   0.09196  1.3755 35692.014  0.334850   0.5787
+## SE   0.01529  0.2316  2770.810  0.142780   0.1234
+## RSE 16.62733 16.8378     7.763 42.640096  21.3200
+## LL   0.05580  0.8279 29140.089 -0.002772   0.2869
+## UL   0.12811  1.9232 42243.938  0.672471   0.8704
 ##          CL  Thalf    MRT
 ## PE  3282.11  7.538 10.875
 ## SE   355.81  1.253  1.808
 ## RSE   10.84 16.627 16.627
+## LL  2440.74  4.574  6.599
+## UL  4123.48 10.501 15.150
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.07624 1.082 33172    0.1533
+## UL 0.11043 1.749 38626    0.9616
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.44072 0.55360 0.07714
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4491,22 +5029,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 4.173 3.158 1.046
 ## 
 ## $Residual
-##  [1]  0.0000  0.4726 -1.4105  1.0258  0.1778 -0.2799
-##  [7] -0.1496 -0.2478  0.3974 -0.1579  0.2044
+##  [1]  0.00000  0.43996 -1.46693  0.94623  0.08431
+##  [6] -0.36687 -0.22588 -0.31084  0.34461 -0.19789
+## [11]  0.19116
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008808 secs
+## Time difference of 0.009153 secs
 ## 
 ## [1] "## ID = 9 ##"
 ## $Est
 ##             k     ka         V AddErrVar AddErrSD
-## PE   0.086632  8.866 38948.217   0.22626   0.4757
-## SE   0.009328  2.847  1504.713   0.09648   0.1014
-## RSE 10.767476 32.109     3.863  42.64005  21.3200
+## PE   0.086632  8.866 38948.217  0.226259   0.4757
+## SE   0.009328  2.847  1504.713  0.096477   0.1014
+## RSE 10.767476 32.109     3.863 42.640046  21.3200
+## LL   0.064574  2.134 35390.137 -0.001873   0.2359
+## UL   0.108689 15.597 42506.297  0.454391   0.7155
 ##         CL   Thalf    MRT
 ## PE  3374.2  8.0011 11.543
 ## SE   286.8  0.8615  1.243
 ## RSE    8.5 10.7675 10.767
+## LL  2695.9  5.9639  8.604
+## UL  4052.4 10.0382 14.482
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.07359 5.721 36927    0.1036
+## UL 0.10157   Inf 41204    0.6497
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.2066 3.0078 0.1045
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4555,22 +5108,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [8] 4.4583 3.8711 3.0373 0.9995
 ## 
 ## $Residual
-##  [1]  0.0000 -0.1337  1.2047 -0.4349 -0.6351 -0.4510
-##  [7]  0.2990 -0.2183  0.2389  0.1227  0.1205
+##  [1]  0.00000 -0.22869  1.10567 -0.53082 -0.72326
+##  [6] -0.52840  0.23100 -0.27469  0.18986  0.08422
+## [11]  0.10785
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.0115 secs
+## Time difference of 0.007416 secs
 ## 
 ## [1] "## ID = 10 ##"
 ## $Est
 ##            k      ka         V AddErrVar AddErrSD
-## PE  0.073966 0.69551 25519.766   0.12285  0.35051
-## SE  0.006923 0.05965  1127.009   0.05239  0.07473
-## RSE 9.360282 8.57715     4.416  42.64022 21.32011
-##           CL  Thalf    MRT
-## PE  1887.586 9.3712 13.520
-## SE   108.081 0.8772  1.265
-## RSE    5.726 9.3603  9.360
+## PE  0.073966 0.69551 25519.766  0.122855  0.35051
+## SE  0.006923 0.05965  1127.009  0.052386  0.07473
+## RSE 9.360282 8.57715     4.416 42.640215 21.32011
+## LL  0.057594 0.55444 22854.813 -0.001017  0.17380
+## UL  0.090337 0.83657 28184.719  0.246727  0.52721
+##           CL   Thalf    MRT
+## PE  1887.586  9.3712 13.520
+## SE   108.081  0.8772  1.265
+## RSE    5.726  9.3603  9.360
+## LL  1632.016  7.2970 10.527
+## UL  2143.157 11.4454 16.512
+## 
+## $LI
+##          k     ka     V AddErrVar
+## LL 0.06778 0.6302 24687   0.05626
+## UL 0.08059 0.7676 26411   0.35280
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1]  0.28945  0.18789 -0.03627
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4619,23 +5187,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 6.991 5.730 2.431
 ## 
 ## $Residual
-##  [1]  0.24000  0.08515  0.17869  0.30069 -0.85533
-##  [6]  0.60682 -0.05940 -0.18942  0.14940 -0.05037
-## [11] -0.01104
+##  [1]  0.24000  0.04965  0.11488  0.22335 -0.96527
+##  [6]  0.48526 -0.17636 -0.29334  0.06091 -0.12291
+## [11] -0.04181
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.0119 secs
+## Time difference of 0.008144 secs
 ## 
 ## [1] "## ID = 11 ##"
 ## $Est
-##            k     ka         V AddErrVar AddErrSD
-## PE  0.098123 3.8491 37945.348   0.03875  0.19684
-## SE  0.004603 0.2483   768.522   0.01652  0.04197
-## RSE 4.691277 6.4517     2.025  42.64019 21.32010
+##            k     ka         V  AddErrVar AddErrSD
+## PE  0.098123 3.8491 37945.348  0.0387470  0.19684
+## SE  0.004603 0.2483   768.522  0.0165218  0.04197
+## RSE 4.691277 6.4517     2.025 42.6401933 21.32010
+## LL  0.087238 3.2618 36128.083 -0.0003208  0.09761
+## UL  0.109008 4.4363 39762.613  0.0778148  0.29608
 ##           CL  Thalf     MRT
 ## PE  3723.312 7.0641 10.1913
 ## SE   126.928 0.3314  0.4781
 ## RSE    3.409 4.6913  4.6913
+## LL  3423.174 6.2804  9.0608
+## UL  4023.450 7.8477 11.3218
+## 
+## $LI
+##          k    ka     V AddErrVar
+## LL 0.09201 3.477 37042   0.01774
+## UL 0.10459 4.279 38894   0.11127
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1] 0.10154 0.29127 0.04615
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -4684,23 +5266,37 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [8] 4.3414 3.5678 2.6346 0.8148
 ## 
 ## $Residual
-##  [1]  0.00000 -0.27811  0.26351  0.33868 -0.31150
-##  [6] -0.20847 -0.06789  0.10862  0.05221  0.05536
-## [11]  0.04519
+##  [1]  0.000000 -0.343145  0.175196  0.241701 -0.401647
+##  [6] -0.285414 -0.134828  0.053665  0.007048  0.022011
+## [11]  0.034880
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01131 secs
+## Time difference of 0.007758 secs
 ## 
 ## [1] "## ID = 12 ##"
 ## $Est
 ##            k       ka         V AddErrVar AddErrSD
-## PE   0.10558  0.83291 24017.515    0.2554   0.5053
-## SE   0.01289  0.09971  1557.294    0.1089   0.1077
-## RSE 12.21055 11.97134     6.484   42.6357  21.3178
+## PE   0.10558  0.83291 24017.515  0.255355   0.5053
+## SE   0.01289  0.09971  1557.294  0.108872   0.1077
+## RSE 12.21055 11.97134     6.484 42.635697  21.3178
+## LL   0.07509  0.59713 20335.100 -0.002087   0.2506
+## UL   0.13606  1.06869 27699.930  0.512797   0.7601
 ##           CL   Thalf    MRT
 ## PE  2535.668  6.5654  9.472
 ## SE   176.025  0.8017  1.157
 ## RSE    6.942 12.2106 12.211
+## LL  2119.435  4.6697  6.737
+## UL  2951.901  8.4611 12.207
+## 
+## $LI
+##          k     ka     V AddErrVar
+## LL 0.09449 0.7212 22860    0.1169
+## UL 0.11788 0.9608 25299    0.7334
+## attr(,"k")
+## [1] 9.18
+## 
+## $Skewness
+## [1]  0.46551  0.26478 -0.07838
 ## 
 ## $Cov
 ##                    k         ka          V AddErrVar
@@ -4711,16 +5307,16 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ## 
 ## $run
 ## $run$m
-## [1] 5
+## [1] 4
 ## 
 ## $run$n
-## [1] 5
+## [1] 6
 ## 
 ## $run$run
 ## [1] 5
 ## 
 ## $run$p.value
-## [1] 0.3571
+## [1] 0.4048
 ## 
 ## 
 ## $`Objective Function Value`
@@ -4749,101 +5345,133 @@ R에 내장된 Theoph 약동학 자료의 구획분석을 아래의 코드를 �
 ##  [9] 5.873 4.275 1.192
 ## 
 ## $Residual
-##  [1]  0.00000 -1.22065 -0.45251  0.72485  0.25090
-##  [6]  0.04140 -0.13987 -0.60074  0.23726  0.29522
-## [11] -0.02175
+##  [1]  0.00000 -1.25192 -0.50837  0.63504  0.13104
+##  [6] -0.08150 -0.25012 -0.69177  0.16292  0.24111
+## [11] -0.03683
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.008887 secs
+## Time difference of 0.008926 secs
 \end{verbatim}
 
 \normalsize
 
 \backmatter
 
-\hypertarget{uxcc38uxace0uxbb38uxd5cc}{%
-\chapter*{참고문헌}\label{uxcc38uxace0uxbb38uxd5cc}}
+\chapter*{참고문헌}\label{uxcc38uxace0uxbb38uxd5cc}
 
 
-\hypertarget{refs}{}
+\phantomsection\label{refs}
 \begin{CSLReferences}{1}{0}
-\leavevmode\vadjust pre{\hypertarget{ref-R-wnl}{}}%
+\bibitem[\citeproctext]{ref-R-wnl}
 Bae, Kyun-Seop. 2020. \emph{Wnl: Minimization Tool for Pharmacokinetic-Pharmacodynamic Data Analysis}. \url{https://cran.r-project.org/package=wnl}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-BE}{}}%
+\bibitem[\citeproctext]{ref-R-BE}
 ---------. 2021a. \emph{BE: Bioequivalence Study Data Analysis}. \url{https://cran.r-project.org/package=BE}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-ncar}{}}%
+\bibitem[\citeproctext]{ref-R-ncar}
 ---------. 2021b. \emph{Ncar: Noncompartmental Analysis for Pharmacokinetic Report}. \url{https://cran.r-project.org/package=ncar}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-NonCompart}{}}%
+\bibitem[\citeproctext]{ref-R-NonCompart}
 ---------. 2021c. \emph{NonCompart: Noncompartmental Analysis for Pharmacokinetic Data}. \url{https://cran.r-project.org/package=NonCompart}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-sasLM}{}}%
+\bibitem[\citeproctext]{ref-R-sasLM}
 ---------. 2021d. \emph{sasLM: SAS Linear Model}. \url{https://cran.r-project.org/package=sasLM}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-pkr}{}}%
+\bibitem[\citeproctext]{ref-R-pkr}
 Bae, Kyun-Seop, and Jee Eun Lee. 2018. \emph{Pkr: Pharmacokinetics in r}. \url{https://cran.r-project.org/package=pkr}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-nonmem}{}}%
+\bibitem[\citeproctext]{ref-nonmem}
 Bauer, R. J. 2020. \emph{NONMEM 7.5 Users Guides}. Gaithersburg, Maryland: ICON plc. \url{https://nonmem.iconplc.com/nonmem750/guides}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-chow2009design}{}}%
+\bibitem[\citeproctext]{ref-chow2009design}
 Chow, S. C., and J. Liu. 2008. \emph{Design and Analysis of Bioavailability and Bioequivalence Studies}. Chapman \& Hall/CRC Biostatistics Series. CRC Press. \url{https://books.google.co.kr/books?id=KtKJFGJeV3MC}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-derendorf1999modeling}{}}%
+\bibitem[\citeproctext]{ref-derendorf1999modeling}
 Derendorf, Hartmut, and Bernd Meibohm. 1999. {``Modeling of Pharmacokinetic/Pharmacodynamic (PK/PD) Relationships: Concepts and Perspectives.''} \emph{Pharmaceutical Research} 16 (2): 176--85.
 
-\leavevmode\vadjust pre{\hypertarget{ref-gabrielsson}{}}%
+\bibitem[\citeproctext]{ref-dua2015tutorial}
+Dua, P, E Hawkins, and PH Van Der Graaf. 2015. {``A Tutorial on Target-Mediated Drug Disposition (TMDD) Models.''} \emph{CPT: Pharmacometrics \& Systems Pharmacology} 4 (6): 324--37.
+
+\bibitem[\citeproctext]{ref-gabrielsson}
 Gabrielsson, Johan. 2006. \emph{Pharmacokinetic \& Pharmacodynamic Data Analysis : Concepts and Applications}. Stockholm: Apotekarsocieteten.
 
-\leavevmode\vadjust pre{\hypertarget{ref-han2014pharmacokinetic}{}}%
+\bibitem[\citeproctext]{ref-han2014pharmacokinetic}
 Han, Dong Woo. 2014. {``Pharmacokinetic and Pharmacodynamic Modeling in Anesthetic Field.''} \emph{Anesthesia and Pain Medicine} 9 (2): 77--86.
 
-\leavevmode\vadjust pre{\hypertarget{ref-noe2020parameter}{}}%
+\bibitem[\citeproctext]{ref-kohler1975continuous}
+Köhler, Georges, and Cesar Milstein. 1975. {``Continuous Cultures of Fused Cells Secreting Antibody of Predefined Specificity.''} \emph{Nature} 256 (5517): 495--97.
+
+\bibitem[\citeproctext]{ref-monoandpoly}
+Lipman, Neil S., Lynn R. Jackson, Laura J. Trudel, and Frances Weis-Garcia. 2005. {``{Monoclonal Versus Polyclonal Antibodies: Distinguishing Characteristics, Applications, and Information Resources}.''} \emph{ILAR Journal} 46 (3): 258--68. \url{https://doi.org/10.1093/ilar.46.3.258}.
+
+\bibitem[\citeproctext]{ref-mould2007pharmacokinetics}
+Mould, Diane R, and Kevin RD Sweeney. 2007. {``The Pharmacokinetics and Pharmacodynamics of Monoclonal Antibodies-Mechanistic Modeling Applied to Drug Development.''} \emph{Current Opinion in Drug Discovery and Development} 10 (1): 84.
+
+\bibitem[\citeproctext]{ref-fdaapproval}
+Mullard, A. 2022. {``2021 FDA Approvals.''} Journal Article. \emph{Nat Rev Drug Discov} 21 (2): 83--88. \url{https://doi.org/10.1038/d41573-022-00001-9}.
+
+\bibitem[\citeproctext]{ref-noe2020parameter}
 Noe, Dennis A. 2020. {``Parameter Estimation and Reporting in Noncompartmental Analysis of Clinical Pharmacokinetic Data.''} \emph{Clinical Pharmacology in Drug Development} 9: S5--35.
 
-\leavevmode\vadjust pre{\hypertarget{ref-obach2008trend}{}}%
+\bibitem[\citeproctext]{ref-obach2008trend}
 Obach, R Scott, Franco Lombardo, and Nigel J Waters. 2008. {``Trend Analysis of a Database of Intravenous Pharmacokinetic Parameters in Humans for 670 Drug Compounds.''} \emph{Drug Metabolism and Disposition} 36 (7): 1385--405.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-psych}{}}%
+\bibitem[\citeproctext]{ref-peletier2012dynamics}
+Peletier, Lambertus A, and Johan Gabrielsson. 2012. {``Dynamics of Target-Mediated Drug Disposition: Characteristic Profiles and Parameter Identification.''} \emph{Journal of Pharmacokinetics and Pharmacodynamics} 39 (5): 429--51.
+
+\bibitem[\citeproctext]{ref-R-psych}
 Revelle, William. 2021. \emph{Psych: Procedures for Psychological, Psychometric, and Personality Research}. \url{https://personality-project.org/r/psych-manual.pdf}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-richens1975serum}{}}%
+\bibitem[\citeproctext]{ref-richens1975serum}
 Richens, Alan, and Andrew Dunlop. 1975. {``Serum-Phenytoin Levels in Management of Epilepsy.''} \emph{The Lancet} 306 (7928): 247--48.
 
-\leavevmode\vadjust pre{\hypertarget{ref-sobol2004relationships}{}}%
+\bibitem[\citeproctext]{ref-ryman2017pharmacokinetics}
+Ryman, Josiah T., and Bernd Meibohm. 2017a. {``Pharmacokinetics of Monoclonal Antibodies.''} \emph{{CPT}: Pharmacometrics {\&} Systems Pharmacology} 6 (9): 576--88. \url{https://doi.org/10.1002/psp4.12224}.
+
+\bibitem[\citeproctext]{ref-Ryman_2017}
+---------. 2017b. {``Pharmacokinetics of Monoclonal Antibodies.''} \emph{{CPT}: Pharmacometrics {\&} Systems Pharmacology} 6 (9): 576--88. \url{https://doi.org/10.1002/psp4.12224}.
+
+\bibitem[\citeproctext]{ref-sobol2004relationships}
 Sobol, Eyal, and Meir Bialer. 2004. {``The Relationships Between Half-Life (T1/2) and Mean Residence Time (MRT) in the Two-Compartment Open Body Model.''} \emph{Biopharmaceutics \& Drug Disposition} 25 (4): 157--62.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-lubridate}{}}%
+\bibitem[\citeproctext]{ref-R-lubridate}
 Spinu, Vitalie, Garrett Grolemund, and Hadley Wickham. 2021. \emph{Lubridate: Make Dealing with Dates a Little Easier}. \url{https://CRAN.R-project.org/package=lubridate}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-ggplot22016}{}}%
+\bibitem[\citeproctext]{ref-2012197}
+Strohl, William R., and Lila M. Strohl, eds. 2012. {``9 - Therapeutic Antibody Classes.''} In \emph{Therapeutic Antibody Engineering}, 197--595. Woodhead Publishing Series in Biomedicine. Woodhead Publishing. https://doi.org/\url{https://doi.org/10.1533/9781908818096.197}.
+
+\bibitem[\citeproctext]{ref-ggplot22016}
 Wickham, Hadley. 2016. \emph{Ggplot2: Elegant Graphics for Data Analysis}. Springer-Verlag New York. \url{https://ggplot2.tidyverse.org}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-tidyr}{}}%
+\bibitem[\citeproctext]{ref-R-tidyr}
 ---------. 2021. \emph{Tidyr: Tidy Messy Data}. \url{https://CRAN.R-project.org/package=tidyr}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-readxl}{}}%
+\bibitem[\citeproctext]{ref-R-readxl}
 Wickham, Hadley, and Jennifer Bryan. 2019. \emph{Readxl: Read Excel Files}. \url{https://CRAN.R-project.org/package=readxl}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-ggplot2}{}}%
+\bibitem[\citeproctext]{ref-R-ggplot2}
 Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen, Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey Dunnington. 2021. \emph{Ggplot2: Create Elegant Data Visualisations Using the Grammar of Graphics}. \url{https://CRAN.R-project.org/package=ggplot2}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-dplyr}{}}%
+\bibitem[\citeproctext]{ref-R-dplyr}
 Wickham, Hadley, Romain Francois, Lionel Henry, and Kirill Müller. 2021. \emph{Dplyr: A Grammar of Data Manipulation}. \url{https://CRAN.R-project.org/package=dplyr}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-R-readr}{}}%
+\bibitem[\citeproctext]{ref-R-readr}
 Wickham, Hadley, and Jim Hester. 2020. \emph{Readr: Read Rectangular Text Data}. \url{https://CRAN.R-project.org/package=readr}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-basic}{}}%
+\bibitem[\citeproctext]{ref-basic}
 Yim, D. S. 2020. \emph{Pharmacometrics Workshop - Basic Course: 계량약리학 워크샵 - 초급과정}. Seoul, South Korea: Bookk Co, Ltd. \url{https://pipetcpt.github.io/basic}.
 
-\leavevmode\vadjust pre{\hypertarget{ref-yim2017tutorial}{}}%
+\bibitem[\citeproctext]{ref-yim2017tutorial}
 Yim, Dong-Seok. 2017. {``Tutorial for Beginners: The Concept of Clearance Explained Using the Example of a Vacuum Cleaner.''} \emph{Translational and Clinical Pharmacology} 25 (1): 1.
 
-\leavevmode\vadjust pre{\hypertarget{ref-yim2019potency}{}}%
+\bibitem[\citeproctext]{ref-yim2019potency}
 ---------. 2019. {``Potency and Plasma Protein Binding of Drugs in Vitro---a Potentially Misleading Pair for Predicting in Vivo Efficacious Concentrations in Humans.''} \emph{The Korean Journal of Physiology \& Pharmacology} 23 (4): 231--36.
+
+\bibitem[\citeproctext]{ref-zhao2013antibody}
+Zhao, Liang, Ping Ji, Zhihong Li, Partha Roy, and Chandrahas G Sahajwalla. 2013. {``The Antibody Drug Absorption Following Subcutaneous or Intramuscular Administration and Its Mathematical Description by Coupling Physiologically Based Absorption Process with the Conventional Compartment Pharmacokinetic Model.''} \emph{The Journal of Clinical Pharmacology} 53 (3): 314--25.
+
+\bibitem[\citeproctext]{ref-zhou2015adme}
+Zhou, Honghui, and Frank-Peter Theil. 2015. \emph{ADME and Translational Pharmacokinetics/Pharmacodynamics of Therapeutic Proteins: Applications in Drug Discovery and Development}. John Wiley \& Sons.
 
 \end{CSLReferences}
 
