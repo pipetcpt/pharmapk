@@ -1,8 +1,8 @@
                         NONCOMPARTMENTAL ANALYSIS REPORT
-                       Package version 0.4.5 (2022-02-23)
+                       Package version 0.5.0 (2023-11-19)
                           R version 4.3.2 (2023-10-31)
 
-Date and Time: 2023-12-05 19:04:36.743463 Asia/Seoul
+Date and Time: 2024-01-16 16:50:49.423337 Asia/Seoul
 
 Calculation Setting
 -------------------
@@ -11,7 +11,7 @@ Observation count excluding trailing zero: 11
 Dose at time 0: 320 mg
 AUC Calculation Method: Linear-up Linear-down
 Weighting for lambda z: Uniform (Ordinary Least Square, OLS)
-Lambda z selection criterion: Heighest adjusted R-squared value with precision=1e-4
+Lambda z selection criterion: Highest adjusted R-squared value with precision=1e-4
 
 
 Fitting, AUC, AUMC Result
