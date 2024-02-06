@@ -2,7 +2,7 @@
                        Package version 0.5.0 (2023-11-19)
                           R version 4.3.2 (2023-10-31)
 
-Date and Time: 2024-02-06 13:09:24.980556 Asia/Seoul
+Date and Time: 2024-02-06 13:24:03.16293 Asia/Seoul
 
 Calculation Setting
 -------------------

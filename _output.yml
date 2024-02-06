@@ -12,7 +12,8 @@ bookdown::gitbook:
     toolbar:
       position: fixed
     edit: https://github.com/pipetcpt/basic/edit/master/inst/examples/%s
-    download: [pdf] #download: [pdf, epub, mobi]
+    #download: [pdf] #download: [pdf, epub, mobi]
+    download: false
     search:
       engine: fuse    
     sharing:
