@@ -4,7 +4,8 @@ title: 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)
 #  <center> 신약개발을 위한 실전 약동학 I</center>\index{약동학}
 #  <center> (기본원리와 자료해석)  </center>
 #"신약개발을 위한 실전 약동학\newline(I-이론과 자료해석)"\index{약동학}
-author: "PIPET 임동석, 한승훈, 한성필, 최수인 - Ver 2.0 (2024-02-06)"
+#author: "PIPET 임동석, 한승훈, 한성필, 최수인 - Ver 2.0 (2024-02-06)"
+author: "PIPET 임동석, 한승훈, 한성필 Ver 1.0.3"
 #date: "Ver. `r gsub('-', '', Sys.Date())`"
 date: "`r Sys.Date()`"
 documentclass: krantz
@@ -79,6 +80,7 @@ options(knitr.kable.NA = '')
 Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 ```
 
+<!--
 # Ver. 2.0 머리말 {-}
 
 `r if (knitr::is_html_output()) ' [<img src="images/cover-pdf-2.png" style="max-width:40%;min-width:80px;float:right;margin: 10px 10px 5px 5px" alt="표지" />](https://pipetcpt.github.io/pharmapk/pharmapk.pdf)'`
@@ -96,6 +98,7 @@ Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")
 \hfill 가톨릭의대 약리학교실 교수 임동석 拜
 
 \normalsize
+-->
 
 # 머리말 {-}
 
