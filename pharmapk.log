@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.16)  1 FEB 2024 10:49
+This is XeTeX, Version 3.141592653-2.6-0.999995 (TeX Live 2023) (preloaded format=xelatex 2024.1.16)  6 FEB 2024 13:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1536,25 +1536,25 @@ LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
 (Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 380.
 
 LaTeX Font Info:    Font shape `TU/NotoSerifCJKKR(0)/m/n' will be
-(Font)              scaled to size 9.0pt on input line 401.
+(Font)              scaled to size 9.0pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 10.73323pt on input line 401.
+(Font)              scaled to size 10.73323pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.15549pt on input line 401.
+(Font)              scaled to size 7.15549pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.9629pt on input line 401.
+(Font)              scaled to size 5.9629pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.73419pt on input line 401.
+(Font)              scaled to size 10.73419pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.15613pt on input line 401.
+(Font)              scaled to size 7.15613pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.96344pt on input line 401.
+(Font)              scaled to size 5.96344pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 10.73213pt on input line 401.
+(Font)              scaled to size 10.73213pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 7.15475pt on input line 401.
+(Font)              scaled to size 7.15475pt on input line 389.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 5.9623pt on input line 401.
+(Font)              scaled to size 5.9623pt on input line 389.
 
 Underfull \hbox (badness 10000) has occurred while \output is active
  [][][][] 
@@ -1562,50 +1562,89 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [17
 
-] [18]
-Underfull \vbox (badness 10000) detected at line 428
- []
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 428
+Overfull \hbox (395.75pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 428
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 428
+Overfull \hbox (395.75pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 428
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 428
+Overfull \hbox (395.75pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \vbox (badness 10000) detected at line 428
- []
+Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-Overfull \hbox (395.75pt too wide) detected at line 428
+Overfull \hbox (395.75pt too wide) has occurred while \output is active
 []
  []
 
 
-Underfull \hbox (badness 10000) detected at line 428
+Underfull \hbox (badness 10000) has occurred while \output is active
+ [][][][] 
+ []
+
+[18
+
+]
+Underfull \vbox (badness 10000) detected at line 397
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 397
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 397
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 397
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 397
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 397
+[]
+ []
+
+
+Underfull \vbox (badness 10000) detected at line 397
+ []
+
+
+Overfull \hbox (395.75pt too wide) detected at line 397
+[]
+ []
+
+
+Underfull \hbox (badness 10000) detected at line 397
 []
  []
 
 
 LaTeX Font Warning: Font shape `TU/NotoSerifCJKKR(0)/m/sl' undefined
-(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 428.
+(Font)              using `TU/NotoSerifCJKKR(0)/m/it' instead on input line 397.
 
 
 Underfull \hbox (badness 10000) has occurred while \output is active
@@ -1614,47 +1653,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 [19
 
-
-]
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
-Overfull \hbox (395.75pt too wide) has occurred while \output is active
-[]
- []
-
-
-Underfull \hbox (badness 10000) has occurred while \output is active
- [][][][] 
- []
-
-[20
-
-]
+] [20]
 Underfull \vbox (badness 10000) detected at line 447
  []
 
@@ -1709,6 +1708,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
  []
 
 [1
+
 
 
 ]
