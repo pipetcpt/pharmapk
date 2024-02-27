@@ -43,3 +43,4 @@ for (f in list.files('_book', '[.]html$', full.names = TRUE)) {
 if (length(formats) > 1) bookdown::publish_book()
 
 setwd(owd)
+
