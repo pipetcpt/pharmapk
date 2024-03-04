@@ -276,7 +276,7 @@ Phase A는 투여 직후 빠르게 표적 수용체와의 결합을 통한 제�
 \end{equation}
 
 높은 용량의 항체가 투여 된 경우 그림 \@ref(fig:TMDDcurveA)과 같이 표적 수용체와의 결합 및 포화가 빠르게 일어나서 구간의 경사는 급해지나 A구간의 길이(T~1~)는 짧아진다. 따라서 A구간 동안 감소된 항체의약품의 농도는 투여 용량에 상관없이 비슷한 정도로 감소하게 된다. 
-```{r TMDDcurveA, fig.cap = "(ref:TMDDcurveA)", echo = FALSE, out.width = "50%", out.height="50%"}
+```{r TMDDcurveA, fig.cap = "(ref:TMDDcurveA)", echo = FALSE}
 knitr::include_graphics('media-07/TMDD_phaseA_dose.png')
 ```
 
@@ -320,7 +320,7 @@ Phase B는 항체의약품과 표적수용체와의 결합이 포화되어 결�
 해당 구간은 선형성을 가지기 때문에 그림 \@ref(fig:TMDDcurveB)과 같이 구간의 경사는 투여 용량에 상관없이 일정하나 표적수용체와의 결합이 불포화되는 농도(약 $10 \ K_{d}$)까지 도달하는 데 걸리는 시간은 투여용량이 증가할 수록 길어지기 때문에 B구간의 길이는 길어진다. 
 
 
-```{r TMDDcurveB, fig.cap = "(ref:TMDDcurveB)", echo = FALSE, out.width = "50%", out.height="50%"}
+```{r TMDDcurveB, fig.cap = "(ref:TMDDcurveB)"}
 knitr::include_graphics('media-07/TMDD_phaseBC.png')
 ```
 (ref:TMDDcurveB) 투여용량에 따른 B구간(A)과 C구간(B)의 변화
@@ -339,7 +339,7 @@ C구간은 항체의약품의 K~d~값에 영향을 받기 때문에 투여량에
 
 D구간은 항체의 농도가 매우 낮은 상황으로 대부분 타겟 수용체와 결합된 형태로 존재하게 된다. 이때 해당 구간에서 항체농도의 기울기가 대략 k~ec~인 이유는 1) k~ec~ > k~el~ 인 경우, 결합된 형태가 제거됨에 따라 항체가 제거되는 속도보다 결합하는 속도가 더 커져서 k~ec~에 의해 항체의 농도 변화가 결정되기 때문이며 2) k~ec~ < k~el~인 경우, k~el~에 의해 항체가 빠르게 제거되어도 결합된 형태에서 해리되어 항체 농도가 유지 되어 결국 항체 농도 변화는 k~ec~에 의한 결합체의 농도 변화를 따르게 되기 때문이다. 
 
-```{r KINT, fig.cap = "(ref:KINT)", echo = FALSE, out.width = "50%", out.height="50%"}
+```{r KINT, fig.cap = "(ref:KINT)", echo = FALSE}
 knitr::include_graphics('media-07/TMDD_PhaseKEC.png')
 ```
 
