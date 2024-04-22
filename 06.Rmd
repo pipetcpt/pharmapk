@@ -242,7 +242,7 @@ knitr::include_graphics('media-07/TMDD_structure.png')
 \end{equation}
 
 \begin{equation}
-\frac{dR_{tot}}{dt} = -k_{syn} - k_{deg}R - k_{ec}LR
+\frac{dR_{tot}}{dt} = k_{syn} - k_{deg}R - k_{ec}LR
 (\#eq:eq7-5)
 \end{equation}
 
