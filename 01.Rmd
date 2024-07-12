@@ -1,3 +1,10 @@
+---
+output:
+  pdf_document: default
+  html_document: default
+always_allow_html: true
+---
+
 # 약동학 기초 이론 {#principle}
 
 \Large\hfill

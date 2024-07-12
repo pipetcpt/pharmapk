@@ -1,4 +1,5 @@
 --- 
+always_allow_html: true
 title: 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)
 #title: |
 #  <center> 신약개발을 위한 실전 약동학 I</center>\index{약동학}
@@ -70,11 +71,12 @@ options(
 
 opts_chunk$set(echo=FALSE, 
                fig.align = "center",
+               res = 300, 
                message = FALSE, 
                warning = FALSE,
                #fig.width = 7,
                out.width="100%", 
-               dpi = NA,
+               dpi = 300,
                error = TRUE)
 options(knitr.kable.NA = '')
 Sys.setenv(RSTUDIO_PDFLATEX = "latexmk")

@@ -1,5 +1,8 @@
 all: gitbook pdf
 
+word :
+	Rscript --quiet _render.R "bookdown::word_document2"
+
 gitbook:
 	Rscript --quiet _render.R "bookdown::gitbook"
 

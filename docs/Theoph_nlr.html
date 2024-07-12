@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>B Theoph의 nlr의 전체 실행 결과 | 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="B Theoph의 nlr의 전체 실행 결과 | 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)" />
   <meta property="og:type" content="book" />
@@ -23,7 +23,7 @@
 <meta name="author" content="PIPET 임동석, 한승훈, 한성필 Ver 1.0.3" />
 
 
-<meta name="date" content="2024-02-06" />
+<meta name="date" content="2024-07-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -52,74 +52,8 @@
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -163,7 +97,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">신약개발을 위한 실전 약동학</a></li>
-<li><a href="https://www.bookk.co.kr/shanmdphd" target="_blank">도서 구입</a></li>
+<li><a href="https://bookk.co.kr/users/64696cad69d8ae916e9ed1bf/books" target="_blank">도서 구입</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
@@ -240,63 +174,96 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblNCA"><i class="fa fa-check"></i><b>3.7.1</b> tblNCA(): 전체 대상자 NCA</a></li>
 <li class="chapter" data-level="3.7.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.7.2</b> sNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#nca-보고서"><i class="fa fa-check"></i><b>3.8</b> NCA 보고서</a>
-<ul>
-<li class="chapter" data-level="3.8.1" data-path="nca-analysis.html"><a href="nca-analysis.html#txtnca"><i class="fa fa-check"></i><b>3.8.1</b> txtNCA()</a></li>
-<li class="chapter" data-level="3.8.2" data-path="nca-analysis.html"><a href="nca-analysis.html#pdfnca"><i class="fa fa-check"></i><b>3.8.2</b> pdfNCA()</a></li>
-<li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()</a></li>
-<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라미터의 의미</a></li>
-<li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)</a></li>
-<li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별</a>
+<li class="chapter" data-level="4" data-path="for-one-subject.html"><a href="for-one-subject.html"><i class="fa fa-check"></i><b>4</b> For one subject</a>
 <ul>
-<li class="chapter" data-level="3.12.1" data-path="nca-analysis.html"><a href="nca-analysis.html#이론"><i class="fa fa-check"></i><b>3.12.1</b> 이론</a></li>
-<li class="chapter" data-level="3.12.2" data-path="nca-analysis.html"><a href="nca-analysis.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>3.12.2</b> BE R 패키지를 사용한 생물학적 동등성 판정</a></li>
-</ul></li>
-<li class="chapter" data-level="3.13" data-path="nca-analysis.html"><a href="nca-analysis.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>3.13</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</a></li>
-<li class="chapter" data-level="3.14" data-path="nca-analysis.html"><a href="nca-analysis.html#맺음말-2"><i class="fa fa-check"></i><b>3.14</b> 맺음말</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획분석의 이론</a>
+<li class="chapter" data-level="4.1" data-path="for-one-subject.html"><a href="for-one-subject.html#nca-보고서"><i class="fa fa-check"></i><b>4.1</b> NCA 보고서</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>4.1</b> 구획분석의 개념</a></li>
-<li class="chapter" data-level="4.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>4.2</b> 구획모델이 필요한 이유</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>4.2.1</b> 최종반감기와 관련한 이슈</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>4.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>4.2.3</b> PK/PD와 연관된 각종 의사결정</a></li>
+<li class="chapter" data-level="4.1.1" data-path="for-one-subject.html"><a href="for-one-subject.html#txtnca"><i class="fa fa-check"></i><b>4.1.1</b> txtNCA()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="for-one-subject.html"><a href="for-one-subject.html#pdfnca"><i class="fa fa-check"></i><b>4.1.2</b> pdfNCA()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="for-one-subject.html"><a href="for-one-subject.html#rtfnca"><i class="fa fa-check"></i><b>4.1.3</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ca-principle.html"><a href="ca-principle.html#diff-pk-param"><i class="fa fa-check"></i><b>4.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점</a>
+<li class="chapter" data-level="4.2" data-path="for-one-subject.html"><a href="for-one-subject.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>4.2</b> NCA의 시각화 plotPK()</a></li>
+<li class="chapter" data-level="4.3" data-path="for-one-subject.html"><a href="for-one-subject.html#parameters"><i class="fa fa-check"></i><b>4.3</b> 파라미터의 의미</a></li>
+<li class="chapter" data-level="4.4" data-path="for-one-subject.html"><a href="for-one-subject.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>4.4</b> 기술통계 (Descriptive statistics)</a></li>
+<li class="chapter" data-level="4.5" data-path="for-one-subject.html"><a href="for-one-subject.html#bioequivalence"><i class="fa fa-check"></i><b>4.5</b> NCA 후 생물학적 동등성 판별</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>4.3.1</b> 분포용적 파라미터들의 차이</a></li>
-<li class="chapter" data-level="4.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>4.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이</a></li>
+<li class="chapter" data-level="4.5.1" data-path="for-one-subject.html"><a href="for-one-subject.html#이론"><i class="fa fa-check"></i><b>4.5.1</b> 이론</a></li>
+<li class="chapter" data-level="4.5.2" data-path="for-one-subject.html"><a href="for-one-subject.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>4.5.2</b> BE R 패키지를 사용한 생물학적 동등성 판정</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-3"><i class="fa fa-check"></i><b>4.4</b> 맺음말</a></li>
+<li class="chapter" data-level="4.6" data-path="for-one-subject.html"><a href="for-one-subject.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>4.6</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</a></li>
+<li class="chapter" data-level="4.7" data-path="for-one-subject.html"><a href="for-one-subject.html#맺음말-2"><i class="fa fa-check"></i><b>4.7</b> 맺음말</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석</a>
+<li class="chapter" data-level="5" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 이론</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#서론-3"><i class="fa fa-check"></i><b>5.1</b> 서론</a></li>
-<li class="chapter" data-level="5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획분석-개론"><i class="fa fa-check"></i><b>5.2</b> 상용 소프트웨어를 이용한 구획분석 개론</a></li>
-<li class="chapter" data-level="5.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>5.3</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
-<li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
+<li class="chapter" data-level="5.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>5.1</b> 구획분석의 개념</a></li>
+<li class="chapter" data-level="5.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>5.2</b> 구획모델이 필요한 이유</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>5.4.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
-<li class="chapter" data-level="5.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>5.4.3</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>5.2.1</b> 최종반감기와 관련한 이슈</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>5.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>5.2.3</b> PK/PD와 연관된 각종 의사결정</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
+<li class="chapter" data-level="5.3" data-path="ca-principle.html"><a href="ca-principle.html#diff-pk-param"><i class="fa fa-check"></i><b>5.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis"><i class="fa fa-check"></i><b>5.5.1</b> Compartmental analysis</a></li>
-<li class="chapter" data-level="5.5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-1"><i class="fa fa-check"></i><b>5.5.2</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>5.3.1</b> 분포용적 파라미터들의 차이</a></li>
+<li class="chapter" data-level="5.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>5.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
+<li class="chapter" data-level="5.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-3"><i class="fa fa-check"></i><b>5.4</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>6</b> 구획분석의 자료해석</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>5.6.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
-<li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>5.6.3</b> 모델링 결과</a></li>
+<li class="chapter" data-level="6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#서론-3"><i class="fa fa-check"></i><b>6.1</b> 서론</a></li>
+<li class="chapter" data-level="6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획분석-개론"><i class="fa fa-check"></i><b>6.2</b> 상용 소프트웨어를 이용한 구획분석 개론</a></li>
+<li class="chapter" data-level="6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>6.3</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
+<li class="chapter" data-level="6.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>6.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>6.4.1</b> Compartmental analysis without Tlag</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>6.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
+<li class="chapter" data-level="6.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>6.4.3</b> 모델링 결과</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
-<li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
+<li class="chapter" data-level="6.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>6.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis"><i class="fa fa-check"></i><b>6.5.1</b> Compartmental analysis</a></li>
+<li class="chapter" data-level="6.5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-1"><i class="fa fa-check"></i><b>6.5.2</b> 모델링 결과</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>6.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>6.6.1</b> Compartmental analysis without Tlag</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ca-analysis.html"><a href="ca-analysis.html#without-lag"><i class="fa fa-check"></i><b>6.7</b> without lag</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>6.7.1</b> Compartmental analysis with T<sub>lag</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="ca-analysis.html"><a href="ca-analysis.html#with-lag"><i class="fa fa-check"></i><b>6.8</b> with lag</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>6.8.1</b> 모델링 결과</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>6.9</b> Theoph 약동학 자료의 구획분석</a></li>
+<li class="chapter" data-level="6.10" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>6.10</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="antibody_drug.html"><a href="antibody_drug.html"><i class="fa fa-check"></i><b>7</b> 항체의약품</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="antibody_drug.html"><a href="antibody_drug.html#서론-4"><i class="fa fa-check"></i><b>7.1</b> 서론</a></li>
+<li class="chapter" data-level="7.2" data-path="antibody_drug.html"><a href="antibody_drug.html#항체-및-항체의약품이란"><i class="fa fa-check"></i><b>7.2</b> 항체 및 항체의약품이란?</a></li>
+<li class="chapter" data-level="7.3" data-path="antibody_drug.html"><a href="antibody_drug.html#항체의약품의-구조-및-작용"><i class="fa fa-check"></i><b>7.3</b> 항체의약품의 구조 및 작용</a></li>
+<li class="chapter" data-level="7.4" data-path="antibody_drug.html"><a href="antibody_drug.html#항체-의약품과-저분자의약품의-비교"><i class="fa fa-check"></i><b>7.4</b> 항체 의약품과 저분자의약품의 비교</a></li>
+<li class="chapter" data-level="7.5" data-path="antibody_drug.html"><a href="antibody_drug.html#항체의약품의-adme"><i class="fa fa-check"></i><b>7.5</b> 항체의약품의 ADME</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="antibody_drug.html"><a href="antibody_drug.html#흡수"><i class="fa fa-check"></i><b>7.5.1</b> 흡수</a></li>
+<li class="chapter" data-level="7.5.2" data-path="antibody_drug.html"><a href="antibody_drug.html#분포"><i class="fa fa-check"></i><b>7.5.2</b> 분포</a></li>
+<li class="chapter" data-level="7.5.3" data-path="antibody_drug.html"><a href="antibody_drug.html#제거"><i class="fa fa-check"></i><b>7.5.3</b> 제거</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="antibody_drug.html"><a href="antibody_drug.html#tmdd-모델-분석"><i class="fa fa-check"></i><b>7.6</b> TMDD 모델 분석</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-a-0-t-t1"><i class="fa fa-check"></i><b>7.6.1</b> Phase A (0 ≤ t ≤ T<sub>1</sub>)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-b-t1-t-t2"><i class="fa fa-check"></i><b>7.6.2</b> Phase B (T<sub>1</sub> ≤ t ≤ T<sub>2</sub>)</a></li>
+<li class="chapter" data-level="7.6.3" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-c-t2-t-t3"><i class="fa fa-check"></i><b>7.6.3</b> Phase C (T<sub>2</sub> ≤ t ≤ T<sub>3</sub>)</a></li>
+<li class="chapter" data-level="7.6.4" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-d-t3-t-t4"><i class="fa fa-check"></i><b>7.6.4</b> Phase D (T<sub>3</sub> ≤ t ≤ T<sub>4</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="antibody_drug.html"><a href="antibody_drug.html#m-m-modelmichaelis-menten-model의-사용"><i class="fa fa-check"></i><b>7.7</b> M-M model(Michaelis-menten model)의 사용</a></li>
+<li class="chapter" data-level="7.8" data-path="antibody_drug.html"><a href="antibody_drug.html#TMDDADA"><i class="fa fa-check"></i><b>7.8</b> TMDD와 ADA로 인한 제거의 비교</a></li>
+<li class="chapter" data-level="7.9" data-path="antibody_drug.html"><a href="antibody_drug.html#allometric-scaling"><i class="fa fa-check"></i><b>7.9</b> Allometric scaling</a></li>
+<li class="chapter" data-level="7.10" data-path="antibody_drug.html"><a href="antibody_drug.html#맺음말-5"><i class="fa fa-check"></i><b>7.10</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
 <li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
@@ -323,37 +290,9 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Theoph_nlr" class="section level1 hasAnchor" number="7">
+<div id="Theoph_nlr" class="section level1 hasAnchor" number="9">
 <h1><span class="header-section-number">B</span> Theoph의 nlr의 전체 실행 결과<a href="Theoph_nlr.html#Theoph_nlr" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<p><a href="ca-analysis.html#ca-analysis">5장 구획분석의 자료해석</a>의 <a href="ca-analysis.html#theoph-wnl">5.7</a>절에서 언급된 <code>wnl::nlr()</code> 실행결과를 별첨으로 수록하였다.</p>
-<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="Theoph_nlr.html#cb54-1" tabindex="-1"></a><span class="fu">library</span>(wnl)</span>
-<span id="cb54-2"><a href="Theoph_nlr.html#cb54-2" tabindex="-1"></a>tData <span class="ot">=</span> Theoph</span>
-<span id="cb54-3"><a href="Theoph_nlr.html#cb54-3" tabindex="-1"></a><span class="fu">colnames</span>(tData) <span class="ot">=</span> <span class="fu">c</span>(<span class="st">&quot;ID&quot;</span>, <span class="st">&quot;BWT&quot;</span>, <span class="st">&quot;DOSE&quot;</span>, <span class="st">&quot;TIME&quot;</span>, <span class="st">&quot;DV&quot;</span>)</span>
-<span id="cb54-4"><a href="Theoph_nlr.html#cb54-4" tabindex="-1"></a></span>
-<span id="cb54-5"><a href="Theoph_nlr.html#cb54-5" tabindex="-1"></a>fPK <span class="ot">=</span> <span class="cf">function</span>(THETA)     <span class="co"># Prediction function</span></span>
-<span id="cb54-6"><a href="Theoph_nlr.html#cb54-6" tabindex="-1"></a>{</span>
-<span id="cb54-7"><a href="Theoph_nlr.html#cb54-7" tabindex="-1"></a>  DOSE <span class="ot">=</span> <span class="dv">320000</span>           <span class="co"># in microgram</span></span>
-<span id="cb54-8"><a href="Theoph_nlr.html#cb54-8" tabindex="-1"></a>  TIME <span class="ot">=</span> e<span class="sc">$</span>DATA[,<span class="st">&quot;TIME&quot;</span>]  <span class="co"># use data in e$DATA</span></span>
-<span id="cb54-9"><a href="Theoph_nlr.html#cb54-9" tabindex="-1"></a></span>
-<span id="cb54-10"><a href="Theoph_nlr.html#cb54-10" tabindex="-1"></a>  K    <span class="ot">=</span> THETA[<span class="dv">1</span>]</span>
-<span id="cb54-11"><a href="Theoph_nlr.html#cb54-11" tabindex="-1"></a>  Ka   <span class="ot">=</span> THETA[<span class="dv">2</span>]</span>
-<span id="cb54-12"><a href="Theoph_nlr.html#cb54-12" tabindex="-1"></a>  V    <span class="ot">=</span> THETA[<span class="dv">3</span>]</span>
-<span id="cb54-13"><a href="Theoph_nlr.html#cb54-13" tabindex="-1"></a></span>
-<span id="cb54-14"><a href="Theoph_nlr.html#cb54-14" tabindex="-1"></a>  Cp   <span class="ot">=</span> DOSE<span class="sc">/</span>V<span class="sc">*</span>Ka<span class="sc">/</span>(Ka <span class="sc">-</span> K)<span class="sc">*</span>(<span class="fu">exp</span>(<span class="sc">-</span>K<span class="sc">*</span>TIME) <span class="sc">-</span> <span class="fu">exp</span>(<span class="sc">-</span>Ka<span class="sc">*</span>TIME))</span>
-<span id="cb54-15"><a href="Theoph_nlr.html#cb54-15" tabindex="-1"></a>  <span class="fu">return</span>(Cp)</span>
-<span id="cb54-16"><a href="Theoph_nlr.html#cb54-16" tabindex="-1"></a>}</span>
-<span id="cb54-17"><a href="Theoph_nlr.html#cb54-17" tabindex="-1"></a></span>
-<span id="cb54-18"><a href="Theoph_nlr.html#cb54-18" tabindex="-1"></a>IDs <span class="ot">=</span> <span class="fu">unique</span>(tData[,<span class="st">&quot;ID&quot;</span>])</span>
-<span id="cb54-19"><a href="Theoph_nlr.html#cb54-19" tabindex="-1"></a>nID <span class="ot">=</span> <span class="fu">length</span>(IDs)</span>
-<span id="cb54-20"><a href="Theoph_nlr.html#cb54-20" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>nID) {</span>
-<span id="cb54-21"><a href="Theoph_nlr.html#cb54-21" tabindex="-1"></a>  Data <span class="ot">=</span> tData[tData<span class="sc">$</span>ID <span class="sc">==</span> IDs[i],]</span>
-<span id="cb54-22"><a href="Theoph_nlr.html#cb54-22" tabindex="-1"></a>  Theoph_nlr <span class="ot">=</span> <span class="fu">nlr</span>(fPK, Data, </span>
-<span id="cb54-23"><a href="Theoph_nlr.html#cb54-23" tabindex="-1"></a>                   <span class="at">pNames=</span><span class="fu">c</span>(<span class="st">&quot;k&quot;</span>, <span class="st">&quot;ka&quot;</span>, <span class="st">&quot;V&quot;</span>), <span class="at">IE=</span><span class="fu">c</span>(<span class="fl">0.1</span>, <span class="dv">3</span>, <span class="dv">500</span>), </span>
-<span id="cb54-24"><a href="Theoph_nlr.html#cb54-24" tabindex="-1"></a>                   <span class="at">SecNames=</span><span class="fu">c</span>(<span class="st">&quot;CL&quot;</span>, <span class="st">&quot;Thalf&quot;</span>, <span class="st">&quot;MRT&quot;</span>), </span>
-<span id="cb54-25"><a href="Theoph_nlr.html#cb54-25" tabindex="-1"></a>                   <span class="at">SecForms=</span><span class="fu">c</span>(<span class="sc">~</span>V<span class="sc">*</span>k, <span class="sc">~</span><span class="fu">log</span>(<span class="dv">2</span>)<span class="sc">/</span>k, <span class="sc">~</span><span class="dv">1</span><span class="sc">/</span>k))</span>
-<span id="cb54-26"><a href="Theoph_nlr.html#cb54-26" tabindex="-1"></a>  <span class="fu">print</span>(<span class="fu">paste</span>(<span class="st">&quot;## ID =&quot;</span>, i, <span class="st">&quot;##&quot;</span>))</span>
-<span id="cb54-27"><a href="Theoph_nlr.html#cb54-27" tabindex="-1"></a>  <span class="fu">print</span>(Theoph_nlr)</span>
-<span id="cb54-28"><a href="Theoph_nlr.html#cb54-28" tabindex="-1"></a>}</span></code></pre></div>
+<p><a href="ca-analysis.html#ca-analysis">5장 구획분석의 자료해석</a>의 <a href="ca-analysis.html#theoph-wnl">6.9</a>절에서 언급된 <code>wnl::nlr()</code> 실행결과를 별첨으로 수록하였다.</p>
 <pre><code>## [1] &quot;## ID = 1 ##&quot;
 ## $Est
 ##             k     ka         V AddErrVar AddErrSD
@@ -370,14 +309,18 @@ div.csl-indent {
 ## UL  1994.7 17.230 24.857
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.04471 1.443 27826    0.1784
-## UL 0.06448 2.200 31150    1.1189
+##          k    ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.04471 1.443 27826    0.1784   0.4223 1244 10.75
+## UL 0.06448 2.200 31150    1.1189   1.0578 2009 15.50
+##      MRT
+## LL 15.51
+## UL 22.37
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.2770 0.5231 0.0884
+##      k     ka      V 
+## 0.2770 0.5231 0.0884 
 ## 
 ## $Cov
 ##                    k        ka          V  AddErrVar
@@ -431,7 +374,7 @@ div.csl-indent {
 ## [11]  0.22720
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.03354 secs
+## Time difference of 0.04053 secs
 ## 
 ## [1] &quot;## ID = 2 ##&quot;
 ## $Est
@@ -449,14 +392,18 @@ div.csl-indent {
 ## UL  4322.84 10.116 14.595
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.07872 1.394 29029    0.3724
-## UL 0.13044 2.724 35710    2.3360
+##          k    ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.07872 1.394 29029    0.3724   0.6102 2285 5.314
+## UL 0.13044 2.724 35710    2.3360   1.5284 4658 8.805
+##       MRT
+## LL  7.667
+## UL 12.703
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.5245 0.8626 0.1441
+##      k     ka      V 
+## 0.5245 0.8626 0.1441 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -510,7 +457,7 @@ div.csl-indent {
 ## [11] -0.002829
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006591 secs
+## Time difference of 0.01065 secs
 ## 
 ## [1] &quot;## ID = 3 ##&quot;
 ## $Est
@@ -528,14 +475,18 @@ div.csl-indent {
 ## UL  3014.004 9.4546 13.6401
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.07666 2.248 33573   0.01815
-## UL 0.08643 2.684 35099   0.11389
+##          k    ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.07666 2.248 33573   0.01815   0.1347 2574 8.020
+## UL 0.08643 2.684 35099   0.11389   0.3375 3034 9.042
+##      MRT
+## LL 11.57
+## UL 13.05
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.10515 0.22728 0.03572
+##       k      ka       V 
+## 0.10515 0.22728 0.03572 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -589,7 +540,7 @@ div.csl-indent {
 ## [11] -0.31466
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006918 secs
+## Time difference of 0.01243 secs
 ## 
 ## [1] &quot;## ID = 4 ##&quot;
 ## $Est
@@ -607,14 +558,18 @@ div.csl-indent {
 ## UL  3496.28 11.364 16.394
 ## 
 ## $LI
-##          k     ka     V AddErrVar
-## LL 0.07108 0.9143 28755    0.2385
-## UL 0.10698 1.4968 33856    1.4963
+##          k     ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.07108 0.9143 28755    0.2385   0.4884 2044 6.479
+## UL 0.10698 1.4968 33856    1.4963   1.2232 3622 9.752
+##       MRT
+## LL  9.347
+## UL 14.069
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.53716 0.56163 0.03693
+##       k      ka       V 
+## 0.53716 0.56163 0.03693 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -668,7 +623,7 @@ div.csl-indent {
 ## [11] -0.15385
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009309 secs
+## Time difference of 0.01083 secs
 ## 
 ## [1] &quot;## ID = 5 ##&quot;
 ## $Est
@@ -686,14 +641,18 @@ div.csl-indent {
 ## UL  3247.20 12.049 17.383
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.06723 1.057 24336    0.5603
-## UL 0.11513 2.036 30131    3.5147
+##          k    ka     V AddErrVar AddErrSD   CL  Thalf
+## LL 0.06723 1.057 24336    0.5603   0.7485 1636  6.021
+## UL 0.11513 2.036 30131    3.5147   1.8747 3469 10.311
+##       MRT
+## LL  8.686
+## UL 14.875
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.5985 0.7966 0.1248
+##      k     ka      V 
+## 0.5985 0.7966 0.1248 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -747,7 +706,7 @@ div.csl-indent {
 ## [11]  0.08349
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006563 secs
+## Time difference of 0.01251 secs
 ## 
 ## [1] &quot;## ID = 6 ##&quot;
 ## $Est
@@ -765,14 +724,18 @@ div.csl-indent {
 ## UL  5085.82  9.642 13.910
 ## 
 ## $LI
-##          k     ka     V AddErrVar
-## LL 0.08349 0.9343 38286    0.1017
-## UL 0.11828 1.4495 44371    0.6381
+##          k     ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.08349 0.9343 38286    0.1017   0.3189 3197 5.860
+## UL 0.11828 1.4495 44371    0.6381   0.7988 5248 8.302
+##       MRT
+## LL  8.454
+## UL 11.977
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.50175 0.52432 0.01456
+##       k      ka       V 
+## 0.50175 0.52432 0.01456 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -826,7 +789,7 @@ div.csl-indent {
 ## [11]  0.11708
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006665 secs
+## Time difference of 0.01035 secs
 ## 
 ## [1] &quot;## ID = 7 ##&quot;
 ## $Est
@@ -844,14 +807,18 @@ div.csl-indent {
 ## UL  3824.907  8.6002 12.408
 ## 
 ## $LI
-##          k     ka     V AddErrVar
-## LL 0.09314 0.6051 31310   0.04149
-## UL 0.11212 0.7633 34048   0.26016
+##          k     ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.09314 0.6051 31310   0.04149   0.2037 2916 6.182
+## UL 0.11212 0.7633 34048   0.26016   0.5101 3817 7.442
+##       MRT
+## LL  8.919
+## UL 10.736
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1]  0.4748  0.1809 -0.1357
+##       k      ka       V 
+##  0.4748  0.1809 -0.1357 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -905,7 +872,7 @@ div.csl-indent {
 ## [11]  0.167295
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006954 secs
+## Time difference of 0.01071 secs
 ## 
 ## [1] &quot;## ID = 8 ##&quot;
 ## $Est
@@ -923,14 +890,18 @@ div.csl-indent {
 ## UL  4123.48 10.501 15.150
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.07624 1.082 33172    0.1533
-## UL 0.11043 1.749 38626    0.9616
+##          k    ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.07624 1.082 33172    0.1533   0.3915 2529 6.277
+## UL 0.11043 1.749 38626    0.9616   0.9806 4266 9.092
+##       MRT
+## LL  9.055
+## UL 13.117
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.44072 0.55360 0.07714
+##       k      ka       V 
+## 0.44072 0.55360 0.07714 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -984,7 +955,7 @@ div.csl-indent {
 ## [11]  0.19116
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.009353 secs
+## Time difference of 0.0107 secs
 ## 
 ## [1] &quot;## ID = 9 ##&quot;
 ## $Est
@@ -1002,14 +973,18 @@ div.csl-indent {
 ## UL  4052.4 10.0382 14.482
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.07359 5.721 36927    0.1036
-## UL 0.10157   Inf 41204    0.6497
+##          k    ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.07359 5.721 36927    0.1036   0.3218 2718 6.824
+## UL 0.10157   Inf 41204    0.6497   0.8061 4185 9.419
+##       MRT
+## LL  9.845
+## UL 13.588
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.2066 3.0078 0.1045
+##      k     ka      V 
+## 0.2066 3.0078 0.1045 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -1063,7 +1038,7 @@ div.csl-indent {
 ## [11]  0.10785
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007591 secs
+## Time difference of 0.01315 secs
 ## 
 ## [1] &quot;## ID = 10 ##&quot;
 ## $Est
@@ -1081,14 +1056,18 @@ div.csl-indent {
 ## UL  2143.157 11.4454 16.512
 ## 
 ## $LI
-##          k     ka     V AddErrVar
-## LL 0.06778 0.6302 24687   0.05626
-## UL 0.08059 0.7676 26411   0.35280
+##          k     ka     V AddErrVar AddErrSD   CL  Thalf
+## LL 0.06778 0.6302 24687   0.05626   0.2372 1673  8.601
+## UL 0.08059 0.7676 26411   0.35280   0.5940 2128 10.227
+##      MRT
+## LL 12.41
+## UL 14.75
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1]  0.28945  0.18789 -0.03627
+##        k       ka        V 
+##  0.28945  0.18789 -0.03627 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -1142,7 +1121,7 @@ div.csl-indent {
 ## [11] -0.04181
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.007993 secs
+## Time difference of 0.01247 secs
 ## 
 ## [1] &quot;## ID = 11 ##&quot;
 ## $Est
@@ -1160,14 +1139,18 @@ div.csl-indent {
 ## UL  4023.450 7.8477 11.3218
 ## 
 ## $LI
-##          k    ka     V AddErrVar
-## LL 0.09201 3.477 37042   0.01774
-## UL 0.10459 4.279 38894   0.11127
+##          k    ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.09201 3.477 37042   0.01774   0.1332 3408 6.627
+## UL 0.10459 4.279 38894   0.11127   0.3336 4068 7.534
+##       MRT
+## LL  9.561
+## UL 10.869
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1] 0.10154 0.29127 0.04615
+##       k      ka       V 
+## 0.10154 0.29127 0.04615 
 ## 
 ## $Cov
 ##                    k         ka          V  AddErrVar
@@ -1221,7 +1204,7 @@ div.csl-indent {
 ## [11]  0.034880
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.01042 secs
+## Time difference of 0.01128 secs
 ## 
 ## [1] &quot;## ID = 12 ##&quot;
 ## $Est
@@ -1239,14 +1222,18 @@ div.csl-indent {
 ## UL  2951.901  8.4611 12.207
 ## 
 ## $LI
-##          k     ka     V AddErrVar
-## LL 0.09449 0.7212 22860    0.1169
-## UL 0.11788 0.9608 25299    0.7334
+##          k     ka     V AddErrVar AddErrSD   CL Thalf
+## LL 0.09449 0.7212 22860    0.1169   0.3419 2160 5.880
+## UL 0.11788 0.9608 25299    0.7334   0.8564 2982 7.336
+##       MRT
+## LL  8.483
+## UL 10.583
 ## attr(,&quot;k&quot;)
 ## [1] 9.18
 ## 
 ## $Skewness
-## [1]  0.46551  0.26478 -0.07838
+##        k       ka        V 
+##  0.46551  0.26478 -0.07838 
 ## 
 ## $Cov
 ##                    k         ka          V AddErrVar
@@ -1300,7 +1287,7 @@ div.csl-indent {
 ## [11] -0.03683
 ## 
 ## $`Elapsed Time`
-## Time difference of 0.006656 secs</code></pre>
+## Time difference of 0.01098 secs</code></pre>
 
 </div>
             </section>

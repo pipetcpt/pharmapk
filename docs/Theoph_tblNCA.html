@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title>A Theoph의 tblNCA의 전체 실행 결과 | 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)</title>
   <meta name="description" content="약동학은 신약의 발견부터 시판허가 이후의 관리에 이르기까지 모든 단계에서 쓰이는 가장 기본적이고 필수적인 지식이며 도구입니다. 저자들은 지난 20여년간 대학과 기업의 연구원들을 대상으로 약동학을 가르치며 겪은 학습자들의 질문과 반응들을 토대로 꼭 필요한 내용들을 이해하기 쉽게 설명하고자 영상 제작과 함께, 이 교재를 만들게 되었습니다. 약동학 책이라면 흔히 떠올리는, 맥락을 알 수 없는 미분방정식들로 가득 찬 책이 아니라, 학위과정 중에 약동학을 공부할 기회가 없었던 제약/바이오 연구자 분들도 정독하면 이해할 수 있는 책이 될 수 있도록 꼭 필요한만큼의 수식들만 넣었습니다. 대신 약동학 파라미터들 각자의 의미와 해석, 자칫하면 오해하거나 혼동하기 쉬워서 주의할 측면 등을 독자들을 위해 드러내고자 하였습니다." />
-  <meta name="generator" content="bookdown 0.37 and GitBook 2.6.7" />
+  <meta name="generator" content="bookdown 0.38 and GitBook 2.6.7" />
 
   <meta property="og:title" content="A Theoph의 tblNCA의 전체 실행 결과 | 신약개발을 위한 실전 약동학 I (기본원리와 자료해석)" />
   <meta property="og:type" content="book" />
@@ -23,14 +23,14 @@
 <meta name="author" content="PIPET 임동석, 한승훈, 한성필 Ver 1.0.3" />
 
 
-<meta name="date" content="2024-02-06" />
+<meta name="date" content="2024-07-12" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="ca-analysis.html"/>
+<link rel="prev" href="antibody_drug.html"/>
 <link rel="next" href="Theoph_nlr.html"/>
 <script src="libs/jquery/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
@@ -52,74 +52,8 @@
 <link href="libs/anchor-sections/anchor-sections.css" rel="stylesheet" />
 <link href="libs/anchor-sections/anchor-sections-hash.css" rel="stylesheet" />
 <script src="libs/anchor-sections/anchor-sections.js"></script>
-<script src="libs/kePrint/kePrint.js"></script>
-<link href="libs/lightable/lightable.css" rel="stylesheet" />
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
   
@@ -163,7 +97,7 @@ div.csl-indent {
 
 <ul class="summary">
 <li><a href="./">신약개발을 위한 실전 약동학</a></li>
-<li><a href="https://www.bookk.co.kr/shanmdphd" target="_blank">도서 구입</a></li>
+<li><a href="https://bookk.co.kr/users/64696cad69d8ae916e9ed1bf/books" target="_blank">도서 구입</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>머리말</a></li>
@@ -240,63 +174,96 @@ div.csl-indent {
 <li class="chapter" data-level="3.7.1" data-path="nca-analysis.html"><a href="nca-analysis.html#tblNCA"><i class="fa fa-check"></i><b>3.7.1</b> tblNCA(): 전체 대상자 NCA</a></li>
 <li class="chapter" data-level="3.7.2" data-path="nca-analysis.html"><a href="nca-analysis.html#snca"><i class="fa fa-check"></i><b>3.7.2</b> sNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="3.8" data-path="nca-analysis.html"><a href="nca-analysis.html#nca-보고서"><i class="fa fa-check"></i><b>3.8</b> NCA 보고서</a>
-<ul>
-<li class="chapter" data-level="3.8.1" data-path="nca-analysis.html"><a href="nca-analysis.html#txtnca"><i class="fa fa-check"></i><b>3.8.1</b> txtNCA()</a></li>
-<li class="chapter" data-level="3.8.2" data-path="nca-analysis.html"><a href="nca-analysis.html#pdfnca"><i class="fa fa-check"></i><b>3.8.2</b> pdfNCA()</a></li>
-<li class="chapter" data-level="3.8.3" data-path="nca-analysis.html"><a href="nca-analysis.html#rtfnca"><i class="fa fa-check"></i><b>3.8.3</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="3.9" data-path="nca-analysis.html"><a href="nca-analysis.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>3.9</b> NCA의 시각화 plotPK()</a></li>
-<li class="chapter" data-level="3.10" data-path="nca-analysis.html"><a href="nca-analysis.html#parameters"><i class="fa fa-check"></i><b>3.10</b> 파라미터의 의미</a></li>
-<li class="chapter" data-level="3.11" data-path="nca-analysis.html"><a href="nca-analysis.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>3.11</b> 기술통계 (Descriptive statistics)</a></li>
-<li class="chapter" data-level="3.12" data-path="nca-analysis.html"><a href="nca-analysis.html#bioequivalence"><i class="fa fa-check"></i><b>3.12</b> NCA 후 생물학적 동등성 판별</a>
+<li class="chapter" data-level="4" data-path="for-one-subject.html"><a href="for-one-subject.html"><i class="fa fa-check"></i><b>4</b> For one subject</a>
 <ul>
-<li class="chapter" data-level="3.12.1" data-path="nca-analysis.html"><a href="nca-analysis.html#이론"><i class="fa fa-check"></i><b>3.12.1</b> 이론</a></li>
-<li class="chapter" data-level="3.12.2" data-path="nca-analysis.html"><a href="nca-analysis.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>3.12.2</b> BE R 패키지를 사용한 생물학적 동등성 판정</a></li>
-</ul></li>
-<li class="chapter" data-level="3.13" data-path="nca-analysis.html"><a href="nca-analysis.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>3.13</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</a></li>
-<li class="chapter" data-level="3.14" data-path="nca-analysis.html"><a href="nca-analysis.html#맺음말-2"><i class="fa fa-check"></i><b>3.14</b> 맺음말</a></li>
-</ul></li>
-<li class="chapter" data-level="4" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>4</b> 구획분석의 이론</a>
+<li class="chapter" data-level="4.1" data-path="for-one-subject.html"><a href="for-one-subject.html#nca-보고서"><i class="fa fa-check"></i><b>4.1</b> NCA 보고서</a>
 <ul>
-<li class="chapter" data-level="4.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>4.1</b> 구획분석의 개념</a></li>
-<li class="chapter" data-level="4.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>4.2</b> 구획모델이 필요한 이유</a>
-<ul>
-<li class="chapter" data-level="4.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>4.2.1</b> 최종반감기와 관련한 이슈</a></li>
-<li class="chapter" data-level="4.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>4.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</a></li>
-<li class="chapter" data-level="4.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>4.2.3</b> PK/PD와 연관된 각종 의사결정</a></li>
+<li class="chapter" data-level="4.1.1" data-path="for-one-subject.html"><a href="for-one-subject.html#txtnca"><i class="fa fa-check"></i><b>4.1.1</b> txtNCA()</a></li>
+<li class="chapter" data-level="4.1.2" data-path="for-one-subject.html"><a href="for-one-subject.html#pdfnca"><i class="fa fa-check"></i><b>4.1.2</b> pdfNCA()</a></li>
+<li class="chapter" data-level="4.1.3" data-path="for-one-subject.html"><a href="for-one-subject.html#rtfnca"><i class="fa fa-check"></i><b>4.1.3</b> rtfNCA()</a></li>
 </ul></li>
-<li class="chapter" data-level="4.3" data-path="ca-principle.html"><a href="ca-principle.html#diff-pk-param"><i class="fa fa-check"></i><b>4.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점</a>
+<li class="chapter" data-level="4.2" data-path="for-one-subject.html"><a href="for-one-subject.html#nca의-시각화-plotpk"><i class="fa fa-check"></i><b>4.2</b> NCA의 시각화 plotPK()</a></li>
+<li class="chapter" data-level="4.3" data-path="for-one-subject.html"><a href="for-one-subject.html#parameters"><i class="fa fa-check"></i><b>4.3</b> 파라미터의 의미</a></li>
+<li class="chapter" data-level="4.4" data-path="for-one-subject.html"><a href="for-one-subject.html#기술통계-descriptive-statistics"><i class="fa fa-check"></i><b>4.4</b> 기술통계 (Descriptive statistics)</a></li>
+<li class="chapter" data-level="4.5" data-path="for-one-subject.html"><a href="for-one-subject.html#bioequivalence"><i class="fa fa-check"></i><b>4.5</b> NCA 후 생물학적 동등성 판별</a>
 <ul>
-<li class="chapter" data-level="4.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>4.3.1</b> 분포용적 파라미터들의 차이</a></li>
-<li class="chapter" data-level="4.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>4.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이</a></li>
+<li class="chapter" data-level="4.5.1" data-path="for-one-subject.html"><a href="for-one-subject.html#이론"><i class="fa fa-check"></i><b>4.5.1</b> 이론</a></li>
+<li class="chapter" data-level="4.5.2" data-path="for-one-subject.html"><a href="for-one-subject.html#be-r-패키지를-사용한-생물학적-동등성-판정"><i class="fa fa-check"></i><b>4.5.2</b> BE R 패키지를 사용한 생물학적 동등성 판정</a></li>
 </ul></li>
-<li class="chapter" data-level="4.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-3"><i class="fa fa-check"></i><b>4.4</b> 맺음말</a></li>
+<li class="chapter" data-level="4.6" data-path="for-one-subject.html"><a href="for-one-subject.html#웹브라우저를-통한-nca-및-생물학적동등성-판정"><i class="fa fa-check"></i><b>4.6</b> 웹브라우저를 통한 NCA 및 생물학적동등성 판정</a></li>
+<li class="chapter" data-level="4.7" data-path="for-one-subject.html"><a href="for-one-subject.html#맺음말-2"><i class="fa fa-check"></i><b>4.7</b> 맺음말</a></li>
 </ul></li>
-<li class="chapter" data-level="5" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 자료해석</a>
+<li class="chapter" data-level="5" data-path="ca-principle.html"><a href="ca-principle.html"><i class="fa fa-check"></i><b>5</b> 구획분석의 이론</a>
 <ul>
-<li class="chapter" data-level="5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#서론-3"><i class="fa fa-check"></i><b>5.1</b> 서론</a></li>
-<li class="chapter" data-level="5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획분석-개론"><i class="fa fa-check"></i><b>5.2</b> 상용 소프트웨어를 이용한 구획분석 개론</a></li>
-<li class="chapter" data-level="5.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>5.3</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
-<li class="chapter" data-level="5.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
+<li class="chapter" data-level="5.1" data-path="ca-principle.html"><a href="ca-principle.html#구획분석의-개념"><i class="fa fa-check"></i><b>5.1</b> 구획분석의 개념</a></li>
+<li class="chapter" data-level="5.2" data-path="ca-principle.html"><a href="ca-principle.html#구획모델이-필요한-이유"><i class="fa fa-check"></i><b>5.2</b> 구획모델이 필요한 이유</a>
 <ul>
-<li class="chapter" data-level="5.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>5.4.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>5.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
-<li class="chapter" data-level="5.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>5.4.3</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.2.1" data-path="ca-principle.html"><a href="ca-principle.html#최종반감기와-관련한-이슈"><i class="fa fa-check"></i><b>5.2.1</b> 최종반감기와 관련한 이슈</a></li>
+<li class="chapter" data-level="5.2.2" data-path="ca-principle.html"><a href="ca-principle.html#정확한-cmax-tmax-값의-추정"><i class="fa fa-check"></i><b>5.2.2</b> 정확한 C<sub>max</sub>, T<sub>max</sub> 값의 추정</a></li>
+<li class="chapter" data-level="5.2.3" data-path="ca-principle.html"><a href="ca-principle.html#pkpd와-연관된-각종-의사결정"><i class="fa fa-check"></i><b>5.2.3</b> PK/PD와 연관된 각종 의사결정</a></li>
 </ul></li>
-<li class="chapter" data-level="5.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>5.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
+<li class="chapter" data-level="5.3" data-path="ca-principle.html"><a href="ca-principle.html#diff-pk-param"><i class="fa fa-check"></i><b>5.3</b> 구획모델로 얻은 PK 파라미터와 NCA로 얻은 PK 파라미터들의 차이점</a>
 <ul>
-<li class="chapter" data-level="5.5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis"><i class="fa fa-check"></i><b>5.5.1</b> Compartmental analysis</a></li>
-<li class="chapter" data-level="5.5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-1"><i class="fa fa-check"></i><b>5.5.2</b> 모델링 결과</a></li>
+<li class="chapter" data-level="5.3.1" data-path="ca-principle.html"><a href="ca-principle.html#분포용적-파라미터들의-차이"><i class="fa fa-check"></i><b>5.3.1</b> 분포용적 파라미터들의 차이</a></li>
+<li class="chapter" data-level="5.3.2" data-path="ca-principle.html"><a href="ca-principle.html#β와-kek10의-차이"><i class="fa fa-check"></i><b>5.3.2</b> β와 k<sub>e</sub>(k<sub>10</sub>)의 차이</a></li>
 </ul></li>
-<li class="chapter" data-level="5.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>5.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
+<li class="chapter" data-level="5.4" data-path="ca-principle.html"><a href="ca-principle.html#맺음말-3"><i class="fa fa-check"></i><b>5.4</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="ca-analysis.html"><a href="ca-analysis.html"><i class="fa fa-check"></i><b>6</b> 구획분석의 자료해석</a>
 <ul>
-<li class="chapter" data-level="5.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>5.6.1</b> Compartmental analysis without Tlag</a></li>
-<li class="chapter" data-level="5.6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>5.6.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
-<li class="chapter" data-level="5.6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>5.6.3</b> 모델링 결과</a></li>
+<li class="chapter" data-level="6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#서론-3"><i class="fa fa-check"></i><b>6.1</b> 서론</a></li>
+<li class="chapter" data-level="6.2" data-path="ca-analysis.html"><a href="ca-analysis.html#상용-소프트웨어를-이용한-구획분석-개론"><i class="fa fa-check"></i><b>6.2</b> 상용 소프트웨어를 이용한 구획분석 개론</a></li>
+<li class="chapter" data-level="6.3" data-path="ca-analysis.html"><a href="ca-analysis.html#구획분석에-활용할-수-있는-r-package-소개"><i class="fa fa-check"></i><b>6.3</b> 구획분석에 활용할 수 있는 R package 소개</a></li>
+<li class="chapter" data-level="6.4" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-경구투여-후-약동학-자료-분석"><i class="fa fa-check"></i><b>6.4</b> 1구획모델을 이용한 경구투여 후 약동학 자료 분석</a>
+<ul>
+<li class="chapter" data-level="6.4.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag"><i class="fa fa-check"></i><b>6.4.1</b> Compartmental analysis without Tlag</a></li>
+<li class="chapter" data-level="6.4.2" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag"><i class="fa fa-check"></i><b>6.4.2</b> Compartmental analysis with T<sub>lag</sub></a></li>
+<li class="chapter" data-level="6.4.3" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과"><i class="fa fa-check"></i><b>6.4.3</b> 모델링 결과</a></li>
 </ul></li>
-<li class="chapter" data-level="5.7" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>5.7</b> Theoph 약동학 자료의 구획분석</a></li>
-<li class="chapter" data-level="5.8" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>5.8</b> 맺음말</a></li>
+<li class="chapter" data-level="6.5" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델을-이용한-정맥주사-후-약동학-자료-분석"><i class="fa fa-check"></i><b>6.5</b> 1구획모델을 이용한 정맥주사 후 약동학 자료 분석</a>
+<ul>
+<li class="chapter" data-level="6.5.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis"><i class="fa fa-check"></i><b>6.5.1</b> Compartmental analysis</a></li>
+<li class="chapter" data-level="6.5.2" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-1"><i class="fa fa-check"></i><b>6.5.2</b> 모델링 결과</a></li>
+</ul></li>
+<li class="chapter" data-level="6.6" data-path="ca-analysis.html"><a href="ca-analysis.html#구획모델-경구-흡수-이용한-약동학-자료-분석"><i class="fa fa-check"></i><b>6.6</b> 2구획모델 경구 흡수 이용한 약동학 자료 분석</a>
+<ul>
+<li class="chapter" data-level="6.6.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-without-tlag-1"><i class="fa fa-check"></i><b>6.6.1</b> Compartmental analysis without Tlag</a></li>
+</ul></li>
+<li class="chapter" data-level="6.7" data-path="ca-analysis.html"><a href="ca-analysis.html#without-lag"><i class="fa fa-check"></i><b>6.7</b> without lag</a>
+<ul>
+<li class="chapter" data-level="6.7.1" data-path="ca-analysis.html"><a href="ca-analysis.html#compartmental-analysis-with-tlag-1"><i class="fa fa-check"></i><b>6.7.1</b> Compartmental analysis with T<sub>lag</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.8" data-path="ca-analysis.html"><a href="ca-analysis.html#with-lag"><i class="fa fa-check"></i><b>6.8</b> with lag</a>
+<ul>
+<li class="chapter" data-level="6.8.1" data-path="ca-analysis.html"><a href="ca-analysis.html#모델링-결과-2"><i class="fa fa-check"></i><b>6.8.1</b> 모델링 결과</a></li>
+</ul></li>
+<li class="chapter" data-level="6.9" data-path="ca-analysis.html"><a href="ca-analysis.html#theoph-wnl"><i class="fa fa-check"></i><b>6.9</b> Theoph 약동학 자료의 구획분석</a></li>
+<li class="chapter" data-level="6.10" data-path="ca-analysis.html"><a href="ca-analysis.html#맺음말-4"><i class="fa fa-check"></i><b>6.10</b> 맺음말</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="antibody_drug.html"><a href="antibody_drug.html"><i class="fa fa-check"></i><b>7</b> 항체의약품</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="antibody_drug.html"><a href="antibody_drug.html#서론-4"><i class="fa fa-check"></i><b>7.1</b> 서론</a></li>
+<li class="chapter" data-level="7.2" data-path="antibody_drug.html"><a href="antibody_drug.html#항체-및-항체의약품이란"><i class="fa fa-check"></i><b>7.2</b> 항체 및 항체의약품이란?</a></li>
+<li class="chapter" data-level="7.3" data-path="antibody_drug.html"><a href="antibody_drug.html#항체의약품의-구조-및-작용"><i class="fa fa-check"></i><b>7.3</b> 항체의약품의 구조 및 작용</a></li>
+<li class="chapter" data-level="7.4" data-path="antibody_drug.html"><a href="antibody_drug.html#항체-의약품과-저분자의약품의-비교"><i class="fa fa-check"></i><b>7.4</b> 항체 의약품과 저분자의약품의 비교</a></li>
+<li class="chapter" data-level="7.5" data-path="antibody_drug.html"><a href="antibody_drug.html#항체의약품의-adme"><i class="fa fa-check"></i><b>7.5</b> 항체의약품의 ADME</a>
+<ul>
+<li class="chapter" data-level="7.5.1" data-path="antibody_drug.html"><a href="antibody_drug.html#흡수"><i class="fa fa-check"></i><b>7.5.1</b> 흡수</a></li>
+<li class="chapter" data-level="7.5.2" data-path="antibody_drug.html"><a href="antibody_drug.html#분포"><i class="fa fa-check"></i><b>7.5.2</b> 분포</a></li>
+<li class="chapter" data-level="7.5.3" data-path="antibody_drug.html"><a href="antibody_drug.html#제거"><i class="fa fa-check"></i><b>7.5.3</b> 제거</a></li>
+</ul></li>
+<li class="chapter" data-level="7.6" data-path="antibody_drug.html"><a href="antibody_drug.html#tmdd-모델-분석"><i class="fa fa-check"></i><b>7.6</b> TMDD 모델 분석</a>
+<ul>
+<li class="chapter" data-level="7.6.1" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-a-0-t-t1"><i class="fa fa-check"></i><b>7.6.1</b> Phase A (0 ≤ t ≤ T<sub>1</sub>)</a></li>
+<li class="chapter" data-level="7.6.2" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-b-t1-t-t2"><i class="fa fa-check"></i><b>7.6.2</b> Phase B (T<sub>1</sub> ≤ t ≤ T<sub>2</sub>)</a></li>
+<li class="chapter" data-level="7.6.3" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-c-t2-t-t3"><i class="fa fa-check"></i><b>7.6.3</b> Phase C (T<sub>2</sub> ≤ t ≤ T<sub>3</sub>)</a></li>
+<li class="chapter" data-level="7.6.4" data-path="antibody_drug.html"><a href="antibody_drug.html#phase-d-t3-t-t4"><i class="fa fa-check"></i><b>7.6.4</b> Phase D (T<sub>3</sub> ≤ t ≤ T<sub>4</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="7.7" data-path="antibody_drug.html"><a href="antibody_drug.html#m-m-modelmichaelis-menten-model의-사용"><i class="fa fa-check"></i><b>7.7</b> M-M model(Michaelis-menten model)의 사용</a></li>
+<li class="chapter" data-level="7.8" data-path="antibody_drug.html"><a href="antibody_drug.html#TMDDADA"><i class="fa fa-check"></i><b>7.8</b> TMDD와 ADA로 인한 제거의 비교</a></li>
+<li class="chapter" data-level="7.9" data-path="antibody_drug.html"><a href="antibody_drug.html#allometric-scaling"><i class="fa fa-check"></i><b>7.9</b> Allometric scaling</a></li>
+<li class="chapter" data-level="7.10" data-path="antibody_drug.html"><a href="antibody_drug.html#맺음말-5"><i class="fa fa-check"></i><b>7.10</b> 맺음말</a></li>
 </ul></li>
 <li class="appendix"><span><b>별첨</b></span></li>
 <li class="chapter" data-level="A" data-path="Theoph_tblNCA.html"><a href="Theoph_tblNCA.html"><i class="fa fa-check"></i><b>A</b> Theoph의 tblNCA의 전체 실행 결과</a></li>
@@ -323,95 +290,17 @@ div.csl-indent {
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="Theoph_tblNCA" class="section level1 hasAnchor" number="6">
+<div id="Theoph_tblNCA" class="section level1 hasAnchor" number="8">
 <h1><span class="header-section-number">A</span> Theoph의 tblNCA의 전체 실행 결과<a href="Theoph_tblNCA.html#Theoph_tblNCA" class="anchor-section" aria-label="Anchor link to header"></a></h1>
 <p><a href="nca-analysis.html#nca-analysis">3장 비구획분석의 자료해석</a>의 <a href="nca-analysis.html#tblNCA">3.7.1</a>절에서 언급된 <code>NonCompart::tblNCA()</code> 실행결과를 별첨으로 수록하였다.</p>
-<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="Theoph_tblNCA.html#cb52-1" tabindex="-1"></a>Theoph_tblNCA</span></code></pre></div>
-<pre><code>##    Subject    b0  CMAX   CMAXD TMAX TLAG CLST  CLSTP
-## 1        1 2.369 10.50 0.03281 1.12    0 3.28 3.2801
-## 2        2 2.411  8.33 0.02603 1.92    0 0.90 0.8886
-## 3        3 2.530  8.20 0.02562 1.02    0 1.05 1.0551
-## 4        4 2.593  8.60 0.02687 1.07    0 1.15 1.1564
-## 5        5 2.551 11.40 0.03563 1.00    0 1.57 1.5557
-## 6        6 2.033  6.44 0.02013 1.15    0 0.92 0.9413
-## 7        7 2.289  7.09 0.02216 3.48    0 1.15 1.1607
-## 8        8 2.170  7.56 0.02363 2.02    0 1.25 1.2285
-## 9        9 2.125  9.03 0.02822 0.63    0 1.12 1.1165
-## 10      10 2.658 10.21 0.03191 3.55    0 2.42 2.4137
-## 11      11 2.148  8.00 0.02500 0.98    0 0.86 0.8598
-## 12      12 2.824  9.75 0.03047 3.52    0 1.17 1.1755
-##     TLST LAMZHL    LAMZ LAMZLL LAMZUL LAMZNPT  CORRXY
-## 1  24.37 14.304 0.04846   9.05  24.37       3 -1.0000
-## 2  24.30  6.659 0.10409   7.03  24.30       4 -0.9986
-## 3  24.17  6.766 0.10244   9.00  24.17       3 -0.9997
-## 4  24.65  6.981 0.09929   9.02  24.65       3 -0.9995
-## 5  24.35  8.002 0.08662   7.02  24.35       4 -0.9993
-## 6  23.85  7.895 0.08780   2.03  23.85       7 -0.9991
-## 7  24.22  7.847 0.08834   6.98  24.22       4 -0.9993
-## 8  24.12  8.510 0.08145   3.53  24.12       6 -0.9955
-## 9  24.43  8.406 0.08246   8.80  24.43       3 -0.9997
-## 10 23.70  9.247 0.07496   9.38  23.70       3 -0.9998
-## 11 24.08  7.261 0.09546   9.03  24.08       3 -1.0000
-## 12 24.15  6.287 0.11026   9.03  24.15       3 -0.9997
-##        R2  R2ADJ AUCLST AUCALL AUCIFO AUCIFOD AUCIFP
-## 1  1.0000 1.0000 148.92 148.92 216.61  0.6769 216.61
-## 2  0.9972 0.9958  91.53  91.53 100.17  0.3130 100.06
-## 3  0.9993 0.9986  99.29  99.29 109.54  0.3423 109.59
-## 4  0.9989 0.9978 106.80 106.80 118.38  0.3699 118.44
-## 5  0.9986 0.9980 121.29 121.29 139.42  0.4357 139.25
-## 6  0.9982 0.9979  73.78  73.78  84.25  0.2633  84.50
-## 7  0.9987 0.9980  90.75  90.75 103.77  0.3243 103.89
-## 8  0.9910 0.9888  88.56  88.56 103.91  0.3247 103.64
-## 9  0.9994 0.9989  86.33  86.33  99.91  0.3122  99.87
-## 10 0.9995 0.9990 138.37 138.37 170.65  0.5333 170.57
-## 11 1.0000 1.0000  80.09  80.09  89.10  0.2784  89.10
-## 12 0.9994 0.9988 119.98 119.98 130.59  0.4081 130.64
-##    AUCIFPD AUCPEO AUCPEP AUMCLST AUMCIFO AUMCIFP
-## 1   0.6769 31.249 31.250  1459.1  4505.5  4505.7
-## 2   0.3127  8.632  8.532   706.6   999.8   996.1
-## 3   0.3425  9.357  9.398   803.2  1151.0  1152.7
-## 4   0.3701  9.784  9.834   901.1  1303.3  1305.5
-## 5   0.4352 13.001 12.897  1017.1  1667.7  1661.8
-## 6   0.2641 12.437 12.688   609.2   978.4   987.0
-## 7   0.3247 12.545 12.647   782.4  1245.1  1249.4
-## 8   0.3239 14.770 14.553   739.5  1298.1  1288.5
-## 9   0.3121 13.595 13.558   705.2  1201.8  1200.2
-## 10  0.5330 18.918 18.878  1278.2  2474.0  2470.9
-## 11  0.2784 10.111 10.109   617.2   928.6   928.5
-## 12  0.4082  8.126  8.161   977.9  1330.4  1332.1
-##    AUMCPEO AUMCPEP  VZFO  VZFP  CLFO  CLFP MRTEVLST
-## 1    67.62   67.62 30.49 30.49 1.477 1.477    9.797
-## 2    29.33   29.06 30.69 30.72 3.194 3.198    7.720
-## 3    30.22   30.32 28.52 28.50 2.921 2.920    8.090
-## 4    30.86   30.98 27.23 27.21 2.703 2.702    8.437
-## 5    39.01   38.79 26.50 26.53 2.295 2.298    8.386
-## 6    37.74   38.28 43.26 43.14 3.798 3.787    8.257
-## 7    37.16   37.38 34.91 34.87 3.084 3.080    8.621
-## 8    43.03   42.61 37.81 37.91 3.080 3.088    8.351
-## 9    41.32   41.24 38.84 38.86 3.203 3.204    8.169
-## 10   48.34   48.27 25.02 25.03 1.875 1.876    9.238
-## 11   33.53   33.52 37.62 37.62 3.591 3.591    7.707
-## 12   26.50   26.59 22.22 22.22 2.450 2.449    8.151
-##    MRTEVIFO MRTEVIFP
-## 1     20.80   20.800
-## 2      9.98    9.954
-## 3     10.51   10.518
-## 4     11.01   11.022
-## 5     11.96   11.933
-## 6     11.61   11.681
-## 7     12.00   12.026
-## 8     12.49   12.432
-## 9     12.03   12.018
-## 10    14.50   14.486
-## 11    10.42   10.421
-## 12    10.19   10.196</code></pre>
+<pre><code>## Error in eval(expr, envir, enclos): object &#39;Theoph_tblNCA&#39; not found</code></pre>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="ca-analysis.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="antibody_drug.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
 <a href="Theoph_nlr.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
