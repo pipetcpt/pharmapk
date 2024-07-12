@@ -5,9 +5,8 @@ bookdown::gitbook:
       scroll_highlight: yes
       before: |
         <li><a href="./">신약개발을 위한 실전 약동학</a></li>
-        <li><a href="https://bookk.co.kr/users/64696cad69d8ae916e9ed1bf/books" target="_blank">도서 구입</a></li>
+        <li><a href="https://product.kyobobook.co.kr/detail/S000213800063" target="_blank">도서 구입(교보문고)</a></li>
       after: |
-        <li><a href="https://pipetcpt.github.io/pharmapk/pharmapk.pdf">PDF 보기</a></li>
         <li><a href="http://pipet.or.kr/books/" target="_blank">Published by PIPET</a></li>
     toolbar:
       position: fixed
