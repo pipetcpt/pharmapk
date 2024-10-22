@@ -30,7 +30,7 @@ always_allow_html: true
 일본에서는 약물동태학이라고도 번역하고 있으나 약동학과 같은 의미이다.\index{약동학}
 
 ```{r pkpd-diagram, fig.cap = "(ref:pkpd-diagram)"}
-knitr::include_graphics('media-01/image1.png')
+knitr::include_graphics('media-01/01.png')
 ```
 
 (ref:pkpd-diagram) 약동학과 약력학의 구분
@@ -76,7 +76,7 @@ knitr::include_graphics('media-01/image1.png')
 약동-약력학을 결합하여 예측한다는 방법론 자체는 변치 않는다.\index{약력학}
 
 ```{r pkpd-concept, fig.cap = "(ref:pkpd-concept)", out.width="100%"}
-knitr::include_graphics("media-01/image2.jpeg")
+knitr::include_graphics("media-01/02.png")
 ```
 
 (ref:pkpd-concept) 약동학과 약력학을 이용한 적절한 용량용법의 추정 원리 [@derendorf1999modeling]\index{약동학}\index{약력학}\index{용량용법(dosage regimen)}
@@ -162,7 +162,7 @@ height="2.155675853018373in"}
 -->
 
 ```{r fa-fg-fh, fig.cap = "(ref:fa-fg-fh)", out.width="100%"}
-knitr::include_graphics("media-01/image3.png")
+knitr::include_graphics("media-01/03.png")
 ```
 
 (ref:fa-fg-fh) F(=F~a~ × F~g~ × F~h~, 생체이용률)를 구성하는 세가지 요소. 100 mg을 먹었을 때 소화관 내강과 장 상피세포, 간을 순차적으로 통과하여 전신순환혈에 도달하는 분율을 계산하는 예
@@ -208,7 +208,7 @@ knitr::include_graphics("media-01/image3.png")
 -->
 
 ```{r first-order-elim, fig.cap = "(ref:first-order-elim)", out.width="100%"}
-knitr::include_graphics("media-01/image4.png")
+knitr::include_graphics("media-01/04.png")
 ```
 
 (ref:first-order-elim) 1차식에 따라 제거되는 혈장약물농도의 시간에 따른 변화
@@ -229,13 +229,13 @@ knitr::include_graphics("media-01/image4.png")
 -->
 
 ```{r two-slope, fig.cap="(ref:two-slope)", out.width="70%"}
-knitr::include_graphics("media-01/image5.jpeg")
+knitr::include_graphics("media-01/05.png")
 ```
 
 (ref:two-slope) 두개의 경사를 보이는 혈장약물농도 변화(i.v. bolus 주입 후 흔히 보이는 현상)
 
 ```{r distribution-two-slope, fig.cap="(ref:distribution-two-slope)", out.width="80%"}
-knitr::include_graphics("media-01/image6.jpeg")
+knitr::include_graphics("media-01/06.png")
 ```
 
 (ref:distribution-two-slope) 약물의 분포로 인해 두개의 기울기가 관찰되는 기전을 설명하는 모델
@@ -264,7 +264,7 @@ compartment)라 한다. 이외에 약물이 더 늦게 분포하는 나머지 �
 때문이다.
 
 ```{r iv-distribution, fig.cap="(ref:iv-distribution)", out.width="100%"}
-knitr::include_graphics("media-01/image7.png")
+knitr::include_graphics("media-01/07.png")
 ```
 
 (ref:iv-distribution) 사람에서 정맥주사 후 시간에 따른 약물의 분포
@@ -282,7 +282,7 @@ a), b), c)의 세 경우 혈장 약물 농도는 그림에서 육면체 모양�
 \index{분포용적}
 
 ```{r vd-concept, fig.cap = "(ref:vd-concept)", out.width="100%"}
-knitr::include_graphics("media-01/image8-revised.jpg")
+knitr::include_graphics("media-01/08.png")
 ```
 
 (ref:vd-concept) 분포용적의 개념\index{분포용적}
@@ -327,7 +327,7 @@ a)의 경우라면 혈장약물농도는 2/3 개/L 이므로 18 L를 곱해야 1
 -->
 
 ```{r mannitol, fig.cap="(ref:mannitol)", out.width="50%"}
-knitr::include_graphics("media-01/image9.png")
+knitr::include_graphics("media-01/09.png")
 ```
 
 (ref:mannitol) 분자량은 작지만 극성으로 인해 V~d~가 작은 mannitol의 분자구조.
@@ -369,7 +369,7 @@ height="2.9512860892388453in"}
 -->
 
 ```{r plasma-protein, fig.cap="(ref:plasma-protein)", out.width="100%"}
-knitr::include_graphics("media-01/image10.png")
+knitr::include_graphics("media-01/10.png")
 ```
 
 (ref:plasma-protein) 혈장단백결합과 조직결합, 약물의 분포의 관계 (모세혈관과 세포외액, 혈장의 구분은 생략되어 있음)\index{혈장단백결합}\index{조직결합}
@@ -389,7 +389,7 @@ knitr::include_graphics("media-01/image10.png")
 상관성은 찾아보기 어렵다. 
 
 ```{r chart, fig.cap="(ref:chart)", out.width="100%"}
-knitr::include_graphics("media-01/chart.png")
+knitr::include_graphics("media-01/11.png")
 ```
 
 (ref:chart) 알려진 670가지 소분자 의약품의 약동학 파라미터[@obach2008trend]를 이용하여 그려 본 V~d~(V~dss~)와 f~u~의 산점도: V~d~와 f~u~는 아무 관계도 없음을 알 수 있다.
@@ -529,7 +529,7 @@ CL값이 커지면 V~d~가 비례해서 커진다는(V~d~=CL/k) 식으로 해석
 그려보면 아무런 경향성도 찾을 수 없다. (그림 \@ref(fig:cl-vd))
 
 ```{r cl-vd, fig.cap="(ref:cl-vd)", out.width="100%"}
-knitr::include_graphics("media-01/chart2.png")
+knitr::include_graphics("media-01/12.png")
 ```
 
 (ref:cl-vd) 670가지 약물에서 보고된 CL와 V~d~로써 그려 본 산점도 [@obach2008trend]: CL과 V~d~는 아무 관계도 없음을 알 수 있다.
@@ -560,7 +560,7 @@ height="2.9452055993000874in"}
 -->
 
 ```{r iv-6, fig.cap="(ref:iv-6)", out.width="100%"}
-knitr::include_graphics("media-01/image11.png")
+knitr::include_graphics("media-01/13.png")
 ```
 
 (ref:iv-6) 정맥주사(i.v. bolus) 6회 투약 후 체내 약물의 양
@@ -634,7 +634,7 @@ t~1/2~를 측정하게 된다. 분포기의 기울기로도 t~1/2~를 측정할 
 
 
 ```{r three-slope, fig.cap="(ref:three-slope)", out.width="100%"}
-knitr::include_graphics("media-01/image12.png")
+knitr::include_graphics("media-01/14.png")
 ```
 
 (ref:three-slope) 3개의 반감기가 관찰되는 경우. 최종반감기는 매우 길지만 몸에 들어온 대부분의 약은 최종 반감기를 보이는 γ-phase 이전에 이미 제거되었으므로 최종반감기의 4배가 지나야 몸에 있는 약물이 대부분 제거된다는 단순한 예상이 어긋나는 사례이다.\index{반감기}\index{반감기}\index{최종반감기}
@@ -714,7 +714,7 @@ height="2.5160378390201226in"}
 -->
 
 ```{r flip-flop, fig.cap="(ref:flip-flop)", out.width="80%"}
-knitr::include_graphics("media-01/image13.jpeg")
+knitr::include_graphics("media-01/15.png")
 ```
 
 (ref:flip-flop) 흡수속도상수(k~a~) 와 혈장약물농도 곡선의 관계 \index{흡수속도상수}
@@ -757,7 +757,7 @@ height="3.0506944444444444in"}
 -->
 
 ```{r nonlin-pk, fig.cap="(ref:nonlin-pk)", out.width="100%"}
-knitr::include_graphics("media-01/image14.png")
+knitr::include_graphics("media-01/16.png")
 ```
 
 (ref:nonlin-pk) 비선형약동학을 따르는 약의 혈장농도와 대사속도, CL의 관계\index{약동학}\index{비선형약동학}
@@ -770,7 +770,7 @@ CL = V~max~/(K~m~+C)이므로 농도가 높아질수록 떨어지고, 반감기 
 보통의 선형약동학을 따르는 약물의 경우는 투여량의 증감에 농도도 정비례한다.\index{약동학}
 
 ```{r phenytoin, fig.cap="(ref:phenytoin)", out.width="100%"}
-knitr::include_graphics("media-01/image15.png")
+knitr::include_graphics("media-01/17.png")
 ```
 
 (ref:phenytoin) phenytoin의 혈장농도와 투여량과의 관계. 사람에 따라 기울기는 다르지만, 비선형약동학으로 인해 용량을 늘리는 것보다 농도의 상승이 더욱 가파른 양상을 보인다. [@richens1975serum]\index{약동학}\index{비선형약동학}
